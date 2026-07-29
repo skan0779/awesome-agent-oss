@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T07:27:29.624198+00:00",
+  "generated_at": "2026-07-29T07:33:59.537095+00:00",
   "repositories": [
     {
       "archived": false,
@@ -23,11 +23,11 @@
       "name": "PaddleOCR",
       "open_issues": 218,
       "pushed_at": "2026-07-22T11:59:34+00:00",
-      "score": 108660.0,
+      "score": 108659.0,
       "sections": [
         "ocr"
       ],
-      "stars": 86460,
+      "stars": 86459,
       "stars_30d": null,
       "stars_60d": null,
       "stars_7d": null,
@@ -46,8 +46,8 @@
         "pp-structure",
         "rag"
       ],
-      "updated_at": "2026-07-29T07:24:15+00:00",
-      "watchers": 86460
+      "updated_at": "2026-07-29T07:32:49+00:00",
+      "watchers": 86459
     },
     {
       "archived": false,
@@ -69,7 +69,7 @@
       "license": "Apache-2.0",
       "license_name": "Apache License 2.0",
       "name": "ragflow",
-      "open_issues": 2031,
+      "open_issues": 2036,
       "pushed_at": "2026-07-29T07:16:41+00:00",
       "score": 106552.0,
       "sections": [
@@ -95,7 +95,7 @@
         "rag",
         "retrieval-augmented-generation"
       ],
-      "updated_at": "2026-07-29T07:18:18+00:00",
+      "updated_at": "2026-07-29T07:33:20+00:00",
       "watchers": 86302
     },
     {
@@ -162,11 +162,11 @@
       "name": "mem0",
       "open_issues": 765,
       "pushed_at": "2026-07-29T07:07:38+00:00",
-      "score": 76435.0,
+      "score": 76437.0,
       "sections": [
         "memory"
       ],
-      "stars": 61983,
+      "stars": 61985,
       "stars_30d": null,
       "stars_60d": null,
       "stars_7d": null,
@@ -186,8 +186,8 @@
         "rag",
         "state-management"
       ],
-      "updated_at": "2026-07-29T07:09:19+00:00",
-      "watchers": 61983
+      "updated_at": "2026-07-29T07:32:25+00:00",
+      "watchers": 61985
     },
     {
       "archived": false,
@@ -261,11 +261,11 @@
       "name": "Umi-OCR",
       "open_issues": 357,
       "pushed_at": "2025-11-20T14:58:13+00:00",
-      "score": 55367.0,
+      "score": 55369.0,
       "sections": [
         "ocr"
       ],
-      "stars": 46277,
+      "stars": 46279,
       "stars_30d": null,
       "stars_60d": null,
       "stars_7d": null,
@@ -278,8 +278,8 @@
         "screenshot",
         "umi-ocr"
       ],
-      "updated_at": "2026-07-29T06:59:58+00:00",
-      "watchers": 46277
+      "updated_at": "2026-07-29T07:33:24+00:00",
+      "watchers": 46279
     },
     {
       "archived": false,
@@ -434,8 +434,8 @@
       "license": "NOASSERTION",
       "license_name": "Other",
       "name": "langfuse",
-      "open_issues": 704,
-      "pushed_at": "2026-07-29T06:37:37+00:00",
+      "open_issues": 705,
+      "pushed_at": "2026-07-29T07:33:26+00:00",
       "score": 38923.0,
       "sections": [
         "observability"
@@ -694,7 +694,7 @@
       "license_name": "Other",
       "name": "phoenix",
       "open_issues": 778,
-      "pushed_at": "2026-07-29T06:05:27+00:00",
+      "pushed_at": "2026-07-29T07:30:44+00:00",
       "score": 12824.0,
       "sections": [
         "observability"
@@ -1029,8 +1029,8 @@
         "license": "Apache-2.0",
         "name": "mem0",
         "pushed_at": "2026-07-29T07:07:38+00:00",
-        "score": 76435.0,
-        "stars": 61983,
+        "score": 76437.0,
+        "stars": 61985,
         "stars_30d": null,
         "stars_60d": null,
         "stars_7d": null
@@ -1138,7 +1138,7 @@
         "latest_release_tag": "v3.224.2",
         "license": "NOASSERTION",
         "name": "langfuse",
-        "pushed_at": "2026-07-29T06:37:37+00:00",
+        "pushed_at": "2026-07-29T07:33:26+00:00",
         "score": 38923.0,
         "stars": 32063,
         "stars_30d": null,
@@ -1156,7 +1156,7 @@
         "latest_release_tag": "arize-phoenix-v19.10.0",
         "license": "NOASSERTION",
         "name": "phoenix",
-        "pushed_at": "2026-07-29T06:05:27+00:00",
+        "pushed_at": "2026-07-29T07:30:44+00:00",
         "score": 12824.0,
         "stars": 10792,
         "stars_30d": null,
@@ -1177,8 +1177,8 @@
         "license": "Apache-2.0",
         "name": "PaddleOCR",
         "pushed_at": "2026-07-22T11:59:34+00:00",
-        "score": 108660.0,
-        "stars": 86460,
+        "score": 108659.0,
+        "stars": 86459,
         "stars_30d": null,
         "stars_60d": null,
         "stars_7d": null
@@ -1231,8 +1231,8 @@
         "license": "MIT",
         "name": "Umi-OCR",
         "pushed_at": "2025-11-20T14:58:13+00:00",
-        "score": 55367.0,
-        "stars": 46277,
+        "score": 55369.0,
+        "stars": 46279,
         "stars_30d": null,
         "stars_60d": null,
         "stars_7d": null

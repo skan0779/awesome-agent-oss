@@ -23,10 +23,10 @@ OCR, document parsing, layout analysis, and table extraction
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 86,460 | 11,100 | 2026-07-22 | v3.7.0 (2026-06-11) | Apache-2.0 |
+| 1 | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 86,459 | 11,100 | 2026-07-22 | v3.7.0 (2026-06-11) | Apache-2.0 |
 | 2 | [tesseract-ocr/tesseract](https://github.com/tesseract-ocr/tesseract) | 75,614 | 10,712 | 2026-07-29 | 5.5.3 (2026-07-24) | Apache-2.0 |
 | 3 | [docling-project/docling](https://github.com/docling-project/docling) | 63,924 | 4,542 | 2026-07-28 | v2.115.0 (2026-07-23) | MIT |
-| 4 | [hiroi-sora/Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) | 46,277 | 4,545 | 2025-11-20 | v2.1.5 (2025-03-25) | MIT |
+| 4 | [hiroi-sora/Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) | 46,279 | 4,545 | 2025-11-20 | v2.1.5 (2025-03-25) | MIT |
 | 5 | [deepseek-ai/DeepSeek-OCR](https://github.com/deepseek-ai/DeepSeek-OCR) | 23,694 | 2,185 | 2026-01-27 | - | MIT |
 | 6 | [allenai/olmocr](https://github.com/allenai/olmocr) | 19,209 | 1,588 | 2026-03-25 | v0.4.27 (2026-03-12) | Apache-2.0 |
 | 7 | [datalab-to/chandra](https://github.com/datalab-to/chandra) | 11,794 | 1,213 | 2026-06-26 | v0.2.0 (2026-03-18) | Apache-2.0 |
@@ -38,7 +38,7 @@ Long-term, short-term memory systems for AI agents
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 61,983 | 7,226 | 2026-07-29 | ts-v3.1.2 (2026-07-25) | Apache-2.0 |
+| 1 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 61,985 | 7,226 | 2026-07-29 | ts-v3.1.2 (2026-07-25) | Apache-2.0 |
 | 2 | [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) | 28,676 | 2,493 | 2026-07-28 | server-v0.0.6 (2026-07-19) | MIT |
 | 3 | [MemoriLabs/Memori](https://github.com/MemoriLabs/Memori) | 15,670 | 2,885 | 2026-07-28 | v3.3.6 (2026-05-28) | Other |
 | 4 | [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | 10,429 | 957 | 2026-07-29 | memos-local-plugin-v2.0.11 (2026-07-27) | Apache-2.0 |
