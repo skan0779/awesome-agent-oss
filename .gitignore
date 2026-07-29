@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+**/.DS_Store
+*.pem
+
+# Environments
+.env
+.venv
+/.uv-cache
+
+# Build artifacts
+/dist
+/tests

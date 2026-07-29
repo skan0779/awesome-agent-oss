@@ -1,0 +1,17 @@
+[build-system]
+requires = ["uv_build>=0.11.19,<0.12.0"]
+build-backend = "uv_build"
+
+[project]
+name = "awesome-agent-oss"
+version = "0.1.0"
+description = "Track open-source repositories for AI agent stacks by category and trend."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "pyyaml>=6.0.2",
+]
+
+[project.scripts]
+awesome-agent-oss = "awesome_agent_oss.cli:main"

@@ -1,0 +1,7 @@
+- full_name: docling-project/docling
+  suggested_sections:
+    - ocr
+  matched_topics:
+    - document-parsing
+    - document-parser
+  discovered_at: "2026-07-28"

@@ -1,0 +1,50 @@
+- id: rag
+  name: RAG
+  description: Retrieval-augmented generation frameworks and tools
+  topics:
+    - rag
+    - retrieval-augmented-generation
+    - graphrag
+    - knowledge-graph
+
+- id: ocr
+  name: OCR
+  description: OCR, document parsing, layout analysis, and table extraction
+  topics:
+    - ocr
+    - ocr-engine
+    - vlm-ocr
+    - parser
+    - document-parsing
+    - document-parser
+    - pdf-parser
+
+- id: memory
+  name: Memory
+  description: Long-term, short-term memory systems for AI agents
+  topics:
+    - memory
+    - ai-memory
+    - agent-memory
+    - long-term-memory
+    - persistent-memory
+    - memory-management
+    - state-management
+    - short-term-memory
+
+- id: skills
+  name: Skills
+  description: Skills for AI agents
+  topics:
+    - skills
+    - ai-skills
+    - agent-skills
+
+- id: observability
+  name: Observability
+  description: Observability and evaluation tools for AI agents
+  topics:
+    - observability
+    - llm-observability
+    - ai-observability
+    - agent-observability

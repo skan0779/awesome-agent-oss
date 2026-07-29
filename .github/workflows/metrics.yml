@@ -1,0 +1,54 @@
+name: Metrics
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Collect metrics
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: uv run awesome-agent-oss collect-metrics
+
+      - name: Build catalog
+        run: uv run awesome-agent-oss build-catalog
+
+      - name: Render markdown
+        run: uv run awesome-agent-oss render
+
+      - name: Commit generated data and docs
+        run: |
+          if [ -z "$(git status --porcelain -- data/snapshots data/generated README.md sections)" ]; then
+            echo "No generated data or docs changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshots data/generated README.md sections
+          git commit -m "Update metrics data and docs"
+          git push

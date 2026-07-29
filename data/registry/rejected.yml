@@ -1,0 +1,6 @@
+- full_name: skan0779/azure-agent
+  scope: section
+  sections:
+    - ocr
+  reason: "Not an OCR-related repository."
+  rejected_at: "2026-07-28"
