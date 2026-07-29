@@ -18,7 +18,7 @@ OCR, document parsing, layout analysis, and table extraction
 
 | Repository | Stars | Stars 30d | Forks | Updated | Latest release |
 | --- | ---: | ---: | ---: | --- | --- |
-| [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 86,436 | - | 11,097 | 2026-07-22 | v3.7.0 (2026-06-11) |
+| [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 86,446 | - | 11,098 | 2026-07-22 | v3.7.0 (2026-06-11) |
 
 ## [Memory](./sections/memory.md)
 
