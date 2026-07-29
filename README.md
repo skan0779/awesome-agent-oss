@@ -14,7 +14,7 @@ Retrieval-augmented generation frameworks and tools
 | 2 | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | 38,289 | 5,389 | 2026-07-29 | v1.5.5rc1 (2026-07-13) | MIT |
 | 3 | [microsoft/graphrag](https://github.com/microsoft/graphrag) | 34,975 | 3,683 | 2026-07-26 | v3.1.1 (2026-07-18) | MIT |
 | 4 | [VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex) | 34,877 | 3,057 | 2026-07-27 | v0.3.0.dev3 (2026-07-10) | MIT |
-| 5 | [Marker-Inc-Korea/AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG) | 4,957 | 419 | 2026-07-28 | v2.1.0 (2026-07-24) | - |
+| 5 | [Marker-Inc-Korea/AutoRAG](https://github.com/Marker-Inc-Korea/AutoRAG) | 4,957 | 419 | 2026-07-28 | v2.1.0 (2026-07-24) | Other |
 | 6 | [microsoft/PIKE-RAG](https://github.com/microsoft/PIKE-RAG) | 2,477 | 235 | 2025-09-10 | pikerag-0.0.1 (2025-01-24) | MIT |
 
 ## [OCR](./sections/ocr.md)
@@ -40,7 +40,7 @@ Long-term, short-term memory systems for AI agents
 | ---: | --- | ---: | ---: | --- | --- | --- |
 | 1 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 61,969 | 7,226 | 2026-07-28 | ts-v3.1.2 (2026-07-25) | Apache-2.0 |
 | 2 | [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) | 28,675 | 2,493 | 2026-07-28 | server-v0.0.6 (2026-07-19) | MIT |
-| 3 | [MemoriLabs/Memori](https://github.com/MemoriLabs/Memori) | 15,670 | 2,885 | 2026-07-28 | v3.3.6 (2026-05-28) | - |
+| 3 | [MemoriLabs/Memori](https://github.com/MemoriLabs/Memori) | 15,670 | 2,885 | 2026-07-28 | v3.3.6 (2026-05-28) | Other |
 | 4 | [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | 10,428 | 957 | 2026-07-29 | memos-local-plugin-v2.0.11 (2026-07-27) | Apache-2.0 |
 | 5 | [langchain-ai/langmem](https://github.com/langchain-ai/langmem) | 1,585 | 183 | 2026-07-25 | - | MIT |
 | 6 | [microsoft/Memora](https://github.com/microsoft/Memora) | 208 | 19 | 2026-06-16 | - | MIT |
@@ -59,6 +59,6 @@ Observability and evaluation tools for AI agents
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [langfuse/langfuse](https://github.com/langfuse/langfuse) | 32,049 | 3,428 | 2026-07-28 | v3.224.2 (2026-07-27) | - |
-| 2 | [Arize-ai/phoenix](https://github.com/Arize-ai/phoenix) | 10,790 | 1,016 | 2026-07-29 | arize-phoenix-v19.10.0 (2026-07-28) | - |
+| 1 | [langfuse/langfuse](https://github.com/langfuse/langfuse) | 32,049 | 3,428 | 2026-07-28 | v3.224.2 (2026-07-27) | Other |
+| 2 | [Arize-ai/phoenix](https://github.com/Arize-ai/phoenix) | 10,790 | 1,016 | 2026-07-29 | arize-phoenix-v19.10.0 (2026-07-28) | Other |
 <!-- AWESOME_AGENT_OSS:END -->
