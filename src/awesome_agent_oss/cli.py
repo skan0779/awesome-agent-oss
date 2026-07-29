@@ -11,7 +11,10 @@ from awesome_agent_oss.discover.github_topics import (
     DEFAULT_MAX_PAGES,
     DEFAULT_MIN_STARS,
     DEFAULT_PER_PAGE,
+    DEFAULT_SORTS,
+    DiscoveryError,
     discover_github_topic_candidates,
+    normalize_sorts,
 )
 from awesome_agent_oss.metrics.collector import (
     collect_metrics,
@@ -31,6 +34,14 @@ from awesome_agent_oss.render.markdown import (
 DEFAULT_ENV_PATH = Path("environments/env/.env")
 
 
+def discovery_sorts(value: str) -> tuple[str, ...]:
+    """Parse comma-separated GitHub search sort modes."""
+    try:
+        return normalize_sorts(value)
+    except DiscoveryError as error:
+        raise argparse.ArgumentTypeError(str(error)) from error
+
+
 def collect_metrics_command(args: argparse.Namespace) -> None:
     """Collect GitHub metrics and write a Supabase snapshot."""
     rows = collect_metrics(token=args.github_token)
@@ -44,6 +55,7 @@ def discover_command(args: argparse.Namespace) -> None:
         min_stars=args.min_stars,
         per_page=args.per_page,
         max_pages=args.max_pages,
+        sorts=args.sorts,
         github_token=args.github_token,
     )
     print(
@@ -103,6 +115,13 @@ def build_parser() -> argparse.ArgumentParser:
         type=int,
         default=DEFAULT_MAX_PAGES,
         help="Maximum GitHub search pages per topic and sort.",
+    )
+    discover_parser.add_argument(
+        "--sorts",
+        type=discovery_sorts,
+        default=DEFAULT_SORTS,
+        metavar="SORTS",
+        help="Comma-separated GitHub search sort modes: stars, forks, updated.",
     )
     discover_parser.add_argument(
         "--github-token",

@@ -7,6 +7,23 @@ on:
         description: "Minimum repository star count"
         required: true
         default: "1000"
+      per_page:
+        description: "GitHub search results per query"
+        required: true
+        default: "30"
+      max_pages:
+        description: "Maximum GitHub search pages per topic and sort"
+        required: true
+        default: "1"
+      sort:
+        description: "GitHub search sort mode"
+        required: true
+        type: choice
+        default: "most stars"
+        options:
+          - "most stars"
+          - "most forks"
+          - "recently updated"
 
 jobs:
   discover:
@@ -34,4 +51,9 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: uv run awesome-agent-oss discover --min-stars "${{ inputs.min_stars }}"
+        run: >
+          uv run awesome-agent-oss discover
+          --min-stars "${{ inputs.min_stars }}"
+          --per-page "${{ inputs.per_page }}"
+          --max-pages "${{ inputs.max_pages }}"
+          --sorts "${{ inputs.sort }}"

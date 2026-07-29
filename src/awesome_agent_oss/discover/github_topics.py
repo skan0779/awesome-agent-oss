@@ -13,7 +13,22 @@ from awesome_agent_oss.supabase_client import SupabaseClient, SupabaseClientErro
 DEFAULT_MIN_STARS = 1000
 DEFAULT_PER_PAGE = 30
 DEFAULT_MAX_PAGES = 1
-DEFAULT_SORTS = ("stars", "updated")
+SUPPORTED_SORTS = ("stars", "forks", "updated")
+DEFAULT_SORTS = ("stars",)
+SORT_ALIASES = {
+    "most stars": "stars",
+    "most_stars": "stars",
+    "most-stars": "stars",
+    "stars": "stars",
+    "most forks": "forks",
+    "most_forks": "forks",
+    "most-forks": "forks",
+    "forks": "forks",
+    "recently updated": "updated",
+    "recently_updated": "updated",
+    "recently-updated": "updated",
+    "updated": "updated",
+}
 
 
 class DiscoveryError(RuntimeError):
@@ -50,7 +65,7 @@ def discover_github_topic_candidates(
     min_stars: int = DEFAULT_MIN_STARS,
     per_page: int = DEFAULT_PER_PAGE,
     max_pages: int = DEFAULT_MAX_PAGES,
-    sorts: tuple[str, ...] = DEFAULT_SORTS,
+    sorts: tuple[str, ...] | list[str] | str | None = DEFAULT_SORTS,
     github_token: str | None = None,
     supabase: SupabaseClient | None = None,
     github: GitHubClient | None = None,
@@ -63,6 +78,7 @@ def discover_github_topic_candidates(
     if max_pages < 1:
         raise DiscoveryError("max_pages must be greater than or equal to 1.")
 
+    sort_values = normalize_sorts(sorts)
     supabase_client = supabase or SupabaseClient.from_env()
     github_client = github or GitHubClient(token=github_token)
 
@@ -75,16 +91,47 @@ def discover_github_topic_candidates(
         min_stars=min_stars,
         per_page=per_page,
         max_pages=max_pages,
-        sorts=sorts,
+        sorts=sort_values,
     )
     stored_count = store_candidates(supabase_client, candidates)
 
     return {
         "sections": len(sections),
-        "queries": query_count(sections, sorts, max_pages),
+        "queries": query_count(sections, sort_values, max_pages),
         "candidates": len(candidates),
         "stored": stored_count,
     }
+
+
+def normalize_sorts(sorts: tuple[str, ...] | list[str] | str | None) -> tuple[str, ...]:
+    """Return validated GitHub search sort modes."""
+    if sorts is None:
+        return DEFAULT_SORTS
+
+    raw_sorts = sorts.split(",") if isinstance(sorts, str) else sorts
+    normalized: list[str] = []
+    invalid: list[str] = []
+    for sort in raw_sorts:
+        value = str(sort).strip().lower()
+        if not value:
+            continue
+        value = SORT_ALIASES.get(value, value)
+        if value not in SUPPORTED_SORTS:
+            invalid.append(value)
+            continue
+        if value not in normalized:
+            normalized.append(value)
+
+    if invalid:
+        raise DiscoveryError(
+            "Unsupported sort values: "
+            f"{', '.join(invalid)}. Supported values: {', '.join(SUPPORTED_SORTS)}."
+        )
+    if not normalized:
+        raise DiscoveryError(
+            f"At least one sort must be selected: {', '.join(SUPPORTED_SORTS)}."
+        )
+    return tuple(normalized)
 
 
 def load_sections(client: SupabaseClient) -> list[Section]:
