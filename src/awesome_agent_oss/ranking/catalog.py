@@ -105,8 +105,10 @@ def build_catalog_entry(
 
     stars = as_int(latest_row.get("stars"))
     forks = as_int(latest_row.get("forks"))
+    stars_7d = delta_from_baseline(rows, latest_date, "stars", days=7)
     stars_30d = delta_from_baseline(rows, latest_date, "stars", days=30)
     stars_60d = delta_from_baseline(rows, latest_date, "stars", days=60)
+    forks_7d = delta_from_baseline(rows, latest_date, "forks", days=7)
     forks_30d = delta_from_baseline(rows, latest_date, "forks", days=30)
     forks_60d = delta_from_baseline(rows, latest_date, "forks", days=60)
 
@@ -121,11 +123,13 @@ def build_catalog_entry(
         "forks": forks,
         "open_issues": as_int(latest_row.get("open_issues")),
         "watchers": as_int(latest_row.get("watchers")),
+        "stars_7d": stars_7d,
         "stars_30d": stars_30d,
         "stars_60d": stars_60d,
+        "forks_7d": forks_7d,
         "forks_30d": forks_30d,
         "forks_60d": forks_60d,
-        "score": score_repository(stars, forks, stars_30d, stars_60d, forks_30d),
+        "score": score_repository(stars, forks, stars_7d, stars_30d, stars_60d, forks_7d, forks_30d),
         "license": latest_row.get("license"),
         "license_name": latest_row.get("license_name"),
         "language": latest_row.get("language"),
@@ -182,16 +186,20 @@ def find_baseline_row(
 def score_repository(
     stars: int | None,
     forks: int | None,
+    stars_7d: int | None,
     stars_30d: int | None,
     stars_60d: int | None,
+    forks_7d: int | None,
     forks_30d: int | None,
 ) -> float:
     """Return a simple ranking score balancing popularity and recent growth."""
     return round(
         (stars or 0) * 1.0
         + (forks or 0) * 2.0
+        + (stars_7d or 0) * 24.0
         + (stars_30d or 0) * 12.0
         + (stars_60d or 0) * 4.0
+        + (forks_7d or 0) * 16.0
         + (forks_30d or 0) * 8.0,
         2,
     )
@@ -208,9 +216,15 @@ def build_sections(repositories: list[dict[str, Any]]) -> dict[str, list[dict[st
                     "name": repository["name"],
                     "html_url": repository["html_url"],
                     "stars": repository["stars"],
+                    "stars_7d": repository["stars_7d"],
                     "stars_30d": repository["stars_30d"],
+                    "stars_60d": repository["stars_60d"],
                     "forks": repository["forks"],
+                    "forks_7d": repository["forks_7d"],
+                    "forks_30d": repository["forks_30d"],
+                    "forks_60d": repository["forks_60d"],
                     "score": repository["score"],
+                    "license": repository["license"],
                     "pushed_at": repository["pushed_at"],
                     "latest_release_tag": repository["latest_release_tag"],
                     "latest_release_published_at": repository["latest_release_published_at"],

@@ -112,7 +112,7 @@ def render_readme_body(
                 "",
                 section.description,
                 "",
-                render_table(rows[:10]),
+                render_readme_table(rows[:10]),
                 "",
             ]
         )
@@ -134,7 +134,7 @@ def render_section_file(
         "",
         f"_Generated from snapshot `{catalog.get('snapshot_date', 'unknown')}`._",
         "",
-        render_table(rows),
+        render_section_table(rows),
         "",
         "[Back to README](../README.md)",
         "",
@@ -163,30 +163,74 @@ def update_readme(readme_path: Path, generated_body: str) -> None:
     readme_path.write_text(content.rstrip() + "\n", encoding="utf-8")
 
 
-def render_table(rows: list[dict[str, Any]]) -> str:
-    """Render a repository summary table."""
-    header = "| Repository | Stars | Stars 30d | Forks | Updated | Latest release |"
-    separator = "| --- | ---: | ---: | ---: | --- | --- |"
+def render_readme_table(rows: list[dict[str, Any]]) -> str:
+    """Render a compact repository table for README.md."""
+    header = "| Rank | Repository | Stars | Forks | Updated | Latest release | License |"
+    separator = "| ---: | --- | ---: | ---: | --- | --- | --- |"
     if not rows:
         return "\n".join(
             [
                 header,
                 separator,
-                "| No accepted repositories yet. |  |  |  |  |  |",
+                "| - | No accepted repositories yet. |  |  |  |  |  |",
             ]
         )
 
     rendered_rows = [header, separator]
-    for row in rows:
+    for rank, row in enumerate(rows, start=1):
         rendered_rows.append(
             " | ".join(
                 [
-                    f"| {repository_link(row)}",
+                    f"| {rank}",
+                    repository_link(row),
                     format_number(row.get("stars")),
-                    format_number(row.get("stars_30d")),
                     format_number(row.get("forks")),
                     format_date(row.get("pushed_at")),
                     format_release(row),
+                    format_license(row.get("license")),
+                ]
+            )
+            + " |"
+        )
+
+    return "\n".join(rendered_rows)
+
+
+def render_section_table(rows: list[dict[str, Any]]) -> str:
+    """Render a detailed repository table for section pages."""
+    header = (
+        "| Rank | Repository | Score | Stars | Stars 7d | Stars 30d | Stars 60d | "
+        "Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |"
+    )
+    separator = "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |"
+    if not rows:
+        return "\n".join(
+            [
+                header,
+                separator,
+                "| - | No accepted repositories yet. |  |  |  |  |  |  |  |  |  |  |  |  |",
+            ]
+        )
+
+    rendered_rows = [header, separator]
+    for rank, row in enumerate(rows, start=1):
+        rendered_rows.append(
+            " | ".join(
+                [
+                    f"| {rank}",
+                    repository_link(row),
+                    format_number(row.get("score")),
+                    format_number(row.get("stars")),
+                    format_number(row.get("stars_7d")),
+                    format_number(row.get("stars_30d")),
+                    format_number(row.get("stars_60d")),
+                    format_number(row.get("forks")),
+                    format_number(row.get("forks_7d")),
+                    format_number(row.get("forks_30d")),
+                    format_number(row.get("forks_60d")),
+                    format_date(row.get("pushed_at")),
+                    format_release(row),
+                    format_license(row.get("license")),
                 ]
             )
             + " |"
@@ -213,6 +257,15 @@ def format_release(row: dict[str, Any]) -> str:
     if tag:
         return escape_markdown(str(tag))
     return "-"
+
+
+def format_license(value: Any) -> str:
+    """Format a repository license value."""
+    if not isinstance(value, str) or not value:
+        return "-"
+    if value.upper() == "NOASSERTION":
+        return "-"
+    return escape_markdown(value)
 
 
 def format_number(value: Any) -> str:
