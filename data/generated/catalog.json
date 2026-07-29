@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T04:19:31.372846+00:00",
+  "generated_at": "2026-07-29T04:43:47.624248+00:00",
   "repositories": [
     {
       "archived": false,
@@ -8,7 +8,7 @@
       "description": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
       "disabled": false,
       "fork": false,
-      "forks": 11097,
+      "forks": 11098,
       "forks_30d": null,
       "forks_60d": null,
       "full_name": "PaddlePaddle/PaddleOCR",
@@ -22,11 +22,11 @@
       "name": "PaddleOCR",
       "open_issues": 218,
       "pushed_at": "2026-07-22T11:59:34Z",
-      "score": 108630.0,
+      "score": 108642.0,
       "sections": [
         "ocr"
       ],
-      "stars": 86436,
+      "stars": 86446,
       "stars_30d": null,
       "stars_60d": null,
       "topics": [
@@ -44,23 +44,23 @@
         "pp-structure",
         "rag"
       ],
-      "updated_at": "2026-07-29T01:37:50Z",
-      "watchers": 86436
+      "updated_at": "2026-07-29T04:30:18Z",
+      "watchers": 86446
     }
   ],
   "repository_count": 1,
   "sections": {
     "ocr": [
       {
-        "forks": 11097,
+        "forks": 11098,
         "full_name": "PaddlePaddle/PaddleOCR",
         "html_url": "https://github.com/PaddlePaddle/PaddleOCR",
         "latest_release_published_at": "2026-06-11T12:09:14Z",
         "latest_release_tag": "v3.7.0",
         "name": "PaddleOCR",
         "pushed_at": "2026-07-22T11:59:34Z",
-        "score": 108630.0,
-        "stars": 86436,
+        "score": 108642.0,
+        "stars": 86446,
         "stars_30d": null
       }
     ]
