@@ -2,10 +2,22 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from typing import Any
 
-from awesome_agent_oss.registry import AcceptedRepository, RegistryError
 from awesome_agent_oss.supabase_client import SupabaseClient, SupabaseClientError
+
+
+class RegistryError(RuntimeError):
+    """Raised when Supabase registry data cannot be loaded."""
+
+
+@dataclass(frozen=True)
+class AcceptedRepository:
+    """A repository accepted into the catalog."""
+
+    full_name: str
+    sections: tuple[str, ...]
 
 
 def load_supabase_accepted_repositories(

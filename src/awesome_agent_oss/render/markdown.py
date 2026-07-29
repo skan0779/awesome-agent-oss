@@ -7,13 +7,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import yaml
-
 from awesome_agent_oss.ranking.catalog import DEFAULT_CATALOG_PATH
-from awesome_agent_oss.registry import DEFAULT_REGISTRY_PATH
 
 
-DEFAULT_SECTIONS_PATH = DEFAULT_REGISTRY_PATH.with_name("sections.yml")
 DEFAULT_README_PATH = Path("README.md")
 DEFAULT_SECTIONS_DIR = Path("sections")
 README_START = "<!-- AWESOME_AGENT_OSS:START -->"
@@ -35,13 +31,12 @@ class Section:
 
 def render_markdown(
     catalog_path: Path = DEFAULT_CATALOG_PATH,
-    sections_path: Path = DEFAULT_SECTIONS_PATH,
     readme_path: Path = DEFAULT_README_PATH,
     sections_dir: Path = DEFAULT_SECTIONS_DIR,
 ) -> None:
     """Render README and section markdown files from generated catalog data."""
     catalog = load_catalog(catalog_path)
-    sections = load_catalog_sections(catalog) or load_sections(sections_path)
+    sections = load_catalog_sections(catalog)
     repositories_by_section = catalog.get("sections") or {}
 
     sections_dir.mkdir(parents=True, exist_ok=True)
@@ -64,7 +59,7 @@ def load_catalog_sections(catalog: dict[str, Any]) -> list[Section]:
     """Load section definitions embedded in generated catalog data."""
     raw = catalog.get("section_definitions")
     if raw is None:
-        return []
+        raise RenderError("catalog must include section_definitions.")
     if not isinstance(raw, list):
         raise RenderError("catalog section_definitions must be a list.")
 
@@ -96,39 +91,6 @@ def load_catalog_sections(catalog: dict[str, Any]) -> list[Section]:
     return sections
 
 
-def load_sections(path: Path) -> list[Section]:
-    """Load section definitions from registry YAML."""
-    if not path.exists():
-        raise RenderError(f"Sections registry file does not exist: {path}")
-
-    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or []
-    if not isinstance(raw, list):
-        raise RenderError("sections.yml must contain a top-level list.")
-
-    sections: list[Section] = []
-    for index, item in enumerate(raw):
-        if not isinstance(item, dict):
-            raise RenderError(f"sections.yml entry #{index + 1} must be a mapping.")
-
-        section_id = item.get("id")
-        name = item.get("name")
-        description = item.get("description")
-        if not isinstance(section_id, str) or not section_id:
-            raise RenderError(f"sections.yml entry #{index + 1} must include id.")
-        if not isinstance(name, str) or not name:
-            raise RenderError(f"sections.yml entry #{index + 1} must include name.")
-
-        sections.append(
-            Section(
-                id=section_id,
-                name=name,
-                description=description if isinstance(description, str) else "",
-            )
-        )
-
-    return sections
-
-
 def render_readme_body(
     sections: list[Section],
     repositories_by_section: dict[str, Any],
@@ -136,7 +98,7 @@ def render_readme_body(
 ) -> str:
     """Render the generated section of README.md."""
     lines = [
-        f"_Generated from snapshot `{catalog.get('snapshot_date', 'unknown')}`._",
+        f"_Generated from snapshot `{format_snapshot_timestamp(catalog)}`._",
         "",
     ]
 
@@ -168,7 +130,7 @@ def render_section_file(
         "",
         section.description,
         "",
-        f"_Generated from snapshot `{catalog.get('snapshot_date', 'unknown')}`._",
+        f"_Generated from snapshot `{format_snapshot_timestamp(catalog)}`._",
         "",
         render_section_table(rows),
         "",
@@ -176,6 +138,14 @@ def render_section_file(
         "",
     ]
     output_path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def format_snapshot_timestamp(catalog: dict[str, Any]) -> str:
+    """Return the snapshot timestamp shown in generated markdown."""
+    snapshot_date = catalog.get("snapshot_date")
+    if isinstance(snapshot_date, str) and snapshot_date:
+        return f"{snapshot_date} 00:00 UTC"
+    return "unknown"
 
 
 def update_readme(readme_path: Path, generated_body: str) -> None:

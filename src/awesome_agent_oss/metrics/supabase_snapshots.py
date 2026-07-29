@@ -6,9 +6,11 @@ from collections.abc import Iterable, Mapping
 from datetime import UTC, datetime
 from typing import Any
 
-from awesome_agent_oss.registry import RegistryError
 from awesome_agent_oss.supabase_client import SupabaseClient, SupabaseClientError
-from awesome_agent_oss.supabase_registry import load_supabase_accepted_repository_rows
+from awesome_agent_oss.supabase_registry import (
+    RegistryError,
+    load_supabase_accepted_repository_rows,
+)
 
 
 class SupabaseSnapshotError(RuntimeError):

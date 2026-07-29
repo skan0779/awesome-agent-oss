@@ -13,3 +13,6 @@ __pycache__/
 # Build artifacts
 /dist
 /tests
+
+# Generated pipeline intermediates
+/data/generated/

@@ -2,7 +2,7 @@
 Track open-source repositories for AI agent stacks by category and trend.
 
 <!-- AWESOME_AGENT_OSS:START -->
-_Generated from snapshot `2026-07-29`._
+_Generated from snapshot `2026-07-29 00:00 UTC`._
 
 ## [RAG](./sections/rag.md)
 

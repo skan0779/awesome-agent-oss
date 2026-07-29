@@ -3,19 +3,14 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
-from pathlib import Path
 from typing import Any
 
 from awesome_agent_oss.github_client import GitHubClient, GitHubClientError
-from awesome_agent_oss.registry import (
-    DEFAULT_REGISTRY_PATH,
+from awesome_agent_oss.supabase_registry import (
     AcceptedRepository,
     RegistryError,
-    load_accepted_repositories,
+    load_supabase_accepted_repositories,
 )
-from awesome_agent_oss.supabase_registry import load_supabase_accepted_repositories
-
-DEFAULT_SNAPSHOT_DIR = Path("data/snapshots")
 
 
 class MetricsCollectionError(RuntimeError):
@@ -66,20 +61,6 @@ def collect_repository_metrics(
 
 
 def collect_metrics(
-    registry_path: Path = DEFAULT_REGISTRY_PATH,
-    token: str | None = None,
-    collected_at: datetime | None = None,
-) -> list[dict[str, Any]]:
-    """Collect metric rows for every accepted repository."""
-    try:
-        repositories = load_accepted_repositories(registry_path)
-    except RegistryError as error:
-        raise MetricsCollectionError(str(error)) from error
-
-    return collect_repository_list(repositories, token=token, collected_at=collected_at)
-
-
-def collect_supabase_metrics(
     token: str | None = None,
     collected_at: datetime | None = None,
 ) -> list[dict[str, Any]]:

@@ -34,26 +34,26 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: uv run awesome-agent-oss collect-metrics --source supabase
+        run: uv run awesome-agent-oss collect-metrics
 
       - name: Build catalog
         env:
           SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: uv run awesome-agent-oss build-catalog --source supabase
+        run: uv run awesome-agent-oss build-catalog
 
       - name: Render markdown
         run: uv run awesome-agent-oss render
 
-      - name: Commit generated data and docs
+      - name: Commit generated docs
         run: |
-          if [ -z "$(git status --porcelain -- data/generated README.md sections)" ]; then
-            echo "No generated data or docs changes to commit."
+          if [ -z "$(git status --porcelain -- README.md sections)" ]; then
+            echo "No generated docs changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated README.md sections
-          git commit -m "Update metrics data and docs"
+          git add README.md sections
+          git commit -m "Update generated docs"
           git push

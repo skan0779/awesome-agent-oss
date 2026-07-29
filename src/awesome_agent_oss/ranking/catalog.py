@@ -1,4 +1,4 @@
-"""Build generated catalog data from metric snapshots."""
+"""Build generated catalog data from Supabase metric snapshots."""
 
 from __future__ import annotations
 
@@ -9,11 +9,11 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-from awesome_agent_oss.metrics.collector import DEFAULT_SNAPSHOT_DIR
-from awesome_agent_oss.metrics.snapshots import read_jsonl_snapshot
-from awesome_agent_oss.registry import RegistryError
 from awesome_agent_oss.supabase_client import SupabaseClient, SupabaseClientError
-from awesome_agent_oss.supabase_registry import load_supabase_accepted_repository_rows
+from awesome_agent_oss.supabase_registry import (
+    RegistryError,
+    load_supabase_accepted_repository_rows,
+)
 
 
 DEFAULT_GENERATED_DIR = Path("data/generated")
@@ -30,19 +30,6 @@ class Snapshot:
 
     snapshot_date: date
     rows: list[dict[str, Any]]
-
-
-def build_catalog(
-    snapshot_dir: Path = DEFAULT_SNAPSHOT_DIR,
-    output_path: Path = DEFAULT_CATALOG_PATH,
-    now: datetime | None = None,
-) -> dict[str, Any]:
-    """Build a generated catalog JSON file from JSONL metric snapshots."""
-    snapshots = load_snapshots(snapshot_dir)
-    if not snapshots:
-        raise CatalogBuildError(f"No snapshot files found in {snapshot_dir}")
-
-    return build_catalog_from_snapshots(snapshots, output_path=output_path, now=now)
 
 
 def build_supabase_catalog(
@@ -225,23 +212,6 @@ def catalog_snapshot_row(
         "disabled": snapshot.get("disabled"),
         "fork": snapshot.get("fork"),
     }
-
-
-def load_snapshots(snapshot_dir: Path) -> list[Snapshot]:
-    """Load all JSONL snapshots in date order."""
-    if not snapshot_dir.exists():
-        return []
-
-    snapshots: list[Snapshot] = []
-    for path in sorted(snapshot_dir.glob("*.jsonl")):
-        try:
-            parsed_date = date.fromisoformat(path.stem)
-        except ValueError as error:
-            raise CatalogBuildError(f"Snapshot filename must be YYYY-MM-DD.jsonl: {path}") from error
-
-        snapshots.append(Snapshot(parsed_date, read_jsonl_snapshot(path)))
-
-    return snapshots
 
 
 def group_rows_by_repo(snapshots: list[Snapshot]) -> dict[str, list[tuple[date, dict[str, Any]]]]:
