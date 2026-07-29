@@ -1,32 +1,56 @@
-create type repository_status as enum (
-  'pending',
-  'accepted',
-  'rejected'
-);
+do $$
+begin
+  create type repository_status as enum (
+    'pending',
+    'accepted',
+    'rejected'
+  );
+exception
+  when duplicate_object then null;
+end;
+$$;
 
-create type repository_section_status as enum (
-  'suggested',
-  'accepted',
-  'rejected'
-);
+do $$
+begin
+  create type repository_section_status as enum (
+    'suggested',
+    'accepted',
+    'rejected'
+  );
+exception
+  when duplicate_object then null;
+end;
+$$;
 
-create type curation_action as enum (
-  'discovered',
-  'accepted',
-  'rejected',
-  'section_suggested',
-  'section_accepted',
-  'section_rejected',
-  'section_removed',
-  'metadata_updated'
-);
+do $$
+begin
+  create type curation_action as enum (
+    'discovered',
+    'accepted',
+    'rejected',
+    'section_suggested',
+    'section_accepted',
+    'section_rejected',
+    'section_removed',
+    'metadata_updated'
+  );
+exception
+  when duplicate_object then null;
+end;
+$$;
 
-create type discovery_candidate_status as enum (
-  'pending',
-  'accepted',
-  'rejected',
-  'stale'
-);
+do $$
+begin
+  create type discovery_candidate_status as enum (
+    'pending',
+    'accepted',
+    'rejected',
+    'stale'
+  );
+exception
+  when duplicate_object then null;
+end;
+$$;
 
 create or replace function set_updated_at()
 returns trigger
@@ -38,7 +62,7 @@ begin
 end;
 $$;
 
-create table sections (
+create table if not exists sections (
   id text primary key,
   name text not null,
   description text,
@@ -50,12 +74,14 @@ create table sections (
   constraint sections_name_not_empty check (length(btrim(name)) > 0)
 );
 
+drop trigger if exists sections_set_updated_at on sections;
+
 create trigger sections_set_updated_at
 before update on sections
 for each row
 execute function set_updated_at();
 
-create table repositories (
+create table if not exists repositories (
   id bigserial primary key,
   full_name text not null unique,
   owner text not null,
@@ -74,15 +100,17 @@ create table repositories (
   constraint repositories_name_not_empty check (length(btrim(name)) > 0)
 );
 
-create index repositories_status_idx on repositories (status);
-create index repositories_owner_idx on repositories (owner);
+create index if not exists repositories_status_idx on repositories (status);
+create index if not exists repositories_owner_idx on repositories (owner);
+
+drop trigger if exists repositories_set_updated_at on repositories;
 
 create trigger repositories_set_updated_at
 before update on repositories
 for each row
 execute function set_updated_at();
 
-create table repository_sections (
+create table if not exists repository_sections (
   repository_id bigint not null references repositories (id) on delete cascade,
   section_id text not null references sections (id) on delete cascade,
   status repository_section_status not null default 'suggested',
@@ -96,15 +124,17 @@ create table repository_sections (
   primary key (repository_id, section_id)
 );
 
-create index repository_sections_section_status_idx on repository_sections (section_id, status);
-create index repository_sections_repository_status_idx on repository_sections (repository_id, status);
+create index if not exists repository_sections_section_status_idx on repository_sections (section_id, status);
+create index if not exists repository_sections_repository_status_idx on repository_sections (repository_id, status);
+
+drop trigger if exists repository_sections_set_updated_at on repository_sections;
 
 create trigger repository_sections_set_updated_at
 before update on repository_sections
 for each row
 execute function set_updated_at();
 
-create table repository_snapshots (
+create table if not exists repository_snapshots (
   id bigserial primary key,
   repository_id bigint not null references repositories (id) on delete cascade,
   snapshot_date date not null,
@@ -138,18 +168,20 @@ create table repository_snapshots (
   constraint repository_snapshots_watchers_non_negative check (watchers is null or watchers >= 0)
 );
 
-create index repository_snapshots_snapshot_date_idx on repository_snapshots (snapshot_date desc);
-create index repository_snapshots_repository_date_idx on repository_snapshots (
+create index if not exists repository_snapshots_snapshot_date_idx on repository_snapshots (snapshot_date desc);
+create index if not exists repository_snapshots_repository_date_idx on repository_snapshots (
   repository_id,
   snapshot_date desc
 );
+
+drop trigger if exists repository_snapshots_set_updated_at on repository_snapshots;
 
 create trigger repository_snapshots_set_updated_at
 before update on repository_snapshots
 for each row
 execute function set_updated_at();
 
-create table discovery_candidates (
+create table if not exists discovery_candidates (
   id bigserial primary key,
   repository_id bigint not null references repositories (id) on delete cascade,
   status discovery_candidate_status not null default 'pending',
@@ -165,15 +197,17 @@ create table discovery_candidates (
   constraint discovery_candidates_one_per_repo unique (repository_id)
 );
 
-create index discovery_candidates_status_idx on discovery_candidates (status);
-create index discovery_candidates_discovered_at_idx on discovery_candidates (discovered_at desc);
+create index if not exists discovery_candidates_status_idx on discovery_candidates (status);
+create index if not exists discovery_candidates_discovered_at_idx on discovery_candidates (discovered_at desc);
+
+drop trigger if exists discovery_candidates_set_updated_at on discovery_candidates;
 
 create trigger discovery_candidates_set_updated_at
 before update on discovery_candidates
 for each row
 execute function set_updated_at();
 
-create table curation_events (
+create table if not exists curation_events (
   id bigserial primary key,
   repository_id bigint references repositories (id) on delete set null,
   action curation_action not null,
@@ -187,9 +221,9 @@ create table curation_events (
   created_at timestamptz not null default now()
 );
 
-create index curation_events_repository_idx on curation_events (repository_id, created_at desc);
-create index curation_events_action_idx on curation_events (action);
-create index curation_events_actor_user_idx on curation_events (actor_user_id);
+create index if not exists curation_events_repository_idx on curation_events (repository_id, created_at desc);
+create index if not exists curation_events_action_idx on curation_events (action);
+create index if not exists curation_events_actor_user_idx on curation_events (actor_user_id);
 
 alter table sections enable row level security;
 alter table repositories enable row level security;
@@ -198,14 +232,14 @@ alter table repository_snapshots enable row level security;
 alter table discovery_candidates enable row level security;
 alter table curation_events enable row level security;
 
-create view latest_repository_snapshots
+create or replace view latest_repository_snapshots
 with (security_invoker = true) as
 select distinct on (repository_id)
   *
 from repository_snapshots
 order by repository_id, snapshot_date desc, collected_at desc;
 
-create view accepted_repositories
+create or replace view accepted_repositories
 with (security_invoker = true) as
 select
   r.id,
