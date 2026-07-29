@@ -1,3 +1,87 @@
 - full_name: PaddlePaddle/PaddleOCR
   sections:
     - ocr
+
+- full_name: docling-project/docling
+  sections:
+    - ocr
+
+- full_name: datalab-to/chandra
+  sections:
+    - ocr
+
+- full_name: allenai/olmocr
+  sections:
+    - ocr
+
+- full_name: tesseract-ocr/tesseract
+  sections:
+    - ocr
+
+- full_name: hiroi-sora/Umi-OCR
+  sections:
+    - ocr
+
+- full_name: deepseek-ai/DeepSeek-OCR
+  sections:
+    - ocr
+
+- full_name: zai-org/GLM-OCR
+  sections:
+    - ocr
+
+- full_name: microsoft/PIKE-RAG
+  sections:
+    - rag
+
+- full_name: Marker-Inc-Korea/AutoRAG
+  sections:
+    - rag
+
+- full_name: HKUDS/LightRAG
+  sections:
+    - rag
+
+- full_name: microsoft/graphrag
+  sections:
+    - rag
+
+- full_name: VectifyAI/PageIndex
+  sections:
+    - rag
+
+- full_name: infiniflow/ragflow
+  sections:
+    - rag
+
+- full_name: langfuse/langfuse
+  sections:
+    - observability
+
+- full_name: Arize-ai/phoenix
+  sections:
+    - observability
+
+- full_name: mem0ai/mem0
+  sections:
+    - memory
+
+- full_name: langchain-ai/langmem
+  sections:
+    - memory
+
+- full_name: microsoft/Memora
+  sections:
+    - memory
+
+- full_name: MemTensor/MemOS
+  sections:
+    - memory
+
+- full_name: MemoriLabs/Memori
+  sections:
+    - memory
+
+- full_name: supermemoryai/supermemory
+  sections:
+    - memory
