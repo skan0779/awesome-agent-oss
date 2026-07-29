@@ -262,7 +262,7 @@ def format_release(row: dict[str, Any]) -> str:
 def format_license(value: Any) -> str:
     """Format a repository license value."""
     if not isinstance(value, str) or not value:
-        return "None"
+        return "-"
     if value.upper() == "NOASSERTION":
         return "Other"
     return escape_markdown(value)
