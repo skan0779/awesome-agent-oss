@@ -11,6 +11,9 @@ from typing import Any
 
 from awesome_agent_oss.metrics.collector import DEFAULT_SNAPSHOT_DIR
 from awesome_agent_oss.metrics.snapshots import read_jsonl_snapshot
+from awesome_agent_oss.registry import RegistryError
+from awesome_agent_oss.supabase_client import SupabaseClient, SupabaseClientError
+from awesome_agent_oss.supabase_registry import load_supabase_accepted_repository_rows
 
 
 DEFAULT_GENERATED_DIR = Path("data/generated")
@@ -39,6 +42,36 @@ def build_catalog(
     if not snapshots:
         raise CatalogBuildError(f"No snapshot files found in {snapshot_dir}")
 
+    return build_catalog_from_snapshots(snapshots, output_path=output_path, now=now)
+
+
+def build_supabase_catalog(
+    output_path: Path = DEFAULT_CATALOG_PATH,
+    now: datetime | None = None,
+    client: SupabaseClient | None = None,
+) -> dict[str, Any]:
+    """Build a generated catalog JSON file from Supabase metric snapshots."""
+    supabase = client or SupabaseClient.from_env()
+    section_definitions = load_supabase_section_definitions(client=supabase)
+    snapshots = load_supabase_snapshots(client=supabase)
+    if not snapshots:
+        raise CatalogBuildError("No Supabase snapshot rows found.")
+
+    return build_catalog_from_snapshots(
+        snapshots,
+        output_path=output_path,
+        now=now,
+        section_definitions=section_definitions,
+    )
+
+
+def build_catalog_from_snapshots(
+    snapshots: list[Snapshot],
+    output_path: Path = DEFAULT_CATALOG_PATH,
+    now: datetime | None = None,
+    section_definitions: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Build generated catalog data from loaded snapshots."""
     generated_at = (now or datetime.now(UTC)).astimezone(UTC).isoformat()
     latest_snapshot = snapshots[-1]
     rows_by_repo = group_rows_by_repo(snapshots)
@@ -56,9 +89,142 @@ def build_catalog(
         "repositories": repositories,
         "sections": build_sections(repositories),
     }
+    if section_definitions is not None:
+        catalog["section_definitions"] = section_definitions
 
     write_catalog(catalog, output_path)
     return catalog
+
+
+def load_supabase_section_definitions(
+    client: SupabaseClient | None = None,
+) -> list[dict[str, Any]]:
+    """Load section definitions from Supabase."""
+    supabase = client or SupabaseClient.from_env()
+    try:
+        rows = supabase.select(
+            "sections",
+            columns="id,name,description,sort_order",
+            params={"order": "sort_order.asc,id.asc"},
+        )
+    except SupabaseClientError as error:
+        raise CatalogBuildError(str(error)) from error
+
+    section_definitions: list[dict[str, Any]] = []
+    for index, row in enumerate(rows):
+        section_id = row.get("id")
+        name = row.get("name")
+        description = row.get("description")
+        sort_order = row.get("sort_order")
+        if not isinstance(section_id, str) or not section_id:
+            raise CatalogBuildError(f"Supabase sections row #{index + 1} must include id.")
+        if not isinstance(name, str) or not name:
+            raise CatalogBuildError(f"Supabase sections row #{index + 1} must include name.")
+
+        section_definitions.append(
+            {
+                "id": section_id,
+                "name": name,
+                "description": description if isinstance(description, str) else "",
+                "sort_order": sort_order if isinstance(sort_order, int) else index,
+            }
+        )
+
+    return section_definitions
+
+
+def load_supabase_snapshots(client: SupabaseClient | None = None) -> list[Snapshot]:
+    """Load Supabase snapshots in date order."""
+    supabase = client or SupabaseClient.from_env()
+    try:
+        accepted_rows = load_supabase_accepted_repository_rows(supabase)
+        snapshot_rows = supabase.select(
+            "repository_snapshots",
+            columns="*",
+            params={"order": "snapshot_date.asc,repository_id.asc"},
+        )
+    except (RegistryError, SupabaseClientError) as error:
+        raise CatalogBuildError(str(error)) from error
+
+    repositories = repository_metadata_by_id(accepted_rows)
+    rows_by_date: dict[date, list[dict[str, Any]]] = defaultdict(list)
+    for row in snapshot_rows:
+        repository_id = row.get("repository_id")
+        if not isinstance(repository_id, int) or repository_id not in repositories:
+            continue
+
+        raw_date = row.get("snapshot_date")
+        if not isinstance(raw_date, str):
+            raise CatalogBuildError("Supabase snapshot row must include snapshot_date.")
+
+        try:
+            parsed_date = date.fromisoformat(raw_date)
+        except ValueError as error:
+            raise CatalogBuildError(f"Invalid Supabase snapshot_date: {raw_date}") from error
+
+        rows_by_date[parsed_date].append(
+            catalog_snapshot_row(row, repositories[repository_id])
+        )
+
+    return [
+        Snapshot(snapshot_date=snapshot_date, rows=rows)
+        for snapshot_date, rows in sorted(rows_by_date.items())
+    ]
+
+
+def repository_metadata_by_id(rows: list[dict[str, Any]]) -> dict[int, dict[str, Any]]:
+    """Return accepted repository metadata keyed by id."""
+    repositories: dict[int, dict[str, Any]] = {}
+    for row in rows:
+        repository_id = row.get("id")
+        full_name = row.get("full_name")
+        sections = row.get("sections") or []
+        if not isinstance(repository_id, int):
+            raise CatalogBuildError("Supabase accepted repository row must include id.")
+        if not isinstance(full_name, str) or "/" not in full_name:
+            raise CatalogBuildError("Supabase accepted repository row must include full_name.")
+        if not isinstance(sections, list) or not sections:
+            raise CatalogBuildError("Supabase accepted repository row must include sections.")
+
+        repositories[repository_id] = {
+            "full_name": full_name,
+            "name": row.get("name"),
+            "sections": [str(section) for section in sections],
+        }
+
+    return repositories
+
+
+def catalog_snapshot_row(
+    snapshot: dict[str, Any],
+    repository: dict[str, Any],
+) -> dict[str, Any]:
+    """Convert a Supabase snapshot row to the catalog snapshot shape."""
+    return {
+        "full_name": repository["full_name"],
+        "sections": repository["sections"],
+        "name": repository["name"],
+        "html_url": snapshot.get("html_url"),
+        "description": snapshot.get("description"),
+        "topics": snapshot.get("topics") or [],
+        "stars": snapshot.get("stars"),
+        "forks": snapshot.get("forks"),
+        "open_issues": snapshot.get("open_issues"),
+        "watchers": snapshot.get("watchers"),
+        "license": snapshot.get("license"),
+        "license_name": snapshot.get("license_name"),
+        "language": snapshot.get("language"),
+        "default_branch": snapshot.get("default_branch"),
+        "created_at": snapshot.get("github_created_at"),
+        "updated_at": snapshot.get("github_updated_at"),
+        "pushed_at": snapshot.get("pushed_at"),
+        "latest_release_tag": snapshot.get("latest_release_tag"),
+        "latest_release_name": snapshot.get("latest_release_name"),
+        "latest_release_published_at": snapshot.get("latest_release_published_at"),
+        "archived": snapshot.get("archived"),
+        "disabled": snapshot.get("disabled"),
+        "fork": snapshot.get("fork"),
+    }
 
 
 def load_snapshots(snapshot_dir: Path) -> list[Snapshot]:

@@ -13,6 +13,7 @@ from awesome_agent_oss.registry import (
     RegistryError,
     load_accepted_repositories,
 )
+from awesome_agent_oss.supabase_registry import load_supabase_accepted_repositories
 
 DEFAULT_SNAPSHOT_DIR = Path("data/snapshots")
 
@@ -75,6 +76,28 @@ def collect_metrics(
     except RegistryError as error:
         raise MetricsCollectionError(str(error)) from error
 
+    return collect_repository_list(repositories, token=token, collected_at=collected_at)
+
+
+def collect_supabase_metrics(
+    token: str | None = None,
+    collected_at: datetime | None = None,
+) -> list[dict[str, Any]]:
+    """Collect metric rows for every Supabase-accepted repository."""
+    try:
+        repositories = load_supabase_accepted_repositories()
+    except RegistryError as error:
+        raise MetricsCollectionError(str(error)) from error
+
+    return collect_repository_list(repositories, token=token, collected_at=collected_at)
+
+
+def collect_repository_list(
+    repositories: list[AcceptedRepository],
+    token: str | None = None,
+    collected_at: datetime | None = None,
+) -> list[dict[str, Any]]:
+    """Collect metric rows for a repository list."""
     client = GitHubClient(token=token)
     rows: list[dict[str, Any]] = []
 

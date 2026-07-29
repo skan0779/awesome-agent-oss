@@ -1,7 +1,6 @@
-- full_name: docling-project/docling
+- full_name: microsoft/SkillOpt
   suggested_sections:
-    - ocr
+    - skills
   matched_topics:
-    - document-parsing
-    - document-parser
-  discovered_at: "2026-07-28"
+    - agent-skills
+  discovered_at: "2026-07-29"

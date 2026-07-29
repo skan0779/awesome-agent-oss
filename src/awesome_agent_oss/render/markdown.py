@@ -41,7 +41,7 @@ def render_markdown(
 ) -> None:
     """Render README and section markdown files from generated catalog data."""
     catalog = load_catalog(catalog_path)
-    sections = load_sections(sections_path)
+    sections = load_catalog_sections(catalog) or load_sections(sections_path)
     repositories_by_section = catalog.get("sections") or {}
 
     sections_dir.mkdir(parents=True, exist_ok=True)
@@ -58,6 +58,42 @@ def load_catalog(path: Path) -> dict[str, Any]:
     if not path.exists():
         raise RenderError(f"Catalog file does not exist: {path}")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_catalog_sections(catalog: dict[str, Any]) -> list[Section]:
+    """Load section definitions embedded in generated catalog data."""
+    raw = catalog.get("section_definitions")
+    if raw is None:
+        return []
+    if not isinstance(raw, list):
+        raise RenderError("catalog section_definitions must be a list.")
+
+    sections: list[Section] = []
+    for index, item in enumerate(raw):
+        if not isinstance(item, dict):
+            raise RenderError(f"catalog section_definitions entry #{index + 1} must be a mapping.")
+
+        section_id = item.get("id")
+        name = item.get("name")
+        description = item.get("description")
+        if not isinstance(section_id, str) or not section_id:
+            raise RenderError(
+                f"catalog section_definitions entry #{index + 1} must include id."
+            )
+        if not isinstance(name, str) or not name:
+            raise RenderError(
+                f"catalog section_definitions entry #{index + 1} must include name."
+            )
+
+        sections.append(
+            Section(
+                id=section_id,
+                name=name,
+                description=description if isinstance(description, str) else "",
+            )
+        )
+
+    return sections
 
 
 def load_sections(path: Path) -> list[Section]:
