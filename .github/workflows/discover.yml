@@ -1,0 +1,37 @@
+name: Discover
+
+on:
+  workflow_dispatch:
+    inputs:
+      min_stars:
+        description: "Minimum repository star count"
+        required: true
+        default: "1000"
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Discover candidates
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: uv run awesome-agent-oss discover --min-stars "${{ inputs.min_stars }}"

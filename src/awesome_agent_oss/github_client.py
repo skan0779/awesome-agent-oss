@@ -31,6 +31,25 @@ class GitHubClient:
                 return None
             raise
 
+    def search_repositories(
+        self,
+        query: str,
+        sort: str = "stars",
+        order: str = "desc",
+        per_page: int = 30,
+        page: int = 1,
+    ) -> dict[str, Any]:
+        params = urllib.parse.urlencode(
+            {
+                "q": query,
+                "sort": sort,
+                "order": order,
+                "per_page": per_page,
+                "page": page,
+            }
+        )
+        return self._request(f"/search/repositories?{params}")
+
     def _request(self, path: str) -> dict[str, Any]:
         url = urllib.parse.urljoin("https://api.github.com", path)
         request = urllib.request.Request(

@@ -7,6 +7,12 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from awesome_agent_oss.discover.github_topics import (
+    DEFAULT_MAX_PAGES,
+    DEFAULT_MIN_STARS,
+    DEFAULT_PER_PAGE,
+    discover_github_topic_candidates,
+)
 from awesome_agent_oss.metrics.collector import (
     collect_metrics,
 )
@@ -30,6 +36,22 @@ def collect_metrics_command(args: argparse.Namespace) -> None:
     rows = collect_metrics(token=args.github_token)
     count = write_supabase_snapshot(rows)
     print(f"Wrote {count} metric rows to Supabase repository_snapshots")
+
+
+def discover_command(args: argparse.Namespace) -> None:
+    """Discover pending repository candidates from GitHub topics."""
+    summary = discover_github_topic_candidates(
+        min_stars=args.min_stars,
+        per_page=args.per_page,
+        max_pages=args.max_pages,
+        github_token=args.github_token,
+    )
+    print(
+        "Discovered "
+        f"{summary['stored']} new pending repositories "
+        f"from {summary['queries']} GitHub search queries "
+        f"across {summary['sections']} sections"
+    )
 
 
 def build_catalog_command(args: argparse.Namespace) -> None:
@@ -59,6 +81,35 @@ def build_parser() -> argparse.ArgumentParser:
         description="Automation commands for Awesome Agent OSS.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    discover_parser = subparsers.add_parser(
+        "discover",
+        help="Discover pending repository candidates from GitHub topics.",
+    )
+    discover_parser.add_argument(
+        "--min-stars",
+        type=int,
+        default=DEFAULT_MIN_STARS,
+        help="Minimum repository star count.",
+    )
+    discover_parser.add_argument(
+        "--per-page",
+        type=int,
+        default=DEFAULT_PER_PAGE,
+        help="GitHub search results per query.",
+    )
+    discover_parser.add_argument(
+        "--max-pages",
+        type=int,
+        default=DEFAULT_MAX_PAGES,
+        help="Maximum GitHub search pages per topic and sort.",
+    )
+    discover_parser.add_argument(
+        "--github-token",
+        default=None,
+        help="GitHub token. Defaults to the GITHUB_TOKEN environment variable.",
+    )
+    discover_parser.set_defaults(func=discover_command)
 
     collect_parser = subparsers.add_parser(
         "collect-metrics",

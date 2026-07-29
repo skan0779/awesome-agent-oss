@@ -77,6 +77,28 @@ class SupabaseClient:
 
         return stored_rows
 
+    def insert(
+        self,
+        table: str,
+        rows: list[dict[str, Any]],
+    ) -> list[dict[str, Any]]:
+        """Insert rows and return the stored representation."""
+        if not rows:
+            return []
+
+        stored_rows: list[dict[str, Any]] = []
+        for batch in group_rows_by_keys(rows):
+            stored = self.request(
+                "POST",
+                f"/rest/v1/{table}",
+                body=batch,
+                extra_headers={"Prefer": "return=representation"},
+            )
+            if isinstance(stored, list):
+                stored_rows.extend(stored)
+
+        return stored_rows
+
     def select(
         self,
         table: str,
