@@ -32,7 +32,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -135,6 +136,72 @@ h1 {
   color: #ffffff;
   border-color: var(--text);
   font-weight: 700;
+}
+
+.filters {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.filterField {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.filterField label {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.filterField input,
+.filterField select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text);
+  padding: 0 10px;
+  outline: none;
+}
+
+.filterField input:focus,
+.filterField select:focus {
+  border-color: var(--link);
+  box-shadow: 0 0 0 3px rgba(36, 87, 214, 0.12);
+}
+
+.filterActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.filterButton,
+.resetButton {
+  min-height: 42px;
+  font-weight: 800;
+}
+
+.filterButton {
+  background: var(--text);
+  border-color: var(--text);
+  color: #ffffff;
+}
+
+.resetButton {
+  background: #ffffff;
+  color: var(--text);
 }
 
 .notice,
@@ -366,6 +433,15 @@ h1 {
 
   .toolbar {
     grid-template-columns: minmax(260px, 420px) auto;
+  }
+
+  .filters {
+    grid-template-columns: minmax(260px, 1fr) 180px 190px auto;
+    align-items: end;
+  }
+
+  .filterActions {
+    grid-template-columns: auto auto;
   }
 
   .candidateGrid {

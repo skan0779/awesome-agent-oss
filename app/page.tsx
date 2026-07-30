@@ -35,6 +35,7 @@ type CandidatesResponse = {
   pagination: {
     page: number;
     perPage: number;
+    pendingCount: number;
     totalCount: number;
     totalPages: number;
   };
@@ -54,7 +55,11 @@ export default function CurationPage() {
   const [busyRepositoryId, setBusyRepositoryId] = useState<number | null>(null);
   const [page, setPage] = useState(1);
   const [totalPendingCount, setTotalPendingCount] = useState(0);
+  const [filteredCount, setFilteredCount] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
+  const [sectionFilter, setSectionFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortMode, setSortMode] = useState("discovered_desc");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -76,6 +81,9 @@ export default function CurationPage() {
       const params = new URLSearchParams({
         page: String(nextPage),
         perPage: String(CANDIDATES_PER_PAGE),
+        section: sectionFilter,
+        search: searchQuery,
+        sort: sortMode,
       });
       const response = await fetch(`/api/candidates?${params.toString()}`, {
         headers: curationHeaders(nextToken),
@@ -97,7 +105,8 @@ export default function CurationPage() {
       setCandidates(payload.candidates);
       setSections(payload.sections);
       setPage(payload.pagination.page);
-      setTotalPendingCount(payload.pagination.totalCount);
+      setTotalPendingCount(payload.pagination.pendingCount);
+      setFilteredCount(payload.pagination.totalCount);
       setTotalPages(payload.pagination.totalPages);
       setSelectedSections((current) => {
         const next = { ...current };
@@ -119,6 +128,85 @@ export default function CurationPage() {
     event.preventDefault();
     window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
     void loadCandidates(token, 1);
+  }
+
+  function applyFilters(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    void loadCandidates(token, 1);
+  }
+
+  function resetFilters() {
+    setSectionFilter("all");
+    setSearchQuery("");
+    setSortMode("discovered_desc");
+    void loadCandidatesWithFilters({
+      section: "all",
+      search: "",
+      sort: "discovered_desc",
+      page: 1,
+    });
+  }
+
+  function updateSectionFilter(section: string) {
+    setSectionFilter(section);
+    void loadCandidatesWithFilters({ section, search: searchQuery, sort: sortMode, page: 1 });
+  }
+
+  function updateSortMode(sort: string) {
+    setSortMode(sort);
+    void loadCandidatesWithFilters({ section: sectionFilter, search: searchQuery, sort, page: 1 });
+  }
+
+  async function loadCandidatesWithFilters({
+    section,
+    search,
+    sort,
+    page: nextPage,
+  }: {
+    section: string;
+    search: string;
+    sort: string;
+    page: number;
+  }) {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const params = new URLSearchParams({
+        page: String(nextPage),
+        perPage: String(CANDIDATES_PER_PAGE),
+        section,
+        search,
+        sort,
+      });
+      const response = await fetch(`/api/candidates?${params.toString()}`, {
+        headers: curationHeaders(token),
+      });
+      const payload = (await response.json()) as CandidatesResponse & { error?: string };
+      if (!response.ok) {
+        throw new Error(payload.error || "Failed to load candidates.");
+      }
+
+      setCandidates(payload.candidates);
+      setSections(payload.sections);
+      setPage(payload.pagination.page);
+      setTotalPendingCount(payload.pagination.pendingCount);
+      setFilteredCount(payload.pagination.totalCount);
+      setTotalPages(payload.pagination.totalPages);
+      setSelectedSections((current) => {
+        const next = { ...current };
+        for (const candidate of payload.candidates) {
+          if (!next[candidate.repositoryId]) {
+            next[candidate.repositoryId] = candidate.suggestedSections;
+          }
+        }
+        return next;
+      });
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : "Failed to load candidates.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   function goToPage(nextPage: number) {
@@ -225,16 +313,70 @@ export default function CurationPage() {
         <button type="submit">Refresh</button>
       </form>
 
+      <form className="filters" onSubmit={applyFilters}>
+        <div className="filterField searchField">
+          <label htmlFor="repo-search">Search</label>
+          <input
+            id="repo-search"
+            placeholder="Repository, topic, description"
+            type="search"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+          />
+        </div>
+        <div className="filterField">
+          <label htmlFor="section-filter">Section</label>
+          <select
+            id="section-filter"
+            value={sectionFilter}
+            onChange={(event) => updateSectionFilter(event.target.value)}
+          >
+            <option value="all">All sections</option>
+            {sections.map((section) => (
+              <option key={section.id} value={section.id}>
+                {section.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="filterField">
+          <label htmlFor="sort-mode">Sort</label>
+          <select
+            id="sort-mode"
+            value={sortMode}
+            onChange={(event) => updateSortMode(event.target.value)}
+          >
+            <option value="discovered_desc">Recently discovered</option>
+            <option value="stars_desc">Most stars</option>
+            <option value="forks_desc">Most forks</option>
+            <option value="pushed_desc">Recently pushed</option>
+            <option value="name_asc">Repository name</option>
+          </select>
+        </div>
+        <div className="filterActions">
+          <button className="filterButton" type="submit">
+            Search
+          </button>
+          <button className="resetButton" type="button" onClick={resetFilters}>
+            Reset
+          </button>
+        </div>
+      </form>
+
       {error ? <div className="notice">{error}</div> : null}
 
       {loading ? (
         <div className="empty">Loading pending repositories.</div>
       ) : candidates.length === 0 ? (
-        <div className="empty">No pending repositories.</div>
+        <div className="empty">
+          {totalPendingCount === 0
+            ? "No pending repositories."
+            : "No repositories match the current filters."}
+        </div>
       ) : (
         <>
           <div className="pageSummary">
-            Page {page} of {totalPages}
+            Page {page} of {totalPages} - {filteredCount} matching
           </div>
           <section className="candidateGrid" aria-label="Pending repositories">
             {candidates.map((candidate) => {

@@ -6,10 +6,23 @@ import {
   requireCurationToken,
   restPath,
   supabaseRequest,
-  supabaseRequestWithHeaders,
 } from "../../lib/supabase";
 
 export const dynamic = "force-dynamic";
+
+type CandidatePayload = {
+  id: number;
+  repositoryId: number;
+  fullName: string;
+  htmlUrl: string | null;
+  repositoryStatus: string;
+  source: string;
+  query: string | null;
+  suggestedSections: string[];
+  matchedTopics: string[];
+  discoveredAt: string;
+  metadata: CurationEventRow["metadata"];
+};
 
 export async function GET(request: Request) {
   const unauthorized = requireCurationToken(request);
@@ -21,26 +34,19 @@ export async function GET(request: Request) {
     const url = new URL(request.url);
     const page = boundedInteger(url.searchParams.get("page"), 1, 1, 100000);
     const perPage = boundedInteger(url.searchParams.get("perPage"), 10, 1, 50);
-    const offset = (page - 1) * perPage;
-    const rangeEnd = offset + perPage - 1;
+    const sectionFilter = normalizedParam(url.searchParams.get("section"));
+    const searchQuery = normalizedParam(url.searchParams.get("search"));
+    const sort = normalizeSort(url.searchParams.get("sort"));
 
-    const [candidateResult, sections] = await Promise.all([
-      supabaseRequestWithHeaders<PendingCandidateRow[]>(
+    const [candidateRows, sections] = await Promise.all([
+      supabaseRequest<PendingCandidateRow[]>(
         restPath("discovery_candidates", {
           select:
             "id,repository_id,status,source,query,suggested_sections,matched_topics,discovered_at,repositories(id,full_name,owner,name,html_url,status)",
           status: "eq.pending",
           order: "discovered_at.desc",
-          limit: String(perPage),
-          offset: String(offset),
+          limit: "10000",
         }),
-        {
-          headers: {
-            Prefer: "count=exact",
-            Range: `${offset}-${rangeEnd}`,
-            "Range-Unit": "items",
-          },
-        },
       ),
       supabaseRequest<SupabaseSection[]>(
         restPath("sections", {
@@ -51,12 +57,10 @@ export async function GET(request: Request) {
       ),
     ]);
 
-    const candidateRows = candidateResult.data;
-    const totalCount = parseContentRangeTotal(candidateResult.headers.get("content-range"));
     const repositoryIds = candidateRows.map((candidate) => candidate.repository_id);
     const metadataByRepositoryId = await loadDiscoveryMetadata(repositoryIds);
 
-    const candidates = candidateRows.flatMap((candidate) => {
+    const allCandidates = candidateRows.flatMap((candidate) => {
       const repository = normalizeRepository(candidate.repositories);
       if (!repository) {
         return [];
@@ -78,15 +82,25 @@ export async function GET(request: Request) {
         },
       ];
     });
+    const filteredCandidates = sortCandidates(
+      filterCandidates(allCandidates, sectionFilter, searchQuery),
+      sort,
+    );
+    const totalCount = filteredCandidates.length;
+    const totalPages = totalCount === 0 ? 1 : Math.ceil(totalCount / perPage);
+    const normalizedPage = Math.min(page, totalPages);
+    const offset = (normalizedPage - 1) * perPage;
+    const candidates = filteredCandidates.slice(offset, offset + perPage);
 
     return Response.json({
       candidates,
       sections,
       pagination: {
-        page,
+        page: normalizedPage,
         perPage,
+        pendingCount: allCandidates.length,
         totalCount,
-        totalPages: totalCount === 0 ? 1 : Math.ceil(totalCount / perPage),
+        totalPages,
       },
     });
   } catch (error) {
@@ -110,18 +124,84 @@ function boundedInteger(
   return Math.min(Math.max(parsed, minValue), maxValue);
 }
 
-function parseContentRangeTotal(contentRange: string | null) {
-  if (!contentRange) {
+function normalizedParam(value: string | null) {
+  const trimmed = value?.trim() || "";
+  return trimmed && trimmed !== "all" ? trimmed : null;
+}
+
+function normalizeSort(value: string | null) {
+  const allowed = new Set([
+    "discovered_desc",
+    "stars_desc",
+    "forks_desc",
+    "pushed_desc",
+    "name_asc",
+  ]);
+  return value && allowed.has(value) ? value : "discovered_desc";
+}
+
+function filterCandidates(
+  candidates: CandidatePayload[],
+  sectionFilter: string | null,
+  searchQuery: string | null,
+) {
+  const normalizedSearch = searchQuery?.toLowerCase() || null;
+  return candidates.filter((candidate) => {
+    if (sectionFilter && !candidate.suggestedSections.includes(sectionFilter)) {
+      return false;
+    }
+    if (!normalizedSearch) {
+      return true;
+    }
+
+    const searchableText = [
+      candidate.fullName,
+      candidate.metadata.description,
+      ...(candidate.metadata.topics || []),
+      ...candidate.matchedTopics,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    return searchableText.includes(normalizedSearch);
+  });
+}
+
+function sortCandidates(candidates: CandidatePayload[], sort: string) {
+  const sorted = [...candidates];
+  sorted.sort((left, right) => {
+    if (sort === "stars_desc") {
+      return numericValue(right.metadata.stars) - numericValue(left.metadata.stars);
+    }
+    if (sort === "forks_desc") {
+      return numericValue(right.metadata.forks) - numericValue(left.metadata.forks);
+    }
+    if (sort === "pushed_desc") {
+      return dateValue(right.metadata.pushed_at) - dateValue(left.metadata.pushed_at);
+    }
+    if (sort === "name_asc") {
+      return left.fullName.localeCompare(right.fullName);
+    }
+
+    return dateValue(right.discoveredAt) - dateValue(left.discoveredAt);
+  });
+  return sorted;
+}
+
+function numericValue(value: unknown) {
+  return typeof value === "number" ? value : -1;
+}
+
+function dateValue(value: unknown) {
+  if (typeof value !== "string") {
     return 0;
   }
 
-  const total = contentRange.split("/").at(-1);
-  if (!total || total === "*") {
+  const parsed = new Date(value).getTime();
+  if (Number.isNaN(parsed)) {
     return 0;
   }
-
-  const parsed = Number(total);
-  return Number.isInteger(parsed) && parsed >= 0 ? parsed : 0;
+  return parsed;
 }
 
 async function loadDiscoveryMetadata(repositoryIds: number[]) {
