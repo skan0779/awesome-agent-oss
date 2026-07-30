@@ -79,6 +79,14 @@ export async function supabaseRequest<T>(
   path: string,
   init: RequestInit = {},
 ): Promise<T> {
+  const result = await supabaseRequestWithHeaders<T>(path, init);
+  return result.data;
+}
+
+export async function supabaseRequestWithHeaders<T>(
+  path: string,
+  init: RequestInit = {},
+): Promise<{ data: T; headers: Headers }> {
   const config = readSupabaseConfig();
   const headers = new Headers(init.headers);
   headers.set("apikey", config.apiKey);
@@ -97,7 +105,10 @@ export async function supabaseRequest<T>(
     throw new Error(`Supabase request failed: HTTP ${response.status} ${text}`);
   }
 
-  return (text ? JSON.parse(text) : null) as T;
+  return {
+    data: (text ? JSON.parse(text) : null) as T,
+    headers: response.headers,
+  };
 }
 
 export function restPath(table: string, params: Record<string, string>): string {

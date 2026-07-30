@@ -32,10 +32,17 @@ type Candidate = {
 type CandidatesResponse = {
   candidates: Candidate[];
   sections: Section[];
+  pagination: {
+    page: number;
+    perPage: number;
+    totalCount: number;
+    totalPages: number;
+  };
 };
 
 const TOKEN_STORAGE_KEY = "awesome-agent-oss-curation-token";
 const COLLAPSED_TOPIC_LIMIT = 8;
+const CANDIDATES_PER_PAGE = 10;
 
 export default function CurationPage() {
   const [token, setToken] = useState("");
@@ -45,25 +52,32 @@ export default function CurationPage() {
   const [reasons, setReasons] = useState<Record<number, string>>({});
   const [expandedTopics, setExpandedTopics] = useState<Record<number, boolean>>({});
   const [busyRepositoryId, setBusyRepositoryId] = useState<number | null>(null);
+  const [page, setPage] = useState(1);
+  const [totalPendingCount, setTotalPendingCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const storedToken = window.localStorage.getItem(TOKEN_STORAGE_KEY) || "";
     setToken(storedToken);
-    void loadCandidates(storedToken);
+    void loadCandidates(storedToken, 1);
   }, []);
 
   const sectionById = useMemo(() => {
     return new Map(sections.map((section) => [section.id, section]));
   }, [sections]);
 
-  async function loadCandidates(nextToken = token) {
+  async function loadCandidates(nextToken = token, nextPage = page) {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch("/api/candidates", {
+      const params = new URLSearchParams({
+        page: String(nextPage),
+        perPage: String(CANDIDATES_PER_PAGE),
+      });
+      const response = await fetch(`/api/candidates?${params.toString()}`, {
         headers: curationHeaders(nextToken),
       });
       const payload = (await response.json()) as CandidatesResponse & { error?: string };
@@ -71,8 +85,20 @@ export default function CurationPage() {
         throw new Error(payload.error || "Failed to load candidates.");
       }
 
+      if (
+        payload.candidates.length === 0 &&
+        payload.pagination.totalCount > 0 &&
+        nextPage > payload.pagination.totalPages
+      ) {
+        await loadCandidates(nextToken, payload.pagination.totalPages);
+        return;
+      }
+
       setCandidates(payload.candidates);
       setSections(payload.sections);
+      setPage(payload.pagination.page);
+      setTotalPendingCount(payload.pagination.totalCount);
+      setTotalPages(payload.pagination.totalPages);
       setSelectedSections((current) => {
         const next = { ...current };
         for (const candidate of payload.candidates) {
@@ -92,7 +118,16 @@ export default function CurationPage() {
   function saveToken(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
-    void loadCandidates(token);
+    void loadCandidates(token, 1);
+  }
+
+  function goToPage(nextPage: number) {
+    if (nextPage < 1 || nextPage > totalPages || nextPage === page) {
+      return;
+    }
+
+    void loadCandidates(token, nextPage);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function toggleSection(repositoryId: number, sectionId: string) {
@@ -154,9 +189,7 @@ export default function CurationPage() {
         throw new Error(payload.error || "Curation request failed.");
       }
 
-      setCandidates((current) =>
-        current.filter((candidate) => candidate.repositoryId !== repositoryId),
-      );
+      await loadCandidates(token, page);
     } catch (curationError) {
       setError(
         curationError instanceof Error ? curationError.message : "Curation request failed.",
@@ -174,7 +207,7 @@ export default function CurationPage() {
           <h1>Curation</h1>
         </div>
         <div className="counter">
-          <span>{candidates.length}</span>
+          <span>{totalPendingCount}</span>
           <small>pending</small>
         </div>
       </header>
@@ -199,113 +232,194 @@ export default function CurationPage() {
       ) : candidates.length === 0 ? (
         <div className="empty">No pending repositories.</div>
       ) : (
-        <section className="candidateGrid" aria-label="Pending repositories">
-          {candidates.map((candidate) => {
-            const selected = selectedSections[candidate.repositoryId] || [];
-            const topics = candidate.metadata.topics?.length
-              ? candidate.metadata.topics
-              : candidate.matchedTopics;
-            const topicsExpanded = expandedTopics[candidate.repositoryId] === true;
-            const visibleTopics = topicsExpanded
-              ? topics
-              : topics.slice(0, COLLAPSED_TOPIC_LIMIT);
-            const hiddenTopicCount = Math.max(0, topics.length - COLLAPSED_TOPIC_LIMIT);
-            const isBusy = busyRepositoryId === candidate.repositoryId;
+        <>
+          <div className="pageSummary">
+            Page {page} of {totalPages}
+          </div>
+          <section className="candidateGrid" aria-label="Pending repositories">
+            {candidates.map((candidate) => {
+              const selected = selectedSections[candidate.repositoryId] || [];
+              const topics = candidate.metadata.topics?.length
+                ? candidate.metadata.topics
+                : candidate.matchedTopics;
+              const topicsExpanded = expandedTopics[candidate.repositoryId] === true;
+              const visibleTopics = topicsExpanded
+                ? topics
+                : topics.slice(0, COLLAPSED_TOPIC_LIMIT);
+              const hiddenTopicCount = Math.max(0, topics.length - COLLAPSED_TOPIC_LIMIT);
+              const isBusy = busyRepositoryId === candidate.repositoryId;
 
-            return (
-              <article className="candidateCard" key={candidate.repositoryId}>
-                <div className="cardHeader">
-                  <div>
-                    <a
-                      className="repoName"
-                      href={candidate.htmlUrl || "#"}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      {candidate.fullName}
-                    </a>
-                    <p className="description">
-                      {candidate.metadata.description || "No description captured."}
-                    </p>
+              return (
+                <article className="candidateCard" key={candidate.repositoryId}>
+                  <div className="cardHeader">
+                    <div>
+                      <a
+                        className="repoName"
+                        href={candidate.htmlUrl || "#"}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        {candidate.fullName}
+                      </a>
+                      <p className="description">
+                        {candidate.metadata.description || "No description captured."}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="stats">
-                  <Metric label="Stars" value={formatNumber(candidate.metadata.stars)} />
-                  <Metric label="Forks" value={formatNumber(candidate.metadata.forks)} />
-                  <Metric label="Found" value={formatDate(candidate.discoveredAt)} />
-                </div>
+                  <div className="stats">
+                    <Metric label="Stars" value={formatNumber(candidate.metadata.stars)} />
+                    <Metric label="Forks" value={formatNumber(candidate.metadata.forks)} />
+                    <Metric label="Found" value={formatDate(candidate.discoveredAt)} />
+                  </div>
 
-                <div className="pills" aria-label="Topics">
-                  {visibleTopics.map((topic) => (
-                    <span className="pill" key={topic}>
-                      {topic}
-                    </span>
-                  ))}
-                  {hiddenTopicCount > 0 ? (
-                    <button
-                      className="pillToggle"
-                      type="button"
-                      onClick={() => toggleTopics(candidate.repositoryId)}
-                    >
-                      {topicsExpanded ? "Show less" : `+${hiddenTopicCount} more`}
-                    </button>
-                  ) : null}
-                </div>
-
-                <fieldset className="sectionPicker">
-                  <legend>Sections</legend>
-                  <div className="sectionOptions">
-                    {sections.map((section) => (
-                      <label className="sectionOption" key={section.id}>
-                        <input
-                          checked={selected.includes(section.id)}
-                          type="checkbox"
-                          onChange={() => toggleSection(candidate.repositoryId, section.id)}
-                        />
-                        <span>{sectionById.get(section.id)?.name || section.id}</span>
-                      </label>
+                  <div className="pills" aria-label="Topics">
+                    {visibleTopics.map((topic) => (
+                      <span className="pill" key={topic}>
+                        {topic}
+                      </span>
                     ))}
+                    {hiddenTopicCount > 0 ? (
+                      <button
+                        className="pillToggle"
+                        type="button"
+                        onClick={() => toggleTopics(candidate.repositoryId)}
+                      >
+                        {topicsExpanded ? "Show less" : `+${hiddenTopicCount} more`}
+                      </button>
+                    ) : null}
                   </div>
-                </fieldset>
 
-                <input
-                  className="reasonInput"
-                  placeholder="Reject reason"
-                  value={reasons[candidate.repositoryId] || ""}
-                  onChange={(event) =>
-                    setReasons((current) => ({
-                      ...current,
-                      [candidate.repositoryId]: event.target.value,
-                    }))
-                  }
-                />
+                  <fieldset className="sectionPicker">
+                    <legend>Sections</legend>
+                    <div className="sectionOptions">
+                      {sections.map((section) => (
+                        <label className="sectionOption" key={section.id}>
+                          <input
+                            checked={selected.includes(section.id)}
+                            type="checkbox"
+                            onChange={() => toggleSection(candidate.repositoryId, section.id)}
+                          />
+                          <span>{sectionById.get(section.id)?.name || section.id}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
 
-                <div className="actions">
-                  <button
-                    className="rejectButton"
-                    disabled={isBusy}
-                    type="button"
-                    onClick={() => void rejectCandidate(candidate)}
-                  >
-                    Reject
-                  </button>
-                  <button
-                    className="acceptButton"
-                    disabled={isBusy}
-                    type="button"
-                    onClick={() => void acceptCandidate(candidate)}
-                  >
-                    Accept
-                  </button>
-                </div>
-              </article>
-            );
-          })}
-        </section>
+                  <input
+                    className="reasonInput"
+                    placeholder="Reject reason"
+                    value={reasons[candidate.repositoryId] || ""}
+                    onChange={(event) =>
+                      setReasons((current) => ({
+                        ...current,
+                        [candidate.repositoryId]: event.target.value,
+                      }))
+                    }
+                  />
+
+                  <div className="actions">
+                    <button
+                      className="rejectButton"
+                      disabled={isBusy}
+                      type="button"
+                      onClick={() => void rejectCandidate(candidate)}
+                    >
+                      Reject
+                    </button>
+                    <button
+                      className="acceptButton"
+                      disabled={isBusy}
+                      type="button"
+                      onClick={() => void acceptCandidate(candidate)}
+                    >
+                      Accept
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </section>
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={goToPage}
+          />
+        </>
       )}
     </main>
   );
+}
+
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}) {
+  const items = paginationItems(currentPage, totalPages);
+
+  return (
+    <nav className="pagination" aria-label="Pending repositories pagination">
+      <button
+        className="pageButton"
+        disabled={currentPage <= 1}
+        type="button"
+        onClick={() => onPageChange(currentPage - 1)}
+      >
+        Prev
+      </button>
+      {items.map((item, index) =>
+        item === "ellipsis" ? (
+          <span className="pageEllipsis" key={`ellipsis-${index}`}>
+            ...
+          </span>
+        ) : (
+          <button
+            aria-current={item === currentPage ? "page" : undefined}
+            className="pageButton"
+            key={item}
+            type="button"
+            onClick={() => onPageChange(item)}
+          >
+            {item}
+          </button>
+        ),
+      )}
+      <button
+        className="pageButton"
+        disabled={currentPage >= totalPages}
+        type="button"
+        onClick={() => onPageChange(currentPage + 1)}
+      >
+        Next
+      </button>
+    </nav>
+  );
+}
+
+function paginationItems(currentPage: number, totalPages: number) {
+  const pages = new Set<number>([1, totalPages]);
+  for (let pageNumber = currentPage - 1; pageNumber <= currentPage + 1; pageNumber += 1) {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      pages.add(pageNumber);
+    }
+  }
+
+  const sortedPages = Array.from(pages).sort((a, b) => a - b);
+  const items: Array<number | "ellipsis"> = [];
+  for (const pageNumber of sortedPages) {
+    const previous = items.at(-1);
+    if (typeof previous === "number" && pageNumber - previous > 1) {
+      items.push("ellipsis");
+    }
+    items.push(pageNumber);
+  }
+
+  return items;
 }
 
 function Metric({ label, value }: { label: string; value: string }) {
