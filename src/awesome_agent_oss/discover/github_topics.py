@@ -349,6 +349,8 @@ def store_candidates(client: SupabaseClient, candidates: dict[str, Candidate]) -
                 "metadata": {
                     "stars": candidate.stars,
                     "forks": candidate.forks,
+                    "description": candidate.description,
+                    "pushed_at": candidate.pushed_at,
                     "topics": candidate.topics,
                     "queries": sorted(candidate.queries),
                 },

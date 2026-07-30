@@ -7,12 +7,18 @@ __pycache__/
 
 # Environments
 .env
+.env*.local
 .venv
 /.uv-cache
+node_modules/
 
 # Build artifacts
 /dist
 /tests
+.next/
+out/
+.vercel/
+.turbo/
 
 # Generated pipeline intermediates
 /data/generated/
