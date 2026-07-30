@@ -60,6 +60,8 @@ export default function CurationPage() {
   const [sectionFilter, setSectionFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortMode, setSortMode] = useState("discovered_desc");
+  const [manualRepository, setManualRepository] = useState("");
+  const [addingRepository, setAddingRepository] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -128,6 +130,41 @@ export default function CurationPage() {
     event.preventDefault();
     window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
     void loadCandidates(token, 1);
+  }
+
+  async function appendRepository(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const repository = manualRepository.trim();
+    if (!repository) {
+      setError("Enter a GitHub URL or owner/repo value.");
+      return;
+    }
+
+    setAddingRepository(true);
+    setError(null);
+    try {
+      const response = await fetch("/api/candidates/manual", {
+        method: "POST",
+        headers: {
+          ...curationHeaders(token),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ repository }),
+      });
+      const payload = (await response.json()) as { error?: string };
+      if (!response.ok) {
+        throw new Error(payload.error || "Failed to append repository.");
+      }
+
+      setManualRepository("");
+      await loadCandidates(token, 1);
+    } catch (appendError) {
+      setError(
+        appendError instanceof Error ? appendError.message : "Failed to append repository.",
+      );
+    } finally {
+      setAddingRepository(false);
+    }
   }
 
   function applyFilters(event: FormEvent<HTMLFormElement>) {
@@ -311,6 +348,22 @@ export default function CurationPage() {
           onChange={(event) => setToken(event.target.value)}
         />
         <button type="submit">Refresh</button>
+      </form>
+
+      <form className="appendPanel" onSubmit={appendRepository}>
+        <div className="filterField appendField">
+          <label htmlFor="manual-repository">Append</label>
+          <input
+            id="manual-repository"
+            placeholder="GitHub URL or owner/repo"
+            type="text"
+            value={manualRepository}
+            onChange={(event) => setManualRepository(event.target.value)}
+          />
+        </div>
+        <button className="appendButton" disabled={addingRepository} type="submit">
+          {addingRepository ? "Adding" : "Add pending"}
+        </button>
       </form>
 
       <form className="filters" onSubmit={applyFilters}>

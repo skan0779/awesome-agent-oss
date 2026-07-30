@@ -188,12 +188,14 @@ h1 {
 }
 
 .filterButton,
-.resetButton {
+.resetButton,
+.appendButton {
   min-height: 42px;
   font-weight: 800;
 }
 
-.filterButton {
+.filterButton,
+.appendButton {
   background: var(--text);
   border-color: var(--text);
   color: #ffffff;
@@ -202,6 +204,21 @@ h1 {
 .resetButton {
   background: #ffffff;
   color: var(--text);
+}
+
+.appendPanel {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.appendButton {
+  width: 100%;
 }
 
 .notice,
@@ -437,6 +454,11 @@ h1 {
 
   .filters {
     grid-template-columns: minmax(260px, 1fr) 180px 190px auto;
+    align-items: end;
+  }
+
+  .appendPanel {
+    grid-template-columns: minmax(260px, 1fr) 150px;
     align-items: end;
   }
 
