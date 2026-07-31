@@ -31,6 +31,7 @@ button, input, select { font: inherit; letter-spacing: 0; }
 button { cursor: pointer; }
 button:disabled { cursor: not-allowed; opacity: 0.5; }
 a { color: inherit; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 .catalogPage { min-height: 100vh; }
 
@@ -87,13 +88,16 @@ a { color: inherit; }
 .sectionHeading h2 { margin: 0; font-size: 1.65rem; line-height: 1.15; }
 .resultCount { flex: none; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
 
-.sectionTabs { display: flex; gap: 7px; width: 100%; padding-bottom: 10px; overflow-x: auto; scrollbar-width: none; }
-.sectionTabs::-webkit-scrollbar { display: none; }
+.sectionTabs { display: none; }
 .sectionTab { flex: none; min-height: 38px; padding: 0 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--muted); font-size: 0.84rem; font-weight: 750; }
 .sectionTab:hover { border-color: #aeb6af; color: var(--ink); }
 .sectionTab.active { border-color: var(--ink); background: var(--ink); color: #fff; }
+.catalogSectionSelect { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; min-height: 48px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--green); }
+.catalogSectionSelect svg { margin-left: 13px; }
+.catalogSectionSelect select { width: 100%; height: 46px; min-width: 0; padding: 0 36px 0 10px; border: 0; outline: 0; background: transparent; color: var(--ink); font-weight: 780; }
+.catalogSectionSelect:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px rgba(22, 118, 74, 0.11); }
 
-.catalogControls { display: grid; gap: 9px; margin: 8px 0 22px; }
+.catalogControls { display: grid; gap: 9px; margin: 10px 0 22px; }
 .searchControl { display: flex; align-items: center; gap: 9px; min-width: 0; min-height: 48px; padding: 0 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--muted); }
 .searchControl:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px rgba(22, 118, 74, 0.11); }
 .searchControl input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); }
@@ -218,6 +222,9 @@ a { color: inherit; }
   .catalogStats { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line); }
   .summaryStat { padding: 14px 0 14px 24px; }
   .summaryStat + .summaryStat { padding-left: 24px; border-top: 1px solid var(--line); border-left: 0; }
+  .sectionTabs { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; padding-bottom: 12px; }
+  .catalogSectionSelect { display: none; }
+  .catalogControls { margin-top: 0; }
   .catalogControls { grid-template-columns: minmax(0, 1fr) 220px; }
   .repositoryGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .siteFooter { flex-direction: row; justify-content: space-between; }

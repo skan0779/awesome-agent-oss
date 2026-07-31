@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   BookOpen,
   GitFork,
+  LayoutGrid,
   LoaderCircle,
   Radar,
   Search,
@@ -229,6 +230,23 @@ export default function CatalogPage() {
               </button>
             ))}
           </div>
+
+          <label className="catalogSectionSelect">
+            <LayoutGrid size={18} aria-hidden="true" />
+            <span className="srOnly">Repository section</span>
+            <select
+              aria-label="Repository section"
+              value={activeSection}
+              onChange={(event) => selectSection(event.target.value)}
+            >
+              <option value="all">All sections</option>
+              {sections.map((section) => (
+                <option key={section.id} value={section.id}>
+                  {section.name}
+                </option>
+              ))}
+            </select>
+          </label>
 
           <div className="catalogControls">
             <label className="searchControl">
