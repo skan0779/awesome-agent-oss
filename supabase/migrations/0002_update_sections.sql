@@ -35,13 +35,7 @@ values
       'parser',
       'document-parsing',
       'document-parser',
-      'document-understanding',
-      'document-ai',
-      'pdf-parser',
-      'pdf-extraction',
-      'pdf-to-markdown',
-      'layout-analysis',
-      'table-extraction'
+      'pdf-parser'
     ]::text[],
     2
   ),
@@ -54,10 +48,7 @@ values
       'ai-memory',
       'agent-memory',
       'agentic-memory',
-      'long-term-memory',
-      'persistent-memory',
-      'memory-management',
-      'short-term-memory'
+      'long-term-memory'
     ]::text[],
     4
   ),
@@ -82,8 +73,7 @@ values
       'ai-observability',
       'agent-observability',
       'llm-tracing',
-      'llm-monitoring',
-      'ai-monitoring'
+      'llm-monitoring'
     ]::text[],
     10
   ),
@@ -97,8 +87,6 @@ values
       'agent-evaluation',
       'rag-evaluation',
       'ai-evaluation',
-      'evaluation-framework',
-      'evals',
       'llm-benchmark'
     ]::text[],
     9
@@ -110,12 +98,9 @@ values
     array[
       'mcp',
       'model-context-protocol',
+      'modelcontextprotocol',
       'mcp-server',
-      'mcp-servers',
-      'mcp-client',
-      'mcp-sdk',
-      'mcp-tools',
-      'agent-tools'
+      'mcp-servers'
     ]::text[],
     5
   ),
@@ -126,16 +111,7 @@ values
     array[
       'agent-framework',
       'agentic-framework',
-      'agent-sdk',
-      'agent-orchestration',
-      'agent-runtime',
-      'langchain',
-      'langgraph',
-      'semantic-kernel',
-      'autogen',
-      'crewai',
-      'pydantic-ai',
-      'smolagents'
+      'agent-sdk'
     ]::text[],
     0
   ),
@@ -146,12 +122,7 @@ values
     array[
       'computer-use',
       'browser-use',
-      'browser-agent',
-      'browser-automation',
-      'web-agent',
-      'web-agents',
-      'gui-automation',
-      'desktop-automation'
+      'browser-agent'
     ]::text[],
     7
   ),
@@ -160,15 +131,12 @@ values
     'Guardrails',
     'Safety, validation, privacy, and security controls for LLM and agent applications.',
     array[
-      'llm-guardrails',
-      'ai-guardrails',
-      'guardrails-ai',
       'llm-safety',
-      'agent-safety',
-      'prompt-injection',
-      'content-safety',
       'llm-security',
-      'ai-security'
+      'llm-guardrails',
+      'ai-safety',
+      'ai-security',
+      'ai-guardrails'
     ]::text[],
     8
   ),
@@ -179,11 +147,7 @@ values
     array[
       'knowledge-graph',
       'knowledge-graphs',
-      'graph-database',
-      'graph-rag',
-      'graphrag',
-      'knowledge-representation',
-      'entity-resolution'
+      'graph-database'
     ]::text[],
     3
   )
