@@ -99,7 +99,7 @@ def render_readme_body(
 ) -> str:
     """Render the generated section of README.md."""
     lines = [
-        f"_Generated from snapshot `{format_snapshot_timestamp(catalog)}`._",
+        f"_🚀 Last updated from snapshot: `{format_snapshot_timestamp(catalog)}`._",
         "",
     ]
 
@@ -131,7 +131,7 @@ def render_section_file(
         "",
         section.description,
         "",
-        f"_Generated from snapshot `{format_snapshot_timestamp(catalog)}`._",
+        f"_🚀 Last updated from snapshot: `{format_snapshot_timestamp(catalog)}`._",
         "",
         render_section_table(rows),
         "",

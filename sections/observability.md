@@ -2,7 +2,7 @@
 
 Observability and evaluation tools for AI agents
 
-_Generated from snapshot `2026-07-31 00:00 UTC`._
+_🚀 Last updated from snapshot: `2026-07-31 00:00 UTC`._
 
 | Rank | Repository | Score | Stars | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |

@@ -1,5 +1,11 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%"/>
+  <a href="https://awesomeagent.vercel.app">
+    <img
+      src="assets/readme_banner.png"
+      alt="awesome-agent-oss banner"
+      width="100%"
+    />
+  </a>
 </p>
 
 <h1 align="center">awesome-agent-oss</h1>
@@ -8,8 +14,10 @@
   Discover curated open-source tools for building AI agents and track how they grow over time.
 </p>
 
+<br/>
+
 <!-- AWESOME_AGENT_OSS:START -->
-_Generated from snapshot `2026-07-31 00:00 UTC`._
+_🚀 Last updated from snapshot: `2026-07-31 00:00 UTC`._
 
 ## [RAG](./sections/rag.md)
 
