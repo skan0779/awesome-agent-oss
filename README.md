@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://awesomeagent.vercel.app">
     <img
-      src="assets/readme_banner.png"
+      src="./assets/banner.png"
       alt="awesome-agent-oss banner"
       width="100%"
     />
