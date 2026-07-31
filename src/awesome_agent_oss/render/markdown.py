@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -142,6 +143,16 @@ def render_section_file(
 
 def format_snapshot_timestamp(catalog: dict[str, Any]) -> str:
     """Return the snapshot timestamp shown in generated markdown."""
+    generated_at = catalog.get("generated_at")
+    if isinstance(generated_at, str) and generated_at:
+        try:
+            generated = datetime.fromisoformat(generated_at)
+            if generated.tzinfo is None:
+                generated = generated.replace(tzinfo=UTC)
+            return generated.astimezone(UTC).strftime("%Y-%m-%d %H:%M UTC")
+        except ValueError:
+            pass
+
     snapshot_date = catalog.get("snapshot_date")
     if isinstance(snapshot_date, str) and snapshot_date:
         return f"{snapshot_date} 00:00 UTC"
