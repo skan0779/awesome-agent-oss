@@ -7,6 +7,7 @@ import {
 
 type ManualCandidateBody = {
   repository?: unknown;
+  sections?: unknown;
 };
 
 type GitHubRepository = {
@@ -46,6 +47,7 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ManualCandidateBody;
     const repositoryInput = typeof body.repository === "string" ? body.repository : "";
+    const sections = normalizeSections(body.sections);
     const fullName = parseRepositoryFullName(repositoryInput);
     if (!fullName) {
       return Response.json(
@@ -53,6 +55,10 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
+    if (sections.length === 0) {
+      return Response.json({ error: "Select at least one suggested section." }, { status: 400 });
+    }
+    await validateSections(sections);
 
     const githubRepository = await fetchGitHubRepository(fullName);
     if (githubRepository.archived) {
@@ -64,10 +70,9 @@ export async function POST(request: Request) {
 
     const now = new Date().toISOString();
     const { repository, created } = await ensurePendingRepository(githubRepository, now);
-    if (created) {
-      await upsertDiscoveryCandidate(repository.id, now);
-    }
-    await insertDiscoveryEvent(repository.id, githubRepository, now);
+    await upsertSuggestedSections(repository, sections, now);
+    await upsertDiscoveryCandidate(repository.id, sections, now, created);
+    await insertDiscoveryEvent(repository.id, githubRepository, sections, now);
 
     return Response.json({
       ok: true,
@@ -78,9 +83,14 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to add repository.";
-    const status = message.includes("already accepted") || message.includes("already rejected")
+    const status = message.includes("already accepted") ||
+      message.includes("already rejected") ||
+      message.includes("already has a decision") ||
+      message.includes("already pending")
       ? 409
-      : 500;
+      : message.includes("Unknown sections")
+        ? 400
+        : 500;
     return Response.json({ error: message }, { status });
   }
 }
@@ -189,7 +199,24 @@ async function ensurePendingRepository(
   return { repository: stored, created: true };
 }
 
-async function upsertDiscoveryCandidate(repositoryId: number, now: string) {
+async function upsertDiscoveryCandidate(
+  repositoryId: number,
+  sections: string[],
+  now: string,
+  created: boolean,
+) {
+  let suggestedSections = sections;
+  if (!created) {
+    const rows = await supabaseRequest<Array<{ suggested_sections: string[] }>>(
+      restPath("discovery_candidates", {
+        select: "suggested_sections",
+        repository_id: `eq.${repositoryId}`,
+        limit: "1",
+      }),
+    );
+    suggestedSections = Array.from(new Set([...(rows[0]?.suggested_sections || []), ...sections]));
+  }
+
   await supabaseRequest(
     restPath("discovery_candidates", {
       on_conflict: "repository_id",
@@ -203,7 +230,7 @@ async function upsertDiscoveryCandidate(repositoryId: number, now: string) {
           status: "pending",
           source: "manual",
           query: null,
-          suggested_sections: [],
+          suggested_sections: suggestedSections,
           matched_topics: [],
           discovered_at: now,
           decided_at: null,
@@ -217,6 +244,7 @@ async function upsertDiscoveryCandidate(repositoryId: number, now: string) {
 async function insertDiscoveryEvent(
   repositoryId: number,
   githubRepository: GitHubRepository,
+  sections: string[],
   now: string,
 ) {
   await supabaseRequest("/rest/v1/curation_events", {
@@ -227,7 +255,7 @@ async function insertDiscoveryEvent(
         repository_id: repositoryId,
         action: "discovered",
         next_repository_status: "pending",
-        sections: [],
+        sections,
         metadata: {
           source: "manual",
           stars: githubRepository.stargazers_count,
@@ -241,4 +269,80 @@ async function insertDiscoveryEvent(
       },
     ]),
   });
+}
+
+async function validateSections(sectionIds: string[]) {
+  const rows = await supabaseRequest<Array<{ id: string }>>(
+    restPath("sections", {
+      select: "id",
+      id: `in.(${sectionIds.join(",")})`,
+      limit: "10000",
+    }),
+  );
+  const valid = new Set(rows.map((row) => row.id));
+  const invalid = sectionIds.filter((section) => !valid.has(section));
+  if (invalid.length > 0) {
+    throw new Error(`Unknown sections: ${invalid.join(", ")}`);
+  }
+}
+
+async function upsertSuggestedSections(
+  repository: StoredRepositoryRow,
+  sections: string[],
+  now: string,
+) {
+  const existingRows = await supabaseRequest<
+    Array<{ section_id: string; status: "suggested" | "accepted" | "rejected" }>
+  >(
+    restPath("repository_sections", {
+      select: "section_id,status",
+      repository_id: `eq.${repository.id}`,
+      section_id: `in.(${sections.join(",")})`,
+      limit: "10000",
+    }),
+  );
+  const existingBySection = new Map(existingRows.map((row) => [row.section_id, row.status]));
+  const decided = sections.filter((section) => {
+    const status = existingBySection.get(section);
+    return status === "accepted" || status === "rejected";
+  });
+  if (decided.length > 0) {
+    throw new Error(
+      `${repository.full_name} already has a decision for: ${decided.join(", ")}.`,
+    );
+  }
+
+  const newSections = sections.filter((section) => !existingBySection.has(section));
+  if (newSections.length === 0) {
+    throw new Error(`${repository.full_name} is already pending in the selected sections.`);
+  }
+
+  await supabaseRequest(
+    restPath("repository_sections", { on_conflict: "repository_id,section_id" }),
+    {
+      method: "POST",
+      headers: { Prefer: "resolution=merge-duplicates,return=representation" },
+      body: JSON.stringify(
+        newSections.map((sectionId) => ({
+          repository_id: repository.id,
+          section_id: sectionId,
+          status: "suggested",
+          suggested_at: now,
+        })),
+      ),
+    },
+  );
+}
+
+function normalizeSections(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return Array.from(
+    new Set(
+      value
+        .map((section) => (typeof section === "string" ? section.trim() : ""))
+        .filter(Boolean),
+    ),
+  );
 }

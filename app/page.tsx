@@ -1,649 +1,554 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  GitFork,
+  LoaderCircle,
+  Radar,
+  Search,
+  Star,
+  TrendingUp,
+} from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
-type Section = {
+type CatalogSection = {
   id: string;
   name: string;
-  topics: string[];
+  description: string | null;
   sort_order: number;
 };
 
-type Candidate = {
+type CatalogRepository = {
   id: number;
-  repositoryId: number;
   fullName: string;
-  htmlUrl: string | null;
-  repositoryStatus: string;
-  source: string;
-  query: string | null;
-  suggestedSections: string[];
-  matchedTopics: string[];
-  discoveredAt: string;
-  metadata: {
-    stars?: number;
-    forks?: number;
-    topics?: string[];
-    description?: string | null;
-    pushed_at?: string | null;
-  };
+  owner: string;
+  name: string;
+  sections: string[];
+  htmlUrl: string;
+  description: string | null;
+  topics: string[];
+  stars: number;
+  forks: number;
+  openIssues: number;
+  stars7d: number;
+  stars30d: number;
+  stars60d: number;
+  forks7d: number;
+  forks30d: number;
+  forks60d: number;
+  score: number;
+  license: string;
+  language: string | null;
+  pushedAt: string | null;
+  latestReleaseTag: string | null;
+  latestReleasePublishedAt: string | null;
 };
 
-type CandidatesResponse = {
-  candidates: Candidate[];
-  sections: Section[];
-  pagination: {
-    page: number;
-    perPage: number;
-    pendingCount: number;
-    totalCount: number;
-    totalPages: number;
-  };
+type CatalogResponse = {
+  repositories: CatalogRepository[];
+  sections: CatalogSection[];
+  snapshotDate: string | null;
+  error?: string;
 };
 
-const TOKEN_STORAGE_KEY = "awesome-agent-oss-curation-token";
-const COLLAPSED_TOPIC_LIMIT = 8;
-const CANDIDATES_PER_PAGE = 10;
+type TrendMode = "stars" | "forks";
 
-export default function CurationPage() {
-  const [token, setToken] = useState("");
-  const [candidates, setCandidates] = useState<Candidate[]>([]);
-  const [sections, setSections] = useState<Section[]>([]);
-  const [selectedSections, setSelectedSections] = useState<Record<number, string[]>>({});
-  const [reasons, setReasons] = useState<Record<number, string>>({});
-  const [expandedTopics, setExpandedTopics] = useState<Record<number, boolean>>({});
-  const [busyRepositoryId, setBusyRepositoryId] = useState<number | null>(null);
+type TrendPoint = {
+  date: string;
+  stars: number | null;
+  forks: number | null;
+};
+
+type TrendResponse = {
+  points: TrendPoint[];
+  error?: string;
+};
+
+const PAGE_SIZE = 12;
+
+export default function CatalogPage() {
+  const [repositories, setRepositories] = useState<CatalogRepository[]>([]);
+  const [sections, setSections] = useState<CatalogSection[]>([]);
+  const [snapshotDate, setSnapshotDate] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState("all");
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("score");
   const [page, setPage] = useState(1);
-  const [totalPendingCount, setTotalPendingCount] = useState(0);
-  const [filteredCount, setFilteredCount] = useState(0);
-  const [totalPages, setTotalPages] = useState(1);
-  const [sectionFilter, setSectionFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortMode, setSortMode] = useState("discovered_desc");
-  const [manualRepository, setManualRepository] = useState("");
-  const [addingRepository, setAddingRepository] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedToken = window.localStorage.getItem(TOKEN_STORAGE_KEY) || "";
-    setToken(storedToken);
-    void loadCandidates(storedToken, 1);
+    async function loadCatalog() {
+      try {
+        const response = await fetch("/api/catalog");
+        const payload = (await response.json()) as CatalogResponse;
+        if (!response.ok) {
+          throw new Error(payload.error || "Failed to load the catalog.");
+        }
+        setRepositories(payload.repositories);
+        setSections(payload.sections);
+        setSnapshotDate(payload.snapshotDate);
+      } catch (loadError) {
+        setError(loadError instanceof Error ? loadError.message : "Failed to load the catalog.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    void loadCatalog();
   }, []);
 
-  const sectionById = useMemo(() => {
-    return new Map(sections.map((section) => [section.id, section]));
-  }, [sections]);
+  const sectionById = useMemo(
+    () => new Map(sections.map((section) => [section.id, section])),
+    [sections],
+  );
 
-  async function loadCandidates(nextToken = token, nextPage = page) {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const params = new URLSearchParams({
-        page: String(nextPage),
-        perPage: String(CANDIDATES_PER_PAGE),
-        section: sectionFilter,
-        search: searchQuery,
-        sort: sortMode,
-      });
-      const response = await fetch(`/api/candidates?${params.toString()}`, {
-        headers: curationHeaders(nextToken),
-      });
-      const payload = (await response.json()) as CandidatesResponse & { error?: string };
-      if (!response.ok) {
-        throw new Error(payload.error || "Failed to load candidates.");
+  const filteredRepositories = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    const filtered = repositories.filter((repository) => {
+      if (activeSection !== "all" && !repository.sections.includes(activeSection)) {
+        return false;
       }
-
-      if (
-        payload.candidates.length === 0 &&
-        payload.pagination.totalCount > 0 &&
-        nextPage > payload.pagination.totalPages
-      ) {
-        await loadCandidates(nextToken, payload.pagination.totalPages);
-        return;
+      if (!query) {
+        return true;
       }
-
-      setCandidates(payload.candidates);
-      setSections(payload.sections);
-      setPage(payload.pagination.page);
-      setTotalPendingCount(payload.pagination.pendingCount);
-      setFilteredCount(payload.pagination.totalCount);
-      setTotalPages(payload.pagination.totalPages);
-      setSelectedSections((current) => {
-        const next = { ...current };
-        for (const candidate of payload.candidates) {
-          if (!next[candidate.repositoryId]) {
-            next[candidate.repositoryId] = candidate.suggestedSections;
-          }
-        }
-        return next;
-      });
-    } catch (loadError) {
-      setError(loadError instanceof Error ? loadError.message : "Failed to load candidates.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function saveToken(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    window.localStorage.setItem(TOKEN_STORAGE_KEY, token);
-    void loadCandidates(token, 1);
-  }
-
-  async function appendRepository(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const repository = manualRepository.trim();
-    if (!repository) {
-      setError("Enter a GitHub URL or owner/repo value.");
-      return;
-    }
-
-    setAddingRepository(true);
-    setError(null);
-    try {
-      const response = await fetch("/api/candidates/manual", {
-        method: "POST",
-        headers: {
-          ...curationHeaders(token),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ repository }),
-      });
-      const payload = (await response.json()) as { error?: string };
-      if (!response.ok) {
-        throw new Error(payload.error || "Failed to append repository.");
-      }
-
-      setManualRepository("");
-      await loadCandidates(token, 1);
-    } catch (appendError) {
-      setError(
-        appendError instanceof Error ? appendError.message : "Failed to append repository.",
-      );
-    } finally {
-      setAddingRepository(false);
-    }
-  }
-
-  function applyFilters(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    void loadCandidates(token, 1);
-  }
-
-  function resetFilters() {
-    setSectionFilter("all");
-    setSearchQuery("");
-    setSortMode("discovered_desc");
-    void loadCandidatesWithFilters({
-      section: "all",
-      search: "",
-      sort: "discovered_desc",
-      page: 1,
+      return [
+        repository.fullName,
+        repository.description,
+        repository.language,
+        ...repository.topics,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(query);
     });
-  }
-
-  function updateSectionFilter(section: string) {
-    setSectionFilter(section);
-    void loadCandidatesWithFilters({ section, search: searchQuery, sort: sortMode, page: 1 });
-  }
-
-  function updateSortMode(sort: string) {
-    setSortMode(sort);
-    void loadCandidatesWithFilters({ section: sectionFilter, search: searchQuery, sort, page: 1 });
-  }
-
-  async function loadCandidatesWithFilters({
-    section,
-    search,
-    sort,
-    page: nextPage,
-  }: {
-    section: string;
-    search: string;
-    sort: string;
-    page: number;
-  }) {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const params = new URLSearchParams({
-        page: String(nextPage),
-        perPage: String(CANDIDATES_PER_PAGE),
-        section,
-        search,
-        sort,
-      });
-      const response = await fetch(`/api/candidates?${params.toString()}`, {
-        headers: curationHeaders(token),
-      });
-      const payload = (await response.json()) as CandidatesResponse & { error?: string };
-      if (!response.ok) {
-        throw new Error(payload.error || "Failed to load candidates.");
-      }
-
-      setCandidates(payload.candidates);
-      setSections(payload.sections);
-      setPage(payload.pagination.page);
-      setTotalPendingCount(payload.pagination.pendingCount);
-      setFilteredCount(payload.pagination.totalCount);
-      setTotalPages(payload.pagination.totalPages);
-      setSelectedSections((current) => {
-        const next = { ...current };
-        for (const candidate of payload.candidates) {
-          if (!next[candidate.repositoryId]) {
-            next[candidate.repositoryId] = candidate.suggestedSections;
-          }
-        }
-        return next;
-      });
-    } catch (loadError) {
-      setError(loadError instanceof Error ? loadError.message : "Failed to load candidates.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function goToPage(nextPage: number) {
-    if (nextPage < 1 || nextPage > totalPages || nextPage === page) {
-      return;
-    }
-
-    void loadCandidates(token, nextPage);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  function toggleSection(repositoryId: number, sectionId: string) {
-    setSelectedSections((current) => {
-      const values = current[repositoryId] || [];
-      const exists = values.includes(sectionId);
-      return {
-        ...current,
-        [repositoryId]: exists
-          ? values.filter((value) => value !== sectionId)
-          : [...values, sectionId],
-      };
+    return filtered.sort((left, right) => {
+      if (sort === "stars") return right.stars - left.stars;
+      if (sort === "growth") return right.stars7d - left.stars7d || right.stars - left.stars;
+      if (sort === "updated") return dateValue(right.pushedAt) - dateValue(left.pushedAt);
+      if (sort === "name") return left.fullName.localeCompare(right.fullName);
+      return right.score - left.score || right.stars - left.stars;
     });
-  }
+  }, [activeSection, repositories, search, sort]);
 
-  function toggleTopics(repositoryId: number) {
-    setExpandedTopics((current) => ({
-      ...current,
-      [repositoryId]: !current[repositoryId],
-    }));
-  }
+  const totalPages = Math.max(1, Math.ceil(filteredRepositories.length / PAGE_SIZE));
+  const normalizedPage = Math.min(page, totalPages);
+  const visibleRepositories = filteredRepositories.slice(
+    (normalizedPage - 1) * PAGE_SIZE,
+    normalizedPage * PAGE_SIZE,
+  );
 
-  async function acceptCandidate(candidate: Candidate) {
-    const sectionsForRepo = selectedSections[candidate.repositoryId] || [];
-    if (sectionsForRepo.length === 0) {
-      setError("Select at least one section before accepting.");
-      return;
-    }
-
-    await curate("/api/curate/accept", {
-      repositoryId: candidate.repositoryId,
-      sections: sectionsForRepo,
-    });
-  }
-
-  async function rejectCandidate(candidate: Candidate) {
-    await curate("/api/curate/reject", {
-      repositoryId: candidate.repositoryId,
-      reason: reasons[candidate.repositoryId] || "",
-    });
-  }
-
-  async function curate(path: string, body: Record<string, unknown>) {
-    const repositoryId = Number(body.repositoryId);
-    setBusyRepositoryId(repositoryId);
-    setError(null);
-
-    try {
-      const response = await fetch(path, {
-        method: "POST",
-        headers: {
-          ...curationHeaders(token),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-      const payload = (await response.json()) as { error?: string };
-      if (!response.ok) {
-        throw new Error(payload.error || "Curation request failed.");
-      }
-
-      await loadCandidates(token, page);
-    } catch (curationError) {
-      setError(
-        curationError instanceof Error ? curationError.message : "Curation request failed.",
-      );
-    } finally {
-      setBusyRepositoryId(null);
-    }
+  function selectSection(section: string) {
+    setActiveSection(section);
+    setPage(1);
   }
 
   return (
-    <main className="shell">
-      <header className="masthead">
-        <div>
-          <p className="eyebrow">awesome-agent-oss</p>
-          <h1>Curation</h1>
-        </div>
-        <div className="counter">
-          <span>{totalPendingCount}</span>
-          <small>pending</small>
-        </div>
+    <div className="catalogPage">
+      <header className="siteHeader">
+        <a className="brand" href="/" aria-label="awesome-agent-oss home">
+          <span className="brandMark"><Radar size={19} strokeWidth={2.2} /></span>
+          <span>awesome-agent-oss</span>
+        </a>
+        <nav className="siteNav" aria-label="Primary navigation">
+          <a className="navLink active" href="/">Explore</a>
+          <a className="navLink" href="/admin">Admin</a>
+          <a
+            className="iconLink"
+            href="https://github.com/skan0779/awesome-agent-oss"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View source on GitHub"
+            title="View source on GitHub"
+          >
+            <img
+              className="githubMark"
+              src="https://github.githubassets.com/favicons/favicon.svg"
+              alt=""
+              width="20"
+              height="20"
+            />
+          </a>
+        </nav>
       </header>
 
-      <form className="toolbar" onSubmit={saveToken}>
-        <input
-          aria-label="Admin token"
-          autoComplete="off"
-          inputMode="text"
-          placeholder="Admin token"
-          type="password"
-          value={token}
-          onChange={(event) => setToken(event.target.value)}
-        />
-        <button type="submit">Refresh</button>
-      </form>
-
-      <form className="appendPanel" onSubmit={appendRepository}>
-        <div className="filterField appendField">
-          <label htmlFor="manual-repository">Append</label>
-          <input
-            id="manual-repository"
-            placeholder="GitHub URL or owner/repo"
-            type="text"
-            value={manualRepository}
-            onChange={(event) => setManualRepository(event.target.value)}
-          />
-        </div>
-        <button className="appendButton" disabled={addingRepository} type="submit">
-          {addingRepository ? "Adding" : "Add pending"}
-        </button>
-      </form>
-
-      <form className="filters" onSubmit={applyFilters}>
-        <div className="filterField searchField">
-          <label htmlFor="repo-search">Search</label>
-          <input
-            id="repo-search"
-            placeholder="Repository, topic, description"
-            type="search"
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-          />
-        </div>
-        <div className="filterField">
-          <label htmlFor="section-filter">Section</label>
-          <select
-            id="section-filter"
-            value={sectionFilter}
-            onChange={(event) => updateSectionFilter(event.target.value)}
-          >
-            <option value="all">All sections</option>
-            {sections.map((section) => (
-              <option key={section.id} value={section.id}>
-                {section.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="filterField">
-          <label htmlFor="sort-mode">Sort</label>
-          <select
-            id="sort-mode"
-            value={sortMode}
-            onChange={(event) => updateSortMode(event.target.value)}
-          >
-            <option value="discovered_desc">Recently discovered</option>
-            <option value="stars_desc">Most stars</option>
-            <option value="forks_desc">Most forks</option>
-            <option value="pushed_desc">Recently pushed</option>
-            <option value="name_asc">Repository name</option>
-          </select>
-        </div>
-        <div className="filterActions">
-          <button className="filterButton" type="submit">
-            Search
-          </button>
-          <button className="resetButton" type="button" onClick={resetFilters}>
-            Reset
-          </button>
-        </div>
-      </form>
-
-      {error ? <div className="notice">{error}</div> : null}
-
-      {loading ? (
-        <div className="empty">Loading pending repositories.</div>
-      ) : candidates.length === 0 ? (
-        <div className="empty">
-          {totalPendingCount === 0
-            ? "No pending repositories."
-            : "No repositories match the current filters."}
-        </div>
-      ) : (
-        <>
-          <div className="pageSummary">
-            Page {page} of {totalPages} - {filteredCount} matching
+      <main className="catalogShell">
+        <section className="catalogIntro">
+          <div className="introCopy">
+            <p className="kicker"><TrendingUp size={14} /> Open-source agent radar</p>
+            <h1>
+              Find the <span>open-source stacks</span> you need to build AI agents.
+            </h1>
           </div>
-          <section className="candidateGrid" aria-label="Pending repositories">
-            {candidates.map((candidate) => {
-              const selected = selectedSections[candidate.repositoryId] || [];
-              const topics = candidate.metadata.topics?.length
-                ? candidate.metadata.topics
-                : candidate.matchedTopics;
-              const topicsExpanded = expandedTopics[candidate.repositoryId] === true;
-              const visibleTopics = topicsExpanded
-                ? topics
-                : topics.slice(0, COLLAPSED_TOPIC_LIMIT);
-              const hiddenTopicCount = Math.max(0, topics.length - COLLAPSED_TOPIC_LIMIT);
-              const isBusy = busyRepositoryId === candidate.repositoryId;
+          <div className="catalogStats" aria-label="Catalog summary">
+            <SummaryStat value={formatNumber(repositories.length)} label="repositories" />
+            <SummaryStat value={formatNumber(sections.length)} label="sections" />
+            <SummaryStat value={formatSnapshot(snapshotDate)} label="snapshot" compact />
+          </div>
+        </section>
 
-              return (
-                <article className="candidateCard" key={candidate.repositoryId}>
-                  <div className="cardHeader">
-                    <div>
-                      <a
-                        className="repoName"
-                        href={candidate.htmlUrl || "#"}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        {candidate.fullName}
-                      </a>
-                      <p className="description">
-                        {candidate.metadata.description || "No description captured."}
-                      </p>
-                    </div>
-                  </div>
+        <section className="exploreSection" aria-labelledby="catalog-heading">
+          <div className="sectionHeading">
+            <div>
+              <p className="eyebrow">Live catalog</p>
+              <h2 id="catalog-heading">Explore repositories</h2>
+            </div>
+            <span className="resultCount">{filteredRepositories.length} results</span>
+          </div>
 
-                  <div className="stats">
-                    <Metric label="Stars" value={formatNumber(candidate.metadata.stars)} />
-                    <Metric label="Forks" value={formatNumber(candidate.metadata.forks)} />
-                    <Metric label="Found" value={formatDate(candidate.discoveredAt)} />
-                  </div>
+          <div className="sectionTabs" role="tablist" aria-label="Repository sections">
+            <button
+              className={activeSection === "all" ? "sectionTab active" : "sectionTab"}
+              type="button"
+              role="tab"
+              aria-selected={activeSection === "all"}
+              onClick={() => selectSection("all")}
+            >
+              All
+            </button>
+            {sections.map((section) => (
+              <button
+                className={activeSection === section.id ? "sectionTab active" : "sectionTab"}
+                key={section.id}
+                type="button"
+                role="tab"
+                aria-selected={activeSection === section.id}
+                onClick={() => selectSection(section.id)}
+              >
+                {section.name}
+              </button>
+            ))}
+          </div>
 
-                  <div className="pills" aria-label="Topics">
-                    {visibleTopics.map((topic) => (
-                      <span className="pill" key={topic}>
-                        {topic}
-                      </span>
-                    ))}
-                    {hiddenTopicCount > 0 ? (
-                      <button
-                        className="pillToggle"
-                        type="button"
-                        onClick={() => toggleTopics(candidate.repositoryId)}
-                      >
-                        {topicsExpanded ? "Show less" : `+${hiddenTopicCount} more`}
-                      </button>
-                    ) : null}
-                  </div>
+          <div className="catalogControls">
+            <label className="searchControl">
+              <Search size={18} aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Search repositories, topics, language..."
+                value={search}
+                onChange={(event) => {
+                  setSearch(event.target.value);
+                  setPage(1);
+                }}
+              />
+            </label>
+            <label className="sortControl">
+              <span>Sort by</span>
+              <select
+                value={sort}
+                onChange={(event) => {
+                  setSort(event.target.value);
+                  setPage(1);
+                }}
+              >
+                <option value="score">Radar score</option>
+                <option value="growth">7-day growth</option>
+                <option value="stars">Most stars</option>
+                <option value="updated">Recently updated</option>
+                <option value="name">Repository name</option>
+              </select>
+            </label>
+          </div>
 
-                  <fieldset className="sectionPicker">
-                    <legend>Sections</legend>
-                    <div className="sectionOptions">
-                      {sections.map((section) => (
-                        <label className="sectionOption" key={section.id}>
-                          <input
-                            checked={selected.includes(section.id)}
-                            type="checkbox"
-                            onChange={() => toggleSection(candidate.repositoryId, section.id)}
-                          />
-                          <span>{sectionById.get(section.id)?.name || section.id}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
+          {error ? <div className="statePanel errorState">{error}</div> : null}
+          {loading ? (
+            <div className="repositoryGrid" aria-label="Loading repositories">
+              {Array.from({ length: 6 }, (_, index) => <div className="repoCard skeleton" key={index} />)}
+            </div>
+          ) : visibleRepositories.length === 0 ? (
+            <div className="statePanel">
+              <BookOpen size={22} />
+              <strong>No repositories found</strong>
+              <span>Try another section or search term.</span>
+            </div>
+          ) : (
+            <div className="repositoryGrid">
+              {visibleRepositories.map((repository, index) => (
+                <RepositoryCard
+                  key={repository.id}
+                  repository={repository}
+                  rank={(normalizedPage - 1) * PAGE_SIZE + index + 1}
+                  sectionById={sectionById}
+                />
+              ))}
+            </div>
+          )}
 
-                  <input
-                    className="reasonInput"
-                    placeholder="Reject reason"
-                    value={reasons[candidate.repositoryId] || ""}
-                    onChange={(event) =>
-                      setReasons((current) => ({
-                        ...current,
-                        [candidate.repositoryId]: event.target.value,
-                      }))
-                    }
-                  />
+          {!loading && totalPages > 1 ? (
+            <nav className="catalogPagination" aria-label="Catalog pagination">
+              <button disabled={normalizedPage === 1} onClick={() => setPage(normalizedPage - 1)}>
+                Previous
+              </button>
+              <span>{normalizedPage} / {totalPages}</span>
+              <button disabled={normalizedPage === totalPages} onClick={() => setPage(normalizedPage + 1)}>
+                Next
+              </button>
+            </nav>
+          ) : null}
+        </section>
+      </main>
 
-                  <div className="actions">
-                    <button
-                      className="rejectButton"
-                      disabled={isBusy}
-                      type="button"
-                      onClick={() => void rejectCandidate(candidate)}
-                    >
-                      Reject
-                    </button>
-                    <button
-                      className="acceptButton"
-                      disabled={isBusy}
-                      type="button"
-                      onClick={() => void acceptCandidate(candidate)}
-                    >
-                      Accept
-                    </button>
-                  </div>
-                </article>
-              );
-            })}
-          </section>
-          <Pagination
-            currentPage={page}
-            totalPages={totalPages}
-            onPageChange={goToPage}
-          />
-        </>
-      )}
-    </main>
-  );
-}
-
-function Pagination({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}) {
-  const items = paginationItems(currentPage, totalPages);
-
-  return (
-    <nav className="pagination" aria-label="Pending repositories pagination">
-      <button
-        className="pageButton"
-        disabled={currentPage <= 1}
-        type="button"
-        onClick={() => onPageChange(currentPage - 1)}
-      >
-        Prev
-      </button>
-      {items.map((item, index) =>
-        item === "ellipsis" ? (
-          <span className="pageEllipsis" key={`ellipsis-${index}`}>
-            ...
-          </span>
-        ) : (
-          <button
-            aria-current={item === currentPage ? "page" : undefined}
-            className="pageButton"
-            key={item}
-            type="button"
-            onClick={() => onPageChange(item)}
-          >
-            {item}
-          </button>
-        ),
-      )}
-      <button
-        className="pageButton"
-        disabled={currentPage >= totalPages}
-        type="button"
-        onClick={() => onPageChange(currentPage + 1)}
-      >
-        Next
-      </button>
-    </nav>
-  );
-}
-
-function paginationItems(currentPage: number, totalPages: number) {
-  const pages = new Set<number>([1, totalPages]);
-  for (let pageNumber = currentPage - 1; pageNumber <= currentPage + 1; pageNumber += 1) {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      pages.add(pageNumber);
-    }
-  }
-
-  const sortedPages = Array.from(pages).sort((a, b) => a - b);
-  const items: Array<number | "ellipsis"> = [];
-  for (const pageNumber of sortedPages) {
-    const previous = items.at(-1);
-    if (typeof previous === "number" && pageNumber - previous > 1) {
-      items.push("ellipsis");
-    }
-    items.push(pageNumber);
-  }
-
-  return items;
-}
-
-function Metric({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="metric">
-      <span>{value}</span>
-      <small>{label}</small>
+      <footer className="siteFooter">
+        <span>Open-source intelligence for agent builders.</span>
+        <span>Updated daily from GitHub.</span>
+      </footer>
     </div>
   );
 }
 
-function curationHeaders(token: string): HeadersInit {
-  return token ? { "x-curation-token": token } : {};
+function RepositoryCard({
+  repository,
+  rank,
+  sectionById,
+}: {
+  repository: CatalogRepository;
+  rank: number;
+  sectionById: Map<string, CatalogSection>;
+}) {
+  const [trendMode, setTrendMode] = useState<TrendMode | null>(null);
+  const [trendPoints, setTrendPoints] = useState<TrendPoint[] | null>(null);
+  const [trendLoading, setTrendLoading] = useState(false);
+  const [trendError, setTrendError] = useState<string | null>(null);
+
+  async function toggleTrend(mode: TrendMode) {
+    if (trendMode === mode) {
+      setTrendMode(null);
+      return;
+    }
+    setTrendMode(mode);
+    if (trendPoints) {
+      return;
+    }
+
+    setTrendLoading(true);
+    setTrendError(null);
+    try {
+      const response = await fetch(`/api/repositories/${repository.id}/trend`);
+      const payload = (await response.json()) as TrendResponse;
+      if (!response.ok) {
+        throw new Error(payload.error || "Failed to load trend data.");
+      }
+      setTrendPoints(payload.points);
+    } catch (loadError) {
+      setTrendError(loadError instanceof Error ? loadError.message : "Failed to load trend data.");
+    } finally {
+      setTrendLoading(false);
+    }
+  }
+
+  return (
+    <article className="repoCard">
+      <div className="repoCardTop">
+        <span className="rank">#{rank}</span>
+        <div className="repoIdentity">
+          <img
+            className="ownerAvatar"
+            src={`https://github.com/${repository.owner}.png?size=80`}
+            alt=""
+            width="40"
+            height="40"
+            loading="lazy"
+          />
+          <div>
+            <span className="ownerName">{repository.owner}</span>
+            <a href={repository.htmlUrl} target="_blank" rel="noreferrer">
+              {repository.name}<ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p className="repoDescription">{repository.description || "No description available."}</p>
+
+      <div className="repoSections">
+        {repository.sections.map((section) => (
+          <span key={section}>{sectionById.get(section)?.name || section}</span>
+        ))}
+      </div>
+
+      <div className="repoDataBlock">
+        <div className="repoMetrics">
+          <div><Star size={15} /><strong>{formatNumber(repository.stars)}</strong><span>stars</span></div>
+          <div><TrendingUp size={15} /><strong>{formatDelta(repository.stars7d)}</strong><span>7 days</span></div>
+          <div><GitFork size={15} /><strong>{formatNumber(repository.forks)}</strong><span>forks</span></div>
+        </div>
+
+        <div className="trendControls" aria-label={`${repository.fullName} trend details`}>
+          <button
+            className={trendMode === "stars" ? "active" : ""}
+            type="button"
+            aria-expanded={trendMode === "stars"}
+            onClick={() => void toggleTrend("stars")}
+          >
+            <Star size={13} aria-hidden="true" />
+            <span>Stars trend</span>
+            <TrendingUp size={13} aria-hidden="true" />
+          </button>
+          <button
+            className={trendMode === "forks" ? "active" : ""}
+            type="button"
+            aria-expanded={trendMode === "forks"}
+            onClick={() => void toggleTrend("forks")}
+          >
+            <GitFork size={13} aria-hidden="true" />
+            <span>Forks trend</span>
+            <TrendingUp size={13} aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+
+      {trendMode ? (
+        <TrendChart
+          mode={trendMode}
+          points={trendPoints || []}
+          loading={trendLoading}
+          error={trendError}
+        />
+      ) : null}
+
+      <div className="repoFooter">
+        <div className="repoMeta">
+          {repository.language ? <span><i className="languageDot" />{repository.language}</span> : null}
+          <span>{repository.license}</span>
+        </div>
+        <span className="scoreBadge">Score {formatNumber(repository.score)}</span>
+      </div>
+    </article>
+  );
 }
 
-function formatNumber(value: number | undefined) {
-  if (typeof value !== "number") {
-    return "-";
-  }
-  return new Intl.NumberFormat("en", { notation: "compact" }).format(value);
+function TrendChart({
+  mode,
+  points,
+  loading,
+  error,
+}: {
+  mode: TrendMode;
+  points: TrendPoint[];
+  loading: boolean;
+  error: string | null;
+}) {
+  const label = mode === "stars" ? "Stars" : "Forks";
+  const values = points
+    .map((point) => point[mode])
+    .filter((value): value is number => typeof value === "number");
+  const minimum = values.length ? Math.min(...values) : 0;
+  const maximum = values.length ? Math.max(...values) : 0;
+  const padding = Math.max(1, Math.ceil((maximum - minimum) * 0.15));
+  const domain: [number, number] = [Math.max(0, minimum - padding), maximum + padding];
+
+  return (
+    <div className="trendPanel">
+      <div className="trendHeader">
+        <div>
+          <strong>{label} over time</strong>
+          <span>Recorded from daily snapshots</span>
+        </div>
+        <span>30 days</span>
+      </div>
+      {loading ? (
+        <div className="trendState"><LoaderCircle className="spin" size={20} /> Loading trend</div>
+      ) : error ? (
+        <div className="trendState error">{error}</div>
+      ) : points.length === 0 ? (
+        <div className="trendState">Not enough snapshot data yet.</div>
+      ) : (
+        <div className="trendChart" role="img" aria-label={`${label} count for the last 30 days`}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={points} margin={{ top: 8, right: 6, bottom: 0, left: -12 }}>
+              <CartesianGrid stroke="#e4e7e2" strokeDasharray="3 3" vertical={false} />
+              <XAxis
+                dataKey="date"
+                axisLine={false}
+                tickLine={false}
+                minTickGap={24}
+                tick={{ fill: "#7b847f", fontSize: 10 }}
+                tickFormatter={formatChartDate}
+              />
+              <YAxis
+                allowDecimals={false}
+                axisLine={false}
+                domain={domain}
+                tickLine={false}
+                tick={{ fill: "#7b847f", fontSize: 10 }}
+                tickFormatter={(value) => formatNumber(Number(value))}
+              />
+              <Tooltip
+                cursor={{ stroke: "#aeb6af", strokeDasharray: "3 3" }}
+                contentStyle={{
+                  border: "1px solid #d9ddd8",
+                  borderRadius: 7,
+                  boxShadow: "0 10px 28px rgba(22, 32, 28, 0.1)",
+                  fontSize: 12,
+                }}
+                labelFormatter={(value) => formatChartTooltipDate(String(value))}
+                formatter={(value) => [formatNumber(Number(value)), label]}
+              />
+              <Line
+                type="monotone"
+                dataKey={mode}
+                stroke={mode === "stars" ? "#16764a" : "#b96a16"}
+                strokeWidth={2}
+                dot={false}
+                activeDot={{ r: 4, strokeWidth: 0 }}
+                connectNulls={false}
+                isAnimationActive={false}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      )}
+    </div>
+  );
 }
 
-function formatDate(value: string) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return "-";
-  }
-  return new Intl.DateTimeFormat("en", {
-    month: "short",
-    day: "numeric",
-  }).format(date);
+function SummaryStat({ value, label, compact = false }: { value: string; label: string; compact?: boolean }) {
+  return (
+    <div className={compact ? "summaryStat compact" : "summaryStat"}>
+      <strong>{value}</strong>
+      <span>{label}</span>
+    </div>
+  );
+}
+
+function formatNumber(value: number) {
+  return new Intl.NumberFormat("en", { notation: value >= 10000 ? "compact" : "standard", maximumFractionDigits: 1 }).format(value);
+}
+
+function formatDelta(value: number) {
+  return value > 0 ? `+${formatNumber(value)}` : "0";
+}
+
+function formatChartDate(value: string) {
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return value;
+  return `${date.getUTCMonth() + 1}/${date.getUTCDate()}`;
+}
+
+function formatChartTooltipDate(value: string) {
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(date);
+}
+
+function formatSnapshot(value: string | null) {
+  if (!value) return "-";
+  return new Intl.DateTimeFormat("en", { month: "short", day: "numeric" }).format(new Date(`${value}T00:00:00Z`));
+}
+
+function dateValue(value: string | null) {
+  if (!value) return 0;
+  const parsed = new Date(value).getTime();
+  return Number.isNaN(parsed) ? 0 : parsed;
 }

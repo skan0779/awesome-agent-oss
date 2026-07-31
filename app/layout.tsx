@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "awesome-agent-oss curation",
-  description: "Curation console for awesome-agent-oss pending repositories.",
+  title: "awesome-agent-oss | Open-source agent radar",
+  description: "Discover curated open-source repositories for AI agent stacks.",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
