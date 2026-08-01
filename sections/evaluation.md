@@ -2,10 +2,11 @@
 
 Evaluation, benchmarking, testing, and scoring for LLM and agent systems.
 
-_🚀 Last updated from snapshot: `2026-07-31 08:57 UTC`._
+_🚀 Last updated from snapshot: `2026-08-01 03:47 UTC`._
 
 | Rank | Repository | Score | Stars | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [VoltAgent/voltagent](https://github.com/VoltAgent/voltagent) | 12,364 | 10,234 | - | - | - | 1,065 | - | - | - | 2026-07-13 | @voltagent/core@2.9.0 (2026-07-08) | MIT |
+| 1 | [VoltAgent/voltagent](https://github.com/VoltAgent/voltagent) | 12,377 | 10,243 | - | - | - | 1,067 | - | - | - | 2026-07-13 | @voltagent/core@2.9.0 (2026-07-08) | MIT |
+| 2 | [Giskard-AI/giskard-oss](https://github.com/Giskard-AI/giskard-oss) | 6,749 | 5,727 | - | - | - | 511 | - | - | - | 2026-07-31 | giskard-scan/v1.0.0b3 (2026-07-13) | Apache-2.0 |
 
 [Back to README](../README.md)
