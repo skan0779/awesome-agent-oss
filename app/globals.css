@@ -173,6 +173,9 @@ a { color: inherit; }
 .counter span, .counter small { display: block; }
 .counter span { font-size: 1.35rem; font-weight: 850; line-height: 1; }
 .counter small { margin-top: 3px; color: var(--muted); font-size: 0.7rem; }
+.curationMode { display: inline-flex; gap: 3px; margin: 0 0 12px; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.curationMode button { min-height: 34px; padding: 0 12px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font-size: 0.8rem; font-weight: 800; }
+.curationMode button.active { background: var(--ink); color: #fff; }
 .toolbar { position: sticky; top: 0; z-index: 20; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 10px 0 12px; background: var(--canvas); }
 .toolbar input, .reasonInput, .filterField input, .filterField select { width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: 8px; outline: 0; background: var(--surface); color: var(--ink); padding: 0 12px; }
 .toolbar input:focus, .reasonInput:focus, .filterField input:focus, .filterField select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(22, 118, 74, 0.1); }
@@ -210,6 +213,7 @@ a { color: inherit; }
 .actions button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
 .rejectButton { border: 1px solid #e3b9b5; background: #fff8f7; color: var(--red); }
 .acceptButton { border: 1px solid var(--green-dark); background: var(--green); color: #fff; }
+.updateSectionsButton { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; border: 1px solid var(--blue); border-radius: 8px; background: #f4f7fd; color: var(--blue); font-weight: 800; }
 .pagination { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
 .pageButton { min-width: 40px; min-height: 40px; padding: 0 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font-weight: 800; }
 .pageButton[aria-current="page"] { border-color: var(--ink); background: var(--ink); color: #fff; }

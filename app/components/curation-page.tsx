@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Check, Code2, Plus, Search, X } from "lucide-react";
+import { ArrowLeft, Check, Code2, Pencil, Plus, Search, X } from "lucide-react";
 
 type Section = {
   id: string;
@@ -61,6 +61,7 @@ export default function CurationPage() {
   const [sectionFilter, setSectionFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortMode, setSortMode] = useState("discovered_desc");
+  const [repositoryView, setRepositoryView] = useState<"pending" | "accepted">("pending");
   const [manualRepository, setManualRepository] = useState("");
   const [manualSections, setManualSections] = useState<string[]>([]);
   const [addingRepository, setAddingRepository] = useState(false);
@@ -88,6 +89,7 @@ export default function CurationPage() {
         section: sectionFilter,
         search: searchQuery,
         sort: sortMode,
+        status: repositoryView,
       });
       const response = await fetch(`/api/candidates?${params.toString()}`, {
         headers: curationHeaders(nextToken),
@@ -188,17 +190,44 @@ export default function CurationPage() {
       search: "",
       sort: "discovered_desc",
       page: 1,
+      status: repositoryView,
     });
   }
 
   function updateSectionFilter(section: string) {
     setSectionFilter(section);
-    void loadCandidatesWithFilters({ section, search: searchQuery, sort: sortMode, page: 1 });
+    void loadCandidatesWithFilters({
+      section,
+      search: searchQuery,
+      sort: sortMode,
+      page: 1,
+      status: repositoryView,
+    });
   }
 
   function updateSortMode(sort: string) {
     setSortMode(sort);
-    void loadCandidatesWithFilters({ section: sectionFilter, search: searchQuery, sort, page: 1 });
+    void loadCandidatesWithFilters({
+      section: sectionFilter,
+      search: searchQuery,
+      sort,
+      page: 1,
+      status: repositoryView,
+    });
+  }
+
+  function updateRepositoryView(status: "pending" | "accepted") {
+    if (status === repositoryView) {
+      return;
+    }
+    setRepositoryView(status);
+    void loadCandidatesWithFilters({
+      section: sectionFilter,
+      search: searchQuery,
+      sort: sortMode,
+      page: 1,
+      status,
+    });
   }
 
   async function loadCandidatesWithFilters({
@@ -206,11 +235,13 @@ export default function CurationPage() {
     search,
     sort,
     page: nextPage,
+    status,
   }: {
     section: string;
     search: string;
     sort: string;
     page: number;
+    status: "pending" | "accepted";
   }) {
     setLoading(true);
     setError(null);
@@ -222,6 +253,7 @@ export default function CurationPage() {
         section,
         search,
         sort,
+        status,
       });
       const response = await fetch(`/api/candidates?${params.toString()}`, {
         headers: curationHeaders(token),
@@ -258,7 +290,13 @@ export default function CurationPage() {
       return;
     }
 
-    void loadCandidates(token, nextPage);
+    void loadCandidatesWithFilters({
+      section: sectionFilter,
+      search: searchQuery,
+      sort: sortMode,
+      page: nextPage,
+      status: repositoryView,
+    });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -310,6 +348,19 @@ export default function CurationPage() {
     });
   }
 
+  async function updateAcceptedSections(candidate: Candidate) {
+    const sectionsForRepo = selectedSections[candidate.repositoryId] || [];
+    if (sectionsForRepo.length === 0) {
+      setError("Accepted repositories must have at least one section.");
+      return;
+    }
+
+    await curate("/api/curate/sections", {
+      repositoryId: candidate.repositoryId,
+      sections: sectionsForRepo,
+    });
+  }
+
   async function curate(path: string, body: Record<string, unknown>) {
     const repositoryId = Number(body.repositoryId);
     setBusyRepositoryId(repositoryId);
@@ -329,7 +380,13 @@ export default function CurationPage() {
         throw new Error(payload.error || "Curation request failed.");
       }
 
-      await loadCandidates(token, page);
+      await loadCandidatesWithFilters({
+        section: sectionFilter,
+        search: searchQuery,
+        sort: sortMode,
+        page,
+        status: repositoryView,
+      });
     } catch (curationError) {
       setError(
         curationError instanceof Error ? curationError.message : "Curation request failed.",
@@ -353,10 +410,29 @@ export default function CurationPage() {
           <h1>Curation</h1>
         </div>
         <div className="counter">
-          <span>{totalPendingCount}</span>
-          <small>pending</small>
+          <span>{repositoryView === "pending" ? totalPendingCount : filteredCount}</span>
+          <small>{repositoryView}</small>
         </div>
       </header>
+
+      <div className="curationMode" role="tablist" aria-label="Repository status">
+        <button
+          aria-selected={repositoryView === "pending"}
+          className={repositoryView === "pending" ? "active" : ""}
+          type="button"
+          onClick={() => updateRepositoryView("pending")}
+        >
+          Pending
+        </button>
+        <button
+          aria-selected={repositoryView === "accepted"}
+          className={repositoryView === "accepted" ? "active" : ""}
+          type="button"
+          onClick={() => updateRepositoryView("accepted")}
+        >
+          Accepted
+        </button>
+      </div>
 
       <form className="toolbar" onSubmit={saveToken}>
         <input
@@ -371,7 +447,7 @@ export default function CurationPage() {
         <button type="submit">Refresh</button>
       </form>
 
-      <form className="appendPanel" onSubmit={appendRepository}>
+      {repositoryView === "pending" ? <form className="appendPanel" onSubmit={appendRepository}>
         <div className="filterField appendField">
           <label htmlFor="manual-repository">Append</label>
           <input
@@ -400,7 +476,7 @@ export default function CurationPage() {
         <button className="appendButton" disabled={addingRepository} type="submit">
           <Plus size={17} /> {addingRepository ? "Adding" : "Add pending"}
         </button>
-      </form>
+      </form> : null}
 
       <form className="filters" onSubmit={applyFilters}>
         <div className="filterField searchField">
@@ -455,10 +531,10 @@ export default function CurationPage() {
       {error ? <div className="notice">{error}</div> : null}
 
       {loading ? (
-        <div className="empty">Loading pending repositories.</div>
+        <div className="empty">Loading {repositoryView} repositories.</div>
       ) : candidates.length === 0 ? (
         <div className="empty">
-          {totalPendingCount === 0
+          {repositoryView === "pending" && totalPendingCount === 0
             ? "No pending repositories."
             : "No repositories match the current filters."}
         </div>
@@ -467,7 +543,7 @@ export default function CurationPage() {
           <div className="pageSummary">
             Page {page} of {totalPages} - {filteredCount} matching
           </div>
-          <section className="candidateGrid" aria-label="Pending repositories">
+          <section className="candidateGrid" aria-label={`${repositoryView} repositories`}>
             {candidates.map((candidate) => {
               const selected = selectedSections[candidate.repositoryId] || [];
               const topics = candidate.metadata.topics?.length
@@ -537,36 +613,49 @@ export default function CurationPage() {
                     </div>
                   </fieldset>
 
-                  <input
-                    className="reasonInput"
-                    placeholder="Reject reason"
-                    value={reasons[candidate.repositoryId] || ""}
-                    onChange={(event) =>
-                      setReasons((current) => ({
-                        ...current,
-                        [candidate.repositoryId]: event.target.value,
-                      }))
-                    }
-                  />
+                  {repositoryView === "pending" ? (
+                    <>
+                      <input
+                        className="reasonInput"
+                        placeholder="Reject reason"
+                        value={reasons[candidate.repositoryId] || ""}
+                        onChange={(event) =>
+                          setReasons((current) => ({
+                            ...current,
+                            [candidate.repositoryId]: event.target.value,
+                          }))
+                        }
+                      />
 
-                  <div className="actions">
+                      <div className="actions">
+                        <button
+                          className="rejectButton"
+                          disabled={isBusy}
+                          type="button"
+                          onClick={() => void rejectCandidate(candidate)}
+                        >
+                          <X size={17} /> Reject
+                        </button>
+                        <button
+                          className="acceptButton"
+                          disabled={isBusy}
+                          type="button"
+                          onClick={() => void acceptCandidate(candidate)}
+                        >
+                          <Check size={17} /> Accept
+                        </button>
+                      </div>
+                    </>
+                  ) : (
                     <button
-                      className="rejectButton"
+                      className="updateSectionsButton"
                       disabled={isBusy}
                       type="button"
-                      onClick={() => void rejectCandidate(candidate)}
+                      onClick={() => void updateAcceptedSections(candidate)}
                     >
-                      <X size={17} /> Reject
+                      <Pencil size={17} /> Save sections
                     </button>
-                    <button
-                      className="acceptButton"
-                      disabled={isBusy}
-                      type="button"
-                      onClick={() => void acceptCandidate(candidate)}
-                    >
-                      <Check size={17} /> Accept
-                    </button>
-                  </div>
+                  )}
                 </article>
               );
             })}
