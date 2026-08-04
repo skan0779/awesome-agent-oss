@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://awesomeagent.vercel.app">
     <img
-      src="./assets/banner.png"
+      src="./assets/banner2.png"
       alt="awesome-agent-oss banner"
       width="100%"
     />
@@ -22,13 +22,18 @@
   <a href="https://github.com/skan0779/awesome-agent-oss/issues/new">Suggest a Repository</a>
 </p>
 
+---
+
 ## How Rankings Work
 
 - Repositories are discovered through GitHub topics and manually reviewed before publication.
 - Stars, forks, releases, and repository activity are collected daily from the GitHub API.
-- Rankings weigh overall adoption alongside 7, 30, and 60-day star and fork growth.
+- Radar Score combines overall adoption with star-growth signals across 1, 3, 7, 30, and 60 days.
+- Newer repositories are ranked with lower confidence until enough daily history is available.
 
 <br/>
+
+---
 
 <!-- AWESOME_AGENT_OSS:START -->
 _🚀 Last updated from snapshot: `2026-08-04 03:33 UTC`._
