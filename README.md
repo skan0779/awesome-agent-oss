@@ -14,6 +14,20 @@
   Discover curated open-source tools for building AI agents and track how they grow over time.
 </p>
 
+<p align="center">
+  <a href="https://awesomeagent.vercel.app"><strong>Explore Live Catalog &rarr;</strong></a>
+  &nbsp;·&nbsp;
+  <a href="#how-rankings-work">How Rankings Work</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/skan0779/awesome-agent-oss/issues/new">Suggest a Repository</a>
+</p>
+
+## How Rankings Work
+
+- Repositories are discovered through GitHub topics and manually reviewed before publication.
+- Stars, forks, releases, and repository activity are collected daily from the GitHub API.
+- Rankings weigh overall adoption alongside 7, 30, and 60-day star and fork growth.
+
 <br/>
 
 <!-- AWESOME_AGENT_OSS:START -->

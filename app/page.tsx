@@ -41,13 +41,16 @@ type CatalogRepository = {
   stars: number;
   forks: number;
   openIssues: number;
-  stars7d: number;
-  stars30d: number;
-  stars60d: number;
-  forks7d: number;
-  forks30d: number;
-  forks60d: number;
+  stars1d: number | null;
+  stars3d: number | null;
+  stars7d: number | null;
+  stars30d: number | null;
+  stars60d: number | null;
+  forks7d: number | null;
+  forks30d: number | null;
+  forks60d: number | null;
   score: number;
+  radarScore: number;
   license: string;
   language: string | null;
   pushedAt: string | null;
@@ -83,7 +86,7 @@ export default function CatalogPage() {
   const [snapshotDate, setSnapshotDate] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState("all");
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("score");
+  const [sort, setSort] = useState("radar");
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -135,10 +138,10 @@ export default function CatalogPage() {
     });
     return filtered.sort((left, right) => {
       if (sort === "stars") return right.stars - left.stars;
-      if (sort === "growth") return right.stars7d - left.stars7d || right.stars - left.stars;
+      if (sort === "growth") return (right.stars7d || 0) - (left.stars7d || 0) || right.stars - left.stars;
       if (sort === "updated") return dateValue(right.pushedAt) - dateValue(left.pushedAt);
       if (sort === "name") return left.fullName.localeCompare(right.fullName);
-      return right.score - left.score || right.stars - left.stars;
+      return right.radarScore - left.radarScore || right.stars - left.stars;
     });
   }, [activeSection, repositories, search, sort]);
 
@@ -270,7 +273,7 @@ export default function CatalogPage() {
                   setPage(1);
                 }}
               >
-                <option value="score">Radar score</option>
+                <option value="radar">Radar score</option>
                 <option value="growth">7-day growth</option>
                 <option value="stars">Most stars</option>
                 <option value="updated">Recently updated</option>
@@ -440,7 +443,7 @@ function RepositoryCard({
           {repository.language ? <span><i className="languageDot" />{repository.language}</span> : null}
           <span>{repository.license}</span>
         </div>
-        <span className="scoreBadge">Score {formatNumber(repository.score)}</span>
+        <span className="scoreBadge">Radar {formatNumber(repository.radarScore)}</span>
       </div>
     </article>
   );
@@ -544,7 +547,8 @@ function formatNumber(value: number) {
   return new Intl.NumberFormat("en", { notation: value >= 10000 ? "compact" : "standard", maximumFractionDigits: 1 }).format(value);
 }
 
-function formatDelta(value: number) {
+function formatDelta(value: number | null) {
+  if (value === null) return "—";
   return value > 0 ? `+${formatNumber(value)}` : "0";
 }
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
@@ -18,6 +19,16 @@ from awesome_agent_oss.supabase_registry import (
 
 DEFAULT_GENERATED_DIR = Path("data/generated")
 DEFAULT_CATALOG_PATH = DEFAULT_GENERATED_DIR / "catalog.json"
+RADAR_VELOCITY_WEIGHTS = {
+    1: 0.05,
+    3: 0.20,
+    7: 0.30,
+    30: 0.20,
+    60: 0.10,
+}
+RADAR_RELATIVE_GROWTH_WEIGHT = 0.10
+RADAR_ADOPTION_WEIGHT = 0.05
+RADAR_FULL_CONFIDENCE_DAYS = 14
 
 
 class CatalogBuildError(RuntimeError):
@@ -67,7 +78,11 @@ def build_catalog_from_snapshots(
         build_catalog_entry(full_name, rows, latest_snapshot.snapshot_date)
         for full_name, rows in sorted(rows_by_repo.items())
     ]
-    repositories.sort(key=lambda row: (row["score"], row["stars"] or 0, row["full_name"]), reverse=True)
+    apply_radar_scores(repositories)
+    repositories.sort(
+        key=lambda row: (row["radar_score"], row["stars"] or 0, row["full_name"]),
+        reverse=True,
+    )
 
     catalog = {
         "generated_at": generated_at,
@@ -241,6 +256,8 @@ def build_catalog_entry(
 
     stars = as_int(latest_row.get("stars"))
     forks = as_int(latest_row.get("forks"))
+    stars_1d = delta_from_baseline(rows, latest_date, "stars", days=1)
+    stars_3d = delta_from_baseline(rows, latest_date, "stars", days=3)
     stars_7d = delta_from_baseline(rows, latest_date, "stars", days=7)
     stars_30d = delta_from_baseline(rows, latest_date, "stars", days=30)
     stars_60d = delta_from_baseline(rows, latest_date, "stars", days=60)
@@ -259,6 +276,8 @@ def build_catalog_entry(
         "forks": forks,
         "open_issues": as_int(latest_row.get("open_issues")),
         "watchers": as_int(latest_row.get("watchers")),
+        "stars_1d": stars_1d,
+        "stars_3d": stars_3d,
         "stars_7d": stars_7d,
         "stars_30d": stars_30d,
         "stars_60d": stars_60d,
@@ -266,6 +285,9 @@ def build_catalog_entry(
         "forks_30d": forks_30d,
         "forks_60d": forks_60d,
         "score": score_repository(stars, forks, stars_7d, stars_30d, stars_60d, forks_7d, forks_30d),
+        "radar_score": 0.0,
+        "radar_confidence": 0.0,
+        "history_days": max(0, (latest_date - rows[0][0]).days),
         "license": latest_row.get("license"),
         "license_name": latest_row.get("license_name"),
         "language": latest_row.get("language"),
@@ -341,6 +363,98 @@ def score_repository(
     )
 
 
+def apply_radar_scores(repositories: list[dict[str, Any]]) -> None:
+    """Add adaptive momentum scores without discarding the legacy score."""
+    adoption_scores = percentile_ranks(
+        [math.log1p(max(0, as_int(repository.get("stars")) or 0)) for repository in repositories]
+    )
+    velocity_scores = {
+        days: percentile_ranks(
+            [daily_velocity(repository.get(f"stars_{days}d"), days) for repository in repositories]
+        )
+        for days in RADAR_VELOCITY_WEIGHTS
+    }
+    relative_scores = percentile_ranks(
+        [relative_growth(repository) for repository in repositories]
+    )
+
+    for index, repository in enumerate(repositories):
+        adoption_score = adoption_scores[index] or 0.0
+        velocity_components = [
+            (RADAR_VELOCITY_WEIGHTS[days], velocity_scores[days][index])
+            for days in RADAR_VELOCITY_WEIGHTS
+            if velocity_scores[days][index] is not None
+        ]
+        history_days = as_int(repository.get("history_days")) or 0
+        confidence = min(1.0, history_days / RADAR_FULL_CONFIDENCE_DAYS)
+
+        if not velocity_components or history_days < 3:
+            repository["radar_score"] = round(adoption_score, 2)
+            repository["radar_confidence"] = round(confidence, 2)
+            continue
+
+        total_weight = sum(weight for weight, _ in velocity_components)
+        velocity_score = sum(weight * score for weight, score in velocity_components) / total_weight
+        relative_score = relative_scores[index]
+        if relative_score is None:
+            relative_score = adoption_score
+
+        momentum_score = (
+            (1.0 - RADAR_RELATIVE_GROWTH_WEIGHT - RADAR_ADOPTION_WEIGHT) * velocity_score
+            + RADAR_RELATIVE_GROWTH_WEIGHT * relative_score
+            + RADAR_ADOPTION_WEIGHT * adoption_score
+        )
+        repository["radar_score"] = round(
+            confidence * momentum_score + (1.0 - confidence) * adoption_score,
+            2,
+        )
+        repository["radar_confidence"] = round(confidence, 2)
+
+
+def daily_velocity(value: Any, days: int) -> float | None:
+    """Return a daily growth rate for a snapshot delta."""
+    delta = as_int(value)
+    if delta is None:
+        return None
+    return delta / days
+
+
+def relative_growth(repository: dict[str, Any]) -> float | None:
+    """Return recent star growth relative to the repository's existing star base."""
+    for days in (7, 3, 1, 30, 60):
+        delta = as_int(repository.get(f"stars_{days}d"))
+        if delta is None:
+            continue
+        stars = as_int(repository.get("stars")) or 0
+        return delta / max(stars - delta, 1000)
+    return None
+
+
+def percentile_ranks(values: list[float | None]) -> list[float | None]:
+    """Return tie-aware 0-100 percentile ranks while preserving missing values."""
+    ranked_values = sorted(
+        (value, index) for index, value in enumerate(values) if value is not None
+    )
+    scores: list[float | None] = [None] * len(values)
+    count = len(ranked_values)
+    if count == 1:
+        scores[ranked_values[0][1]] = 50.0
+        return scores
+
+    index = 0
+    while index < count:
+        value = ranked_values[index][0]
+        end = index
+        while end + 1 < count and ranked_values[end + 1][0] == value:
+            end += 1
+        percentile = 100.0 * ((index + end) / 2) / (count - 1)
+        for _, original_index in ranked_values[index : end + 1]:
+            scores[original_index] = percentile
+        index = end + 1
+
+    return scores
+
+
 def build_sections(repositories: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
     """Build section-indexed repository summaries."""
     sections: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -352,6 +466,8 @@ def build_sections(repositories: list[dict[str, Any]]) -> dict[str, list[dict[st
                     "name": repository["name"],
                     "html_url": repository["html_url"],
                     "stars": repository["stars"],
+                    "stars_1d": repository["stars_1d"],
+                    "stars_3d": repository["stars_3d"],
                     "stars_7d": repository["stars_7d"],
                     "stars_30d": repository["stars_30d"],
                     "stars_60d": repository["stars_60d"],
@@ -360,6 +476,8 @@ def build_sections(repositories: list[dict[str, Any]]) -> dict[str, list[dict[st
                     "forks_30d": repository["forks_30d"],
                     "forks_60d": repository["forks_60d"],
                     "score": repository["score"],
+                    "radar_score": repository["radar_score"],
+                    "radar_confidence": repository["radar_confidence"],
                     "license": repository["license"],
                     "pushed_at": repository["pushed_at"],
                     "latest_release_tag": repository["latest_release_tag"],
@@ -368,7 +486,11 @@ def build_sections(repositories: list[dict[str, Any]]) -> dict[str, list[dict[st
             )
 
     return {
-        section: sorted(rows, key=lambda row: (row["score"], row["stars"] or 0), reverse=True)
+        section: sorted(
+            rows,
+            key=lambda row: (row["radar_score"], row["stars"] or 0),
+            reverse=True,
+        )
         for section, rows in sorted(sections.items())
     }
 

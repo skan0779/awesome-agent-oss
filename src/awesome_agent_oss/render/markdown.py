@@ -216,16 +216,16 @@ def render_readme_table(rows: list[dict[str, Any]]) -> str:
 def render_section_table(rows: list[dict[str, Any]]) -> str:
     """Render a detailed repository table for section pages."""
     header = (
-        "| Rank | Repository | Score | Stars | Stars 7d | Stars 30d | Stars 60d | "
+        "| Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | "
         "Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |"
     )
-    separator = "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |"
+    separator = "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |"
     if not rows:
         return "\n".join(
             [
                 header,
                 separator,
-                "| - | No accepted repositories yet. |  |  |  |  |  |  |  |  |  |  |  |  |",
+                "| - | No accepted repositories yet. |  |  |  |  |  |  |  |  |  |  |  |  |  |  |",
             ]
         )
 
@@ -236,8 +236,10 @@ def render_section_table(rows: list[dict[str, Any]]) -> str:
                 [
                     f"| {rank}",
                     repository_link(row),
-                    format_number(row.get("score")),
+                    format_number(row.get("radar_score")),
                     format_number(row.get("stars")),
+                    format_number(row.get("stars_1d")),
+                    format_number(row.get("stars_3d")),
                     format_number(row.get("stars_7d")),
                     format_number(row.get("stars_30d")),
                     format_number(row.get("stars_60d")),
