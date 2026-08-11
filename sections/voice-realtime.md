@@ -2,7 +2,7 @@
 
 Speech, voice, and real-time multimodal systems for conversational AI agents.
 
-_🚀 Last updated from snapshot: `2026-08-10 02:32 UTC`._
+_🚀 Last updated from snapshot: `2026-08-11 02:26 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
