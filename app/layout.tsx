@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   creator: "skan0779",
   publisher: "awesome-agent-oss",
   category: "technology",
+  verification: {
+    google: "3QUgF3BFl2CHGmoz1vIWkfsKvfaNhm8C8HuZ6IL6W8g",
+  },
   alternates: {
     canonical: "/",
   },
