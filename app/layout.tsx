@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   creator: "skan0779",
   publisher: "awesome-agent-oss",
   category: "technology",
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+    shortcut: "/icon.png",
+    apple: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+  },
   verification: {
     google: "3QUgF3BFl2CHGmoz1vIWkfsKvfaNhm8C8HuZ6IL6W8g",
   },

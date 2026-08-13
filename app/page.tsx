@@ -8,7 +8,6 @@ import {
   GitFork,
   LayoutGrid,
   LoaderCircle,
-  Radar,
   Search,
   Star,
   TrendingUp,
@@ -203,7 +202,13 @@ export default function CatalogPage() {
       />
       <header className="siteHeader">
         <a className="brand" href="/" aria-label="awesome-agent-oss home">
-          <span className="brandMark"><Radar size={19} strokeWidth={2.2} /></span>
+          <img
+            className="brandMark"
+            src="/icon.png"
+            alt=""
+            width="36"
+            height="36"
+          />
           <span>awesome-agent-oss</span>
         </a>
         <nav className="siteNav" aria-label="Primary navigation">
