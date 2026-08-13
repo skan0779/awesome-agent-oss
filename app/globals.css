@@ -82,7 +82,45 @@ a { color: inherit; }
 .summaryStat span { margin-top: 4px; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; }
 .summaryStat.compact strong { font-size: 1.1rem; line-height: 1.6; }
 
+.trendingSection { padding: 42px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 78px; }
+.trendingHeader { display: grid; gap: 18px; margin-bottom: 18px; }
+.trendingHeader .eyebrow { display: flex; align-items: center; gap: 5px; }
+.trendingHeader h2 { margin: 0; font-size: 1.65rem; line-height: 1.15; }
+.trendingHeader > div > p:last-child { max-width: 540px; margin: 8px 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+.periodControl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.periodControl button { min-height: 42px; padding: 0 11px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font-size: 0.78rem; font-weight: 800; }
+.periodControl button:hover { color: var(--ink); }
+.periodControl button.active { background: var(--ink); color: #fff; }
+.periodControl button:focus-visible, .fullRankingButton:focus-visible, .trendingRow:focus-visible { outline: 3px solid rgba(22, 118, 74, 0.24); outline-offset: 2px; }
+.trendingList { display: grid; gap: 8px; }
+.trendingRow { display: grid; grid-template-columns: 24px 36px minmax(0, 1fr) auto 16px; grid-template-areas: "rank avatar identity growth link" "rank avatar total growth link"; align-items: center; column-gap: 10px; min-height: 72px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-decoration: none; transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+.trendingRow:hover { transform: translateY(-1px); border-color: #aeb6af; box-shadow: 0 7px 20px rgba(22, 32, 28, 0.055); }
+.trendingRow.leading { border-color: #b8d7c5; background: #fbfdfb; }
+.trendingRank { grid-area: rank; color: #9aa19d; font-size: 0.7rem; font-weight: 850; font-variant-numeric: tabular-nums; }
+.trendingRow.leading .trendingRank { color: var(--green); }
+.trendingAvatar { grid-area: avatar; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface-2); object-fit: cover; }
+.trendingIdentity { grid-area: identity; min-width: 0; }
+.trendingIdentity strong, .trendingIdentity small { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.trendingIdentity strong { font-size: 0.84rem; }
+.trendingIdentity small { margin-top: 3px; color: var(--muted); font-size: 0.67rem; }
+.trendingTotal { grid-area: total; display: inline-flex; align-items: center; gap: 4px; min-width: 0; margin-top: 4px; color: var(--muted); }
+.trendingTotal svg { flex: none; }
+.trendingTotal strong { color: var(--ink); font-size: 0.72rem; font-variant-numeric: tabular-nums; }
+.trendingTotal small { font-size: 0.65rem; }
+.trendingGrowth { grid-area: growth; min-width: 72px; color: var(--green); text-align: right; }
+.trendingGrowth svg { display: none; }
+.trendingGrowth strong, .trendingGrowth small { display: block; font-variant-numeric: tabular-nums; }
+.trendingGrowth strong { font-size: 0.94rem; }
+.trendingGrowth small { margin-top: 3px; color: var(--muted); font-size: 0.63rem; font-weight: 700; }
+.trendingLinkIcon { grid-area: link; color: #a2aaa5; }
+.trendingSkeleton { min-height: 72px; border-color: transparent; background: #e9ebe7; animation: loading 1.2s ease-in-out infinite alternate; }
+.trendingEmpty { display: grid; place-items: center; min-height: 130px; border: 1px dashed #bac1bb; border-radius: 8px; color: var(--muted); font-size: 0.84rem; text-align: center; }
+.trendingEmpty.error { border-style: solid; border-color: #e3b9b5; background: #fff8f7; color: var(--red); }
+.fullRankingButton { display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-height: 44px; margin-top: 14px; padding: 0 14px; border: 0; border-radius: 7px; background: transparent; color: var(--green-dark); font-size: 0.8rem; font-weight: 850; }
+.fullRankingButton:hover { background: var(--green-soft); }
+
 .exploreSection { padding-top: 42px; }
+.exploreSection { scroll-margin-top: 78px; }
 .sectionHeading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
 .eyebrow { margin: 0 0 5px; color: var(--green); font-size: 0.71rem; font-weight: 850; text-transform: uppercase; }
 .sectionHeading h2 { margin: 0; font-size: 1.65rem; line-height: 1.15; }
@@ -226,6 +264,10 @@ a { color: inherit; }
   .catalogStats { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--line); }
   .summaryStat { padding: 14px 0 14px 24px; }
   .summaryStat + .summaryStat { padding-left: 24px; border-top: 1px solid var(--line); border-left: 0; }
+  .trendingHeader { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .periodControl { min-width: 278px; }
+  .trendingList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fullRankingButton { width: auto; margin-left: auto; }
   .sectionTabs { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; padding-bottom: 12px; }
   .catalogSectionSelect { display: none; }
   .catalogControls { margin-top: 0; }
@@ -242,6 +284,11 @@ a { color: inherit; }
 @media (min-width: 1040px) {
   .siteHeader { padding-inline: 42px; }
   .catalogIntro h1 { font-size: 4.65rem; }
+  .trendingRow { grid-template-columns: 24px 36px minmax(0, 1fr) auto auto 16px; grid-template-areas: "rank avatar identity total growth link"; min-height: 70px; }
+  .trendingTotal { margin-top: 0; padding-right: 12px; }
+  .trendingTotal small { display: none; }
+  .trendingGrowth { min-width: 84px; }
+  .trendingGrowth svg { display: inline-block; margin-right: 4px; vertical-align: -2px; }
   .repositoryGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -250,6 +297,10 @@ a { color: inherit; }
   .navLink { padding-inline: 7px; }
   .catalogIntro { min-height: 370px; }
   .repoMetrics strong { font-size: 0.82rem; }
+}
+
+@media (max-width: 620px) {
+  .siteNav .navLink[href^="#"] { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

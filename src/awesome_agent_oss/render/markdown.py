@@ -15,6 +15,8 @@ DEFAULT_README_PATH = Path("README.md")
 DEFAULT_SECTIONS_DIR = Path("sections")
 README_START = "<!-- AWESOME_AGENT_OSS:START -->"
 README_END = "<!-- AWESOME_AGENT_OSS:END -->"
+TRENDING_LIMIT = 5
+CATALOG_URL = "https://awesomeagent.vercel.app"
 
 
 class RenderError(RuntimeError):
@@ -101,6 +103,12 @@ def render_readme_body(
     lines = [
         f"_🚀 Last updated from snapshot: `{format_snapshot_timestamp(catalog)}`._",
         "",
+        "## Trending This Week",
+        "",
+        render_trending_table(catalog.get("repositories"), sections),
+        "",
+        f"[Explore all trending repositories &rarr;]({CATALOG_URL}/#trending)",
+        "",
     ]
 
     for section in sections:
@@ -117,6 +125,55 @@ def render_readme_body(
         )
 
     return "\n".join(lines).rstrip() + "\n"
+
+
+def render_trending_table(repositories: Any, sections: list[Section]) -> str:
+    """Render the repositories with the largest seven-day star growth."""
+    header = "| Rank | Repository | Stars 7d | Total Stars | Section |"
+    separator = "| ---: | --- | ---: | ---: | --- |"
+    if not isinstance(repositories, list):
+        repositories = []
+
+    eligible = [
+        row
+        for row in repositories
+        if isinstance(row, dict) and positive_int(row.get("stars_7d")) is not None
+    ]
+    eligible.sort(
+        key=lambda row: (
+            positive_int(row.get("stars_7d")) or 0,
+            numeric_int(row.get("stars")) or 0,
+        ),
+        reverse=True,
+    )
+    section_by_id = {section.id: section for section in sections}
+    section_order = {section.id: index for index, section in enumerate(sections)}
+
+    if not eligible:
+        return "\n".join(
+            [
+                header,
+                separator,
+                "| - | Not enough seven-day snapshot history yet. |  |  |  |",
+            ]
+        )
+
+    rendered_rows = [header, separator]
+    for rank, row in enumerate(eligible[:TRENDING_LIMIT], start=1):
+        rendered_rows.append(
+            " | ".join(
+                [
+                    f"| {rank}",
+                    repository_link(row),
+                    format_growth(row.get("stars_7d")),
+                    format_number(row.get("stars")),
+                    representative_section_link(row, section_by_id, section_order),
+                ]
+            )
+            + " |"
+        )
+
+    return "\n".join(rendered_rows)
 
 
 def render_section_file(
@@ -267,6 +324,29 @@ def repository_link(row: dict[str, Any]) -> str:
     return escape_markdown(full_name)
 
 
+def representative_section_link(
+    row: dict[str, Any],
+    section_by_id: dict[str, Section],
+    section_order: dict[str, int],
+) -> str:
+    """Return the first catalog-ordered section assigned to a repository."""
+    section_ids = row.get("sections")
+    if not isinstance(section_ids, list):
+        return "-"
+
+    known_ids = [
+        section_id
+        for section_id in section_ids
+        if isinstance(section_id, str) and section_id in section_by_id
+    ]
+    if not known_ids:
+        return "-"
+
+    section_id = min(known_ids, key=lambda value: section_order[value])
+    section = section_by_id[section_id]
+    return f"[{escape_markdown(section.name)}](./sections/{section.id}.md)"
+
+
 def format_release(row: dict[str, Any]) -> str:
     """Return compact release text."""
     tag = row.get("latest_release_tag")
@@ -296,6 +376,29 @@ def format_number(value: Any) -> str:
     if isinstance(value, float):
         return f"{value:,.0f}"
     return "-"
+
+
+def format_growth(value: Any) -> str:
+    """Format a positive growth value with an explicit sign."""
+    number = positive_int(value)
+    return f"+{number:,}" if number is not None else "-"
+
+
+def positive_int(value: Any) -> int | None:
+    """Return a positive integer, excluding booleans."""
+    number = numeric_int(value)
+    return number if number is not None and number > 0 else None
+
+
+def numeric_int(value: Any) -> int | None:
+    """Return an integer value, excluding booleans."""
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return round(value)
+    return None
 
 
 def format_date(value: Any) -> str:

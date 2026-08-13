@@ -15,8 +15,21 @@
 </p>
 
 <p align="center">
-  <a href="https://awesomeagent.vercel.app"><strong>Explore Live Catalog &rarr;</strong></a>
-  &nbsp;·&nbsp;
+  <a href="https://awesomeagent.vercel.app">
+    <strong>Explore the live radar at awesomeagent.vercel.app &rarr;</strong>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://awesome.re">
+    <img src="https://awesome.re/badge.svg" alt="Awesome" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" />
+  </a>
+</p>
+
+<p align="center">
   <a href="#how-rankings-work">How Rankings Work</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/skan0779/awesome-agent-oss/issues/new">Suggest a Repository</a>
@@ -37,6 +50,18 @@
 
 <!-- AWESOME_AGENT_OSS:START -->
 _🚀 Last updated from snapshot: `2026-08-13 05:55 UTC`._
+
+## Trending This Week
+
+| Rank | Repository | Stars 7d | Total Stars | Section |
+| ---: | --- | ---: | ---: | --- |
+| 1 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | +4,811 | 101,680 | [Skills](./sections/skills.md) |
+| 2 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | +4,586 | 86,677 | [Skills](./sections/skills.md) |
+| 3 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | +4,084 | 71,214 | [Computer Use](./sections/computer-use.md) |
+| 4 | [obra/superpowers](https://github.com/obra/superpowers) | +3,905 | 271,361 | [Skills](./sections/skills.md) |
+| 5 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | +3,322 | 75,975 | [Skills](./sections/skills.md) |
+
+[Explore all trending repositories &rarr;](https://awesomeagent.vercel.app/#trending)
 
 ## [Frameworks & SDKs](./sections/frameworks.md)
 

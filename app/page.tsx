@@ -3,6 +3,8 @@
 import {
   ArrowUpRight,
   BookOpen,
+  ChevronRight,
+  Flame,
   GitFork,
   LayoutGrid,
   LoaderCircle,
@@ -66,6 +68,7 @@ type CatalogResponse = {
 };
 
 type TrendMode = "stars" | "forks";
+type TrendingPeriod = 1 | 7 | 30;
 
 type TrendPoint = {
   date: string;
@@ -79,6 +82,7 @@ type TrendResponse = {
 };
 
 const PAGE_SIZE = 12;
+const TRENDING_LIMIT = 6;
 
 export default function CatalogPage() {
   const [repositories, setRepositories] = useState<CatalogRepository[]>([]);
@@ -87,6 +91,7 @@ export default function CatalogPage() {
   const [activeSection, setActiveSection] = useState("all");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("radar");
+  const [trendingPeriod, setTrendingPeriod] = useState<TrendingPeriod>(7);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -138,12 +143,23 @@ export default function CatalogPage() {
     });
     return filtered.sort((left, right) => {
       if (sort === "stars") return right.stars - left.stars;
-      if (sort === "growth") return (right.stars7d || 0) - (left.stars7d || 0) || right.stars - left.stars;
+      if (sort === "growth1") return compareGrowth(left, right, 1);
+      if (sort === "growth3") return compareGrowth(left, right, 3);
+      if (sort === "growth7") return compareGrowth(left, right, 7);
+      if (sort === "growth30") return compareGrowth(left, right, 30);
+      if (sort === "growth60") return compareGrowth(left, right, 60);
       if (sort === "updated") return dateValue(right.pushedAt) - dateValue(left.pushedAt);
       if (sort === "name") return left.fullName.localeCompare(right.fullName);
       return right.radarScore - left.radarScore || right.stars - left.stars;
     });
   }, [activeSection, repositories, search, sort]);
+
+  const trendingRepositories = useMemo(() => {
+    return repositories
+      .filter((repository) => growthValue(repository, trendingPeriod) !== null)
+      .sort((left, right) => compareGrowth(left, right, trendingPeriod))
+      .slice(0, TRENDING_LIMIT);
+  }, [repositories, trendingPeriod]);
 
   const totalPages = Math.max(1, Math.ceil(filteredRepositories.length / PAGE_SIZE));
   const normalizedPage = Math.min(page, totalPages);
@@ -157,6 +173,14 @@ export default function CatalogPage() {
     setPage(1);
   }
 
+  function openFullTrendingRanking() {
+    setActiveSection("all");
+    setSearch("");
+    setSort(`growth${trendingPeriod}`);
+    setPage(1);
+    document.getElementById("catalog-heading")?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <div className="catalogPage">
       <header className="siteHeader">
@@ -165,7 +189,8 @@ export default function CatalogPage() {
           <span>awesome-agent-oss</span>
         </a>
         <nav className="siteNav" aria-label="Primary navigation">
-          <a className="navLink active" href="/">Explore</a>
+          <a className="navLink" href="#trending">Trending</a>
+          <a className="navLink active" href="#catalog-heading">Explore</a>
           <a className="navLink" href="/admin">Admin</a>
           <a
             className="iconLink"
@@ -199,6 +224,63 @@ export default function CatalogPage() {
             <SummaryStat value={formatNumber(sections.length)} label="sections" />
             <SummaryStat value={formatSnapshot(snapshotDate)} label="snapshot" compact />
           </div>
+        </section>
+
+        <section className="trendingSection" id="trending" aria-labelledby="trending-heading">
+          <div className="trendingHeader">
+            <div>
+              <p className="eyebrow"><Flame size={13} aria-hidden="true" /> Momentum</p>
+              <h2 id="trending-heading">Trending repositories</h2>
+              <p>Open-source agent stacks gaining the most stars right now.</p>
+            </div>
+            <div className="periodControl" aria-label="Trending period">
+              {([1, 7, 30] as TrendingPeriod[]).map((period) => (
+                <button
+                  className={trendingPeriod === period ? "active" : ""}
+                  key={period}
+                  type="button"
+                  aria-pressed={trendingPeriod === period}
+                  onClick={() => setTrendingPeriod(period)}
+                >
+                  {period === 1 ? "Today" : `${period} days`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {loading ? (
+            <div className="trendingList" aria-label="Loading trending repositories">
+              {Array.from({ length: TRENDING_LIMIT }, (_, index) => (
+                <div className="trendingRow trendingSkeleton" key={index} />
+              ))}
+            </div>
+          ) : error ? (
+            <div className="trendingEmpty error">Trending data is temporarily unavailable.</div>
+          ) : trendingRepositories.length === 0 ? (
+            <div className="trendingEmpty">Not enough snapshot history for this period yet.</div>
+          ) : (
+            <div className="trendingList">
+              {trendingRepositories.map((repository, index) => (
+                <TrendingRepositoryRow
+                  key={repository.id}
+                  repository={repository}
+                  rank={index + 1}
+                  period={trendingPeriod}
+                  sectionById={sectionById}
+                />
+              ))}
+            </div>
+          )}
+
+          <button
+            className="fullRankingButton"
+            type="button"
+            disabled={loading || Boolean(error) || trendingRepositories.length === 0}
+            onClick={openFullTrendingRanking}
+          >
+            View full {trendingPeriod === 1 ? "daily" : `${trendingPeriod}-day`} ranking
+            <ChevronRight size={17} aria-hidden="true" />
+          </button>
         </section>
 
         <section className="exploreSection" aria-labelledby="catalog-heading">
@@ -274,7 +356,11 @@ export default function CatalogPage() {
                 }}
               >
                 <option value="radar">Radar score</option>
-                <option value="growth">7-day growth</option>
+                <option value="growth1">1-day growth</option>
+                <option value="growth3">3-day growth</option>
+                <option value="growth7">7-day growth</option>
+                <option value="growth30">30-day growth</option>
+                <option value="growth60">60-day growth</option>
                 <option value="stars">Most stars</option>
                 <option value="updated">Recently updated</option>
                 <option value="name">Repository name</option>
@@ -449,6 +535,56 @@ function RepositoryCard({
   );
 }
 
+function TrendingRepositoryRow({
+  repository,
+  rank,
+  period,
+  sectionById,
+}: {
+  repository: CatalogRepository;
+  rank: number;
+  period: TrendingPeriod;
+  sectionById: Map<string, CatalogSection>;
+}) {
+  const growth = growthValue(repository, period);
+  const primarySection = repository.sections[0];
+
+  return (
+    <a
+      className={rank === 1 ? "trendingRow leading" : "trendingRow"}
+      href={repository.htmlUrl}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${repository.fullName}, ${formatSignedDelta(growth)} stars in ${period} days`}
+    >
+      <span className="trendingRank">{String(rank).padStart(2, "0")}</span>
+      <img
+        className="trendingAvatar"
+        src={`https://github.com/${repository.owner}.png?size=72`}
+        alt=""
+        width="36"
+        height="36"
+        loading="lazy"
+      />
+      <span className="trendingIdentity">
+        <strong>{repository.fullName}</strong>
+        <small>{primarySection ? sectionById.get(primarySection)?.name || primarySection : "Uncategorized"}</small>
+      </span>
+      <span className="trendingTotal">
+        <Star size={14} aria-hidden="true" />
+        <strong>{formatNumber(repository.stars)}</strong>
+        <small>total</small>
+      </span>
+      <span className="trendingGrowth">
+        <TrendingUp size={15} aria-hidden="true" />
+        <strong>{formatSignedDelta(growth)}</strong>
+        <small>{period === 1 ? "today" : `${period} days`}</small>
+      </span>
+      <ArrowUpRight className="trendingLinkIcon" size={16} aria-hidden="true" />
+    </a>
+  );
+}
+
 function TrendChart({
   mode,
   points,
@@ -549,7 +685,40 @@ function formatNumber(value: number) {
 
 function formatDelta(value: number | null) {
   if (value === null) return "—";
-  return value > 0 ? `+${formatNumber(value)}` : "0";
+  return value > 0 ? `+${formatNumber(value)}` : formatNumber(value);
+}
+
+function formatSignedDelta(value: number | null) {
+  if (value === null) return "—";
+  if (value > 0) return `+${formatNumber(value)}`;
+  return formatNumber(value);
+}
+
+function growthValue(repository: CatalogRepository, period: TrendingPeriod) {
+  if (period === 1) return repository.stars1d;
+  if (period === 7) return repository.stars7d;
+  return repository.stars30d;
+}
+
+function sortableGrowthValue(repository: CatalogRepository, period: 1 | 3 | 7 | 30 | 60) {
+  if (period === 1) return repository.stars1d;
+  if (period === 3) return repository.stars3d;
+  if (period === 7) return repository.stars7d;
+  if (period === 30) return repository.stars30d;
+  return repository.stars60d;
+}
+
+function compareGrowth(
+  left: CatalogRepository,
+  right: CatalogRepository,
+  period: 1 | 3 | 7 | 30 | 60,
+) {
+  const leftGrowth = sortableGrowthValue(left, period);
+  const rightGrowth = sortableGrowthValue(right, period);
+  if (leftGrowth === null && rightGrowth === null) return right.stars - left.stars;
+  if (leftGrowth === null) return 1;
+  if (rightGrowth === null) return -1;
+  return rightGrowth - leftGrowth || right.stars - left.stars;
 }
 
 function formatChartDate(value: string) {
