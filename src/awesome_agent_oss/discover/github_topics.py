@@ -137,10 +137,10 @@ def normalize_sorts(sorts: tuple[str, ...] | list[str] | str | None) -> tuple[st
 def load_sections(client: SupabaseClient) -> list[Section]:
     """Load section topic seeds from Supabase."""
     try:
-        rows = client.select(
+        rows = client.select_all(
             "sections",
             columns="id,topics,sort_order",
-            params={"order": "sort_order.asc,id.asc", "limit": "10000"},
+            params={"order": "sort_order.asc,id.asc"},
         )
     except SupabaseClientError as error:
         raise DiscoveryError(str(error)) from error
@@ -166,7 +166,11 @@ def load_sections(client: SupabaseClient) -> list[Section]:
 def load_known_repository_names(client: SupabaseClient) -> set[str]:
     """Load all repositories already known to Supabase."""
     try:
-        rows = client.select("repositories", columns="full_name", params={"limit": "10000"})
+        rows = client.select_all(
+            "repositories",
+            columns="full_name",
+            params={"order": "id.asc"},
+        )
     except SupabaseClientError as error:
         raise DiscoveryError(str(error)) from error
 

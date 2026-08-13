@@ -115,6 +115,32 @@ class SupabaseClient:
             return result
         raise SupabaseClientError(f"Supabase select returned an unexpected payload: {result!r}")
 
+    def select_all(
+        self,
+        table: str,
+        columns: str = "*",
+        params: dict[str, str] | None = None,
+        page_size: int = 1000,
+    ) -> list[dict[str, Any]]:
+        """Select every matching row using PostgREST offset pagination."""
+        if page_size < 1:
+            raise ValueError("page_size must be positive.")
+
+        base_params = dict(params or {})
+        base_offset = int(base_params.pop("offset", "0"))
+        rows: list[dict[str, Any]] = []
+
+        while True:
+            page_params = {
+                **base_params,
+                "limit": str(page_size),
+                "offset": str(base_offset + len(rows)),
+            }
+            page = self.select(table, columns=columns, params=page_params)
+            if not page:
+                return rows
+            rows.extend(page)
+
     def request(
         self,
         method: str,

@@ -83,6 +83,30 @@ export async function supabaseRequest<T>(
   return result.data;
 }
 
+export async function supabaseRequestAll<T>(
+  path: string,
+  init: RequestInit = {},
+  pageSize = 1000,
+): Promise<T[]> {
+  if (!Number.isInteger(pageSize) || pageSize < 1) {
+    throw new Error("pageSize must be a positive integer.");
+  }
+
+  const url = new URL(path, "http://supabase.local");
+  const baseOffset = Number(url.searchParams.get("offset") || 0);
+  const rows: T[] = [];
+
+  while (true) {
+    url.searchParams.set("limit", String(pageSize));
+    url.searchParams.set("offset", String(baseOffset + rows.length));
+    const page = await supabaseRequest<T[]>(`${url.pathname}?${url.searchParams}`, init);
+    if (page.length === 0) {
+      return rows;
+    }
+    rows.push(...page);
+  }
+}
+
 export async function supabaseRequestWithHeaders<T>(
   path: string,
   init: RequestInit = {},

@@ -20,7 +20,7 @@ values
       'agentic-rag',
       'graphrag'
     ]::text[],
-    1
+    2
   ),
   (
     'ocr',
@@ -37,7 +37,7 @@ values
       'document-parser',
       'pdf-parser'
     ]::text[],
-    2
+    3
   ),
   (
     'memory',
@@ -50,7 +50,7 @@ values
       'agentic-memory',
       'long-term-memory'
     ]::text[],
-    4
+    5
   ),
   (
     'skills',
@@ -61,7 +61,7 @@ values
       'ai-skills',
       'agent-skills'
     ]::text[],
-    6
+    7
   ),
   (
     'observability',
@@ -75,7 +75,7 @@ values
       'llm-tracing',
       'llm-monitoring'
     ]::text[],
-    10
+    12
   ),
   (
     'evaluation',
@@ -89,7 +89,7 @@ values
       'ai-evaluation',
       'llm-benchmark'
     ]::text[],
-    9
+    11
   ),
   (
     'mcp',
@@ -102,7 +102,7 @@ values
       'mcp-server',
       'mcp-servers'
     ]::text[],
-    5
+    6
   ),
   (
     'frameworks',
@@ -116,6 +116,16 @@ values
     0
   ),
   (
+    'platforms-apps',
+    'Platforms & Apps',
+    'Self-hosted platforms and applications for building, deploying, and operating AI agents.',
+    array[
+      'agent-platform',
+      'llm-platform'
+    ]::text[],
+    1
+  ),
+  (
     'computer-use',
     'Computer Use',
     'Browser, desktop, and GUI automation for agents that operate software.',
@@ -124,7 +134,7 @@ values
       'browser-use',
       'browser-agent'
     ]::text[],
-    7
+    8
   ),
   (
     'guardrails',
@@ -138,7 +148,20 @@ values
       'ai-security',
       'ai-guardrails'
     ]::text[],
-    8
+    10
+  ),
+  (
+    'voice-realtime',
+    'Voice & Realtime',
+    'Speech, voice, and real-time multimodal systems for conversational AI agents.',
+    array[
+      'voice-ai',
+      'voice-agent',
+      'conversational-ai',
+      'speech-to-text',
+      'text-to-speech'
+    ]::text[],
+    9
   ),
   (
     'knowledge-graph',
@@ -149,7 +172,17 @@ values
       'knowledge-graphs',
       'graph-database'
     ]::text[],
-    3
+    4
+  ),
+  (
+    'ui-ux',
+    'UI/UX',
+    'User interfaces, clients, and workspaces for interacting with AI and agent systems.',
+    array[
+      'llm-ui',
+      'ai-ui'
+    ]::text[],
+    13
   )
 on conflict (id) do update
 set

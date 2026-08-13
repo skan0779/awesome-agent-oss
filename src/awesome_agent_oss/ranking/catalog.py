@@ -29,6 +29,7 @@ RADAR_VELOCITY_WEIGHTS = {
 RADAR_RELATIVE_GROWTH_WEIGHT = 0.10
 RADAR_ADOPTION_WEIGHT = 0.05
 RADAR_FULL_CONFIDENCE_DAYS = 14
+RANKING_HISTORY_DAYS = 60
 
 
 class CatalogBuildError(RuntimeError):
@@ -104,7 +105,7 @@ def load_supabase_section_definitions(
     """Load section definitions from Supabase."""
     supabase = client or SupabaseClient.from_env()
     try:
-        rows = supabase.select(
+        rows = supabase.select_all(
             "sections",
             columns="id,name,description,sort_order",
             params={"order": "sort_order.asc,id.asc"},
@@ -136,14 +137,27 @@ def load_supabase_section_definitions(
 
 
 def load_supabase_snapshots(client: SupabaseClient | None = None) -> list[Snapshot]:
-    """Load Supabase snapshots in date order."""
+    """Load the snapshot window needed for ranking in date order."""
     supabase = client or SupabaseClient.from_env()
     try:
         accepted_rows = load_supabase_accepted_repository_rows(supabase)
-        snapshot_rows = supabase.select(
+        latest_rows = supabase.select(
+            "repository_snapshots",
+            columns="snapshot_date",
+            params={"order": "snapshot_date.desc", "limit": "1"},
+        )
+        if not latest_rows:
+            return []
+
+        latest_date = parse_snapshot_date(latest_rows[0].get("snapshot_date"))
+        cutoff_date = latest_date - timedelta(days=RANKING_HISTORY_DAYS)
+        snapshot_rows = supabase.select_all(
             "repository_snapshots",
             columns="*",
-            params={"order": "snapshot_date.asc,repository_id.asc"},
+            params={
+                "snapshot_date": f"gte.{cutoff_date.isoformat()}",
+                "order": "snapshot_date.asc,repository_id.asc",
+            },
         )
     except (RegistryError, SupabaseClientError) as error:
         raise CatalogBuildError(str(error)) from error
@@ -155,14 +169,7 @@ def load_supabase_snapshots(client: SupabaseClient | None = None) -> list[Snapsh
         if not isinstance(repository_id, int) or repository_id not in repositories:
             continue
 
-        raw_date = row.get("snapshot_date")
-        if not isinstance(raw_date, str):
-            raise CatalogBuildError("Supabase snapshot row must include snapshot_date.")
-
-        try:
-            parsed_date = date.fromisoformat(raw_date)
-        except ValueError as error:
-            raise CatalogBuildError(f"Invalid Supabase snapshot_date: {raw_date}") from error
+        parsed_date = parse_snapshot_date(row.get("snapshot_date"))
 
         rows_by_date[parsed_date].append(
             catalog_snapshot_row(row, repositories[repository_id])
@@ -172,6 +179,16 @@ def load_supabase_snapshots(client: SupabaseClient | None = None) -> list[Snapsh
         Snapshot(snapshot_date=snapshot_date, rows=rows)
         for snapshot_date, rows in sorted(rows_by_date.items())
     ]
+
+
+def parse_snapshot_date(value: Any) -> date:
+    """Parse and validate a Supabase snapshot date."""
+    if not isinstance(value, str):
+        raise CatalogBuildError("Supabase snapshot row must include snapshot_date.")
+    try:
+        return date.fromisoformat(value)
+    except ValueError as error:
+        raise CatalogBuildError(f"Invalid Supabase snapshot_date: {value}") from error
 
 
 def repository_metadata_by_id(rows: list[dict[str, Any]]) -> dict[int, dict[str, Any]]:
@@ -252,18 +269,23 @@ def build_catalog_entry(
 ) -> dict[str, Any]:
     """Build one generated catalog entry for a repository."""
     rows = sorted(rows, key=lambda item: item[0])
+    repository_latest_date = rows[-1][0]
+    if repository_latest_date > latest_date:
+        raise CatalogBuildError(
+            f"Repository {full_name} has a snapshot after the catalog snapshot date."
+        )
     latest_row = rows[-1][1]
 
     stars = as_int(latest_row.get("stars"))
     forks = as_int(latest_row.get("forks"))
-    stars_1d = delta_from_baseline(rows, latest_date, "stars", days=1)
-    stars_3d = delta_from_baseline(rows, latest_date, "stars", days=3)
-    stars_7d = delta_from_baseline(rows, latest_date, "stars", days=7)
-    stars_30d = delta_from_baseline(rows, latest_date, "stars", days=30)
-    stars_60d = delta_from_baseline(rows, latest_date, "stars", days=60)
-    forks_7d = delta_from_baseline(rows, latest_date, "forks", days=7)
-    forks_30d = delta_from_baseline(rows, latest_date, "forks", days=30)
-    forks_60d = delta_from_baseline(rows, latest_date, "forks", days=60)
+    stars_1d = delta_from_baseline(rows, repository_latest_date, "stars", days=1)
+    stars_3d = delta_from_baseline(rows, repository_latest_date, "stars", days=3)
+    stars_7d = delta_from_baseline(rows, repository_latest_date, "stars", days=7)
+    stars_30d = delta_from_baseline(rows, repository_latest_date, "stars", days=30)
+    stars_60d = delta_from_baseline(rows, repository_latest_date, "stars", days=60)
+    forks_7d = delta_from_baseline(rows, repository_latest_date, "forks", days=7)
+    forks_30d = delta_from_baseline(rows, repository_latest_date, "forks", days=30)
+    forks_60d = delta_from_baseline(rows, repository_latest_date, "forks", days=60)
 
     return {
         "full_name": full_name,
@@ -287,7 +309,7 @@ def build_catalog_entry(
         "score": score_repository(stars, forks, stars_7d, stars_30d, stars_60d, forks_7d, forks_30d),
         "radar_score": 0.0,
         "radar_confidence": 0.0,
-        "history_days": max(0, (latest_date - rows[0][0]).days),
+        "history_days": max(0, (repository_latest_date - rows[0][0]).days),
         "license": latest_row.get("license"),
         "license_name": latest_row.get("license_name"),
         "language": latest_row.get("language"),

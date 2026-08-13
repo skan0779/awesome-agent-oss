@@ -36,7 +36,7 @@
 ---
 
 <!-- AWESOME_AGENT_OSS:START -->
-_🚀 Last updated from snapshot: `2026-08-13 05:48 UTC`._
+_🚀 Last updated from snapshot: `2026-08-13 05:55 UTC`._
 
 ## [Frameworks & SDKs](./sections/frameworks.md)
 
@@ -44,16 +44,16 @@ Frameworks and SDKs for building, orchestrating, and running AI agents.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 143,580 | 23,923 | 2026-08-07 | langchain-core==1.5.3 (2026-07-30) | MIT |
-| 2 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 79,381 | 10,841 | 2026-08-05 | v2.0.0 (2026-06-25) | MIT |
-| 3 | [pathwaycom/pathway](https://github.com/pathwaycom/pathway) | 62,540 | 1,682 | 2026-08-05 | v0.32.1 (2026-08-01) | Other |
-| 4 | [aaif-goose/goose](https://github.com/aaif-goose/goose) | 52,425 | 5,922 | 2026-08-06 | v1.45.0 (2026-07-29) | Apache-2.0 |
-| 5 | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 39,069 | 6,578 | 2026-08-06 | checkpointsqlite==3.1.1 (2026-07-30) | MIT |
-| 6 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 46,693 | 8,256 | 2026-08-06 | v0.3.0 (2026-07-25) | MIT |
-| 7 | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 56,668 | 8,080 | 2026-08-06 | 1.15.12 (2026-08-05) | MIT |
-| 8 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 51,436 | 7,883 | 2026-08-06 | v0.14.23 (2026-06-24) | MIT |
-| 9 | [microsoft/autogen](https://github.com/microsoft/autogen) | 60,254 | 9,081 | 2026-04-15 | python-v0.7.5 (2025-09-30) | CC-BY-4.0 |
-| 10 | [agno-agi/agno](https://github.com/agno-agi/agno) | 41,595 | 5,740 | 2026-08-06 | v2.8.7 (2026-08-05) | Apache-2.0 |
+| 1 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 79,876 | 10,925 | 2026-08-12 | v2.0.0 (2026-06-25) | MIT |
+| 2 | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 144,128 | 24,000 | 2026-08-13 | langchain-core==1.5.4 (2026-08-11) | MIT |
+| 3 | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 39,573 | 6,639 | 2026-08-12 | 1.2.11 (2026-08-11) | MIT |
+| 4 | [aaif-goose/goose](https://github.com/aaif-goose/goose) | 52,741 | 5,997 | 2026-08-13 | v1.46.0 (2026-08-12) | Apache-2.0 |
+| 5 | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 57,005 | 8,134 | 2026-08-13 | 1.15.15 (2026-08-12) | MIT |
+| 6 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 46,910 | 8,295 | 2026-08-13 | v0.3.0 (2026-07-25) | MIT |
+| 7 | [langchain-ai/deepagents](https://github.com/langchain-ai/deepagents) | 27,713 | 3,863 | 2026-08-13 | deepagents==0.7.5 (2026-08-06) | MIT |
+| 8 | [mastra-ai/mastra](https://github.com/mastra-ai/mastra) | 27,155 | 2,622 | 2026-08-13 | @mastra/core@1.58.0 (2026-08-12) | Other |
+| 9 | [livekit/agents](https://github.com/livekit/agents) | 12,961 | 3,551 | 2026-08-13 | livekit-agents@1.6.9 (2026-08-07) | Apache-2.0 |
+| 10 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 51,605 | 7,917 | 2026-08-12 | v0.14.23 (2026-06-24) | MIT |
 
 ## [Platforms & Apps](./sections/platforms-apps.md)
 
@@ -61,16 +61,16 @@ Self-hosted platforms and applications for building, deploying, and operating AI
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [langgenius/dify](https://github.com/langgenius/dify) | 151,614 | 23,936 | 2026-08-07 | 1.16.1 (2026-07-28) | Other |
-| 2 | [n8n-io/n8n](https://github.com/n8n-io/n8n) | 199,502 | 59,938 | 2026-08-06 | n8n@2.33.4 (2026-08-05) | Other |
-| 3 | [666ghj/MiroFish](https://github.com/666ghj/MiroFish) | 70,224 | 10,968 | 2026-08-03 | v0.1.2 (2026-03-07) | AGPL-3.0 |
-| 4 | [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | 64,438 | 7,084 | 2026-08-06 | v1.15.0 (2026-06-25) | MIT |
-| 5 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 79,381 | 10,841 | 2026-08-05 | v2.0.0 (2026-06-25) | MIT |
-| 6 | [lobehub/lobehub](https://github.com/lobehub/lobehub) | 81,316 | 15,775 | 2026-08-06 | v2.2.13 (2026-08-01) | Other |
-| 7 | [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | 55,221 | 24,859 | 2026-08-06 | flowise@3.1.4 (2026-07-29) | Other |
-| 8 | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | 49,927 | 4,729 | 2026-08-07 | v2.0.1 (2026-08-07) | AGPL-3.0 |
-| 9 | [danny-avila/LibreChat](https://github.com/danny-avila/LibreChat) | 41,708 | 8,608 | 2026-08-06 | - | MIT |
-| 10 | [mindsdb/mindshub](https://github.com/mindsdb/mindshub) | 39,522 | 6,223 | 2026-07-10 | v26.1.0 (2026-04-23) | MIT |
+| 1 | [n8n-io/n8n](https://github.com/n8n-io/n8n) | 200,417 | 60,103 | 2026-08-13 | n8n@2.34.5 (2026-08-12) | Other |
+| 2 | [langgenius/dify](https://github.com/langgenius/dify) | 152,282 | 24,039 | 2026-08-13 | 1.16.1 (2026-07-28) | Other |
+| 3 | [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | 35,263 | 4,470 | 2026-08-12 | v1.5.11 (2026-08-09) | Apache-2.0 |
+| 4 | [666ghj/MiroFish](https://github.com/666ghj/MiroFish) | 70,917 | 11,053 | 2026-08-03 | v0.1.2 (2026-03-07) | AGPL-3.0 |
+| 5 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 79,876 | 10,925 | 2026-08-12 | v2.0.0 (2026-06-25) | MIT |
+| 6 | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | 50,365 | 4,773 | 2026-08-13 | v2.0.3 (2026-08-10) | AGPL-3.0 |
+| 7 | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 38,570 | 3,888 | 2026-08-05 | v0.3.0 (2025-11-04) | Apache-2.0 |
+| 8 | [lobehub/lobehub](https://github.com/lobehub/lobehub) | 81,622 | 15,799 | 2026-08-13 | v2.2.13 (2026-08-01) | Other |
+| 9 | [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | 64,670 | 7,126 | 2026-08-13 | v1.15.0 (2026-06-25) | MIT |
+| 10 | [danny-avila/LibreChat](https://github.com/danny-avila/LibreChat) | 41,974 | 8,680 | 2026-08-13 | - | MIT |
 
 ## [RAG](./sections/rag.md)
 
@@ -78,16 +78,16 @@ Retrieval, indexing, and generation tools for grounding AI applications in exter
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 86,992 | 10,219 | 2026-08-07 | v0.26.4 (2026-07-07) | Apache-2.0 |
-| 2 | [pathwaycom/pathway](https://github.com/pathwaycom/pathway) | 62,540 | 1,682 | 2026-08-05 | v0.32.1 (2026-08-01) | Other |
-| 3 | [pathwaycom/llm-app](https://github.com/pathwaycom/llm-app) | 59,119 | 1,467 | 2026-07-05 | - | MIT |
-| 4 | [milvus-io/milvus](https://github.com/milvus-io/milvus) | 45,543 | 4,168 | 2026-08-07 | v3.0.0 (2026-07-29) | Apache-2.0 |
-| 5 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 51,436 | 7,883 | 2026-08-06 | v0.14.23 (2026-06-24) | MIT |
-| 6 | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | 38,591 | 5,425 | 2026-08-06 | v1.5.6 (2026-08-06) | MIT |
-| 7 | [microsoft/graphrag](https://github.com/microsoft/graphrag) | 35,305 | 3,711 | 2026-08-05 | v3.1.1 (2026-07-18) | MIT |
-| 8 | [stanford-oval/storm](https://github.com/stanford-oval/storm) | 30,808 | 2,885 | 2025-09-30 | v1.1.0 (2025-01-23) | MIT |
-| 9 | [StarTrail-org/PixelRAG](https://github.com/StarTrail-org/PixelRAG) | 9,300 | 791 | 2026-07-31 | v0.4.0 (2026-07-16) | Apache-2.0 |
-| 10 | [Tencent/WeKnora](https://github.com/Tencent/WeKnora) | 19,476 | 2,781 | 2026-08-07 | v0.7.1 (2026-07-24) | Other |
+| 1 | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 87,654 | 10,320 | 2026-08-13 | v0.26.4 (2026-07-07) | Apache-2.0 |
+| 2 | [Tencent/WeKnora](https://github.com/Tencent/WeKnora) | 19,790 | 2,844 | 2026-08-13 | v0.7.2 (2026-08-07) | Other |
+| 3 | [stanford-oval/storm](https://github.com/stanford-oval/storm) | 30,954 | 2,898 | 2025-09-30 | v1.1.0 (2025-01-23) | MIT |
+| 4 | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | 38,816 | 5,459 | 2026-08-13 | v1.5.6 (2026-08-06) | MIT |
+| 5 | [StarTrail-org/PixelRAG](https://github.com/StarTrail-org/PixelRAG) | 9,487 | 813 | 2026-07-31 | v0.4.0 (2026-07-16) | Apache-2.0 |
+| 6 | [milvus-io/milvus](https://github.com/milvus-io/milvus) | 45,619 | 4,176 | 2026-08-13 | v3.0.0 (2026-07-29) | Apache-2.0 |
+| 7 | [microsoft/graphrag](https://github.com/microsoft/graphrag) | 35,465 | 3,729 | 2026-08-11 | v3.1.1 (2026-07-18) | MIT |
+| 8 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 51,605 | 7,917 | 2026-08-12 | v0.14.23 (2026-06-24) | MIT |
+| 9 | [HKUDS/RAG-Anything](https://github.com/HKUDS/RAG-Anything) | 22,888 | 2,655 | 2026-07-20 | v1.3.1 (2026-05-21) | MIT |
+| 10 | [llmware-ai/llmware](https://github.com/llmware-ai/llmware) | 14,852 | 2,952 | 2026-05-17 | v0.4.6 (2026-04-14) | Apache-2.0 |
 
 ## [OCR & Parsing](./sections/ocr.md)
 
@@ -95,16 +95,16 @@ OCR, document extraction, layout analysis, and structured document conversion.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [opendatalab/MinerU](https://github.com/opendatalab/MinerU) | 76,995 | 6,473 | 2026-08-06 | mineru-3.4.4-released (2026-07-10) | Other |
-| 2 | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 87,157 | 11,149 | 2026-07-22 | v3.7.0 (2026-06-11) | Apache-2.0 |
-| 3 | [docling-project/docling](https://github.com/docling-project/docling) | 64,352 | 4,573 | 2026-08-06 | v2.118.0 (2026-08-03) | MIT |
-| 4 | [tesseract-ocr/tesseract](https://github.com/tesseract-ocr/tesseract) | 75,797 | 10,721 | 2026-08-03 | 5.5.3 (2026-07-24) | Apache-2.0 |
-| 5 | [ocrmypdf/OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF) | 34,376 | 2,373 | 2026-08-06 | v17.10.0 (2026-08-05) | MPL-2.0 |
-| 6 | [JaidedAI/EasyOCR](https://github.com/JaidedAI/EasyOCR) | 29,873 | 3,595 | 2025-12-05 | v1.7.2 (2024-09-24) | Apache-2.0 |
-| 7 | [hiroi-sora/Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) | 46,451 | 4,554 | 2025-11-20 | v2.1.5 (2025-03-25) | MIT |
-| 8 | [opendataloader-project/opendataloader-pdf](https://github.com/opendataloader-project/opendataloader-pdf) | 28,222 | 2,693 | 2026-08-06 | v2.5.0 (2026-07-14) | Apache-2.0 |
-| 9 | [naptha/tesseract.js](https://github.com/naptha/tesseract.js) | 38,603 | 2,379 | 2026-05-17 | v7.0.0 (2025-12-15) | Apache-2.0 |
-| 10 | [datalab-to/chandra](https://github.com/datalab-to/chandra) | 11,960 | 1,223 | 2026-06-26 | v0.2.0 (2026-03-18) | Apache-2.0 |
+| 1 | [opendatalab/MinerU](https://github.com/opendatalab/MinerU) | 77,488 | 6,527 | 2026-08-11 | mineru-3.4.4-released (2026-07-10) | Other |
+| 2 | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 87,544 | 11,172 | 2026-07-22 | v3.7.0 (2026-06-11) | Apache-2.0 |
+| 3 | [docling-project/docling](https://github.com/docling-project/docling) | 64,684 | 4,602 | 2026-08-12 | v2.119.0 (2026-08-10) | MIT |
+| 4 | [opendataloader-project/opendataloader-pdf](https://github.com/opendataloader-project/opendataloader-pdf) | 28,370 | 2,706 | 2026-08-13 | v2.5.0 (2026-07-14) | Apache-2.0 |
+| 5 | [ocrmypdf/OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF) | 34,428 | 2,375 | 2026-08-06 | v17.10.0 (2026-08-05) | MPL-2.0 |
+| 6 | [HKUDS/RAG-Anything](https://github.com/HKUDS/RAG-Anything) | 22,888 | 2,655 | 2026-07-20 | v1.3.1 (2026-05-21) | MIT |
+| 7 | [JaidedAI/EasyOCR](https://github.com/JaidedAI/EasyOCR) | 29,901 | 3,597 | 2025-12-05 | v1.7.2 (2024-09-24) | Apache-2.0 |
+| 8 | [hiroi-sora/Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) | 46,548 | 4,564 | 2025-11-20 | v2.1.5 (2025-03-25) | MIT |
+| 9 | [tesseract-ocr/tesseract](https://github.com/tesseract-ocr/tesseract) | 75,888 | 10,739 | 2026-08-13 | 5.5.3 (2026-07-24) | Apache-2.0 |
+| 10 | [DayBreak-u/chineseocr_lite](https://github.com/DayBreak-u/chineseocr_lite) | 12,332 | 2,281 | 2026-05-18 | - | GPL-2.0 |
 
 ## [Knowledge Graphs](./sections/knowledge-graph.md)
 
@@ -112,14 +112,16 @@ Knowledge graph, graph database, and graph retrieval tools for AI applications.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 103,570 | 10,065 | 2026-08-06 | v0.9.35 (2026-08-06) | Apache-2.0 |
-| 2 | [surrealdb/surrealdb](https://github.com/surrealdb/surrealdb) | 32,806 | 1,325 | 2026-07-06 | v3.2.0 (2026-07-06) | Other |
-| 3 | [microsoft/graphrag](https://github.com/microsoft/graphrag) | 35,305 | 3,711 | 2026-08-05 | v3.1.1 (2026-07-18) | MIT |
-| 4 | [getzep/graphiti](https://github.com/getzep/graphiti) | 29,640 | 2,997 | 2026-08-05 | v0.29.3 (2026-07-27) | Apache-2.0 |
-| 5 | [FalkorDB/FalkorDB](https://github.com/FalkorDB/FalkorDB) | 5,384 | 420 | 2026-08-06 | v4.20.1 (2026-07-15) | Other |
-| 6 | [neo4j/neo4j](https://github.com/neo4j/neo4j) | 17,014 | 2,678 | 2026-08-05 | 3.2.0-alpha08 (2017-04-11) | GPL-3.0 |
-| 7 | [cayleygraph/cayley](https://github.com/cayleygraph/cayley) | 15,055 | 1,235 | 2026-07-22 | v0.7.7 (2019-10-15) | Apache-2.0 |
-| 8 | [raphaelmansuy/edgequake](https://github.com/raphaelmansuy/edgequake) | 2,061 | 239 | 2026-08-04 | v0.24.1 (2026-08-03) | Apache-2.0 |
+| 1 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 105,760 | 10,309 | 2026-08-12 | v0.9.41 (2026-08-12) | Apache-2.0 |
+| 2 | [getzep/graphiti](https://github.com/getzep/graphiti) | 29,871 | 3,024 | 2026-08-12 | v0.29.3 (2026-07-27) | Apache-2.0 |
+| 3 | [dgraph-io/dgraph](https://github.com/dgraph-io/dgraph) | 21,772 | 1,601 | 2026-08-12 | v25.4.0 (2026-07-30) | Apache-2.0 |
+| 4 | [microsoft/graphrag](https://github.com/microsoft/graphrag) | 35,465 | 3,729 | 2026-08-11 | v3.1.1 (2026-07-18) | MIT |
+| 5 | [surrealdb/surrealdb](https://github.com/surrealdb/surrealdb) | 32,882 | 1,334 | 2026-07-06 | v3.2.0 (2026-07-06) | Other |
+| 6 | [FalkorDB/FalkorDB](https://github.com/FalkorDB/FalkorDB) | 5,521 | 428 | 2026-08-13 | v4.20.2 (2026-08-09) | Other |
+| 7 | [open-metadata/OpenMetadata](https://github.com/open-metadata/OpenMetadata) | 14,863 | 2,311 | 2026-08-13 | 1.13.3-release (2026-07-31) | Apache-2.0 |
+| 8 | [vesoft-inc/nebula](https://github.com/vesoft-inc/nebula) | 12,340 | 1,324 | 2026-05-18 | v3.8.0 (2024-05-17) | Apache-2.0 |
+| 9 | [neo4j/neo4j](https://github.com/neo4j/neo4j) | 17,057 | 2,682 | 2026-08-07 | 3.2.0-alpha08 (2017-04-11) | GPL-3.0 |
+| 10 | [OpenSPG/KAG](https://github.com/OpenSPG/KAG) | 8,972 | 702 | 2026-01-28 | v0.8.0 (2025-06-28) | Apache-2.0 |
 
 ## [Memory](./sections/memory.md)
 
@@ -127,16 +129,16 @@ Short-term, long-term, and persistent memory systems for AI agents.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 89,887 | 7,827 | 2026-08-05 | v13.13.1 (2026-08-03) | Apache-2.0 |
-| 2 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 62,722 | 7,314 | 2026-08-06 | n8n-nodes-mem0-v0.1.3 (2026-08-05) | Apache-2.0 |
-| 3 | [MemPalace/mempalace](https://github.com/MemPalace/mempalace) | 58,154 | 7,478 | 2026-08-06 | v3.6.0 (2026-07-17) | MIT |
-| 4 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 37,874 | 3,019 | 2026-08-07 | v0.9.0 (2026-07-08) | MIT |
-| 5 | [rohitg00/agentmemory](https://github.com/rohitg00/agentmemory) | 26,664 | 2,264 | 2026-08-03 | v0.9.28 (2026-07-19) | Apache-2.0 |
-| 6 | [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | 28,018 | 2,204 | 2026-08-07 | v0.4.12 (2026-08-03) | AGPL-3.0 |
-| 7 | [topoteretes/cognee](https://github.com/topoteretes/cognee) | 29,839 | 2,885 | 2026-08-06 | v1.4.1.dev0 (2026-08-05) | Apache-2.0 |
-| 8 | [getzep/graphiti](https://github.com/getzep/graphiti) | 29,640 | 2,997 | 2026-08-05 | v0.29.3 (2026-07-27) | Apache-2.0 |
-| 9 | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | 19,178 | 1,215 | 2026-08-07 | v0.8.6 (2026-07-29) | MIT |
-| 10 | [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) | 28,800 | 2,509 | 2026-08-07 | server-v0.0.6 (2026-07-19) | MIT |
+| 1 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 90,579 | 7,901 | 2026-08-13 | v13.15.0 (2026-08-10) | Apache-2.0 |
+| 2 | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | 19,850 | 1,396 | 2026-08-13 | v0.9.0 (2026-08-07) | MIT |
+| 3 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 38,732 | 3,082 | 2026-08-13 | v0.10.3 (2026-08-13) | MIT |
+| 4 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 63,157 | 7,369 | 2026-08-13 | ts-v3.1.6 (2026-08-11) | Apache-2.0 |
+| 5 | [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | 28,326 | 2,232 | 2026-08-13 | v0.4.13 (2026-08-06) | AGPL-3.0 |
+| 6 | [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | 20,766 | 1,880 | 2026-08-11 | v2.0.0 (2026-08-03) | Other |
+| 7 | [rohitg00/agentmemory](https://github.com/rohitg00/agentmemory) | 26,942 | 2,294 | 2026-08-10 | v0.9.28 (2026-07-19) | Apache-2.0 |
+| 8 | [getzep/graphiti](https://github.com/getzep/graphiti) | 29,871 | 3,024 | 2026-08-12 | v0.29.3 (2026-07-27) | Apache-2.0 |
+| 9 | [dolthub/dolt](https://github.com/dolthub/dolt) | 24,165 | 857 | 2026-08-13 | v2.2.4 (2026-08-12) | Apache-2.0 |
+| 10 | [topoteretes/cognee](https://github.com/topoteretes/cognee) | 29,986 | 2,915 | 2026-08-13 | v1.4.2 (2026-08-08) | Apache-2.0 |
 
 ## [MCP](./sections/mcp.md)
 
@@ -144,16 +146,16 @@ Model Context Protocol servers, clients, SDKs, registries, and tool integrations
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 91,863 | 14,067 | 2026-08-03 | - | MIT |
-| 2 | [upstash/context7](https://github.com/upstash/context7) | 60,327 | 2,890 | 2026-08-05 | ctx7@0.5.7 (2026-07-30) | MIT |
-| 3 | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | 89,253 | 11,391 | 2026-08-05 | 2026.7.10 (2026-07-10) | Other |
-| 4 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 48,599 | 3,361 | 2026-08-05 | chrome-devtools-mcp-v1.6.0 (2026-07-14) | Apache-2.0 |
-| 5 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 37,874 | 3,019 | 2026-08-07 | v0.9.0 (2026-07-08) | MIT |
-| 6 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | 31,982 | 4,729 | 2026-08-05 | v1.8.0 (2026-07-30) | MIT |
-| 7 | [tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) | 29,086 | 2,687 | 2026-08-02 | v2.3.7 (2026-07-18) | MIT |
-| 8 | [oraios/serena](https://github.com/oraios/serena) | 27,647 | 1,827 | 2026-08-05 | v1.6.1 (2026-07-21) | MIT |
-| 9 | [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | 27,082 | 2,224 | 2026-08-06 | v3.4.6 (2026-08-05) | Apache-2.0 |
-| 10 | [activepieces/activepieces](https://github.com/activepieces/activepieces) | 23,601 | 3,999 | 2026-08-05 | 0.86.3-hotfix.1 (2026-08-05) | Other |
+| 1 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 38,732 | 3,082 | 2026-08-13 | v0.10.3 (2026-08-13) | MIT |
+| 2 | [tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) | 29,946 | 2,747 | 2026-08-02 | v2.3.7 (2026-07-18) | MIT |
+| 3 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 49,057 | 3,419 | 2026-08-13 | chrome-devtools-mcp-v1.7.0 (2026-08-10) | Apache-2.0 |
+| 4 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 92,185 | 14,398 | 2026-08-03 | - | MIT |
+| 5 | [upstash/context7](https://github.com/upstash/context7) | 60,667 | 2,925 | 2026-08-13 | @upstash/context7-mcp@4.0.2 (2026-08-11) | MIT |
+| 6 | [oraios/serena](https://github.com/oraios/serena) | 27,941 | 1,854 | 2026-08-12 | v1.7.0 (2026-08-09) | MIT |
+| 7 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | 32,203 | 4,785 | 2026-08-12 | v1.9.0 (2026-08-10) | MIT |
+| 8 | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | 89,512 | 11,437 | 2026-08-10 | 2026.7.10 (2026-07-10) | Other |
+| 9 | [activepieces/activepieces](https://github.com/activepieces/activepieces) | 23,752 | 4,034 | 2026-08-13 | 0.88.0 (2026-08-12) | Other |
+| 10 | [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | 27,197 | 2,244 | 2026-08-11 | v3.4.7 (2026-08-10) | Apache-2.0 |
 
 ## [Skills](./sections/skills.md)
 
@@ -161,16 +163,16 @@ Reusable skills, instructions, and workflow packages for AI agents.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [obra/superpowers](https://github.com/obra/superpowers) | 268,174 | 23,965 | 2026-08-07 | v6.2.0 (2026-07-24) | MIT |
-| 2 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 114,215 | 12,227 | 2026-08-06 | v2.14.1 (2026-08-06) | MIT |
-| 3 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 238,074 | 36,155 | 2026-08-05 | v2.1.0 (2026-07-27) | MIT |
-| 4 | [anthropics/skills](https://github.com/anthropics/skills) | 166,741 | 19,857 | 2026-07-24 | - | - |
-| 5 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 97,513 | 5,358 | 2026-07-15 | v4.8.4 (2026-06-29) | MIT |
-| 6 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 83,035 | 8,899 | 2026-08-06 | 0.6.6 (2026-08-04) | MIT |
-| 7 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 72,653 | 5,001 | 2026-07-23 | - | MIT |
-| 8 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 71,971 | 8,159 | 2026-07-24 | - | - |
-| 9 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 72,751 | 7,236 | 2026-07-30 | v0.4.12 (2026-07-26) | BSD-3-Clause |
-| 10 | [blader/humanizer](https://github.com/blader/humanizer) | 34,050 | 3,064 | 2026-07-22 | v2.9.1 (2026-07-22) | MIT |
+| 1 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 86,677 | 9,310 | 2026-08-11 | 0.6.6 (2026-08-04) | MIT |
+| 2 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 101,680 | 5,587 | 2026-08-07 | v4.9.0 (2026-08-07) | MIT |
+| 3 | [obra/superpowers](https://github.com/obra/superpowers) | 271,361 | 24,259 | 2026-08-13 | v6.3.0 (2026-08-12) | MIT |
+| 4 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 75,975 | 5,205 | 2026-07-23 | - | MIT |
+| 5 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 116,190 | 12,477 | 2026-08-12 | v2.14.2 (2026-08-12) | MIT |
+| 6 | [anthropics/skills](https://github.com/anthropics/skills) | 168,603 | 20,085 | 2026-08-07 | - | - |
+| 7 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 239,800 | 36,398 | 2026-08-12 | v2.1.0 (2026-07-27) | MIT |
+| 8 | [blader/humanizer](https://github.com/blader/humanizer) | 35,346 | 3,161 | 2026-07-22 | v2.9.1 (2026-07-22) | MIT |
+| 9 | [google/skills](https://github.com/google/skills) | 17,941 | 1,425 | 2026-08-12 | - | Apache-2.0 |
+| 10 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | 45,221 | 3,271 | 2026-06-08 | - | MIT |
 
 ## [Computer Use](./sections/computer-use.md)
 
@@ -178,14 +180,16 @@ Browser, desktop, and GUI automation for agents that operate software.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | 108,006 | 11,868 | 2026-08-05 | 0.13.7 (2026-07-27) | MIT |
-| 2 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 67,130 | 5,597 | 2026-08-06 | v1.5.0 (2026-06-11) | MIT |
-| 3 | [microsoft/playwright](https://github.com/microsoft/playwright) | 94,063 | 6,222 | 2026-08-05 | v1.62.1 (2026-07-30) | Apache-2.0 |
-| 4 | [jackwener/OpenCLI](https://github.com/jackwener/OpenCLI) | 27,768 | 2,728 | 2026-07-30 | v1.8.6 (2026-07-03) | Apache-2.0 |
-| 5 | [browserbase/stagehand](https://github.com/browserbase/stagehand) | 23,738 | 1,633 | 2026-08-06 | browse@0.9.6 (2026-08-03) | MIT |
-| 6 | [Skyvern-AI/skyvern](https://github.com/Skyvern-AI/skyvern) | 22,678 | 2,136 | 2026-08-06 | v1.0.48 (2026-08-05) | AGPL-3.0 |
-| 7 | [browser-use/browser-harness](https://github.com/browser-use/browser-harness) | 16,508 | 1,566 | 2026-08-03 | v0.1.8 (2026-07-26) | MIT |
-| 8 | [steel-dev/steel-browser](https://github.com/steel-dev/steel-browser) | 7,427 | 952 | 2026-08-05 | v0.5.3-beta (2026-04-24) | Apache-2.0 |
+| 1 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 71,214 | 6,043 | 2026-08-12 | v1.5.0 (2026-06-11) | MIT |
+| 2 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | 109,002 | 11,974 | 2026-08-11 | 0.13.7 (2026-07-27) | MIT |
+| 3 | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 38,570 | 3,888 | 2026-08-05 | v0.3.0 (2025-11-04) | Apache-2.0 |
+| 4 | [microsoft/playwright](https://github.com/microsoft/playwright) | 94,446 | 6,280 | 2026-08-13 | v1.62.1 (2026-07-30) | Apache-2.0 |
+| 5 | [jackwener/OpenCLI](https://github.com/jackwener/OpenCLI) | 28,136 | 2,763 | 2026-08-09 | v1.8.6 (2026-07-03) | Apache-2.0 |
+| 6 | [browserbase/stagehand](https://github.com/browserbase/stagehand) | 23,926 | 1,647 | 2026-08-13 | browse@0.9.6 (2026-08-03) | MIT |
+| 7 | [trycua/cua](https://github.com/trycua/cua) | 21,289 | 1,460 | 2026-08-13 | sandbox-v0.3.1 (2026-08-13) | MIT |
+| 8 | [browser-use/browser-harness](https://github.com/browser-use/browser-harness) | 16,671 | 1,580 | 2026-08-03 | v0.1.8 (2026-07-26) | MIT |
+| 9 | [web-infra-dev/midscene](https://github.com/web-infra-dev/midscene) | 14,560 | 1,119 | 2026-08-13 | v1.10.11 (2026-08-12) | MIT |
+| 10 | [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser) | 13,553 | 1,423 | 2025-11-24 | v0.1.13 (2025-11-22) | Apache-2.0 |
 
 ## [Voice & Realtime](./sections/voice-realtime.md)
 
@@ -193,12 +197,15 @@ Speech, voice, and real-time multimodal systems for conversational AI agents.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 49,450 | 6,089 | 2026-07-28 | v0.5.0 (2026-04-25) | MIT |
-| 2 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 51,957 | 5,756 | 2026-07-24 | - | MIT |
-| 3 | [livekit/agents](https://github.com/livekit/agents) | 12,673 | 3,507 | 2026-08-06 | livekit-agents@1.6.8 (2026-08-03) | Apache-2.0 |
-| 4 | [pipecat-ai/pipecat](https://github.com/pipecat-ai/pipecat) | 13,951 | 2,423 | 2026-08-06 | v1.7.0 (2026-08-01) | BSD-2-Clause |
-| 5 | [supertone-inc/supertonic](https://github.com/supertone-inc/supertonic) | 13,600 | 1,462 | 2026-07-24 | v2.0.0 (2026-01-06) | MIT |
-| 6 | [TEN-framework/ten-framework](https://github.com/TEN-framework/ten-framework) | 11,020 | 1,347 | 2026-08-05 | 0.11.71 (2026-07-31) | Other |
+| 1 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 52,605 | 5,932 | 2026-07-24 | - | MIT |
+| 2 | [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 50,213 | 6,226 | 2026-08-09 | v0.5.0 (2026-04-25) | MIT |
+| 3 | [livekit/agents](https://github.com/livekit/agents) | 12,961 | 3,551 | 2026-08-13 | livekit-agents@1.6.9 (2026-08-07) | Apache-2.0 |
+| 4 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 19,808 | 1,985 | 2026-08-13 | runtime-llamacpp-v0.2.0 (2026-08-11) | MIT |
+| 5 | [huggingface/speech-to-speech](https://github.com/huggingface/speech-to-speech) | 12,444 | 1,523 | 2026-08-12 | v0.2.12 (2026-08-05) | Apache-2.0 |
+| 6 | [pipecat-ai/pipecat](https://github.com/pipecat-ai/pipecat) | 14,093 | 2,453 | 2026-08-13 | v1.7.0 (2026-08-01) | BSD-2-Clause |
+| 7 | [supertone-inc/supertonic](https://github.com/supertone-inc/supertonic) | 13,668 | 1,491 | 2026-07-24 | v2.0.0 (2026-01-06) | MIT |
+| 8 | [kyutai-labs/pocket-tts](https://github.com/kyutai-labs/pocket-tts) | 8,456 | 854 | 2026-08-11 | v2.1.0 (2026-05-04) | MIT |
+| 9 | [TEN-framework/ten-framework](https://github.com/TEN-framework/ten-framework) | 11,040 | 1,348 | 2026-08-06 | 0.11.71 (2026-07-31) | Other |
 
 ## [Guardrails](./sections/guardrails.md)
 
@@ -206,16 +213,16 @@ Safety, validation, privacy, and security controls for LLM and agent application
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [usestrix/strix](https://github.com/usestrix/strix) | 49,055 | 5,188 | 2026-08-05 | v1.4.1 (2026-07-27) | Apache-2.0 |
-| 2 | [KeygraphHQ/shannon](https://github.com/KeygraphHQ/shannon) | 46,472 | 5,366 | 2026-08-04 | v2.2.0 (2026-08-04) | AGPL-3.0 |
-| 3 | [openai/codex-security](https://github.com/openai/codex-security) | 8,846 | 617 | 2026-08-06 | npm-v0.1.5 (2026-07-31) | Apache-2.0 |
-| 4 | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | 6,880 | 799 | 2026-08-06 | v0.23.0 (2026-07-01) | Other |
-| 5 | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 8,710 | 1,146 | 2026-08-04 | v0.16.0 (2026-08-04) | Apache-2.0 |
-| 6 | [guardrails-ai/guardrails](https://github.com/guardrails-ai/guardrails) | 7,257 | 667 | 2026-08-05 | v0.10.2 (2026-06-04) | Apache-2.0 |
-| 7 | [microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit) | 5,627 | 955 | 2026-08-06 | v4.1.0 (2026-06-09) | MIT |
-| 8 | [Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard) | 4,401 | 430 | 2026-08-05 | v4.5.1 (2026-07-30) | Apache-2.0 |
-| 9 | [meta-llama/PurpleLlama](https://github.com/meta-llama/PurpleLlama) | 4,331 | 766 | 2026-07-27 | - | Other |
-| 10 | [verazuo/jailbreak_llms](https://github.com/verazuo/jailbreak_llms) | 3,766 | 328 | 2024-12-24 | - | MIT |
+| 1 | [usestrix/strix](https://github.com/usestrix/strix) | 51,620 | 5,542 | 2026-08-13 | v1.5.3 (2026-08-10) | Apache-2.0 |
+| 2 | [KeygraphHQ/shannon](https://github.com/KeygraphHQ/shannon) | 46,737 | 5,401 | 2026-08-12 | v2.4.0 (2026-08-10) | AGPL-3.0 |
+| 3 | [openai/codex-security](https://github.com/openai/codex-security) | 9,713 | 673 | 2026-08-13 | npm-v0.1.10 (2026-08-12) | Apache-2.0 |
+| 4 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 14,569 | 1,220 | 2026-08-12 | v2.9.3 (2026-08-11) | Apache-2.0 |
+| 5 | [microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit) | 5,897 | 1,029 | 2026-08-12 | v4.1.0 (2026-06-09) | MIT |
+| 6 | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 8,787 | 1,164 | 2026-08-11 | v0.16.0 (2026-08-04) | Apache-2.0 |
+| 7 | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | 6,932 | 804 | 2026-08-13 | v0.23.0 (2026-07-01) | Other |
+| 8 | [Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard) | 4,483 | 442 | 2026-08-12 | v4.5.1 (2026-07-30) | Apache-2.0 |
+| 9 | [ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi) | 8,396 | 828 | 2026-08-12 | v3.3.0 (2026-08-05) | Apache-2.0 |
+| 10 | [guardrails-ai/guardrails](https://github.com/guardrails-ai/guardrails) | 7,279 | 669 | 2026-08-11 | v0.10.2 (2026-06-04) | Apache-2.0 |
 
 ## [Evaluation](./sections/evaluation.md)
 
@@ -223,15 +230,16 @@ Evaluation, benchmarking, testing, and scoring for LLM and agent systems.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [mlflow/mlflow](https://github.com/mlflow/mlflow) | 27,383 | 6,114 | 2026-08-06 | v3.15.1 (2026-08-03) | Apache-2.0 |
-| 2 | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | 24,023 | 2,165 | 2026-08-07 | 0.122.0 (2026-08-04) | MIT |
-| 3 | [comet-ml/opik](https://github.com/comet-ml/opik) | 21,134 | 1,676 | 2026-08-06 | 2.2.19 (2026-08-05) | Apache-2.0 |
-| 4 | [confident-ai/deepeval](https://github.com/confident-ai/deepeval) | 17,438 | 1,759 | 2026-08-05 | v4.1.5 (2026-07-29) | Apache-2.0 |
-| 5 | [vibrantlabsai/ragas](https://github.com/vibrantlabsai/ragas) | 15,152 | 1,605 | 2026-02-24 | v0.4.3 (2026-01-13) | Apache-2.0 |
-| 6 | [raga-ai-hub/RagaAI-Catalyst](https://github.com/raga-ai-hub/RagaAI-Catalyst) | 16,142 | 3,571 | 2026-02-11 | v2.2.4 (2025-06-23) | Apache-2.0 |
-| 7 | [Giskard-AI/giskard-oss](https://github.com/Giskard-AI/giskard-oss) | 5,739 | 513 | 2026-08-06 | giskard-checks/v1.0.2b6 (2026-08-06) | Apache-2.0 |
-| 8 | [EvolvingLMMs-Lab/lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) | 4,348 | 637 | 2026-08-06 | v0.7.2 (2026-06-24) | Other |
-| 9 | [uptrain-ai/uptrain](https://github.com/uptrain-ai/uptrain) | 2,357 | 203 | 2024-08-18 | v0.7.1 (2024-05-14) | Apache-2.0 |
+| 1 | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | 24,186 | 2,181 | 2026-08-13 | 0.122.0 (2026-08-04) | MIT |
+| 2 | [comet-ml/opik](https://github.com/comet-ml/opik) | 21,342 | 1,698 | 2026-08-13 | 2.2.27 (2026-08-12) | Apache-2.0 |
+| 3 | [mlflow/mlflow](https://github.com/mlflow/mlflow) | 27,491 | 6,147 | 2026-08-13 | v3.15.1 (2026-08-03) | Apache-2.0 |
+| 4 | [confident-ai/deepeval](https://github.com/confident-ai/deepeval) | 17,566 | 1,794 | 2026-08-13 | v4.1.7 (2026-07-29) | Apache-2.0 |
+| 5 | [vibrantlabsai/ragas](https://github.com/vibrantlabsai/ragas) | 15,294 | 1,623 | 2026-02-24 | v0.4.3 (2026-01-13) | Apache-2.0 |
+| 6 | [ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi) | 8,396 | 828 | 2026-08-12 | v3.3.0 (2026-08-05) | Apache-2.0 |
+| 7 | [raga-ai-hub/RagaAI-Catalyst](https://github.com/raga-ai-hub/RagaAI-Catalyst) | 16,151 | 3,567 | 2026-02-11 | v2.2.4 (2025-06-23) | Apache-2.0 |
+| 8 | [UKGovernmentBEIS/inspect_ai](https://github.com/UKGovernmentBEIS/inspect_ai) | 2,531 | 651 | 2026-08-12 | - | MIT |
+| 9 | [EvolvingLMMs-Lab/lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) | 4,360 | 638 | 2026-08-06 | v0.7.2 (2026-06-24) | Other |
+| 10 | [Giskard-AI/giskard-oss](https://github.com/Giskard-AI/giskard-oss) | 5,748 | 517 | 2026-08-13 | giskard-scan/v1.0.0b4 (2026-08-07) | Apache-2.0 |
 
 ## [Observability](./sections/observability.md)
 
@@ -239,16 +247,16 @@ Tracing, monitoring, and production analytics for LLM and agent systems.
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [langfuse/langfuse](https://github.com/langfuse/langfuse) | 32,648 | 3,501 | 2026-08-06 | v4.6.0 (2026-08-06) | Other |
-| 2 | [SigNoz/signoz](https://github.com/SigNoz/signoz) | 31,780 | 2,410 | 2026-08-06 | v0.136.1 (2026-08-05) | Other |
-| 3 | [mlflow/mlflow](https://github.com/mlflow/mlflow) | 27,383 | 6,114 | 2026-08-06 | v3.15.1 (2026-08-03) | Apache-2.0 |
-| 4 | [comet-ml/opik](https://github.com/comet-ml/opik) | 21,134 | 1,676 | 2026-08-06 | 2.2.19 (2026-08-05) | Apache-2.0 |
-| 5 | [Arize-ai/phoenix](https://github.com/Arize-ai/phoenix) | 10,927 | 1,041 | 2026-08-07 | arize-phoenix-v19.19.0 (2026-08-07) | Other |
-| 6 | [raga-ai-hub/RagaAI-Catalyst](https://github.com/raga-ai-hub/RagaAI-Catalyst) | 16,142 | 3,571 | 2026-02-11 | v2.2.4 (2025-06-23) | Apache-2.0 |
-| 7 | [open-telemetry/opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-collector) | 7,351 | 2,189 | 2026-08-05 | v0.158.0 (2026-08-04) | Apache-2.0 |
-| 8 | [langwatch/langwatch](https://github.com/langwatch/langwatch) | 3,476 | 340 | 2026-08-06 | skills@v1.1.0 (2026-08-05) | Apache-2.0 |
-| 9 | [openlit/openlit](https://github.com/openlit/openlit) | 2,672 | 344 | 2026-08-03 | ts-1.15.0 (2026-08-03) | Apache-2.0 |
-| 10 | [uptrain-ai/uptrain](https://github.com/uptrain-ai/uptrain) | 2,357 | 203 | 2024-08-18 | v0.7.1 (2024-05-14) | Apache-2.0 |
+| 1 | [langfuse/langfuse](https://github.com/langfuse/langfuse) | 33,003 | 3,552 | 2026-08-13 | v4.10.0 (2026-08-12) | Other |
+| 2 | [comet-ml/opik](https://github.com/comet-ml/opik) | 21,342 | 1,698 | 2026-08-13 | 2.2.27 (2026-08-12) | Apache-2.0 |
+| 3 | [mlflow/mlflow](https://github.com/mlflow/mlflow) | 27,491 | 6,147 | 2026-08-13 | v3.15.1 (2026-08-03) | Apache-2.0 |
+| 4 | [Arize-ai/phoenix](https://github.com/Arize-ai/phoenix) | 11,023 | 1,054 | 2026-08-13 | arize-phoenix-v20.1.0 (2026-08-12) | Other |
+| 5 | [SigNoz/signoz](https://github.com/SigNoz/signoz) | 31,831 | 2,419 | 2026-08-13 | v0.137.0 (2026-08-12) | Other |
+| 6 | [raga-ai-hub/RagaAI-Catalyst](https://github.com/raga-ai-hub/RagaAI-Catalyst) | 16,151 | 3,567 | 2026-02-11 | v2.2.4 (2025-06-23) | Apache-2.0 |
+| 7 | [open-telemetry/opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-collector) | 7,383 | 2,204 | 2026-08-12 | v0.158.0 (2026-08-04) | Apache-2.0 |
+| 8 | [openlit/openlit](https://github.com/openlit/openlit) | 2,684 | 351 | 2026-08-13 | ts-1.15.0 (2026-08-03) | Apache-2.0 |
+| 9 | [langwatch/langwatch](https://github.com/langwatch/langwatch) | 3,486 | 342 | 2026-08-13 | langwatch-3.12.0 (2026-08-10) | Apache-2.0 |
+| 10 | [uptrain-ai/uptrain](https://github.com/uptrain-ai/uptrain) | 2,357 | 204 | 2024-08-18 | v0.7.1 (2024-05-14) | Apache-2.0 |
 
 ## [UI/UX](./sections/ui-ux.md)
 
@@ -256,8 +264,8 @@ User interfaces, clients, and workspaces for interacting with AI and agent syste
 
 | Rank | Repository | Stars | Forks | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | --- | --- | --- |
-| 1 | [open-webui/open-webui](https://github.com/open-webui/open-webui) | 148,088 | 21,549 | 2026-08-05 | v0.11.0 (2026-07-27) | Other |
-| 2 | [assistant-ui/assistant-ui](https://github.com/assistant-ui/assistant-ui) | 11,452 | 1,120 | 2026-08-06 | pypi/assistant-stream@0.0.36 (2026-08-04) | MIT |
-| 3 | [langchain-ai/agent-chat-ui](https://github.com/langchain-ai/agent-chat-ui) | 3,038 | 666 | 2026-08-03 | - | MIT |
-| 4 | [assistant-ui/tool-ui](https://github.com/assistant-ui/tool-ui) | 763 | 31 | 2026-05-09 | - | MIT |
+| 1 | [open-webui/open-webui](https://github.com/open-webui/open-webui) | 148,639 | 21,636 | 2026-08-13 | v0.11.0 (2026-07-27) | Other |
+| 2 | [assistant-ui/assistant-ui](https://github.com/assistant-ui/assistant-ui) | 11,621 | 1,128 | 2026-08-13 | @assistant-ui/core@0.3.13 (2026-08-12) | MIT |
+| 3 | [langchain-ai/agent-chat-ui](https://github.com/langchain-ai/agent-chat-ui) | 3,052 | 666 | 2026-08-12 | - | MIT |
+| 4 | [assistant-ui/tool-ui](https://github.com/assistant-ui/tool-ui) | 767 | 31 | 2026-05-09 | - | MIT |
 <!-- AWESOME_AGENT_OSS:END -->

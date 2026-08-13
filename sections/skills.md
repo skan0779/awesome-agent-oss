@@ -2,34 +2,44 @@
 
 Reusable skills, instructions, and workflow packages for AI agents.
 
-_🚀 Last updated from snapshot: `2026-08-13 05:48 UTC`._
+_🚀 Last updated from snapshot: `2026-08-13 05:55 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [obra/superpowers](https://github.com/obra/superpowers) | 99 | 268,174 | 718 | 2,293 | 4,001 | - | - | 23,965 | 380 | - | - | 2026-08-07 | v6.2.0 (2026-07-24) | MIT |
-| 2 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 96 | 114,215 | 312 | 1,034 | 2,210 | - | - | 12,227 | 277 | - | - | 2026-08-06 | v2.14.1 (2026-08-06) | MIT |
-| 3 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 95 | 238,074 | 0 | 662 | - | - | - | 36,155 | - | - | - | 2026-08-05 | v2.1.0 (2026-07-27) | MIT |
-| 4 | [anthropics/skills](https://github.com/anthropics/skills) | 95 | 166,741 | 212 | 641 | 1,385 | - | - | 19,857 | 199 | - | - | 2026-07-24 | - | - |
-| 5 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 94 | 97,513 | 644 | - | - | - | - | 5,358 | - | - | - | 2026-07-15 | v4.8.4 (2026-06-29) | MIT |
-| 6 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 94 | 83,035 | 944 | 1,528 | 1,963 | - | - | 8,899 | 152 | - | - | 2026-08-06 | 0.6.6 (2026-08-04) | MIT |
-| 7 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 90 | 72,653 | 0 | 1,313 | 3,098 | - | - | 5,001 | 199 | - | - | 2026-07-23 | - | MIT |
-| 8 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 86 | 71,971 | 70 | 251 | 553 | - | - | 8,159 | 126 | - | - | 2026-07-24 | - | - |
-| 9 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 85 | 72,751 | 0 | 294 | - | - | - | 7,236 | - | - | - | 2026-07-30 | v0.4.12 (2026-07-26) | BSD-3-Clause |
-| 10 | [blader/humanizer](https://github.com/blader/humanizer) | 81 | 34,050 | 253 | 972 | 1,768 | - | - | 3,064 | 126 | - | - | 2026-07-22 | v2.9.1 (2026-07-22) | MIT |
-| 11 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 77 | 32,847 | 70 | 286 | 603 | - | - | 3,242 | 46 | - | - | 2026-08-03 | v2.62.0 (2026-07-31) | MIT |
-| 12 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | 73 | 44,198 | 0 | 166 | 447 | - | - | 3,157 | 36 | - | - | 2026-06-08 | - | MIT |
-| 13 | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 69 | 29,728 | 65 | 205 | 423 | - | - | 3,191 | 40 | - | - | 2026-08-03 | - | MIT |
-| 14 | [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) | 64 | 51,775 | 11 | 48 | 152 | - | - | 4,988 | 9 | - | - | 2026-07-31 | - | MIT |
-| 15 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) | 63 | 19,320 | 62 | 293 | 484 | - | - | 2,119 | 29 | - | - | 2026-08-02 | - | MIT |
-| 16 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 62 | 23,937 | 58 | 178 | 409 | - | - | 3,370 | 115 | - | - | 2026-08-05 | v2.9.0 (2026-05-28) | MIT |
-| 17 | [op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill) | 60 | 23,307 | 0 | 191 | 463 | - | - | 1,679 | 25 | - | - | 2026-07-22 | v1.1.0 (2026-05-15) | AGPL-3.0 |
-| 18 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 59 | 24,676 | 37 | 142 | 294 | - | - | 2,751 | 36 | - | - | 2026-07-04 | v2.5.2 (2026-06-18) | MIT |
-| 19 | [googleworkspace/cli](https://github.com/googleworkspace/cli) | 59 | 30,245 | 20 | - | - | - | - | 1,769 | - | - | - | 2026-08-01 | v0.22.5 (2026-03-31) | Apache-2.0 |
-| 20 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 57 | 24,940 | 38 | 109 | 230 | - | - | 2,671 | 94 | - | - | 2026-07-03 | v2.1.0 (2026-07-03) | MIT |
-| 21 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 55 | 15,714 | 52 | 150 | 322 | - | - | 1,456 | 35 | - | - | 2026-08-06 | v0.2.0 (2026-07-02) | MIT |
-| 22 | [google/skills](https://github.com/google/skills) | 51 | 15,642 | 0 | 152 | 290 | - | - | 1,230 | 25 | - | - | 2026-08-05 | - | Apache-2.0 |
-| 23 | [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 47 | 25,929 | 0 | - | - | - | - | 1,741 | - | - | - | 2026-08-04 | v1.0.143 (2026-07-28) | Apache-2.0 |
-| 24 | [agentskills/agentskills](https://github.com/agentskills/agentskills) | 45 | 23,958 | 55 | - | - | - | - | 1,732 | - | - | - | 2026-08-04 | - | Apache-2.0 |
-| 25 | [composio-community/awesome-codex-skills](https://github.com/composio-community/awesome-codex-skills) | 41 | 15,632 | 0 | 45 | 149 | - | - | 1,512 | 21 | - | - | 2026-07-26 | - | - |
+| 1 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 98 | 86,677 | 412 | 1,480 | 4,586 | - | - | 9,310 | 479 | - | - | 2026-08-11 | 0.6.6 (2026-08-04) | MIT |
+| 2 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 98 | 101,680 | 768 | 2,263 | 4,811 | - | - | 5,587 | 266 | - | - | 2026-08-07 | v4.9.0 (2026-08-07) | MIT |
+| 3 | [obra/superpowers](https://github.com/obra/superpowers) | 97 | 271,361 | 569 | 1,599 | 3,905 | - | - | 24,259 | 362 | - | - | 2026-08-13 | v6.3.0 (2026-08-12) | MIT |
+| 4 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 97 | 75,975 | 484 | 1,334 | 3,322 | - | - | 5,205 | 204 | - | - | 2026-07-23 | - | MIT |
+| 5 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 95 | 116,190 | 464 | 1,150 | 2,287 | - | - | 12,477 | 294 | - | - | 2026-08-12 | v2.14.2 (2026-08-12) | MIT |
+| 6 | [anthropics/skills](https://github.com/anthropics/skills) | 94 | 168,603 | 417 | 1,352 | 2,074 | - | - | 20,085 | 254 | - | - | 2026-08-07 | - | - |
+| 7 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 94 | 239,800 | 298 | 766 | 1,726 | - | - | 36,398 | 243 | - | - | 2026-08-12 | v2.1.0 (2026-07-27) | MIT |
+| 8 | [blader/humanizer](https://github.com/blader/humanizer) | 92 | 35,346 | 285 | 811 | 1,549 | - | - | 3,161 | 113 | - | - | 2026-07-22 | v2.9.1 (2026-07-22) | MIT |
+| 9 | [google/skills](https://github.com/google/skills) | 92 | 17,941 | 142 | 663 | 2,299 | - | - | 1,425 | 195 | - | - | 2026-08-12 | - | Apache-2.0 |
+| 10 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | 91 | 45,221 | 296 | 664 | 1,023 | - | - | 3,271 | 114 | - | - | 2026-06-08 | - | MIT |
+| 11 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 90 | 73,722 | 180 | 423 | 971 | - | - | 7,364 | 128 | - | - | 2026-08-11 | v0.4.14 (2026-08-10) | BSD-3-Clause |
+| 12 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 82 | 33,358 | 114 | 293 | 581 | - | - | 3,272 | 35 | - | - | 2026-08-12 | v2.63.0 (2026-08-12) | MIT |
+| 13 | [op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill) | 82 | 23,894 | 107 | 292 | 587 | - | - | 1,714 | 35 | - | - | 2026-08-07 | v1.1.0 (2026-05-15) | AGPL-3.0 |
+| 14 | [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 80 | 28,005 | 246 | 877 | 2,076 | - | - | 1,894 | 153 | - | - | 2026-08-04 | v1.0.143 (2026-07-28) | Apache-2.0 |
+| 15 | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 80 | 30,161 | 98 | 257 | 498 | - | - | 3,240 | 60 | - | - | 2026-08-12 | - | MIT |
+| 16 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 77 | 72,395 | 88 | 242 | 494 | - | - | 8,249 | 106 | - | - | 2026-08-10 | - | - |
+| 17 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 77 | 24,363 | 65 | 175 | 484 | - | - | 3,425 | 73 | - | - | 2026-08-09 | v2.9.0 (2026-05-28) | MIT |
+| 18 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) | 74 | 19,607 | 57 | 172 | 349 | - | - | 2,138 | 22 | - | - | 2026-08-11 | - | MIT |
+| 19 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 71 | 25,207 | 42 | 179 | 305 | - | - | 2,704 | 43 | - | - | 2026-07-03 | v2.1.0 (2026-07-03) | MIT |
+| 20 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 69 | 15,962 | 48 | 147 | 300 | - | - | 1,487 | 39 | - | - | 2026-08-13 | v0.2.0 (2026-07-02) | MIT |
+| 21 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 68 | 24,926 | 52 | 153 | 287 | - | - | 2,785 | 35 | - | - | 2026-07-04 | v2.5.2 (2026-06-18) | MIT |
+| 22 | [agentskills/agentskills](https://github.com/agentskills/agentskills) | 66 | 24,207 | 62 | 137 | 304 | - | - | 1,766 | 45 | - | - | 2026-08-09 | - | Apache-2.0 |
+| 23 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 64 | 24,459 | 371 | - | - | - | - | 1,228 | - | - | - | 2026-08-06 | - | MIT |
+| 24 | [googleworkspace/cli](https://github.com/googleworkspace/cli) | 60 | 30,352 | 23 | 69 | 127 | - | - | 1,779 | 11 | - | - | 2026-08-01 | v0.22.5 (2026-03-31) | Apache-2.0 |
+| 25 | [composio-community/awesome-codex-skills](https://github.com/composio-community/awesome-codex-skills) | 55 | 15,806 | 23 | 74 | 174 | - | - | 1,538 | 26 | - | - | 2026-07-26 | - | - |
+| 26 | [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) | 54 | 18,668 | 27 | - | - | - | - | 2,516 | - | - | - | 2026-08-13 | v0.8.0 (2026-08-03) | MIT |
+| 27 | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 53 | 11,828 | 367 | 876 | - | - | - | 900 | - | - | - | 2026-08-11 | v2.14.0 (2026-08-11) | MIT |
+| 28 | [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) | 52 | 51,925 | 30 | 75 | 161 | - | - | 4,996 | 7 | - | - | 2026-08-09 | - | MIT |
+| 29 | [yusufkaraaslan/Skill_Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) | 47 | 14,753 | 12 | - | - | - | - | 1,500 | - | - | - | 2026-08-09 | v3.9.1 (2026-08-03) | MIT |
+| 30 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 47 | 14,620 | 52 | - | - | - | - | 1,290 | - | - | - | 2026-08-11 | v0.4.24 (2026-08-09) | MIT |
+| 31 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 46 | 14,569 | - | - | - | - | - | 1,220 | - | - | - | 2026-08-12 | v2.9.3 (2026-08-11) | Apache-2.0 |
+| 32 | [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | 40 | 7,533 | 60 | 169 | - | - | - | 548 | - | - | - | 2026-08-05 | v2.1.0 (2026-07-25) | MIT |
+| 33 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 37 | 11,652 | - | - | - | - | - | 849 | - | - | - | 2026-06-16 | v1.7.2 (2026-06-16) | MIT |
+| 34 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 36 | 11,472 | - | - | - | - | - | 726 | - | - | - | 2026-08-13 | - | MIT |
+| 35 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 32 | 3,695 | 137 | 387 | - | - | - | 122 | - | - | - | 2026-08-12 | - | MIT |
 
 [Back to README](../README.md)

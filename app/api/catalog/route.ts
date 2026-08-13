@@ -1,4 +1,4 @@
-import { restPath, supabaseRequest } from "../../lib/supabase";
+import { restPath, supabaseRequest, supabaseRequestAll } from "../../lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -77,18 +77,16 @@ const SNAPSHOT_COLUMNS = [
 export async function GET() {
   try {
     const [repositories, sections, latestRows] = await Promise.all([
-      supabaseRequest<AcceptedRepositoryRow[]>(
+      supabaseRequestAll<AcceptedRepositoryRow>(
         restPath("accepted_repositories", {
           select: "id,full_name,owner,name,sections",
           order: "full_name.asc",
-          limit: "10000",
         }),
       ),
-      supabaseRequest<SectionRow[]>(
+      supabaseRequestAll<SectionRow>(
         restPath("sections", {
           select: "id,name,description,sort_order",
           order: "sort_order.asc,id.asc",
-          limit: "10000",
         }),
       ),
       supabaseRequest<Pick<SnapshotRow, "snapshot_date">[]>(
@@ -102,7 +100,7 @@ export async function GET() {
 
     const snapshotDate = latestRows[0]?.snapshot_date || null;
     const snapshots = snapshotDate
-      ? await loadSnapshots(repositories, subtractDays(snapshotDate, 75))
+      ? await loadSnapshots(repositories, subtractDays(snapshotDate, 60))
       : [];
     const snapshotsByRepository = groupSnapshots(snapshots);
     const catalog = applyRadarScores(repositories.map((repository) =>
@@ -128,13 +126,12 @@ async function loadSnapshots(repositories: AcceptedRepositoryRow[], cutoff: stri
   const chunks = chunk(repositories.map((repository) => repository.id), 50);
   const rows = await Promise.all(
     chunks.map((ids) =>
-      supabaseRequest<SnapshotRow[]>(
+      supabaseRequestAll<SnapshotRow>(
         restPath("repository_snapshots", {
           select: SNAPSHOT_COLUMNS,
           repository_id: `in.(${ids.join(",")})`,
           snapshot_date: `gte.${cutoff}`,
           order: "snapshot_date.asc,repository_id.asc",
-          limit: "10000",
         }),
       ),
     ),

@@ -26,7 +26,7 @@ def load_supabase_accepted_repositories(
     """Load accepted repositories from the Supabase accepted_repositories view."""
     supabase = client or SupabaseClient.from_env()
     try:
-        rows = supabase.select(
+        rows = supabase.select_all(
             "accepted_repositories",
             columns="id,full_name,sections",
             params={"order": "full_name.asc"},
@@ -63,7 +63,7 @@ def load_supabase_accepted_repository_rows(
     """Load accepted repository rows with ids from Supabase."""
     supabase = client or SupabaseClient.from_env()
     try:
-        return supabase.select(
+        return supabase.select_all(
             "accepted_repositories",
             columns="id,full_name,owner,name,sections",
             params={"order": "full_name.asc"},

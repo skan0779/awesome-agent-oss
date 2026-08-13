@@ -6,6 +6,7 @@ import {
   requireCurationToken,
   restPath,
   supabaseRequest,
+  supabaseRequestAll,
 } from "../../lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -62,11 +63,10 @@ export async function GET(request: Request) {
     const sort = normalizeSort(url.searchParams.get("sort"));
 
     const [sections, allCandidates] = await Promise.all([
-      supabaseRequest<SupabaseSection[]>(
+      supabaseRequestAll<SupabaseSection>(
         restPath("sections", {
           select: "id,name,topics,sort_order",
           order: "sort_order.asc,id.asc",
-          limit: "10000",
         }),
       ),
       status === "accepted" ? loadAcceptedRepositories() : loadPendingCandidates(),
@@ -102,13 +102,12 @@ export async function GET(request: Request) {
 }
 
 async function loadPendingCandidates(): Promise<CandidatePayload[]> {
-  const candidateRows = await supabaseRequest<PendingCandidateRow[]>(
+  const candidateRows = await supabaseRequestAll<PendingCandidateRow>(
     restPath("discovery_candidates", {
       select:
         "id,repository_id,status,source,query,suggested_sections,matched_topics,discovered_at,repositories(id,full_name,owner,name,html_url,status)",
       status: "eq.pending",
       order: "discovered_at.desc",
-      limit: "10000",
     }),
   );
   const repositoryIds = candidateRows.map((candidate) => candidate.repository_id);
@@ -138,19 +137,18 @@ async function loadPendingCandidates(): Promise<CandidatePayload[]> {
 
 async function loadAcceptedRepositories(): Promise<CandidatePayload[]> {
   const [repositories, sectionRows] = await Promise.all([
-    supabaseRequest<AcceptedRepositoryRow[]>(
+    supabaseRequestAll<AcceptedRepositoryRow>(
       restPath("repositories", {
         select: "id,full_name,html_url,accepted_at,created_at",
         status: "eq.accepted",
         order: "accepted_at.desc,full_name.asc",
-        limit: "10000",
       }),
     ),
-    supabaseRequest<AcceptedSectionRow[]>(
+    supabaseRequestAll<AcceptedSectionRow>(
       restPath("repository_sections", {
         select: "repository_id,section_id",
         status: "eq.accepted",
-        limit: "10000",
+        order: "repository_id.asc,section_id.asc",
       }),
     ),
   ]);
@@ -280,13 +278,12 @@ async function loadDiscoveryMetadata(repositoryIds: number[]) {
     return metadataByRepositoryId;
   }
 
-  const rows = await supabaseRequest<CurationEventRow[]>(
+  const rows = await supabaseRequestAll<CurationEventRow>(
     restPath("curation_events", {
       select: "repository_id,metadata,created_at",
       action: "eq.discovered",
       repository_id: `in.(${repositoryIds.join(",")})`,
       order: "created_at.desc",
-      limit: "10000",
     }),
   );
 
@@ -305,11 +302,11 @@ async function loadLatestSnapshotMetadata(repositoryIds: number[]) {
     return metadataByRepositoryId;
   }
 
-  const rows = await supabaseRequest<LatestSnapshotRow[]>(
+  const rows = await supabaseRequestAll<LatestSnapshotRow>(
     restPath("latest_repository_snapshots", {
       select: "repository_id,description,stars,forks,topics,pushed_at",
       repository_id: `in.(${repositoryIds.join(",")})`,
-      limit: "10000",
+      order: "repository_id.asc",
     }),
   );
   for (const row of rows) {
