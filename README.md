@@ -51,17 +51,22 @@
 <!-- AWESOME_AGENT_OSS:START -->
 _🚀 Last updated from snapshot: `2026-08-13 05:55 UTC`._
 
-## Trending This Week
+## [Trending This Week](https://awesomeagent.vercel.app/#trending)
 
-| Rank | Repository | Stars 7d | Total Stars | Section |
-| ---: | --- | ---: | ---: | --- |
-| 1 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | +4,811 | 101,680 | [Skills](./sections/skills.md) |
-| 2 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | +4,586 | 86,677 | [Skills](./sections/skills.md) |
-| 3 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | +4,084 | 71,214 | [Computer Use](./sections/computer-use.md) |
-| 4 | [obra/superpowers](https://github.com/obra/superpowers) | +3,905 | 271,361 | [Skills](./sections/skills.md) |
-| 5 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | +3,322 | 75,975 | [Skills](./sections/skills.md) |
+| Rank | Repository | Stars 1d | Stars 7d | Total Stars |
+| ---: | --- | ---: | ---: | ---: |
+| 1 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | +768 | +4,811 | 101,680 |
+| 2 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | +412 | +4,586 | 86,677 |
+| 3 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | +444 | +4,084 | 71,214 |
+| 4 | [obra/superpowers](https://github.com/obra/superpowers) | +569 | +3,905 | 271,361 |
+| 5 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | +484 | +3,322 | 75,975 |
+| 6 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | +412 | +2,638 | 105,760 |
+| 7 | [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | +470 | +2,635 | 35,263 |
+| 8 | [usestrix/strix](https://github.com/usestrix/strix) | +364 | +2,565 | 51,620 |
+| 9 | [google/skills](https://github.com/google/skills) | +142 | +2,299 | 17,941 |
+| 10 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | +464 | +2,287 | 116,190 |
 
-[Explore all trending repositories &rarr;](https://awesomeagent.vercel.app/#trending)
+<br/>
 
 ## [Frameworks & SDKs](./sections/frameworks.md)
 
