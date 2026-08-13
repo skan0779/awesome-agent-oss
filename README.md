@@ -15,17 +15,17 @@
 </p>
 
 <p align="center">
-  <a href="https://awesomeagent.vercel.app">
-    <strong>Explore the live radar at awesomeagent.vercel.app &rarr;</strong>
-  </a>
-</p>
-
-<p align="center">
   <a href="https://awesome.re">
     <img src="https://awesome.re/badge.svg" alt="Awesome" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://awesomeagent.vercel.app">
+    <strong>Explore at Website &rarr;</strong>
   </a>
 </p>
 
