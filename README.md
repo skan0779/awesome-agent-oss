@@ -36,7 +36,7 @@
 ---
 
 <!-- AWESOME_AGENT_OSS:START -->
-_🚀 Last updated from snapshot: `2026-08-12 02:41 UTC`._
+_🚀 Last updated from snapshot: `2026-08-13 02:44 UTC`._
 
 ## [Frameworks & SDKs](./sections/frameworks.md)
 
@@ -51,9 +51,9 @@ Frameworks and SDKs for building, orchestrating, and running AI agents.
 | 5 | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 39,069 | 6,578 | 2026-08-06 | checkpointsqlite==3.1.1 (2026-07-30) | MIT |
 | 6 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 46,693 | 8,256 | 2026-08-06 | v0.3.0 (2026-07-25) | MIT |
 | 7 | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 56,668 | 8,080 | 2026-08-06 | 1.15.12 (2026-08-05) | MIT |
-| 8 | [microsoft/autogen](https://github.com/microsoft/autogen) | 60,254 | 9,081 | 2026-04-15 | python-v0.7.5 (2025-09-30) | CC-BY-4.0 |
-| 9 | [agno-agi/agno](https://github.com/agno-agi/agno) | 41,595 | 5,740 | 2026-08-06 | v2.8.7 (2026-08-05) | Apache-2.0 |
-| 10 | [mastra-ai/mastra](https://github.com/mastra-ai/mastra) | 26,956 | 2,576 | 2026-08-06 | @mastra/core@1.55.0 (2026-07-31) | Other |
+| 8 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 51,436 | 7,883 | 2026-08-06 | v0.14.23 (2026-06-24) | MIT |
+| 9 | [microsoft/autogen](https://github.com/microsoft/autogen) | 60,254 | 9,081 | 2026-04-15 | python-v0.7.5 (2025-09-30) | CC-BY-4.0 |
+| 10 | [agno-agi/agno](https://github.com/agno-agi/agno) | 41,595 | 5,740 | 2026-08-06 | v2.8.7 (2026-08-05) | Apache-2.0 |
 
 ## [Platforms & Apps](./sections/platforms-apps.md)
 
