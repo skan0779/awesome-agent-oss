@@ -32,7 +32,7 @@
 <p align="center">
   <a href="#how-rankings-work">How Rankings Work</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/skan0779/awesome-agent-oss/issues/new">Suggest a Repository</a>
+  <a href="https://github.com/skan0779/awesome-agent-oss/issues/new?template=repository-suggestion.yml">Suggest a Repository</a>
 </p>
 
 ---

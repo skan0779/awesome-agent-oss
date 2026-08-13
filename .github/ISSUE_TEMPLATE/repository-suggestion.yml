@@ -1,0 +1,79 @@
+name: Suggest a repository
+description: Propose an open-source repository for the agent stack catalog.
+title: "[Repository]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a project. Please review the [curation criteria](https://github.com/skan0779/awesome-agent-oss/blob/main/CONTRIBUTING.md) before submitting.
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+      description: Provide the canonical GitHub repository URL.
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sections
+    attributes:
+      label: Suggested sections
+      description: Select only the sections that represent core functionality.
+      multiple: true
+      options:
+        - Frameworks & SDKs
+        - Platforms & Apps
+        - RAG
+        - OCR & Parsing
+        - Knowledge Graphs
+        - Memory
+        - MCP
+        - Skills
+        - Computer Use
+        - Voice & Realtime
+        - Guardrails
+        - Evaluation
+        - Observability
+        - UI/UX
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Agent-stack relevance
+      description: Explain what the project provides and how it helps build or operate AI agents.
+      placeholder: Describe the project's core functionality and why it belongs in the selected sections.
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: Enter the license identifier and link to the repository's license file.
+      placeholder: Apache-2.0 - https://github.com/owner/repository/blob/main/LICENSE
+    validations:
+      required: true
+
+  - type: textarea
+    id: differentiation
+    attributes:
+      label: Differentiation
+      description: Optionally describe how this project differs from similar accepted repositories.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I reviewed the repository README and confirmed that it contains substantive implementation and usage information.
+          required: true
+        - label: I reviewed the actual license terms, not only the license badge or GitHub metadata.
+          required: true
+        - label: This is not primarily an awesome list, tutorial, course, paper collection, placeholder, or unmodified fork.
+          required: true
+        - label: I searched existing issues and the live catalog for duplicates.
+          required: true

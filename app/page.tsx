@@ -83,6 +83,20 @@ type TrendResponse = {
 
 const PAGE_SIZE = 12;
 const TRENDING_LIMIT = 6;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "awesome-agent-oss",
+  url: "https://awesomeagent.vercel.app",
+  description:
+    "A curated open-source radar for discovering AI agent stacks and tracking repository growth.",
+  inLanguage: "en",
+  publisher: {
+    "@type": "Person",
+    name: "skan0779",
+    url: "https://github.com/skan0779",
+  },
+};
 
 export default function CatalogPage() {
   const [repositories, setRepositories] = useState<CatalogRepository[]>([]);
@@ -183,6 +197,10 @@ export default function CatalogPage() {
 
   return (
     <div className="catalogPage">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="siteHeader">
         <a className="brand" href="/" aria-label="awesome-agent-oss home">
           <span className="brandMark"><Radar size={19} strokeWidth={2.2} /></span>
