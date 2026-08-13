@@ -114,17 +114,24 @@ export async function supabaseRequestWithHeaders<T>(
   const config = readSupabaseConfig();
   const headers = new Headers(init.headers);
   headers.set("apikey", config.apiKey);
-  headers.set("Authorization", `Bearer ${config.apiKey}`);
+  if (isLegacyJwt(config.apiKey)) {
+    headers.set("Authorization", `Bearer ${config.apiKey}`);
+  } else {
+    headers.delete("Authorization");
+  }
   headers.set("Accept", "application/json");
   headers.set("Content-Type", "application/json");
 
-  const response = await fetch(`${config.projectUrl}${path}`, {
-    ...init,
-    cache: "no-store",
-    headers,
-  });
+  const requestInit = { ...init, cache: "no-store" as const, headers };
+  let response = await fetch(`${config.projectUrl}${path}`, requestInit);
+  let text = await response.text();
 
-  const text = await response.text();
+  if (isSafeRequest(init.method) && isFutureJwtError(response, text)) {
+    await delay(1000);
+    response = await fetch(`${config.projectUrl}${path}`, requestInit);
+    text = await response.text();
+  }
+
   if (!response.ok) {
     throw new Error(`Supabase request failed: HTTP ${response.status} ${text}`);
   }
@@ -166,4 +173,21 @@ function readSupabaseConfig(): SupabaseConfig {
     projectUrl: projectUrl.replace(/\/$/, ""),
     apiKey,
   };
+}
+
+function isLegacyJwt(value: string): boolean {
+  return value.split(".").length === 3;
+}
+
+function isSafeRequest(method: string | undefined): boolean {
+  const normalized = (method || "GET").toUpperCase();
+  return normalized === "GET" || normalized === "HEAD";
+}
+
+function isFutureJwtError(response: Response, text: string): boolean {
+  return response.status === 401 && text.includes('"code":"PGRST303"') && text.includes("JWT issued at future");
+}
+
+function delay(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
