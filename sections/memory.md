@@ -2,50 +2,54 @@
 
 Short-term, long-term, and persistent memory systems for AI agents.
 
-_🚀 Last updated from snapshot: `2026-08-19 01:52 UTC`._
+_🚀 Last updated from snapshot: `2026-08-20 01:51 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | 94 | 29,437 | 528 | 942 | 1,206 | - | - | 2,309 | 89 | - | - | 2026-08-18 | v0.4.15 (2026-08-18) | AGPL-3.0 |
-| 2 | [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | 91 | 22,991 | 349 | 995 | 3,058 | - | - | 2,096 | 297 | - | - | 2026-08-15 | v2.0.0 (2026-08-03) | Other |
-| 3 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 91 | 39,435 | 155 | 393 | 839 | - | - | 3,170 | 97 | - | - | 2026-08-18 | v0.10.6 (2026-08-17) | MIT |
-| 4 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 89 | 91,166 | 142 | 326 | 714 | - | - | 7,973 | 91 | - | - | 2026-08-18 | v13.15.2 (2026-08-16) | Apache-2.0 |
-| 5 | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | 86 | 46,554 | - | - | - | - | - | 10,321 | - | - | - | 2026-08-18 | 2.1.6 (2026-08-12) | MIT |
-| 6 | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | 86 | 20,208 | 99 | 201 | 519 | - | - | 1,432 | 93 | - | - | 2026-08-19 | v0.9.1 (2026-08-14) | MIT |
-| 7 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 84 | 63,550 | 79 | 217 | 485 | - | - | 7,430 | 79 | - | - | 2026-08-18 | ts-v3.1.6 (2026-08-11) | Apache-2.0 |
-| 8 | [rohitg00/agentmemory](https://github.com/rohitg00/agentmemory) | 74 | 27,158 | 38 | 106 | 278 | - | - | 2,323 | 35 | - | - | 2026-08-17 | v0.9.29 (2026-08-16) | Apache-2.0 |
-| 9 | [getzep/graphiti](https://github.com/getzep/graphiti) | 73 | 30,067 | 49 | 110 | 263 | - | - | 3,045 | 33 | - | - | 2026-08-18 | v0.29.3 (2026-07-27) | Apache-2.0 |
-| 10 | [memvid/memvid](https://github.com/memvid/memvid) | 72 | 16,403 | 25 | 183 | 193 | - | - | 1,412 | 9 | - | - | 2026-07-14 | v2.0.140 (2026-05-27) | Apache-2.0 |
-| 11 | [EverMind-AI/EverOS](https://github.com/EverMind-AI/EverOS) | 70 | 12,142 | 57 | 108 | 180 | - | - | 891 | 5 | - | - | 2026-08-17 | v1.2.3 (2026-08-07) | Apache-2.0 |
-| 12 | [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | 62 | 9,030 | 422 | 1,084 | - | - | - | 932 | - | - | - | 2026-08-18 | v0.6.5 (2026-08-11) | MIT |
-| 13 | [topoteretes/cognee](https://github.com/topoteretes/cognee) | 61 | 30,111 | 24 | 58 | 151 | - | - | 2,934 | 23 | - | - | 2026-08-18 | v1.5.0 (2026-08-15) | Apache-2.0 |
-| 14 | [plastic-labs/honcho](https://github.com/plastic-labs/honcho) | 58 | 6,711 | 25 | 49 | 116 | - | - | 824 | 16 | - | - | 2026-08-18 | - | AGPL-3.0 |
-| 15 | [dolthub/dolt](https://github.com/dolthub/dolt) | 57 | 24,217 | 14 | 28 | 67 | - | - | 860 | 6 | - | - | 2026-08-19 | v2.3.0 (2026-08-13) | Apache-2.0 |
-| 16 | [MemPalace/mempalace](https://github.com/MemPalace/mempalace) | 56 | 58,444 | 14 | 49 | 134 | - | - | 7,496 | -2 | - | - | 2026-08-18 | v3.7.1 (2026-08-14) | MIT |
-| 17 | [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | 51 | 10,768 | 17 | 41 | 84 | - | - | 994 | 6 | - | - | 2026-08-18 | v2.0.30 (2026-08-14) | Apache-2.0 |
-| 18 | [MemoriLabs/Memori](https://github.com/MemoriLabs/Memori) | 49 | 16,127 | -3 | -3 | 383 | - | - | 3,187 | 257 | - | - | 2026-08-18 | v3.3.6 (2026-05-28) | Other |
-| 19 | [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) | 48 | 28,951 | 13 | 25 | 86 | - | - | 2,521 | 12 | - | - | 2026-08-19 | server-v0.0.8 (2026-08-17) | MIT |
-| 20 | [AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) | 48 | 11,004 | - | - | - | - | - | 1,273 | - | - | - | 2026-08-01 | v2.1.0 (2026-07-31) | MIT |
-| 21 | [HelixDB/helix-db](https://github.com/HelixDB/helix-db) | 46 | 5,801 | 47 | 64 | - | - | - | 334 | - | - | - | 2026-08-18 | v3.1.1 (2026-08-16) | Apache-2.0 |
-| 22 | [NevaMind-AI/memU](https://github.com/NevaMind-AI/memU) | 43 | 14,321 | 6 | 7 | 34 | - | - | 1,061 | 6 | - | - | 2026-08-18 | v1.5.1 (2026-03-23) | Other |
-| 23 | [CaviraOSS/OpenMemory](https://github.com/CaviraOSS/OpenMemory) | 28 | 4,447 | 4 | 10 | - | - | - | 500 | - | - | - | 2026-08-18 | v1.2.3 (2025-12-12) | Apache-2.0 |
-| 24 | [FlowElement-ai/m_flow](https://github.com/FlowElement-xinliuyuansu/m_flow) | 28 | 4,503 | 1 | 11 | - | - | - | 256 | - | - | - | 2026-08-03 | v0.3.4 (2026-04-12) | Apache-2.0 |
-| 25 | [langchain-ai/langmem](https://github.com/langchain-ai/langmem) | 26 | 1,616 | 3 | 8 | 12 | - | - | 185 | 2 | - | - | 2026-08-11 | - | MIT |
-| 26 | [cortexkit/magic-context](https://github.com/cortexkit/magic-context) | 26 | 1,791 | 10 | 36 | - | - | - | 88 | - | - | - | 2026-08-17 | v0.38.0 (2026-08-17) | MIT |
-| 27 | [agentscope-ai/ReMe](https://github.com/agentscope-ai/ReMe) | 25 | 3,324 | 2 | 9 | - | - | - | 287 | - | - | - | 2026-08-18 | v0.4.1.7 (2026-08-13) | Apache-2.0 |
-| 28 | [memodb-io/memobase](https://github.com/memodb-io/memobase) | 23 | 2,849 | 4 | 8 | - | - | - | 228 | - | - | - | 2026-01-11 | - | Apache-2.0 |
-| 29 | [zilliztech/memsearch](https://github.com/zilliztech/memsearch) | 22 | 2,486 | 6 | 9 | - | - | - | 229 | - | - | - | 2026-08-17 | v0.4.17 (2026-07-31) | MIT |
-| 30 | [memodb-io/Acontext](https://github.com/memodb-io/Acontext) | 19 | 3,672 | 2 | 2 | - | - | - | 333 | - | - | - | 2026-07-14 | sdk-ts/v0.1.21 (2026-04-08) | Apache-2.0 |
-| 31 | [moorcheh-ai/memanto](https://github.com/moorcheh-ai/memanto) | 19 | 1,802 | 11 | 8 | - | - | - | 609 | - | - | - | 2026-08-18 | v0.2.15 (2026-08-18) | MIT |
-| 32 | [aiming-lab/SimpleMem](https://github.com/aiming-lab/SimpleMem) | 16 | 3,705 | 1 | -3 | 19 | - | - | 389 | 5 | - | - | 2026-07-24 | v0.3.0 (2026-05-21) | MIT |
-| 33 | [microsoft/Memora](https://github.com/microsoft/Memora) | 14 | 237 | 0 | 2 | 4 | - | - | 25 | 0 | - | - | 2026-06-16 | - | MIT |
-| 34 | [kayba-ai/agentic-context-engine](https://github.com/kayba-ai/agentic-context-engine) | 13 | 2,549 | 2 | 0 | - | - | - | 301 | - | - | - | 2026-07-08 | v0.12.0 (2026-05-07) | Apache-2.0 |
-| 35 | [activeloopai/hivemind](https://github.com/activeloopai/hivemind) | 10 | 1,561 | 0 | 3 | - | - | - | 101 | - | - | - | 2026-08-14 | v0.7.146 (2026-08-14) | Apache-2.0 |
-| 36 | [kingjulio8238/Memary](https://github.com/kingjulio8238/Memary) | 10 | 2,639 | 1 | 1 | 2 | - | - | 203 | 0 | - | - | 2024-10-22 | v0.1.5 (2024-10-22) | MIT |
-| 37 | [WujiangXu/A-mem](https://github.com/WujiangXu/A-mem) | 10 | 943 | 0 | 1 | 2 | - | - | 102 | 0 | - | - | 2026-03-05 | - | MIT |
-| 38 | [zjunlp/LightMem](https://github.com/zjunlp/LightMem) | 8 | 1,088 | 0 | 3 | - | - | - | 103 | - | - | - | 2026-08-18 | - | MIT |
-| 39 | [BAI-LAB/MemoryOS](https://github.com/BAI-LAB/MemoryOS) | 8 | 1,556 | 0 | 1 | - | - | - | 156 | - | - | - | 2026-07-07 | V1.2 (2025-07-18) | Apache-2.0 |
-| 40 | [LycheeMem/LycheeMem](https://github.com/LycheeMem/LycheeMem) | 4 | 1,153 | 0 | 0 | - | - | - | 17 | - | - | - | 2026-08-06 | - | Apache-2.0 |
-| 41 | [MemMachine/MemMachine](https://github.com/MemMachine/MemMachine) | 3 | 3,178 | 3 | -168 | -173 | - | - | 205 | 2 | - | - | 2026-08-17 | v0.3.9 (2026-05-18) | Apache-2.0 |
+| 1 | [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | 97 | 30,240 | 803 | 1,553 | 1,914 | - | - | 2,337 | 105 | - | - | 2026-08-19 | v0.4.15 (2026-08-18) | AGPL-3.0 |
+| 2 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 92 | 39,589 | 154 | 438 | 857 | - | - | 3,182 | 100 | - | - | 2026-08-19 | v0.10.8 (2026-08-19) | MIT |
+| 3 | [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | 92 | 23,237 | 246 | 980 | 2,471 | - | - | 2,130 | 250 | - | - | 2026-08-15 | v2.0.0 (2026-08-03) | Other |
+| 4 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 90 | 91,279 | 113 | 364 | 700 | - | - | 7,982 | 81 | - | - | 2026-08-20 | v13.15.3 (2026-08-20) | Apache-2.0 |
+| 5 | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | 87 | 46,575 | 21 | - | - | - | - | 10,322 | - | - | - | 2026-08-19 | 2.1.6 (2026-08-12) | MIT |
+| 6 | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | 86 | 20,285 | 77 | 237 | 435 | - | - | 1,436 | 40 | - | - | 2026-08-19 | v0.9.1 (2026-08-14) | MIT |
+| 7 | [mem0ai/mem0](https://github.com/mem0ai/mem0) | 86 | 63,621 | 71 | 230 | 464 | - | - | 7,443 | 74 | - | - | 2026-08-18 | ts-v3.1.6 (2026-08-11) | Apache-2.0 |
+| 8 | [EverMind-AI/EverOS](https://github.com/EverMind-AI/EverOS) | 78 | 12,213 | 71 | 165 | 230 | - | - | 896 | 8 | - | - | 2026-08-17 | v1.2.3 (2026-08-07) | Apache-2.0 |
+| 9 | [getzep/graphiti](https://github.com/getzep/graphiti) | 75 | 30,105 | 38 | 121 | 234 | - | - | 3,044 | 20 | - | - | 2026-08-18 | v0.29.3 (2026-07-27) | Apache-2.0 |
+| 10 | [rohitg00/agentmemory](https://github.com/rohitg00/agentmemory) | 75 | 27,189 | 31 | 105 | 247 | - | - | 2,324 | 30 | - | - | 2026-08-17 | v0.9.29 (2026-08-16) | Apache-2.0 |
+| 11 | [memvid/memvid](https://github.com/memvid/memvid) | 73 | 16,413 | 10 | 168 | 200 | - | - | 1,413 | 9 | - | - | 2026-07-14 | v2.0.140 (2026-05-27) | Apache-2.0 |
+| 12 | [semantica-agi/semantica](https://github.com/semantica-agi/semantica) | 68 | 9,543 | 513 | 1,336 | - | - | - | 1,004 | - | - | - | 2026-08-19 | v0.6.5 (2026-08-11) | MIT |
+| 13 | [topoteretes/cognee](https://github.com/topoteretes/cognee) | 64 | 30,132 | 21 | 63 | 146 | - | - | 2,938 | 23 | - | - | 2026-08-19 | v1.5.0 (2026-08-15) | Apache-2.0 |
+| 14 | [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | 64 | 10,811 | 43 | 77 | 111 | - | - | 997 | 7 | - | - | 2026-08-19 | v2.0.30 (2026-08-14) | Apache-2.0 |
+| 15 | [MemPalace/mempalace](https://github.com/MemPalace/mempalace) | 63 | 58,474 | 30 | 64 | 142 | - | - | 7,502 | 4 | - | - | 2026-08-20 | v3.7.1 (2026-08-14) | MIT |
+| 16 | [plastic-labs/honcho](https://github.com/plastic-labs/honcho) | 62 | 6,732 | 21 | 60 | 112 | - | - | 826 | 14 | - | - | 2026-08-19 | - | AGPL-3.0 |
+| 17 | [dolthub/dolt](https://github.com/dolthub/dolt) | 59 | 24,228 | 11 | 32 | 63 | - | - | 860 | 3 | - | - | 2026-08-20 | v2.3.1 (2026-08-19) | Apache-2.0 |
+| 18 | [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) | 53 | 28,966 | 15 | 36 | 80 | - | - | 2,524 | 12 | - | - | 2026-08-20 | server-v0.0.8 (2026-08-17) | MIT |
+| 19 | [MemoriLabs/Memori](https://github.com/MemoriLabs/Memori) | 51 | 16,124 | -3 | -7 | 374 | - | - | 3,185 | 255 | - | - | 2026-08-19 | v3.3.6 (2026-05-28) | Other |
+| 20 | [AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) | 51 | 11,047 | 43 | - | - | - | - | 1,274 | - | - | - | 2026-08-01 | v2.1.0 (2026-07-31) | MIT |
+| 21 | [NevaMind-AI/memU](https://github.com/NevaMind-AI/memU) | 48 | 14,325 | 4 | 15 | 30 | - | - | 1,061 | 4 | - | - | 2026-08-19 | v1.5.1 (2026-03-23) | Other |
+| 22 | [HelixDB/helix-db](https://github.com/HelixDB/helix-db) | 46 | 5,809 | 8 | 71 | 82 | - | - | 335 | 13 | - | - | 2026-08-20 | v3.1.1 (2026-08-16) | Apache-2.0 |
+| 23 | [langchain-ai/langmem](https://github.com/langchain-ai/langmem) | 32 | 1,619 | 3 | 9 | 14 | - | - | 185 | 2 | - | - | 2026-08-11 | - | MIT |
+| 24 | [CaviraOSS/OpenMemory](https://github.com/CaviraOSS/OpenMemory) | 29 | 4,451 | 4 | 10 | - | - | - | 501 | - | - | - | 2026-08-19 | v1.2.3 (2025-12-12) | Apache-2.0 |
+| 25 | [moorcheh-ai/memanto](https://github.com/moorcheh-ai/memanto) | 28 | 1,822 | 20 | 31 | - | - | - | 618 | - | - | - | 2026-08-19 | v0.2.15 (2026-08-18) | MIT |
+| 26 | [FlowElement-ai/m_flow](https://github.com/FlowElement-xinliuyuansu/m_flow) | 27 | 4,505 | 2 | 7 | - | - | - | 256 | - | - | - | 2026-08-03 | v0.3.4 (2026-04-12) | Apache-2.0 |
+| 27 | [aiming-lab/SimpleMem](https://github.com/aiming-lab/SimpleMem) | 27 | 3,706 | 1 | 3 | 16 | - | - | 389 | 4 | - | - | 2026-07-24 | v0.3.0 (2026-05-21) | MIT |
+| 28 | [breferrari/obsidian-mind](https://github.com/breferrari/obsidian-mind) | 26 | 4,514 | - | - | - | - | - | 524 | - | - | - | 2026-08-17 | v8.3.5 (2026-08-17) | MIT |
+| 29 | [cortexkit/magic-context](https://github.com/cortexkit/magic-context) | 26 | 1,797 | 6 | 26 | - | - | - | 88 | - | - | - | 2026-08-19 | v0.38.0 (2026-08-17) | MIT |
+| 30 | [CortexReach/memory-lancedb-pro](https://github.com/CortexReach/memory-lancedb-pro) | 25 | 4,463 | - | - | - | - | - | 730 | - | - | - | 2026-08-09 | v1.1.0-beta.10 (2026-03-23) | - |
+| 31 | [memodb-io/Acontext](https://github.com/memodb-io/Acontext) | 24 | 3,676 | 4 | 6 | - | - | - | 334 | - | - | - | 2026-07-14 | sdk-ts/v0.1.21 (2026-04-08) | Apache-2.0 |
+| 32 | [microsoft/Memora](https://github.com/microsoft/Memora) | 23 | 239 | 2 | 4 | 6 | - | - | 25 | 0 | - | - | 2026-06-16 | - | MIT |
+| 33 | [eugeniughelbur/obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) | 22 | 4,113 | - | - | - | - | - | 515 | - | - | - | 2026-08-19 | v0.14.0 (2026-07-18) | MIT |
+| 34 | [agentscope-ai/ReMe](https://github.com/agentscope-ai/ReMe) | 22 | 3,326 | 2 | 6 | - | - | - | 287 | - | - | - | 2026-08-19 | v0.4.1.7 (2026-08-13) | Apache-2.0 |
+| 35 | [memodb-io/memobase](https://github.com/memodb-io/memobase) | 21 | 2,850 | 1 | 7 | - | - | - | 228 | - | - | - | 2026-01-11 | - | Apache-2.0 |
+| 36 | [zilliztech/memsearch](https://github.com/zilliztech/memsearch) | 19 | 2,486 | 0 | 7 | - | - | - | 230 | - | - | - | 2026-08-19 | v0.4.18 (2026-08-19) | MIT |
+| 37 | [MemMachine/MemMachine](https://github.com/MemMachine/MemMachine) | 19 | 3,190 | 12 | 18 | -156 | - | - | 205 | 2 | - | - | 2026-08-19 | v0.3.9 (2026-05-18) | Apache-2.0 |
+| 38 | [SamurAIGPT/llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) | 19 | 3,396 | - | - | - | - | - | 396 | - | - | - | 2026-08-17 | - | MIT |
+| 39 | [WujiangXu/A-mem](https://github.com/WujiangXu/A-mem) | 14 | 944 | 1 | 1 | 3 | - | - | 102 | 0 | - | - | 2026-03-05 | - | MIT |
+| 40 | [activeloopai/hivemind](https://github.com/activeloopai/hivemind) | 14 | 1,563 | 2 | 4 | - | - | - | 103 | - | - | - | 2026-08-14 | v0.7.146 (2026-08-14) | Apache-2.0 |
+| 41 | [kayba-ai/agentic-context-engine](https://github.com/kayba-ai/agentic-context-engine) | 13 | 2,550 | 1 | 1 | - | - | - | 301 | - | - | - | 2026-07-08 | v0.12.0 (2026-05-07) | Apache-2.0 |
+| 42 | [zjunlp/LightMem](https://github.com/zjunlp/LightMem) | 9 | 1,089 | 1 | 3 | - | - | - | 103 | - | - | - | 2026-08-18 | - | MIT |
+| 43 | [kingjulio8238/Memary](https://github.com/kingjulio8238/Memary) | 8 | 2,639 | 0 | 1 | 1 | - | - | 203 | 0 | - | - | 2024-10-22 | v0.1.5 (2024-10-22) | MIT |
+| 44 | [BAI-LAB/MemoryOS](https://github.com/BAI-LAB/MemoryOS) | 5 | 1,556 | 0 | 0 | - | - | - | 157 | - | - | - | 2026-07-07 | V1.2 (2025-07-18) | Apache-2.0 |
+| 45 | [LycheeMem/LycheeMem](https://github.com/LycheeMem/LycheeMem) | 3 | 1,153 | 0 | -1 | - | - | - | 16 | - | - | - | 2026-08-06 | - | Apache-2.0 |
 
 [Back to README](../README.md)
