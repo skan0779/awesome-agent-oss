@@ -2,75 +2,75 @@
 
 Self-hosted platforms and applications for building, deploying, and operating AI agents.
 
-_🚀 Last updated from snapshot: `2026-09-15 04:52 UTC`._
+_🚀 Last updated from snapshot: `2026-09-16 04:48 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [666ghj/MiroFish](https://github.com/666ghj/MiroFish) | 94 | 73,346 | 642 | 1,182 | 1,334 | 2,368 | - | 11,295 | 124 | 239 | - | 2026-09-03 | v0.1.2 (2026-03-07) | AGPL-3.0 |
-| 2 | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 93 | 132,898 | 197 | 502 | 1,300 | - | - | 9,157 | 94 | - | - | 2026-09-15 | v3.20.3 (2026-09-11) | MIT |
-| 3 | [Untrivial-ai/agent-orchestrator](https://github.com/Untrivial-ai/agent-orchestrator) | 92 | 12,045 | 67 | 389 | 979 | - | - | 1,653 | 98 | - | - | 2026-09-15 | v0.13.0 (2026-09-12) | Apache-2.0 |
-| 4 | [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | 91 | 39,641 | 108 | 309 | 637 | 3,849 | - | 4,975 | 68 | 449 | - | 2026-09-15 | v1.6.8 (2026-09-14) | Apache-2.0 |
-| 5 | [danny-avila/LibreChat](https://github.com/danny-avila/LibreChat) | 90 | 43,572 | 262 | 524 | 668 | 1,507 | - | 9,007 | 116 | 303 | - | 2026-09-15 | - | MIT |
-| 6 | [langgenius/dify](https://github.com/langgenius/dify) | 89 | 155,747 | 109 | 274 | 842 | 3,193 | - | 24,597 | 126 | 515 | - | 2026-09-15 | 1.17.1 (2026-09-10) | Other |
-| 7 | [n8n-io/n8n](https://github.com/n8n-io/n8n) | 87 | 204,333 | 119 | 284 | 648 | 3,547 | - | 60,673 | 68 | 526 | - | 2026-09-15 | n8n@2.38.7 (2026-09-11) | Other |
-| 8 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 86 | 82,456 | 71 | 157 | 548 | 2,399 | - | 11,372 | 77 | 413 | - | 2026-09-15 | v2.0.0 (2026-06-25) | MIT |
-| 9 | [trycompai/crm](https://github.com/trycompai/crm) | 86 | 10,429 | 45 | 159 | 420 | 1,945 | - | 1,416 | 100 | 414 | - | 2026-09-11 | v1.15.3 (2026-08-21) | MIT |
-| 10 | [andrewyng/openworker](https://github.com/andrewyng/openworker) | 84 | 17,715 | 67 | 135 | 280 | 3,157 | - | 2,491 | 48 | 473 | - | 2026-09-03 | v0.2.1 (2026-08-25) | MIT |
-| 11 | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | 77 | 51,799 | 32 | 101 | 239 | 1,281 | - | 4,965 | 33 | 181 | - | 2026-09-15 | v2.0.14 (2026-09-09) | AGPL-3.0 |
-| 12 | [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | 77 | 66,027 | 32 | 82 | 270 | 1,288 | - | 7,325 | 45 | 191 | - | 2026-09-15 | v1.16.1 (2026-08-27) | MIT |
-| 13 | [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 77 | 9,954 | 42 | 92 | 187 | - | - | 1,558 | 40 | - | - | 2026-09-15 | v0.13.0 (2026-09-09) | Apache-2.0 |
-| 14 | [ItzCrazyKns/Vane](https://github.com/ItzCrazyKns/Vane) | 73 | 36,820 | 73 | 114 | 143 | - | - | 4,085 | 11 | - | - | 2026-09-01 | v1.12.2 (2026-04-10) | MIT |
-| 15 | [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 73 | 3,915 | 24 | 53 | 218 | - | - | 585 | 70 | - | - | 2026-09-15 | v0.6.0 (2026-09-11) | Apache-2.0 |
-| 16 | [iOfficeAI/AionUi](https://github.com/iOfficeAI/AionUi) | 72 | 32,833 | 38 | 70 | 163 | - | - | 3,392 | 31 | - | - | 2026-09-09 | v2.2.2 (2026-09-09) | Apache-2.0 |
-| 17 | [lobehub/lobehub](https://github.com/lobehub/lobehub) | 70 | 82,480 | 23 | 68 | 176 | 761 | - | 15,881 | 20 | 73 | - | 2026-09-15 | v2.2.17 (2026-09-11) | Other |
-| 18 | [khoj-ai/khoj](https://github.com/khoj-ai/khoj) | 69 | 37,336 | 18 | 60 | 146 | 830 | - | 2,482 | 20 | 95 | - | 2026-08-02 | 2.0.0-beta.28 (2026-03-26) | AGPL-3.0 |
-| 19 | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | 68 | 46,973 | 12 | 60 | 153 | - | - | 10,351 | 8 | - | - | 2026-09-15 | 2.1.9 (2026-09-14) | MIT |
-| 20 | [nexu-io/html-anything](https://github.com/nexu-io/html-anything) | 68 | 8,815 | 21 | 58 | 117 | - | - | 855 | 8 | - | - | 2026-09-15 | - | Apache-2.0 |
-| 21 | [mudler/LocalAI](https://github.com/mudler/LocalAI) | 65 | 49,112 | 8 | 52 | 143 | - | - | 4,448 | 15 | - | - | 2026-09-15 | v4.9.0 (2026-08-20) | MIT |
-| 22 | [activepieces/activepieces](https://github.com/activepieces/activepieces) | 65 | 24,450 | 18 | 41 | 123 | 641 | - | 4,191 | 38 | 156 | - | 2026-09-15 | 0.91.0 (2026-09-14) | Other |
-| 23 | [onyx-dot-app/onyx](https://github.com/onyx-dot-app/onyx) | 64 | 32,088 | 20 | 57 | 121 | 478 | - | 4,438 | 35 | 88 | - | 2026-09-15 | v4.7.3 (2026-09-14) | Other |
-| 24 | [assafelovic/gpt-researcher](https://github.com/assafelovic/gpt-researcher) | 61 | 29,452 | 18 | 37 | 111 | 450 | - | 4,006 | 23 | 75 | - | 2026-08-27 | v3.6.1 (2026-08-24) | Apache-2.0 |
-| 25 | [NanmiCoder/cc-haha](https://github.com/NanmiCoder/cc-haha) | 61 | 14,394 | 22 | 49 | 98 | 263 | - | 8,537 | -3 | 3 | - | 2026-09-14 | v0.6.2 (2026-09-11) | MIT |
-| 26 | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 60 | 38,988 | 28 | 53 | 94 | 386 | - | 3,942 | 10 | 47 | - | 2026-09-11 | v0.3.0 (2025-11-04) | Apache-2.0 |
-| 27 | [nageoffer/ragent](https://github.com/nageoffer/ragent) | 57 | 4,002 | 6 | 26 | 77 | - | - | 813 | 15 | - | - | 2026-09-14 | 1.1.0 (2026-08-11) | Apache-2.0 |
-| 28 | [eigent-ai/eigent](https://github.com/eigent-ai/eigent) | 54 | 15,279 | 10 | 28 | 58 | - | - | 1,824 | 7 | - | - | 2026-09-15 | v1.0.4 (2026-09-04) | Apache-2.0 |
-| 29 | [eosphoros-ai/DB-GPT](https://github.com/eosphoros-ai/DB-GPT) | 53 | 19,960 | 14 | 29 | 60 | 228 | - | 2,929 | 15 | 50 | - | 2026-09-14 | v0.8.2 (2026-08-26) | MIT |
-| 30 | [iflytek/skillhub](https://github.com/iflytek/skillhub) | 52 | 5,105 | 14 | 21 | 50 | - | - | 836 | 8 | - | - | 2026-09-15 | v0.2.20 (2026-09-13) | Apache-2.0 |
-| 31 | [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB) | 52 | 22,793 | 15 | 22 | 57 | 282 | - | 3,145 | 6 | 49 | - | 2026-09-15 | v2.10.6-lts (2026-09-03) | GPL-3.0 |
-| 32 | [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev) | 50 | 16,283 | 10 | 19 | 53 | 245 | - | 1,455 | 12 | 49 | - | 2026-09-14 | v4.6.0 (2026-09-14) | Apache-2.0 |
-| 33 | [simstudioai/sim](https://github.com/simstudioai/sim) | 50 | 29,635 | 9 | 17 | 65 | 211 | - | 3,830 | 25 | 55 | - | 2026-09-15 | v0.8.35 (2026-09-14) | Apache-2.0 |
-| 34 | [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser) | 50 | 13,796 | 10 | 22 | 45 | 232 | - | 1,453 | 2 | 22 | - | 2026-08-18 | v0.1.13 (2025-11-22) | Apache-2.0 |
-| 35 | [proma-ai/Proma](https://github.com/proma-ai/Proma) | 47 | 2,186 | 7 | 16 | 33 | - | - | 288 | 5 | - | - | 2026-09-14 | v0.19.53 (2026-09-10) | AGPL-3.0 |
-| 36 | [LearningCircuit/local-deep-research](https://github.com/LearningCircuit/local-deep-research) | 47 | 9,092 | 8 | 19 | 37 | - | - | 818 | 12 | - | - | 2026-09-15 | v1.10.7 (2026-08-28) | MIT |
-| 37 | [elizaOS/eliza](https://github.com/elizaOS/eliza) | 46 | 19,335 | 3 | 10 | 47 | 271 | - | 5,728 | 18 | 53 | - | 2026-09-15 | pr-evidence-11 (2026-08-23) | MIT |
-| 38 | [666ghj/BettaFish](https://github.com/666ghj/BettaFish) | 46 | 42,216 | 5 | 14 | 45 | 211 | - | 7,616 | -2 | -8 | - | 2026-09-04 | v3.0.0 (2025-12-23) | GPL-2.0 |
-| 39 | [agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw) | 45 | 34,953 | 41 | 135 | -82 | 1,186 | - | 3,106 | 33 | 108 | - | 2026-09-15 | v2.2.1 (2026-09-11) | Apache-2.0 |
-| 40 | [Cinnamon/kotaemon](https://github.com/Cinnamon/kotaemon) | 45 | 25,768 | 2 | 23 | 34 | - | - | 2,155 | 0 | - | - | 2026-07-14 | v0.12.0 (2026-05-31) | Apache-2.0 |
-| 41 | [MiroMindAI/MiroThinker](https://github.com/MiroMindAI/MiroThinker) | 45 | 8,396 | 8 | 20 | 28 | - | - | 646 | 3 | - | - | 2026-07-06 | - | Apache-2.0 |
-| 42 | [OpenCoworkAI/open-cowork](https://github.com/OpenCoworkAI/open-cowork) | 45 | 2,145 | 5 | 13 | 32 | 117 | - | 292 | 7 | 15 | - | 2026-09-14 | v3.3.1 (2026-05-23) | MIT |
-| 43 | [juanjuandog/FinSight-AI](https://github.com/juanjuandog/FinSight-AI) | 44 | 1,058 | 1 | 54 | 27 | 34 | - | 63 | 0 | 5 | - | 2026-09-02 | - | MIT |
-| 44 | [memohai/Memoh](https://github.com/felinics/Memoh) | 44 | 2,232 | 6 | 14 | 24 | 168 | - | 214 | 6 | 16 | - | 2026-09-15 | v0.19.0 (2026-08-30) | AGPL-3.0 |
-| 45 | [dataelement/bisheng](https://github.com/dataelement/bisheng) | 42 | 11,964 | 7 | 14 | 32 | 102 | - | 1,969 | 8 | 32 | - | 2026-09-15 | v2.6.0-fix2 (2026-08-11) | Apache-2.0 |
-| 46 | [opensquilla/opensquilla](https://github.com/TokenRhythm/opensquilla) | 42 | 7,020 | -1 | 9 | 40 | - | - | 565 | 8 | - | - | 2026-09-14 | v0.5.4 (2026-08-25) | Apache-2.0 |
-| 47 | [builderz-labs/mission-control](https://github.com/builderz-labs/mission-control) | 40 | 6,217 | 2 | 11 | 24 | - | - | 79 | 3 | - | - | 2026-09-14 | v2.3.0 (2026-07-25) | MIT |
-| 48 | [coze-dev/coze-studio](https://github.com/coze-dev/coze-studio) | 39 | 21,587 | 3 | 8 | 29 | 134 | - | 3,112 | -4 | -4 | - | 2026-07-29 | v0.5.1 (2026-02-05) | Apache-2.0 |
-| 49 | [mindsdb/mindshub](https://github.com/mindsdb/mindshub) | 39 | 39,733 | 2 | 9 | 25 | 150 | - | 6,240 | 1 | 10 | - | 2026-09-11 | v26.1.0 (2026-04-23) | MIT |
-| 50 | [Agenta-AI/agenta](https://github.com/Agenta-AI/agenta) | 39 | 4,753 | 2 | 8 | 25 | - | - | 669 | 4 | - | - | 2026-09-14 | v0.118.1 (2026-09-14) | Other |
-| 51 | [archestra-ai/archestra](https://github.com/archestra-ai/archestra) | 36 | 4,277 | 7 | 9 | 16 | - | - | 1,198 | 6 | - | - | 2026-09-15 | platform-v1.3.59 (2026-09-13) | Other |
-| 52 | [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | 34 | 55,459 | 0 | 4 | 28 | 88 | - | 25,015 | 33 | 113 | - | 2026-08-13 | flowise@3.1.4 (2026-07-29) | Other |
-| 53 | [the-open-agent/openagent](https://github.com/the-open-agent/openagent) | 32 | 5,621 | 5 | 7 | 14 | - | - | 656 | 1 | - | - | 2026-09-09 | v2.89.2 (2026-09-01) | Apache-2.0 |
-| 54 | [Zipstack/unstract](https://github.com/Zipstack/unstract) | 31 | 7,238 | 3 | 4 | 14 | 96 | - | 716 | 1 | 14 | - | 2026-09-15 | v0.190.0 (2026-09-10) | AGPL-3.0 |
-| 55 | [arc53/DocsGPT](https://github.com/arc53/DocsGPT) | 29 | 18,262 | -1 | 6 | 17 | 47 | - | 2,152 | 8 | 29 | - | 2026-09-14 | 0.20.0 (2026-09-12) | MIT |
-| 56 | [volcengine/MineContext](https://github.com/volcengine/MineContext) | 28 | 5,512 | 1 | 4 | 14 | 56 | - | 410 | 2 | 3 | - | 2026-05-07 | v0.1.8 (2026-01-28) | Apache-2.0 |
-| 57 | [ThinkInAIXYZ/deepchat](https://github.com/ThinkInAIXYZ/deepchat) | 27 | 6,320 | 3 | 4 | 11 | - | - | 732 | 7 | - | - | 2026-09-14 | v1.1.1 (2026-08-31) | Apache-2.0 |
-| 58 | [chatchat-space/Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat) | 26 | 38,634 | 1 | 1 | 12 | 91 | - | 6,265 | -4 | 6 | - | 2025-11-10 | v0.3.1 (2024-07-12) | Apache-2.0 |
-| 59 | [microsoft/magentic-ui](https://github.com/microsoft/magentic-ui) | 22 | 10,090 | 2 | 4 | 7 | 26 | - | 1,014 | 0 | -2 | - | 2026-09-10 | v0.2.1 (2026-05-21) | MIT |
-| 60 | [ModelEngine-Group/nexent](https://github.com/ModelEngine-Group/nexent) | 22 | 5,863 | 1 | 2 | 9 | - | - | 727 | 2 | - | - | 2026-09-15 | v2.5.0 (2026-08-29) | MIT |
-| 61 | [TurixAI/TuriX-CUA](https://github.com/TurixAI/TuriX-CUA) | 16 | 3,161 | 0 | 2 | 5 | 10 | - | 328 | -4 | -6 | - | 2026-09-14 | v0.4 (2026-03-06) | MIT |
-| 62 | [GaiaNet-AI/gaianet-node](https://github.com/GaiaNet-AI/gaianet-node) | 12 | 5,019 | 1 | 1 | 1 | - | - | 326 | 0 | - | - | 2025-10-13 | 0.5.4 (2025-08-11) | GPL-3.0 |
-| 63 | [crestalnetwork/intentkit](https://github.com/crestalnetwork/intentkit) | 7 | 6,510 | -1 | -1 | 1 | - | - | 711 | -1 | - | - | 2026-08-28 | v2.6.3 (2026-06-14) | MIT |
-| 64 | [memovai/mimiclaw](https://github.com/memovai/mimiclaw) | 7 | 5,747 | -1 | 0 | 0 | - | - | 890 | -2 | - | - | 2026-08-21 | v0.1.1 (2026-03-17) | MIT |
-| 65 | [AI-QL/tuui](https://github.com/AI-QL/tuui) | 5 | 1,153 | 0 | 0 | 0 | 1 | - | 108 | 0 | 1 | - | 2026-05-14 | v1.5.1 (2026-05-14) | Apache-2.0 |
-| 66 | [AIPexStudio/AIPex](https://github.com/AIPexStudio/AIPex) | 5 | 1,249 | -1 | -1 | -1 | 14 | - | 131 | 0 | 2 | - | 2026-08-26 | v0.1.0 (2026-03-11) | MIT |
+| 1 | [666ghj/MiroFish](https://github.com/666ghj/MiroFish) | 94 | 73,668 | 322 | 1,432 | 1,612 | 2,609 | - | 11,321 | 144 | 265 | - | 2026-09-16 | v0.1.2 (2026-03-07) | AGPL-3.0 |
+| 2 | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 92 | 133,073 | 175 | 521 | 1,263 | - | - | 9,171 | 96 | - | - | 2026-09-15 | v3.20.3 (2026-09-11) | MIT |
+| 3 | [danny-avila/LibreChat](https://github.com/danny-avila/LibreChat) | 92 | 43,930 | 358 | 851 | 986 | 1,822 | - | 9,037 | 135 | 321 | - | 2026-09-16 | - | MIT |
+| 4 | [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor) | 91 | 39,755 | 114 | 323 | 684 | 3,798 | - | 4,986 | 66 | 454 | - | 2026-09-15 | v1.6.8 (2026-09-14) | Apache-2.0 |
+| 5 | [Untrivial-ai/agent-orchestrator](https://github.com/Untrivial-ai/agent-orchestrator) | 90 | 12,083 | 38 | 248 | 966 | - | - | 1,657 | 90 | - | - | 2026-09-16 | v0.13.0 (2026-09-12) | Apache-2.0 |
+| 6 | [andrewyng/openworker](https://github.com/andrewyng/openworker) | 89 | 17,879 | 164 | 271 | 415 | 3,217 | - | 2,515 | 69 | 482 | - | 2026-09-03 | v0.2.1 (2026-08-25) | MIT |
+| 7 | [langgenius/dify](https://github.com/langgenius/dify) | 88 | 155,885 | 138 | 329 | 776 | 3,239 | - | 24,621 | 126 | 523 | - | 2026-09-16 | 1.17.1 (2026-09-10) | Other |
+| 8 | [n8n-io/n8n](https://github.com/n8n-io/n8n) | 87 | 204,470 | 137 | 340 | 683 | 3,562 | - | 60,695 | 77 | 525 | - | 2026-09-16 | n8n@2.39.5 (2026-09-14) | Other |
+| 9 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 84 | 82,513 | 57 | 184 | 418 | 2,409 | - | 11,377 | 66 | 411 | - | 2026-09-15 | v2.0.0 (2026-06-25) | MIT |
+| 10 | [trycompai/crm](https://github.com/trycompai/crm) | 84 | 10,475 | 46 | 142 | 366 | 1,955 | - | 1,428 | 92 | 421 | - | 2026-09-11 | v1.15.3 (2026-08-21) | MIT |
+| 11 | [ItzCrazyKns/Vane](https://github.com/ItzCrazyKns/Vane) | 82 | 36,929 | 109 | 218 | 243 | - | - | 4,088 | 15 | - | - | 2026-09-01 | v1.12.2 (2026-04-10) | MIT |
+| 12 | [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | 78 | 66,083 | 56 | 116 | 274 | 1,298 | - | 7,342 | 50 | 204 | - | 2026-09-16 | v1.16.1 (2026-08-27) | MIT |
+| 13 | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | 77 | 51,842 | 43 | 108 | 260 | 1,274 | - | 4,965 | 22 | 172 | - | 2026-09-16 | v2.0.14 (2026-09-09) | AGPL-3.0 |
+| 14 | [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 75 | 9,985 | 31 | 90 | 192 | - | - | 1,569 | 44 | - | - | 2026-09-16 | v0.14.0 (2026-09-15) | Apache-2.0 |
+| 15 | [iOfficeAI/AionUi](https://github.com/iOfficeAI/AionUi) | 72 | 32,869 | 36 | 86 | 169 | - | - | 3,396 | 29 | - | - | 2026-09-09 | v2.2.2 (2026-09-09) | Apache-2.0 |
+| 16 | [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 71 | 3,937 | 22 | 59 | 170 | - | - | 594 | 69 | - | - | 2026-09-16 | v0.6.0 (2026-09-11) | Apache-2.0 |
+| 17 | [nexu-io/html-anything](https://github.com/nexu-io/html-anything) | 70 | 8,847 | 32 | 66 | 137 | - | - | 857 | 10 | - | - | 2026-09-15 | - | Apache-2.0 |
+| 18 | [lobehub/lobehub](https://github.com/lobehub/lobehub) | 69 | 82,511 | 31 | 73 | 176 | 761 | - | 15,891 | 26 | 80 | - | 2026-09-16 | v2.2.17 (2026-09-11) | Other |
+| 19 | [NanmiCoder/cc-haha](https://github.com/NanmiCoder/cc-haha) | 67 | 14,443 | 49 | 82 | 139 | 305 | - | 8,543 | 4 | 7 | - | 2026-09-15 | v0.6.3 (2026-09-15) | MIT |
+| 20 | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | 66 | 46,993 | 20 | 53 | 151 | - | - | 10,352 | 6 | - | - | 2026-09-16 | 2.1.9 (2026-09-14) | MIT |
+| 21 | [khoj-ai/khoj](https://github.com/khoj-ai/khoj) | 66 | 37,351 | 15 | 59 | 125 | 828 | - | 2,483 | 21 | 97 | - | 2026-08-02 | 2.0.0-beta.28 (2026-03-26) | AGPL-3.0 |
+| 22 | [activepieces/activepieces](https://github.com/activepieces/activepieces) | 65 | 24,473 | 23 | 57 | 123 | 644 | - | 4,193 | 35 | 153 | - | 2026-09-16 | 0.91.0 (2026-09-14) | Other |
+| 23 | [onyx-dot-app/onyx](https://github.com/onyx-dot-app/onyx) | 65 | 32,113 | 25 | 66 | 126 | 490 | - | 4,455 | 45 | 102 | - | 2026-09-16 | v4.7.6 (2026-09-16) | Other |
+| 24 | [mudler/LocalAI](https://github.com/mudler/LocalAI) | 62 | 49,128 | 16 | 37 | 137 | - | - | 4,449 | 15 | - | - | 2026-09-16 | v4.9.0 (2026-08-20) | MIT |
+| 25 | [assafelovic/gpt-researcher](https://github.com/assafelovic/gpt-researcher) | 61 | 29,473 | 21 | 50 | 108 | 468 | - | 4,009 | 24 | 76 | - | 2026-08-27 | v3.6.1 (2026-08-24) | Apache-2.0 |
+| 26 | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 59 | 39,000 | 12 | 59 | 97 | 391 | - | 3,944 | 11 | 48 | - | 2026-09-11 | v0.3.0 (2025-11-04) | Apache-2.0 |
+| 27 | [nageoffer/ragent](https://github.com/nageoffer/ragent) | 59 | 4,018 | 16 | 35 | 80 | - | - | 814 | 16 | - | - | 2026-09-14 | 1.1.0 (2026-08-11) | Apache-2.0 |
+| 28 | [eigent-ai/eigent](https://github.com/eigent-ai/eigent) | 57 | 15,294 | 15 | 36 | 73 | - | - | 1,827 | 10 | - | - | 2026-09-16 | v1.0.4 (2026-09-04) | Apache-2.0 |
+| 29 | [iflytek/skillhub](https://github.com/iflytek/skillhub) | 53 | 5,116 | 11 | 28 | 53 | - | - | 838 | 13 | - | - | 2026-09-16 | v0.2.20 (2026-09-13) | Apache-2.0 |
+| 30 | [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB) | 51 | 22,800 | 7 | 26 | 59 | 279 | - | 3,148 | 11 | 51 | - | 2026-09-16 | v2.10.6-lts (2026-09-03) | GPL-3.0 |
+| 31 | [eosphoros-ai/DB-GPT](https://github.com/eosphoros-ai/DB-GPT) | 51 | 19,970 | 10 | 27 | 56 | 236 | - | 2,929 | 12 | 50 | - | 2026-09-15 | v0.8.2 (2026-08-26) | MIT |
+| 32 | [simstudioai/sim](https://github.com/simstudioai/sim) | 50 | 29,646 | 11 | 20 | 62 | 219 | - | 3,834 | 24 | 61 | - | 2026-09-16 | v0.8.39 (2026-09-16) | Apache-2.0 |
+| 33 | [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser) | 50 | 13,802 | 6 | 26 | 50 | 237 | - | 1,454 | 7 | 23 | - | 2026-08-18 | v0.1.13 (2025-11-22) | Apache-2.0 |
+| 34 | [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev) | 49 | 16,287 | 4 | 19 | 56 | 244 | - | 1,455 | 11 | 47 | - | 2026-09-16 | v4.6.1 (2026-09-15) | Apache-2.0 |
+| 35 | [elizaOS/eliza](https://github.com/elizaOS/eliza) | 48 | 19,344 | 9 | 18 | 43 | 271 | - | 5,734 | 25 | 57 | - | 2026-09-16 | pr-evidence-11 (2026-08-23) | MIT |
+| 36 | [666ghj/BettaFish](https://github.com/666ghj/BettaFish) | 47 | 42,223 | 7 | 18 | 51 | 217 | - | 7,616 | -3 | -5 | - | 2026-09-16 | v3.0.0 (2025-12-23) | GPL-2.0 |
+| 37 | [LearningCircuit/local-deep-research](https://github.com/LearningCircuit/local-deep-research) | 46 | 9,097 | 5 | 18 | 39 | - | - | 820 | 11 | - | - | 2026-09-15 | v1.10.7 (2026-08-28) | MIT |
+| 38 | [memohai/Memoh](https://github.com/felinics/Memoh) | 46 | 2,239 | 7 | 18 | 27 | 175 | - | 215 | 6 | 16 | - | 2026-09-15 | v0.20.0 (2026-09-15) | AGPL-3.0 |
+| 39 | [agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw) | 45 | 34,993 | 40 | 135 | -84 | 1,208 | - | 3,108 | 31 | 105 | - | 2026-09-16 | v2.2.1 (2026-09-11) | Apache-2.0 |
+| 40 | [juanjuandog/FinSight-AI](https://github.com/juanjuandog/FinSight-AI) | 45 | 1,060 | 2 | 56 | 29 | 36 | - | 63 | 0 | 5 | - | 2026-09-02 | - | MIT |
+| 41 | [proma-ai/Proma](https://github.com/proma-ai/Proma) | 43 | 2,187 | 1 | 14 | 32 | - | - | 291 | 9 | - | - | 2026-09-15 | v0.19.53 (2026-09-10) | AGPL-3.0 |
+| 42 | [OpenCoworkAI/open-cowork](https://github.com/OpenCoworkAI/open-cowork) | 43 | 2,149 | 4 | 14 | 30 | 114 | - | 293 | 8 | 15 | - | 2026-09-14 | v3.3.1 (2026-05-23) | MIT |
+| 43 | [dataelement/bisheng](https://github.com/dataelement/bisheng) | 42 | 11,971 | 7 | 17 | 31 | 107 | - | 1,969 | 8 | 31 | - | 2026-09-16 | v2.6.0-fix2 (2026-08-11) | Apache-2.0 |
+| 44 | [MiroMindAI/MiroThinker](https://github.com/MiroMindAI/MiroThinker) | 42 | 8,399 | 3 | 16 | 29 | - | - | 645 | 2 | - | - | 2026-07-06 | - | Apache-2.0 |
+| 45 | [coze-dev/coze-studio](https://github.com/coze-dev/coze-studio) | 40 | 21,593 | 6 | 11 | 26 | 139 | - | 3,111 | -5 | -6 | - | 2026-07-29 | v0.5.1 (2026-02-05) | Apache-2.0 |
+| 46 | [builderz-labs/mission-control](https://github.com/builderz-labs/mission-control) | 39 | 6,222 | 5 | 9 | 28 | - | - | 80 | 4 | - | - | 2026-09-14 | v2.3.0 (2026-07-25) | MIT |
+| 47 | [Cinnamon/kotaemon](https://github.com/Cinnamon/kotaemon) | 38 | 25,767 | -1 | 14 | 28 | - | - | 2,156 | 2 | - | - | 2026-07-14 | v0.12.0 (2026-05-31) | Apache-2.0 |
+| 48 | [mindsdb/mindshub](https://github.com/mindsdb/mindshub) | 36 | 39,739 | 6 | 7 | 22 | 148 | - | 6,239 | -2 | 10 | - | 2026-09-11 | v26.1.0 (2026-04-23) | MIT |
+| 49 | [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | 36 | 55,466 | 7 | 10 | 22 | 87 | - | 25,022 | 36 | 117 | - | 2026-08-13 | flowise@3.1.4 (2026-07-29) | Other |
+| 50 | [Agenta-AI/agenta](https://github.com/Agenta-AI/agenta) | 36 | 4,756 | 3 | 8 | 23 | - | - | 670 | 4 | - | - | 2026-09-16 | v0.118.1 (2026-09-14) | Other |
+| 51 | [ThinkInAIXYZ/deepchat](https://github.com/ThinkInAIXYZ/deepchat) | 35 | 6,326 | 6 | 11 | 16 | - | - | 733 | 3 | - | - | 2026-09-16 | v1.1.1 (2026-08-31) | Apache-2.0 |
+| 52 | [archestra-ai/archestra](https://github.com/archestra-ai/archestra) | 33 | 4,279 | 2 | 12 | 14 | - | - | 1,200 | 7 | - | - | 2026-09-15 | platform-v1.3.61 (2026-09-15) | Other |
+| 53 | [the-open-agent/openagent](https://github.com/the-open-agent/openagent) | 33 | 5,624 | 3 | 9 | 16 | - | - | 655 | 0 | - | - | 2026-09-09 | v2.89.2 (2026-09-01) | Apache-2.0 |
+| 54 | [chatchat-space/Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat) | 29 | 38,637 | 3 | 7 | 11 | 93 | - | 6,262 | -7 | 1 | - | 2025-11-10 | v0.3.1 (2024-07-12) | Apache-2.0 |
+| 55 | [Zipstack/unstract](https://github.com/Zipstack/unstract) | 28 | 7,239 | 1 | 5 | 12 | 95 | - | 716 | 1 | 14 | - | 2026-09-15 | v0.190.0 (2026-09-10) | AGPL-3.0 |
+| 56 | [arc53/DocsGPT](https://github.com/arc53/DocsGPT) | 27 | 18,264 | 2 | 4 | 16 | 48 | - | 2,151 | 8 | 27 | - | 2026-09-16 | 0.20.0 (2026-09-12) | MIT |
+| 57 | [volcengine/MineContext](https://github.com/volcengine/MineContext) | 27 | 5,514 | 2 | 5 | 13 | 55 | - | 410 | 2 | 3 | - | 2026-05-07 | v0.1.8 (2026-01-28) | Apache-2.0 |
+| 58 | [opensquilla/opensquilla](https://github.com/TokenRhythm/opensquilla) | 27 | 7,014 | -6 | 1 | 24 | - | - | 564 | 5 | - | - | 2026-09-15 | v0.5.4 (2026-08-25) | Apache-2.0 |
+| 59 | [microsoft/magentic-ui](https://github.com/microsoft/magentic-ui) | 20 | 10,091 | 1 | 5 | 7 | 26 | - | 1,014 | 0 | -2 | - | 2026-09-10 | v0.2.1 (2026-05-21) | MIT |
+| 60 | [memovai/mimiclaw](https://github.com/memovai/mimiclaw) | 19 | 5,751 | 4 | 4 | 5 | - | - | 888 | -4 | - | - | 2026-08-21 | v0.1.1 (2026-03-17) | MIT |
+| 61 | [ModelEngine-Group/nexent](https://github.com/ModelEngine-Group/nexent) | 19 | 5,864 | 1 | 2 | 8 | - | - | 728 | 3 | - | - | 2026-09-16 | v2.5.0 (2026-08-29) | MIT |
+| 62 | [GaiaNet-AI/gaianet-node](https://github.com/GaiaNet-AI/gaianet-node) | 12 | 5,020 | 1 | 2 | 2 | - | - | 326 | 0 | - | - | 2025-10-13 | 0.5.4 (2025-08-11) | GPL-3.0 |
+| 63 | [TurixAI/TuriX-CUA](https://github.com/TurixAI/TuriX-CUA) | 11 | 3,160 | -1 | 0 | 5 | 9 | - | 328 | -3 | -6 | - | 2026-09-14 | v0.4 (2026-03-06) | MIT |
+| 64 | [crestalnetwork/intentkit](https://github.com/crestalnetwork/intentkit) | 8 | 6,511 | 1 | -1 | 2 | - | - | 711 | -1 | - | - | 2026-08-28 | v2.6.3 (2026-06-14) | MIT |
+| 65 | [AI-QL/tuui](https://github.com/AI-QL/tuui) | 7 | 1,154 | 1 | 1 | 1 | 2 | - | 108 | 0 | 1 | - | 2026-05-14 | v1.5.1 (2026-05-14) | Apache-2.0 |
+| 66 | [AIPexStudio/AIPex](https://github.com/AIPexStudio/AIPex) | 6 | 1,250 | 1 | 0 | 0 | 15 | - | 131 | 0 | 2 | - | 2026-08-26 | v0.1.0 (2026-03-11) | MIT |
 
 [Back to README](../README.md)
