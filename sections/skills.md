@@ -2,78 +2,78 @@
 
 Reusable skills, instructions, and workflow packages for AI agents.
 
-_🚀 Last updated from snapshot: `2026-09-18 04:41 UTC`._
+_🚀 Last updated from snapshot: `2026-09-19 04:37 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 99 | 66,062 | 2,221 | 3,529 | 8,437 | 51,826 | - | 4,409 | 645 | 3,373 | - | 2026-09-17 | v2.16.0 (2026-08-30) | MIT |
-| 2 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 99 | 141,462 | 1,913 | 2,841 | 6,504 | 36,030 | - | 7,581 | 349 | 1,758 | - | 2026-09-14 | v4.10.0 (2026-09-14) | MIT |
-| 3 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 98 | 261,298 | 1,844 | 2,806 | 5,316 | 20,318 | - | 39,113 | 800 | 2,564 | - | 2026-09-17 | v2.2.1 (2026-09-08) | MIT |
-| 4 | [blader/humanizer](https://github.com/blader/humanizer) | 98 | 49,657 | 946 | 1,435 | 3,080 | 13,250 | - | 4,018 | 210 | 780 | - | 2026-09-06 | v3.0.0 (2026-09-06) | MIT |
-| 5 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 97 | 40,865 | 583 | 958 | 2,924 | 18,981 | - | 2,610 | 208 | 1,270 | - | 2026-09-15 | - | MIT |
-| 6 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 97 | 95,962 | 1,044 | 1,552 | 2,535 | 7,562 | - | 10,156 | 219 | 688 | - | 2026-09-18 | 0.6.10 (2026-09-18) | MIT |
-| 7 | [obra/superpowers](https://github.com/obra/superpowers) | 96 | 288,199 | 953 | 1,418 | 3,383 | 14,499 | - | 25,781 | 303 | 1,290 | - | 2026-09-18 | v6.3.0 (2026-08-12) | MIT |
-| 8 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 96 | 88,043 | 582 | 842 | 1,951 | 10,282 | - | 5,994 | 119 | 681 | - | 2026-09-16 | - | MIT |
-| 9 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 96 | 81,917 | 698 | 920 | 1,837 | 6,922 | - | 8,326 | 255 | 829 | - | 2026-09-17 | v0.4.15 (2026-08-23) | BSD-3-Clause |
-| 10 | [freestylefly/awesome-gpt-image-2](https://github.com/freestylefly/awesome-gpt-image-2) | 96 | 32,541 | 395 | 602 | 1,532 | 21,259 | - | 3,143 | 137 | 1,848 | - | 2026-09-11 | - | MIT |
-| 11 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 95 | 128,573 | 594 | 897 | 1,850 | 10,621 | - | 13,711 | 181 | 1,028 | - | 2026-09-15 | v2.15.0 (2026-08-13) | MIT |
-| 12 | [nexu-io/open-design](https://github.com/nexu-io/open-design) | 94 | 96,803 | 390 | 584 | 1,335 | 7,882 | - | 11,254 | 190 | 982 | - | 2026-09-18 | open-design-v0.22.2 (2026-09-10) | Apache-2.0 |
-| 13 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 94 | 45,392 | 297 | 442 | 1,051 | 11,555 | - | 4,121 | 98 | 820 | - | 2026-09-14 | v2.69.0 (2026-09-11) | MIT |
-| 14 | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 92 | 83,188 | 194 | 368 | 1,176 | 3,439 | - | 7,017 | 120 | 321 | - | 2026-09-12 | v2.9.0 (2026-07-10) | MIT |
-| 15 | [anthropics/skills](https://github.com/anthropics/skills) | 92 | 176,929 | 371 | 582 | 1,228 | 6,625 | - | 20,953 | 162 | 687 | - | 2026-09-10 | - | - |
-| 16 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 91 | 17,667 | 315 | 451 | 755 | 2,914 | - | 1,512 | 74 | 284 | - | 2026-09-17 | v2.11.2 (2026-09-09) | Apache-2.0 |
-| 17 | [citrolabs/ego-lite](https://github.com/citrolabs/ego-lite) | 89 | 16,130 | 151 | 219 | 466 | 4,261 | - | 844 | 26 | 226 | - | 2026-09-17 | v2.0.0 (2026-09-10) | MIT |
-| 18 | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 89 | 34,538 | 152 | 204 | 493 | 4,032 | - | 3,664 | 60 | 371 | - | 2026-09-15 | - | MIT |
-| 19 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 88 | 6,854 | 97 | 211 | 750 | 2,956 | - | 245 | 32 | 117 | - | 2026-08-29 | - | MIT |
-| 20 | [op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill) | 87 | 26,516 | 130 | 207 | 448 | 2,157 | - | 1,851 | 21 | 116 | - | 2026-08-07 | v1.1.0 (2026-05-15) | AGPL-3.0 |
-| 21 | [kangarooking/cangjie-skill](https://github.com/kangarooking/cangjie-skill) | 86 | 10,225 | 123 | 193 | 412 | - | - | 1,185 | 50 | - | - | 2026-09-13 | v2.5.0 (2026-08-30) | MIT |
-| 22 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 85 | 28,789 | 96 | 158 | 372 | 3,076 | - | 1,484 | 33 | 169 | - | 2026-08-06 | - | MIT |
-| 23 | [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 84 | 34,571 | 107 | 157 | 370 | 2,160 | - | 5,042 | 62 | 323 | - | 2026-09-17 | v0.5.0 (2026-09-17) | MIT |
-| 24 | [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 84 | 30,775 | 113 | 204 | 353 | 2,029 | - | 2,097 | 21 | 146 | - | 2026-09-16 | v1.0.151 (2026-09-16) | Apache-2.0 |
-| 25 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 84 | 75,247 | 85 | 197 | 409 | 2,490 | - | 8,709 | 76 | 387 | - | 2026-08-10 | - | - |
-| 26 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | 84 | 48,528 | 130 | 184 | 382 | 1,828 | - | 3,455 | 19 | 104 | - | 2026-09-15 | - | MIT |
-| 27 | [google/skills](https://github.com/google/skills) | 84 | 20,108 | 110 | 187 | 356 | 1,630 | - | 1,643 | 52 | 185 | - | 2026-09-18 | - | Apache-2.0 |
-| 28 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 83 | 8,661 | 102 | 172 | 364 | 1,361 | - | 391 | 19 | 67 | - | 2026-09-15 | v0.2.3 (2026-06-22) | MIT |
-| 29 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | 83 | 36,447 | 64 | 150 | 323 | 2,771 | - | 4,085 | 32 | 260 | - | 2026-09-17 | - | Apache-2.0 |
-| 30 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 82 | 16,293 | 124 | 166 | 298 | 1,427 | - | 1,386 | 11 | 77 | - | 2026-09-17 | v0.4.26 (2026-09-16) | MIT |
-| 31 | [AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) | 82 | 15,050 | 83 | 143 | 233 | 4,046 | - | 1,491 | 14 | 218 | - | 2026-09-10 | v2.2.0 (2026-09-10) | MIT |
-| 32 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 81 | 17,205 | 68 | 120 | 357 | 1,077 | - | 1,609 | 28 | 103 | - | 2026-09-05 | v0.2.0 (2026-07-02) | MIT |
-| 33 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 80 | 26,088 | 89 | 121 | 273 | 1,461 | - | 3,677 | 41 | 207 | - | 2026-08-30 | v2.12.0 (2026-08-25) | MIT |
-| 34 | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | 80 | 46,546 | 74 | 128 | 290 | 1,441 | - | 6,783 | 40 | 177 | - | 2026-09-18 | v17.5.0 (2026-09-18) | MIT |
-| 35 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 79 | 12,799 | 87 | 126 | 273 | 985 | - | 917 | 11 | 56 | - | 2026-06-16 | v1.7.2 (2026-06-16) | MIT |
-| 36 | [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | 78 | 9,436 | 63 | 94 | 222 | 1,662 | - | 667 | 21 | 109 | - | 2026-09-14 | v3.4.0 (2026-09-14) | MIT |
-| 37 | [agentskills/agentskills](https://github.com/agentskills/agentskills) | 78 | 25,468 | 83 | 125 | 252 | 1,037 | - | 1,910 | 21 | 118 | - | 2026-08-09 | - | Apache-2.0 |
-| 38 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | 77 | 39,127 | 77 | 115 | 244 | 1,139 | - | 4,969 | 45 | 175 | - | 2026-09-18 | - | MIT |
-| 39 | [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) | 75 | 9,369 | 59 | 87 | 189 | 1,150 | - | 1,382 | 21 | 164 | - | 2026-09-11 | v2.0.2 (2026-09-10) | MIT |
-| 40 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 75 | 26,411 | 54 | 94 | 215 | 1,008 | - | 2,813 | 15 | 88 | - | 2026-09-14 | v2.1.0 (2026-07-03) | MIT |
-| 41 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) | 74 | 20,771 | 68 | 104 | 188 | 951 | - | 2,205 | 8 | 54 | - | 2026-09-16 | - | MIT |
-| 42 | [ConardLi/garden-skills](https://github.com/ConardLi/garden-skills) | 74 | 12,493 | 52 | 71 | 158 | 2,078 | - | 1,508 | 16 | 147 | - | 2026-07-12 | web-design-engineer-v1.3.0 (2026-07-12) | MIT |
-| 43 | [wshobson/agents](https://github.com/wshobson/agents) | 74 | 39,763 | 64 | 102 | 203 | 858 | - | 4,240 | 25 | 97 | - | 2026-09-14 | - | MIT |
-| 44 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 71 | 25,983 | 48 | 77 | 163 | 852 | - | 2,871 | 10 | 72 | - | 2026-09-10 | v2.5.2 (2026-06-18) | MIT |
-| 45 | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | 71 | 26,968 | 46 | 72 | 185 | 732 | - | 2,244 | 14 | 45 | - | 2026-09-17 | v3.20.0 (2026-09-17) | MIT |
-| 46 | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | 70 | 2,734 | 42 | 62 | 158 | 840 | - | 269 | 23 | 75 | - | 2026-09-11 | v3.2.0 (2026-09-11) | CC-BY-4.0 |
-| 47 | [nexu-io/html-anything](https://github.com/nexu-io/html-anything) | 68 | 8,889 | 42 | 74 | 150 | 552 | - | 861 | 13 | 46 | - | 2026-09-15 | - | Apache-2.0 |
-| 48 | [composio-community/awesome-codex-skills](https://github.com/composio-community/awesome-codex-skills) | 67 | 16,514 | 41 | 62 | 142 | 598 | - | 1,628 | 22 | 82 | - | 2026-07-26 | - | - |
-| 49 | [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) | 65 | 52,635 | 35 | 62 | 144 | 594 | - | 5,036 | 19 | 30 | - | 2026-09-14 | - | MIT |
-| 50 | [trailofbits/skills](https://github.com/trailofbits/skills) | 63 | 7,139 | 29 | 59 | 104 | 486 | - | 611 | 7 | 35 | - | 2026-09-16 | - | CC-BY-SA-4.0 |
-| 51 | [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) | 62 | 19,368 | 34 | 44 | 110 | 577 | - | 2,595 | 17 | 65 | - | 2026-09-13 | v0.8.2 (2026-09-02) | MIT |
-| 52 | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | 62 | 47,023 | 30 | 50 | 137 | 469 | - | 10,362 | 18 | 41 | - | 2026-09-18 | 2.1.9 (2026-09-14) | MIT |
-| 53 | [googleworkspace/cli](https://github.com/googleworkspace/cli) | 61 | 31,040 | 24 | 37 | 125 | 599 | - | 1,840 | 19 | 58 | - | 2026-09-17 | v0.22.5 (2026-03-31) | Apache-2.0 |
-| 54 | [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) | 60 | 4,531 | 24 | 37 | 106 | - | - | 678 | 10 | - | - | 2026-09-17 | v2.1 (2026-06-05) | MIT |
-| 55 | [jnMetaCode/superpowers-zh](https://github.com/jnMetaCode/superpowers-zh) | 58 | 8,136 | 35 | 42 | 81 | 412 | - | 760 | 8 | 30 | - | 2026-09-17 | v1.7.1 (2026-07-17) | MIT |
-| 56 | [eugeniughelbur/obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) | 57 | 4,486 | 18 | 32 | 85 | - | - | 564 | 15 | - | - | 2026-09-15 | v0.16.0 (2026-09-14) | MIT |
-| 57 | [iflytek/skillhub](https://github.com/iflytek/skillhub) | 54 | 5,142 | 26 | 37 | 62 | 247 | - | 841 | 10 | 57 | - | 2026-09-18 | v0.2.20 (2026-09-13) | Apache-2.0 |
-| 58 | [tw93/Waza](https://github.com/tw93/Waza) | 52 | 7,050 | 24 | 32 | 56 | 174 | - | 413 | 3 | 8 | - | 2026-09-17 | v3.36.1 (2026-09-12) | MIT |
-| 59 | [OpenSenseNova/SenseNova-Skills](https://github.com/OpenSenseNova/SenseNova-Skills) | 48 | 5,642 | 4 | 5 | 107 | - | - | 392 | 5 | - | - | 2026-09-18 | - | MIT |
-| 60 | [yusufkaraaslan/Skill_Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) | 47 | 14,994 | 14 | 21 | 43 | 213 | - | 1,527 | 7 | 19 | - | 2026-09-16 | v3.9.1 (2026-08-03) | MIT |
-| 61 | [zilliztech/memsearch](https://github.com/zilliztech/memsearch) | 46 | 2,622 | 16 | 21 | 34 | 136 | - | 251 | 6 | 22 | - | 2026-09-12 | v0.4.20 (2026-09-12) | MIT |
-| 62 | [dotnet/skills](https://github.com/dotnet/skills) | 46 | 5,437 | 15 | 22 | 31 | - | - | 416 | 2 | - | - | 2026-09-17 | v1.0.0 (2026-04-21) | MIT |
-| 63 | [SamurAIGPT/llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) | 38 | 3,532 | 7 | 9 | 24 | - | - | 404 | 7 | - | - | 2026-09-17 | - | MIT |
-| 64 | [antfu/skills](https://github.com/antfu/skills) | 37 | 5,894 | 6 | 11 | 23 | - | - | 333 | 2 | - | - | 2026-06-23 | - | MIT |
-| 65 | [alibaba/nacos](https://github.com/alibaba/nacos) | 36 | 33,382 | 10 | 15 | 19 | 101 | - | 13,294 | 3 | 14 | - | 2026-09-16 | 3.2.4 (2026-08-27) | Apache-2.0 |
-| 66 | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | 32 | 6,624 | 5 | 8 | 18 | 73 | - | 432 | 0 | 3 | - | 2026-09-05 | v0.2.9 (2026-07-15) | MIT |
-| 67 | [activeloopai/hivemind](https://github.com/activeloopai/hivemind) | 31 | 1,616 | 0 | 8 | 16 | 55 | - | 107 | 2 | 6 | - | 2026-09-18 | v0.7.159 (2026-09-17) | Apache-2.0 |
-| 68 | [open-gitagent/opengap](https://github.com/open-gitagent/opengap) | 29 | 2,944 | 5 | 10 | 15 | 27 | - | 348 | 3 | 1 | - | 2026-07-02 | v0.5.0 (2026-07-02) | MIT |
-| 69 | [memodb-io/Acontext](https://github.com/memodb-io/Acontext) | 10 | 3,690 | -3 | -2 | 4 | 18 | - | 336 | 2 | 3 | - | 2026-07-14 | sdk-ts/v0.1.21 (2026-04-08) | Apache-2.0 |
+| 1 | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 99 | 66,929 | 867 | 3,088 | 8,200 | 52,431 | - | 4,464 | 632 | 3,417 | - | 2026-09-19 | v2.16.0 (2026-08-30) | MIT |
+| 2 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 99 | 142,102 | 640 | 2,553 | 6,171 | 36,072 | - | 7,617 | 332 | 1,758 | - | 2026-09-14 | v4.10.0 (2026-09-14) | MIT |
+| 3 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 98 | 262,172 | 874 | 2,718 | 5,566 | 20,971 | - | 39,228 | 831 | 2,653 | - | 2026-09-19 | v2.2.1 (2026-09-08) | MIT |
+| 4 | [blader/humanizer](https://github.com/blader/humanizer) | 98 | 49,990 | 333 | 1,279 | 2,995 | 13,369 | - | 4,035 | 200 | 788 | - | 2026-09-06 | v3.0.0 (2026-09-06) | MIT |
+| 5 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 98 | 96,487 | 525 | 1,569 | 2,897 | 7,871 | - | 10,198 | 244 | 705 | - | 2026-09-18 | 0.6.10 (2026-09-18) | MIT |
+| 6 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 97 | 41,202 | 337 | 920 | 2,657 | 17,790 | - | 2,638 | 193 | 1,200 | - | 2026-09-18 | - | MIT |
+| 7 | [obra/superpowers](https://github.com/obra/superpowers) | 96 | 288,581 | 382 | 1,335 | 3,141 | 14,279 | - | 25,812 | 289 | 1,256 | - | 2026-09-19 | v6.4.1 (2026-09-19) | MIT |
+| 8 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 96 | 88,287 | 244 | 826 | 1,949 | 10,050 | - | 6,013 | 123 | 667 | - | 2026-09-16 | - | MIT |
+| 9 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 96 | 82,206 | 289 | 987 | 1,872 | 6,912 | - | 8,371 | 261 | 846 | - | 2026-09-18 | v0.4.15 (2026-08-23) | BSD-3-Clause |
+| 10 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 96 | 128,871 | 298 | 892 | 1,921 | 10,602 | - | 13,738 | 188 | 1,022 | - | 2026-09-19 | v2.15.0 (2026-08-13) | MIT |
+| 11 | [freestylefly/awesome-gpt-image-2](https://github.com/freestylefly/awesome-gpt-image-2) | 95 | 32,707 | 166 | 561 | 1,330 | 21,334 | - | 3,159 | 122 | 1,857 | - | 2026-09-11 | - | MIT |
+| 12 | [nexu-io/open-design](https://github.com/nexu-io/open-design) | 94 | 96,970 | 167 | 557 | 1,317 | 7,622 | - | 11,266 | 182 | 953 | - | 2026-09-19 | open-design-v0.22.2 (2026-09-10) | Apache-2.0 |
+| 13 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 94 | 45,532 | 140 | 437 | 1,038 | 11,608 | - | 4,128 | 97 | 821 | - | 2026-09-14 | v2.69.0 (2026-09-11) | MIT |
+| 14 | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 91 | 83,258 | 70 | 264 | 1,183 | 3,417 | - | 7,024 | 125 | 321 | - | 2026-09-12 | v2.9.0 (2026-07-10) | MIT |
+| 15 | [anthropics/skills](https://github.com/anthropics/skills) | 91 | 177,058 | 129 | 500 | 1,184 | 6,564 | - | 20,980 | 168 | 701 | - | 2026-09-10 | - | - |
+| 16 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 91 | 17,781 | 114 | 429 | 797 | 2,991 | - | 1,527 | 83 | 295 | - | 2026-09-18 | v2.11.2 (2026-09-09) | Apache-2.0 |
+| 17 | [citrolabs/ego-lite](https://github.com/citrolabs/ego-lite) | 89 | 16,196 | 66 | 217 | 451 | 4,142 | - | 845 | 21 | 212 | - | 2026-09-18 | v2.0.0 (2026-09-10) | MIT |
+| 18 | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | 88 | 34,581 | 43 | 195 | 452 | 4,010 | - | 3,668 | 56 | 370 | - | 2026-09-15 | - | MIT |
+| 19 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | 87 | 28,869 | 80 | 176 | 413 | 3,062 | - | 1,484 | 33 | 160 | - | 2026-08-06 | - | MIT |
+| 20 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 87 | 6,896 | 42 | 139 | 578 | 2,971 | - | 247 | 25 | 119 | - | 2026-08-29 | - | MIT |
+| 21 | [op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill) | 86 | 26,563 | 47 | 177 | 428 | 2,135 | - | 1,852 | 20 | 112 | - | 2026-08-07 | v1.1.0 (2026-05-15) | AGPL-3.0 |
+| 22 | [kangarooking/cangjie-skill](https://github.com/kangarooking/cangjie-skill) | 85 | 10,267 | 42 | 165 | 404 | 1,898 | - | 1,189 | 49 | 197 | - | 2026-09-13 | v2.5.0 (2026-08-30) | MIT |
+| 23 | [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | 85 | 34,621 | 50 | 157 | 365 | 2,147 | - | 5,045 | 53 | 315 | - | 2026-09-17 | v0.5.0 (2026-09-17) | MIT |
+| 24 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | 84 | 48,575 | 47 | 177 | 389 | 1,751 | - | 3,461 | 24 | 99 | - | 2026-09-15 | - | MIT |
+| 25 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 84 | 75,301 | 54 | 139 | 417 | 2,468 | - | 8,724 | 85 | 394 | - | 2026-09-18 | - | - |
+| 26 | [google/skills](https://github.com/google/skills) | 84 | 20,152 | 44 | 154 | 349 | 1,629 | - | 1,646 | 53 | 181 | - | 2026-09-18 | - | Apache-2.0 |
+| 27 | [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 84 | 30,813 | 38 | 151 | 348 | 1,949 | - | 2,101 | 23 | 138 | - | 2026-09-16 | v1.0.151 (2026-09-16) | Apache-2.0 |
+| 28 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | 83 | 8,697 | 36 | 138 | 358 | 1,371 | - | 397 | 25 | 72 | - | 2026-09-18 | v0.2.3 (2026-06-22) | MIT |
+| 29 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 82 | 16,331 | 38 | 162 | 298 | 1,421 | - | 1,392 | 18 | 81 | - | 2026-09-18 | v0.4.27 (2026-09-18) | MIT |
+| 30 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | 82 | 36,481 | 34 | 98 | 328 | 2,772 | - | 4,093 | 35 | 263 | - | 2026-09-18 | - | Apache-2.0 |
+| 31 | [AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) | 81 | 15,075 | 25 | 108 | 233 | 4,028 | - | 1,494 | 16 | 220 | - | 2026-09-10 | v2.2.0 (2026-09-10) | MIT |
+| 32 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 81 | 26,128 | 40 | 129 | 269 | 1,448 | - | 3,684 | 39 | 204 | - | 2026-08-30 | v2.12.0 (2026-08-25) | MIT |
+| 33 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 80 | 17,241 | 36 | 104 | 335 | 1,072 | - | 1,616 | 29 | 106 | - | 2026-09-05 | v0.2.0 (2026-07-02) | MIT |
+| 34 | [agentskills/agentskills](https://github.com/agentskills/agentskills) | 79 | 25,507 | 39 | 122 | 264 | 1,022 | - | 1,916 | 25 | 116 | - | 2026-08-09 | - | Apache-2.0 |
+| 35 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 79 | 12,833 | 34 | 121 | 259 | 995 | - | 919 | 11 | 56 | - | 2026-06-16 | v1.7.2 (2026-06-16) | MIT |
+| 36 | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | 79 | 46,574 | 28 | 102 | 280 | 1,421 | - | 6,789 | 42 | 178 | - | 2026-09-18 | v17.5.0 (2026-09-18) | MIT |
+| 37 | [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | 78 | 9,458 | 22 | 85 | 210 | 1,657 | - | 668 | 14 | 107 | - | 2026-09-14 | v3.4.0 (2026-09-14) | MIT |
+| 38 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | 77 | 39,151 | 24 | 101 | 236 | 1,133 | - | 4,971 | 40 | 171 | - | 2026-09-18 | - | MIT |
+| 39 | [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) | 76 | 9,401 | 32 | 91 | 197 | 1,133 | - | 1,386 | 22 | 161 | - | 2026-09-18 | v2.0.2 (2026-09-10) | MIT |
+| 40 | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) | 75 | 20,797 | 26 | 94 | 200 | 942 | - | 2,207 | 10 | 56 | - | 2026-09-16 | - | MIT |
+| 41 | [wshobson/agents](https://github.com/wshobson/agents) | 74 | 39,789 | 26 | 90 | 214 | 855 | - | 4,244 | 26 | 97 | - | 2026-09-19 | - | MIT |
+| 42 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 74 | 26,434 | 23 | 77 | 206 | 1,002 | - | 2,816 | 17 | 88 | - | 2026-09-14 | v2.1.0 (2026-07-03) | MIT |
+| 43 | [ConardLi/garden-skills](https://github.com/ConardLi/garden-skills) | 74 | 12,508 | 15 | 67 | 152 | 2,076 | - | 1,510 | 15 | 148 | - | 2026-07-12 | web-design-engineer-v1.3.0 (2026-07-12) | MIT |
+| 44 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | 70 | 26,002 | 19 | 67 | 159 | 833 | - | 2,872 | 11 | 76 | - | 2026-09-10 | v2.5.2 (2026-06-18) | MIT |
+| 45 | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | 70 | 26,985 | 17 | 63 | 172 | 732 | - | 2,248 | 17 | 49 | - | 2026-09-18 | v3.20.1 (2026-09-18) | MIT |
+| 46 | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | 69 | 2,749 | 15 | 57 | 144 | 823 | - | 269 | 21 | 72 | - | 2026-09-11 | v3.2.0 (2026-09-11) | CC-BY-4.0 |
+| 47 | [composio-community/awesome-codex-skills](https://github.com/composio-community/awesome-codex-skills) | 68 | 16,533 | 19 | 60 | 144 | 598 | - | 1,628 | 19 | 75 | - | 2026-07-26 | - | - |
+| 48 | [nexu-io/html-anything](https://github.com/nexu-io/html-anything) | 66 | 8,897 | 8 | 50 | 140 | 548 | - | 863 | 12 | 46 | - | 2026-09-15 | - | Apache-2.0 |
+| 49 | [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) | 66 | 52,656 | 21 | 56 | 149 | 594 | - | 5,039 | 17 | 37 | - | 2026-09-14 | - | MIT |
+| 50 | [eugeniughelbur/obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) | 64 | 4,524 | 38 | 56 | 109 | 411 | - | 566 | 13 | 51 | - | 2026-09-18 | v0.16.0 (2026-09-14) | MIT |
+| 51 | [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) | 64 | 19,385 | 17 | 51 | 115 | 569 | - | 2,598 | 17 | 63 | - | 2026-09-18 | v0.8.2 (2026-09-02) | MIT |
+| 52 | [trailofbits/skills](https://github.com/trailofbits/skills) | 63 | 7,154 | 15 | 44 | 111 | 482 | - | 612 | 8 | 34 | - | 2026-09-16 | - | CC-BY-SA-4.0 |
+| 53 | [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) | 63 | 4,540 | 9 | 33 | 96 | 851 | - | 679 | 11 | 109 | - | 2026-09-18 | v2.1 (2026-06-05) | MIT |
+| 54 | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | 61 | 47,035 | 12 | 42 | 122 | 460 | - | 10,364 | 15 | 42 | - | 2026-09-18 | 2.1.9 (2026-09-14) | MIT |
+| 55 | [googleworkspace/cli](https://github.com/googleworkspace/cli) | 60 | 31,053 | 13 | 37 | 106 | 589 | - | 1,841 | 13 | 59 | - | 2026-09-17 | v0.22.5 (2026-03-31) | Apache-2.0 |
+| 56 | [jnMetaCode/superpowers-zh](https://github.com/jnMetaCode/superpowers-zh) | 59 | 8,150 | 14 | 49 | 78 | 415 | - | 762 | 10 | 31 | - | 2026-09-17 | v1.7.1 (2026-07-17) | MIT |
+| 57 | [OpenSenseNova/SenseNova-Skills](https://github.com/OpenSenseNova/SenseNova-Skills) | 58 | 5,651 | 9 | 13 | 79 | 765 | - | 394 | 6 | 28 | - | 2026-09-18 | - | MIT |
+| 58 | [tw93/Waza](https://github.com/tw93/Waza) | 50 | 7,054 | 4 | 28 | 55 | 173 | - | 413 | 4 | 8 | - | 2026-09-19 | v3.36.1 (2026-09-12) | MIT |
+| 59 | [yusufkaraaslan/Skill_Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) | 48 | 15,002 | 8 | 22 | 46 | 216 | - | 1,529 | 8 | 21 | - | 2026-09-16 | v3.9.1 (2026-08-03) | MIT |
+| 60 | [dotnet/skills](https://github.com/dotnet/skills) | 48 | 5,445 | 8 | 23 | 33 | 248 | - | 417 | 2 | 30 | - | 2026-09-18 | v1.0.0 (2026-04-21) | MIT |
+| 61 | [zilliztech/memsearch](https://github.com/zilliztech/memsearch) | 45 | 2,624 | 2 | 18 | 32 | 138 | - | 251 | 3 | 21 | - | 2026-09-19 | v0.4.20 (2026-09-12) | MIT |
+| 62 | [SamurAIGPT/llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) | 42 | 3,537 | 5 | 12 | 25 | 141 | - | 405 | 8 | 9 | - | 2026-09-17 | - | MIT |
+| 63 | [iflytek/skillhub](https://github.com/iflytek/skillhub) | 42 | 5,123 | -19 | 7 | 39 | 216 | - | 841 | 8 | 53 | - | 2026-09-18 | v0.2.20 (2026-09-13) | Apache-2.0 |
+| 64 | [alibaba/nacos](https://github.com/alibaba/nacos) | 42 | 33,392 | 10 | 20 | 28 | 110 | - | 13,293 | 2 | 12 | - | 2026-09-18 | 3.2.4 (2026-08-27) | Apache-2.0 |
+| 65 | [antfu/skills](https://github.com/antfu/skills) | 36 | 5,896 | 2 | 8 | 21 | 122 | - | 333 | 1 | 15 | - | 2026-06-23 | - | MIT |
+| 66 | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | 34 | 6,627 | 3 | 8 | 20 | 77 | - | 432 | -1 | 3 | - | 2026-09-05 | v0.2.9 (2026-07-15) | MIT |
+| 67 | [open-gitagent/opengap](https://github.com/open-gitagent/opengap) | 28 | 2,946 | 2 | 7 | 15 | 28 | - | 350 | 5 | 2 | - | 2026-07-02 | v0.5.0 (2026-07-02) | MIT |
+| 68 | [activeloopai/hivemind](https://github.com/activeloopai/hivemind) | 27 | 1,617 | 1 | 1 | 16 | 54 | - | 107 | 1 | 4 | - | 2026-09-18 | v0.7.159 (2026-09-17) | Apache-2.0 |
+| 69 | [memodb-io/Acontext](https://github.com/memodb-io/Acontext) | 9 | 3,690 | 0 | -3 | 3 | 14 | - | 336 | 2 | 2 | - | 2026-07-14 | sdk-ts/v0.1.21 (2026-04-08) | Apache-2.0 |
 
 [Back to README](../README.md)
