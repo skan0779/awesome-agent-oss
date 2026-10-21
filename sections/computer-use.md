@@ -2,42 +2,42 @@
 
 Browser, desktop, and GUI automation for agents that operate software.
 
-_🚀 Last updated from snapshot: `2026-10-09 06:06 UTC`._
+_🚀 Last updated from snapshot: `2026-10-21 04:43 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 99 | 94,327 | 785 | 2,222 | 6,761 | 15,439 | 24,545 | 8,245 | 526 | 1,452 | 2,364 | 2026-10-08 | v1.5.0 (2026-06-11) | MIT |
-| 2 | [trycua/cua](https://github.com/trycua/cua) | 95 | 29,087 | 229 | 805 | 1,376 | 6,700 | - | 2,055 | 104 | 502 | - | 2026-10-09 | cua-sdk-v0.4.1 (2026-10-05) | MIT |
-| 3 | [citrolabs/ego-lite](https://github.com/citrolabs/ego-lite) | 85 | 16,990 | 87 | 131 | 223 | 1,588 | - | 904 | 8 | 102 | - | 2026-10-08 | v2.0.0 (2026-09-10) | MIT |
-| 4 | [microsoft/playwright](https://github.com/microsoft/playwright) | 85 | 97,331 | 76 | 180 | 347 | 1,493 | 3,070 | 6,565 | 32 | 163 | 315 | 2026-10-09 | v1.64.0 (2026-10-07) | Apache-2.0 |
-| 5 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | 82 | 117,336 | -93 | 114 | 361 | 3,686 | 8,834 | 12,987 | 83 | 490 | 1,057 | 2026-10-07 | 0.13.11 (2026-10-07) | MIT |
-| 6 | [jackwener/OpenCLI](https://github.com/jackwener/OpenCLI) | 77 | 29,951 | 32 | 84 | 192 | 834 | 1,967 | 2,922 | 15 | 70 | 169 | 2026-09-24 | v1.8.8 (2026-08-30) | Apache-2.0 |
-| 7 | [browser-use/browser-harness](https://github.com/browser-use/browser-harness) | 71 | 18,362 | 19 | 65 | 98 | 925 | 1,749 | 1,794 | 11 | 91 | 221 | 2026-10-09 | v0.1.13 (2026-09-04) | MIT |
-| 8 | [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser) | 67 | 14,016 | 19 | 32 | 162 | 264 | - | 1,482 | 14 | 35 | - | 2026-10-02 | v0.2.0 (2026-10-02) | Apache-2.0 |
-| 9 | [browserbase/stagehand](https://github.com/browserbase/stagehand) | 66 | 25,584 | 17 | 41 | 70 | 1,407 | 1,795 | 1,753 | 0 | 84 | 115 | 2026-10-09 | @browserbasehq/stagehand@3.7.3 (2026-08-28) | MIT |
-| 10 | [simular-ai/Agent-S](https://github.com/simular-ai/Agent-S) | 60 | 12,566 | 14 | 25 | 72 | 319 | - | 1,467 | 4 | 29 | - | 2026-10-08 | v0.3.2 (2025-12-16) | Apache-2.0 |
-| 11 | [web-infra-dev/midscene](https://github.com/web-infra-dev/midscene) | 60 | 15,114 | 17 | 38 | 60 | 302 | - | 1,174 | 1 | 24 | - | 2026-10-08 | v1.14.0 (2026-09-29) | MIT |
-| 12 | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 51 | 39,220 | 8 | 14 | 39 | 317 | - | 3,969 | 2 | 36 | - | 2026-10-09 | v0.3.1 (2026-10-08) | Apache-2.0 |
-| 13 | [Skyvern-AI/skyvern](https://github.com/Skyvern-AI/skyvern) | 51 | 23,162 | 8 | 25 | 44 | 209 | 441 | 2,190 | 2 | 37 | 50 | 2026-10-09 | v1.0.55 (2026-10-01) | AGPL-3.0 |
-| 14 | [e2b-dev/open-computer-use](https://github.com/e2b-dev/open-computer-use) | 50 | 2,343 | 1 | 22 | 37 | 96 | - | 262 | 0 | 8 | - | 2026-07-09 | - | Apache-2.0 |
-| 15 | [memohai/Memoh](https://github.com/felinics/Memoh) | 48 | 2,653 | 0 | 10 | 23 | 441 | - | 254 | 1 | 45 | - | 2026-10-09 | v0.21.0 (2026-10-05) | AGPL-3.0 |
-| 16 | [steel-dev/steel-browser](https://github.com/steel-dev/steel-browser) | 47 | 7,757 | 4 | 19 | 33 | 153 | 299 | 988 | 2 | 15 | 31 | 2026-10-06 | v0.5.4-beta (2026-08-25) | Apache-2.0 |
-| 17 | [minitap-ai/mobile-use](https://github.com/minitap-ai/mobile-use) | 45 | 3,234 | 3 | 9 | 16 | 423 | - | 295 | 1 | 54 | - | 2026-09-14 | v3.3.0 (2026-01-12) | Apache-2.0 |
-| 18 | [Tongyi-MAI/MAI-UI](https://github.com/Tongyi-MAI/MAI-UI) | 42 | 2,387 | 4 | 11 | 15 | 101 | - | 218 | 1 | 8 | - | 2026-08-19 | - | - |
-| 19 | [OpenCoworkAI/open-cowork](https://github.com/OpenCoworkAI/open-cowork) | 39 | 2,196 | 3 | 6 | 17 | 77 | - | 310 | 1 | 25 | - | 2026-10-06 | v3.3.1 (2026-05-23) | MIT |
-| 20 | [A9T9/RPA](https://github.com/A9T9/RPA) | 35 | 2,069 | 2 | 5 | 13 | 63 | - | 415 | 0 | 8 | - | 2026-10-05 | V10.0.276 (2026-09-21) | Other |
-| 21 | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | 33 | 6,657 | 3 | 5 | 14 | 55 | - | 434 | -2 | 2 | - | 2026-09-05 | v0.2.9 (2026-07-15) | MIT |
-| 22 | [go-vgo/robotgo](https://github.com/go-vgo/robotgo) | 33 | 10,869 | 1 | 5 | 13 | 80 | - | 964 | 2 | 5 | - | 2026-10-07 | v1.3.5 (2026-10-07) | Apache-2.0 |
-| 23 | [the-open-agent/openagent](https://github.com/the-open-agent/openagent) | 32 | 5,691 | -1 | 6 | 11 | 83 | - | 666 | 2 | 11 | - | 2026-10-08 | v2.89.2 (2026-09-01) | Apache-2.0 |
-| 24 | [microsoft/fara](https://github.com/microsoft/fara) | 30 | 6,216 | 2 | 6 | 10 | 45 | - | 606 | 1 | 3 | - | 2026-09-22 | - | MIT |
-| 25 | [OpenAdaptAI/OpenAdapt](https://github.com/OpenAdaptAI/OpenAdapt) | 28 | 1,763 | 1 | 6 | 6 | 44 | - | 264 | 3 | 4 | - | 2026-09-26 | v1.16.0 (2026-08-26) | MIT |
-| 26 | [AIPexStudio/AIPex](https://github.com/AIPexStudio/AIPex) | 27 | 1,261 | 1 | 5 | 8 | 11 | - | 136 | 3 | 5 | - | 2026-08-26 | v0.1.0 (2026-03-11) | MIT |
-| 27 | [showlab/ShowUI](https://github.com/showlab/ShowUI) | 23 | 1,914 | 3 | 2 | 5 | 16 | - | 144 | 2 | 1 | - | 2026-04-24 | - | Apache-2.0 |
-| 28 | [platonai/Browser4](https://github.com/platonai/Browser4) | 20 | 1,152 | 0 | 0 | 4 | 24 | - | 152 | 1 | 2 | - | 2026-10-07 | v4.13.27 (2026-10-05) | Apache-2.0 |
-| 29 | [microsoft/magentic-ui](https://github.com/microsoft/magentic-ui) | 19 | 10,093 | -1 | 6 | 2 | 9 | - | 1,019 | 3 | 5 | - | 2026-09-23 | v0.2.1 (2026-05-21) | MIT |
-| 30 | [browserable/browserable](https://github.com/browserable/browserable) | 18 | 1,210 | 1 | 2 | 3 | 3 | - | 104 | -1 | 0 | - | 2025-08-27 | - | MIT |
-| 31 | [ghostwright/ghost-os](https://github.com/ghostwright/ghost-os) | 13 | 1,668 | 0 | -1 | 2 | 15 | - | 159 | 0 | 3 | - | 2026-03-23 | v2.2.1 (2026-03-12) | MIT |
-| 32 | [FellouAI/eko](https://github.com/FellouAI/eko) | 9 | 4,960 | 0 | 2 | -3 | 4 | - | 445 | 1 | 3 | - | 2026-03-03 | v4.1.0 (2025-12-29) | MIT |
-| 33 | [TurixAI/TuriX-CUA](https://github.com/TurixAI/TuriX-CUA) | 6 | 3,169 | -1 | -3 | -2 | 14 | - | 331 | 1 | 0 | - | 2026-09-14 | v0.4 (2026-03-06) | MIT |
+| 1 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 98 | 100,361 | 6,034 | 6,034 | 6,034 | 16,421 | 26,479 | 8,838 | 593 | 1,474 | 2,541 | 2026-10-20 | v1.5.0 (2026-06-11) | MIT |
+| 2 | [trycua/cua](https://github.com/trycua/cua) | 92 | 30,460 | 1,373 | 1,373 | 1,373 | 5,185 | 8,681 | 2,201 | 146 | 460 | 707 | 2026-10-21 | cua-spaces-v0.12.1 (2026-10-21) | MIT |
+| 3 | [citrolabs/ego-lite](https://github.com/citrolabs/ego-lite) | 91 | 18,252 | 1,262 | 1,262 | 1,262 | 1,954 | 5,714 | 1,001 | 97 | 146 | 347 | 2026-10-20 | v2.1.0 (2026-10-16) | MIT |
+| 4 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | 90 | 118,693 | 1,357 | 1,357 | 1,357 | 3,090 | 8,673 | 13,186 | 199 | 468 | 1,094 | 2026-10-20 | 0.13.13 (2026-10-15) | MIT |
+| 5 | [microsoft/playwright](https://github.com/microsoft/playwright) | 86 | 98,184 | 853 | 853 | 853 | 1,753 | 3,265 | 6,662 | 97 | 189 | 341 | 2026-10-20 | v1.64.1 (2026-10-14) | Apache-2.0 |
+| 6 | [jackwener/OpenCLI](https://github.com/jackwener/OpenCLI) | 82 | 30,480 | 529 | 529 | 529 | 974 | 2,045 | 2,987 | 65 | 103 | 198 | 2026-10-20 | v2.0.2 (2026-10-20) | Apache-2.0 |
+| 7 | [browserbase/stagehand](https://github.com/browserbase/stagehand) | 67 | 25,755 | 171 | 171 | 171 | 1,073 | 1,737 | 1,773 | 20 | 71 | 121 | 2026-10-21 | @browserbasehq/stagehand@3.7.3 (2026-08-28) | MIT |
+| 8 | [web-infra-dev/midscene](https://github.com/web-infra-dev/midscene) | 67 | 15,344 | 230 | 230 | 230 | 391 | 694 | 1,198 | 24 | 38 | 72 | 2026-10-21 | v1.16.1 (2026-10-21) | MIT |
+| 9 | [browser-use/browser-harness](https://github.com/browser-use/browser-harness) | 65 | 18,525 | 163 | 163 | 163 | 636 | 1,556 | 1,848 | 54 | 98 | 231 | 2026-10-17 | v0.1.13 (2026-09-04) | MIT |
+| 10 | [nanobrowser/nanobrowser](https://github.com/nanobrowser/nanobrowser) | 57 | 14,137 | 121 | 121 | 121 | 318 | 554 | 1,533 | 51 | 73 | 101 | 2026-10-15 | v0.3.0 (2026-10-15) | Apache-2.0 |
+| 11 | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 57 | 39,355 | 135 | 135 | 135 | 290 | 674 | 3,992 | 23 | 35 | 89 | 2026-10-09 | v0.3.1 (2026-10-08) | Apache-2.0 |
+| 12 | [simular-ai/Agent-S](https://github.com/simular-ai/Agent-S) | 55 | 12,665 | 99 | 99 | 99 | 333 | 483 | 1,505 | 38 | 56 | 81 | 2026-10-08 | v0.3.2 (2025-12-16) | Apache-2.0 |
+| 13 | [steel-dev/steel-browser](https://github.com/steel-dev/steel-browser) | 52 | 7,850 | 93 | 93 | 93 | 175 | 328 | 997 | 9 | 15 | 31 | 2026-10-20 | v0.5.4-beta (2026-08-25) | Apache-2.0 |
+| 14 | [memohai/Memoh](https://github.com/felinics/Memoh) | 51 | 2,717 | 64 | 64 | 64 | 198 | 646 | 257 | 3 | 16 | 56 | 2026-10-20 | v0.22.0 (2026-10-19) | AGPL-3.0 |
+| 15 | [Skyvern-AI/skyvern](https://github.com/Skyvern-AI/skyvern) | 49 | 23,239 | 77 | 77 | 77 | 193 | 413 | 2,203 | 13 | 36 | 62 | 2026-10-21 | v1.0.56 (2026-10-14) | AGPL-3.0 |
+| 16 | [minitap-ai/mobile-use](https://github.com/minitap-ai/mobile-use) | 49 | 3,293 | 59 | 59 | 59 | 148 | 515 | 303 | 8 | 24 | 67 | 2026-10-18 | v3.3.0 (2026-01-12) | Apache-2.0 |
+| 17 | [e2b-dev/open-computer-use](https://github.com/e2b-dev/open-computer-use) | 41 | 2,377 | 34 | 34 | 34 | 89 | 159 | 272 | 10 | 13 | 21 | 2026-07-09 | - | Apache-2.0 |
+| 18 | [Tongyi-MAI/MAI-UI](https://github.com/Tongyi-MAI/MAI-UI) | 37 | 2,410 | 23 | 23 | 23 | 82 | 280 | 222 | 4 | 10 | 30 | 2026-08-19 | - | - |
+| 19 | [OpenCoworkAI/open-cowork](https://github.com/OpenCoworkAI/open-cowork) | 36 | 2,221 | 25 | 25 | 25 | 61 | 163 | 320 | 10 | 23 | 39 | 2026-10-20 | v3.3.1 (2026-05-23) | MIT |
+| 20 | [OpenAdaptAI/OpenAdapt](https://github.com/OpenAdaptAI/OpenAdapt) | 33 | 1,785 | 22 | 22 | 22 | 54 | 93 | 266 | 2 | 6 | 3 | 2026-10-21 | v1.18.0 (2026-10-20) | MIT |
+| 21 | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | 32 | 6,680 | 23 | 23 | 23 | 52 | 125 | 437 | 3 | 5 | 5 | 2026-10-18 | v0.2.9 (2026-07-15) | MIT |
+| 22 | [A9T9/RPA](https://github.com/A9T9/RPA) | 30 | 2,085 | 16 | 16 | 16 | 60 | 106 | 422 | 7 | 12 | 15 | 2026-10-20 | V10.0.276 (2026-09-21) | Other |
+| 23 | [the-open-agent/openagent](https://github.com/the-open-agent/openagent) | 28 | 5,705 | 14 | 14 | 14 | 67 | 160 | 666 | 0 | 8 | 21 | 2026-10-19 | v2.89.2 (2026-09-01) | Apache-2.0 |
+| 24 | [platonai/Browser4](https://github.com/platonai/Browser4) | 25 | 1,164 | 12 | 12 | 12 | 25 | 53 | 153 | 1 | 3 | 4 | 2026-10-18 | v4.14.1 (2026-10-17) | Apache-2.0 |
+| 25 | [AIPexStudio/AIPex](https://github.com/AIPexStudio/AIPex) | 23 | 1,272 | 11 | 11 | 11 | 22 | 31 | 137 | 1 | 6 | 8 | 2026-08-26 | v0.1.0 (2026-03-11) | MIT |
+| 26 | [ghostwright/ghost-os](https://github.com/ghostwright/ghost-os) | 22 | 1,679 | 11 | 11 | 11 | 14 | 38 | 160 | 1 | 4 | 2 | 2026-03-23 | v2.2.1 (2026-03-12) | MIT |
+| 27 | [go-vgo/robotgo](https://github.com/go-vgo/robotgo) | 21 | 10,875 | 6 | 6 | 6 | 60 | 94 | 969 | 5 | 9 | 9 | 2026-10-16 | v1.3.6 (2026-10-16) | Apache-2.0 |
+| 28 | [showlab/ShowUI](https://github.com/showlab/ShowUI) | 20 | 1,922 | 8 | 8 | 8 | 20 | 31 | 144 | 0 | 3 | 2 | 2026-04-24 | - | Apache-2.0 |
+| 29 | [microsoft/fara](https://github.com/microsoft/fara) | 18 | 6,221 | 5 | 5 | 5 | 34 | 77 | 604 | -2 | 2 | 4 | 2026-09-22 | - | MIT |
+| 30 | [TurixAI/TuriX-CUA](https://github.com/TurixAI/TuriX-CUA) | 14 | 3,174 | 5 | 5 | 5 | 9 | 18 | 330 | -1 | 2 | -2 | 2026-09-14 | v0.4 (2026-03-06) | MIT |
+| 31 | [microsoft/magentic-ui](https://github.com/microsoft/magentic-ui) | 14 | 10,097 | 4 | 4 | 4 | 6 | 26 | 1,017 | -2 | 4 | 2 | 2026-09-23 | v0.2.1 (2026-05-21) | MIT |
+| 32 | [FellouAI/eko](https://github.com/FellouAI/eko) | 12 | 4,964 | 4 | 4 | 4 | 2 | 12 | 449 | 4 | 5 | 7 | 2026-03-03 | v4.1.0 (2025-12-29) | MIT |
+| 33 | [browserable/browserable](https://github.com/browserable/browserable) | 3 | 1,208 | -2 | -2 | -2 | 0 | 5 | 105 | 1 | 1 | 1 | 2025-08-27 | - | MIT |
 
 [Back to README](../README.md)
