@@ -19,6 +19,7 @@ from awesome_agent_oss.discover.github_topics import (
 from awesome_agent_oss.metrics.collector import (
     collect_metrics,
 )
+from awesome_agent_oss.metrics.retention import prune_supabase_snapshots
 from awesome_agent_oss.metrics.supabase_snapshots import write_supabase_snapshot
 from awesome_agent_oss.ranking.catalog import (
     DEFAULT_CATALOG_PATH,
@@ -73,7 +74,7 @@ def build_catalog_command(args: argparse.Namespace) -> None:
     print(
         "Wrote "
         f"{catalog['repository_count']} repositories to {args.output} "
-        f"from snapshot {catalog['snapshot_date']}"
+        f"from snapshot {catalog['snapshot_date'] or 'none'}"
     )
 
 
@@ -85,6 +86,20 @@ def render_command(args: argparse.Namespace) -> None:
         sections_dir=args.sections_dir,
     )
     print(f"Rendered {args.readme} and section pages in {args.sections_dir}")
+
+
+def prune_snapshots_command(args: argparse.Namespace) -> None:
+    """Remove snapshot history outside the catalog's retention window."""
+    cutoff_date = prune_supabase_snapshots(dry_run=args.dry_run)
+    if cutoff_date is None:
+        print("No Supabase snapshots found; nothing to prune.")
+        return
+
+    action = "Would delete" if args.dry_run else "Deleted"
+    print(
+        f"{action} repository_snapshots with snapshot_date before {cutoff_date} "
+        "(boundary date retained)."
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -176,6 +191,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory where section markdown files are written.",
     )
     render_parser.set_defaults(func=render_command)
+
+    prune_parser = subparsers.add_parser(
+        "prune-snapshots",
+        help="Delete snapshots older than 60 days before the latest stored snapshot.",
+    )
+    prune_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show the retention cutoff without deleting snapshots.",
+    )
+    prune_parser.set_defaults(func=prune_snapshots_command)
 
     return parser
 

@@ -18,6 +18,7 @@ class AcceptedRepository:
 
     full_name: str
     sections: tuple[str, ...]
+    repository_id: int
 
 
 def load_supabase_accepted_repositories(
@@ -36,8 +37,13 @@ def load_supabase_accepted_repositories(
 
     repositories: list[AcceptedRepository] = []
     for index, row in enumerate(rows):
+        repository_id = row.get("id")
         full_name = row.get("full_name")
         sections = row.get("sections") or []
+        if type(repository_id) is not int or repository_id <= 0:
+            raise RegistryError(
+                f"Supabase accepted_repositories row #{index + 1} must include a valid id."
+            )
         if not isinstance(full_name, str) or "/" not in full_name:
             raise RegistryError(
                 f"Supabase accepted_repositories row #{index + 1} must include full_name."
@@ -51,6 +57,7 @@ def load_supabase_accepted_repositories(
             AcceptedRepository(
                 full_name=full_name,
                 sections=tuple(str(section) for section in sections),
+                repository_id=repository_id,
             )
         )
 

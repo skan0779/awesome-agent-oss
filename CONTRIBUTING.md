@@ -73,13 +73,69 @@ Open a regular GitHub issue for incorrect metadata, classification changes, rena
 
 Generated README tables and files under `sections/` are updated by the metrics workflow. Do not edit generated catalog content manually.
 
+## Repository Availability
+
+The Metrics collector records repository lookup results in Supabase
+`repository_availability`. A repository lookup returning HTTP 404 is logged and
+skipped so the remaining repositories can still be collected and stored.
+
+Two consecutive 404 observations on distinct UTC dates automatically reject the
+repository. Repeated runs on the same UTC date count only once; missing collection
+days do not add failures. A successful repository lookup resets the streak, even
+if the subsequent release request fails. A missing latest release is normal and
+never counts as a missing repository. Authentication, rate-limit, server, and
+network errors do not count as 404s and still fail the collection command.
+
+Automatic rejection updates the repository, active section relations, discovery
+candidate, and `curation_events` in one transaction. The event preserves the
+previous accepted sections, observation dates, and automatic rejection reason.
+Existing section rejection reasons and metric snapshots are retained. Reaccepting
+a repository through the curation UI resets its availability history. Concurrent
+and stale observations cannot create duplicate rejections or undo newer checks.
+Availability persistence errors fail collection so missing audit data is visible.
+If no catalog snapshots remain after exclusions, an empty catalog is generated.
+
+Before deploying this collector, apply
+`supabase/migrations/0003_repository_availability.sql` as a new migration in one
+transaction. Do not rerun or edit previously applied migrations. The new RPC and
+availability table are restricted to the Supabase service role used by Metrics.
+
+## Snapshot Retention
+
+After collection, snapshot storage, catalog generation, and Markdown rendering
+succeed, the Metrics workflow deletes snapshots older than 60 days before the
+latest stored snapshot date. The boundary date is retained for 60-day growth
+calculations, giving up to 61 daily snapshots per repository. The cutoff uses
+stored data rather than the current date, so collection outages do not advance
+the retention window. Repository records and curation history are preserved.
+
+To preview the cutoff without deleting data, run:
+
+```bash
+uv run awesome-agent-oss prune-snapshots --dry-run
+```
+
+Running the command without `--dry-run` applies the policy to
+`repository_snapshots` in the configured Supabase project. No database migration
+is required. Failed cleanup requests fail the workflow and can be retried safely.
+
 ## Code and Documentation Changes
 
 Keep changes focused and avoid committing local credentials or generated intermediates. Before opening a pull request, run the checks relevant to your change:
 
 ```bash
 uv run python -m compileall -q src
+uv run python -m unittest discover -s tests
 npm run build
+```
+
+Database policy tests use a temporary local PostgreSQL cluster and never connect
+to Supabase. They are skipped unless PostgreSQL server tools are on `PATH` or
+`TEST_POSTGRES_BIN` points to the directory containing `postgres`, `initdb`,
+`pg_ctl`, and `psql`:
+
+```bash
+TEST_POSTGRES_BIN=/path/to/postgresql/bin uv run python -m unittest discover -s tests
 ```
 
 Explain the behavior changed, the verification performed, and any database or workflow impact in the pull request.

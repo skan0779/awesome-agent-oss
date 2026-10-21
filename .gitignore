@@ -17,7 +17,6 @@ node_modules/
 
 # Build artifacts
 /dist
-/tests
 .next/
 out/
 .vercel/

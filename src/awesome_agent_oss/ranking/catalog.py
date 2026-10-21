@@ -10,6 +10,7 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+from awesome_agent_oss.metrics.retention import SNAPSHOT_HISTORY_DAYS
 from awesome_agent_oss.supabase_client import SupabaseClient, SupabaseClientError
 from awesome_agent_oss.supabase_registry import (
     RegistryError,
@@ -29,7 +30,6 @@ RADAR_VELOCITY_WEIGHTS = {
 RADAR_RELATIVE_GROWTH_WEIGHT = 0.10
 RADAR_ADOPTION_WEIGHT = 0.05
 RADAR_FULL_CONFIDENCE_DAYS = 14
-RANKING_HISTORY_DAYS = 60
 
 
 class CatalogBuildError(RuntimeError):
@@ -53,8 +53,6 @@ def build_supabase_catalog(
     supabase = client or SupabaseClient.from_env()
     section_definitions = load_supabase_section_definitions(client=supabase)
     snapshots = load_supabase_snapshots(client=supabase)
-    if not snapshots:
-        raise CatalogBuildError("No Supabase snapshot rows found.")
 
     return build_catalog_from_snapshots(
         snapshots,
@@ -72,12 +70,13 @@ def build_catalog_from_snapshots(
 ) -> dict[str, Any]:
     """Build generated catalog data from loaded snapshots."""
     generated_at = (now or datetime.now(UTC)).astimezone(UTC).isoformat()
-    latest_snapshot = snapshots[-1]
+    latest_date = snapshots[-1].snapshot_date if snapshots else None
     rows_by_repo = group_rows_by_repo(snapshots)
 
     repositories = [
-        build_catalog_entry(full_name, rows, latest_snapshot.snapshot_date)
+        build_catalog_entry(full_name, rows, latest_date)
         for full_name, rows in sorted(rows_by_repo.items())
+        if latest_date is not None
     ]
     apply_radar_scores(repositories)
     repositories.sort(
@@ -87,7 +86,7 @@ def build_catalog_from_snapshots(
 
     catalog = {
         "generated_at": generated_at,
-        "snapshot_date": latest_snapshot.snapshot_date.isoformat(),
+        "snapshot_date": latest_date.isoformat() if latest_date else None,
         "repository_count": len(repositories),
         "repositories": repositories,
         "sections": build_sections(repositories),
@@ -150,7 +149,7 @@ def load_supabase_snapshots(client: SupabaseClient | None = None) -> list[Snapsh
             return []
 
         latest_date = parse_snapshot_date(latest_rows[0].get("snapshot_date"))
-        cutoff_date = latest_date - timedelta(days=RANKING_HISTORY_DAYS)
+        cutoff_date = latest_date - timedelta(days=SNAPSHOT_HISTORY_DAYS)
         snapshot_rows = supabase.select_all(
             "repository_snapshots",
             columns="*",

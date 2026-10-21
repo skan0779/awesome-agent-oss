@@ -45,6 +45,12 @@ jobs:
       - name: Render markdown
         run: uv run awesome-agent-oss render
 
+      - name: Prune old snapshots
+        env:
+          SUPABASE_PROJECT_URL: ${{ secrets.SUPABASE_PROJECT_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: uv run awesome-agent-oss prune-snapshots
+
       - name: Commit generated docs
         run: |
           if [ -z "$(git status --porcelain -- README.md sections)" ]; then

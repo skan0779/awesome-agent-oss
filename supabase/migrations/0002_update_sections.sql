@@ -20,7 +20,7 @@ values
       'agentic-rag',
       'graphrag'
     ]::text[],
-    2
+    3
   ),
   (
     'ocr',
@@ -37,7 +37,7 @@ values
       'document-parser',
       'pdf-parser'
     ]::text[],
-    3
+    4
   ),
   (
     'memory',
@@ -50,7 +50,7 @@ values
       'agentic-memory',
       'long-term-memory'
     ]::text[],
-    5
+    6
   ),
   (
     'skills',
@@ -61,7 +61,7 @@ values
       'ai-skills',
       'agent-skills'
     ]::text[],
-    7
+    8
   ),
   (
     'observability',
@@ -75,7 +75,7 @@ values
       'llm-tracing',
       'llm-monitoring'
     ]::text[],
-    12
+    15
   ),
   (
     'evaluation',
@@ -89,7 +89,7 @@ values
       'ai-evaluation',
       'llm-benchmark'
     ]::text[],
-    11
+    14
   ),
   (
     'mcp',
@@ -102,7 +102,7 @@ values
       'mcp-server',
       'mcp-servers'
     ]::text[],
-    6
+    7
   ),
   (
     'frameworks',
@@ -116,6 +116,17 @@ values
     0
   ),
   (
+    'coding-agents',
+    'Coding Agents',
+    'Agents and development tools for writing, reviewing, debugging, and maintaining software.',
+    array[
+      'coding-agent',
+      'ai-coding-agent',
+      'code-agent'
+    ]::text[],
+    9
+  ),
+  (
     'platforms-apps',
     'Platforms & Apps',
     'Self-hosted platforms and applications for building, deploying, and operating AI agents.',
@@ -126,6 +137,28 @@ values
     1
   ),
   (
+    'ai-gateways',
+    'AI Gateways',
+    'Gateways for routing, securing, observing, and managing access to AI model providers.',
+    array[
+      'ai-gateway',
+      'llm-gateway',
+      'model-gateway'
+    ]::text[],
+    2
+  ),
+  (
+    'sandboxes',
+    'Sandboxes',
+    'Isolated runtimes and execution environments for safely running agent-generated code and tools.',
+    array[
+      'ai-sandbox',
+      'code-interpreter',
+      'agent-sandbox'
+    ]::text[],
+    10
+  ),
+  (
     'computer-use',
     'Computer Use',
     'Browser, desktop, and GUI automation for agents that operate software.',
@@ -134,7 +167,7 @@ values
       'browser-use',
       'browser-agent'
     ]::text[],
-    8
+    11
   ),
   (
     'guardrails',
@@ -148,7 +181,7 @@ values
       'ai-security',
       'ai-guardrails'
     ]::text[],
-    10
+    13
   ),
   (
     'voice-realtime',
@@ -161,7 +194,7 @@ values
       'speech-to-text',
       'text-to-speech'
     ]::text[],
-    9
+    12
   ),
   (
     'knowledge-graph',
@@ -172,7 +205,7 @@ values
       'knowledge-graphs',
       'graph-database'
     ]::text[],
-    4
+    5
   ),
   (
     'ui-ux',
@@ -182,7 +215,7 @@ values
       'llm-ui',
       'ai-ui'
     ]::text[],
-    13
+    16
   )
 on conflict (id) do update
 set

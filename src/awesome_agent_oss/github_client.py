@@ -19,6 +19,10 @@ DEFAULT_RATE_LIMIT_RETRIES = 3
 class GitHubClientError(RuntimeError):
     """Raised when GitHub API requests fail."""
 
+    def __init__(self, message: str, *, status_code: int | None = None) -> None:
+        super().__init__(message)
+        self.status_code = status_code
+
 
 class GitHubClient:
     """Small GitHub REST API client for repository metadata."""
@@ -41,7 +45,7 @@ class GitHubClient:
         try:
             return self._request(f"/repos/{full_name}/releases/latest")
         except GitHubClientError as error:
-            if "HTTP 404" in str(error):
+            if error.status_code == 404:
                 return None
             raise
 
@@ -102,7 +106,8 @@ class GitHubClient:
                     time.sleep(delay)
                     continue
                 raise GitHubClientError(
-                    f"GitHub API HTTP {error.code} for {url}: {body}"
+                    f"GitHub API HTTP {error.code} for {url}: {body}",
+                    status_code=error.code,
                 ) from error
             except urllib.error.URLError as error:
                 raise GitHubClientError(f"GitHub API request failed for {url}: {error}") from error
