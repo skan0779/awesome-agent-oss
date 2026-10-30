@@ -2,21 +2,21 @@
 
 Agents and development tools for writing, reviewing, debugging, and maintaining software.
 
-_🚀 Last updated from snapshot: `2026-10-29 05:46 UTC`._
+_🚀 Last updated from snapshot: `2026-10-30 05:45 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 95 | 80,016 | 188 | 695 | 1,766 | 6,556 | 10,266 | 9,386 | 178 | 663 | 1,044 | 2026-10-28 | v3.63.8 (2026-10-28) | MIT |
-| 2 | [alibaba/open-code-review](https://github.com/alibaba/open-code-review) | 93 | 48,872 | 175 | 593 | 911 | 6,492 | 27,239 | 3,572 | 60 | 534 | 1,974 | 2026-10-29 | v1.13.3 (2026-10-22) | Apache-2.0 |
-| 3 | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 86 | 108,605 | 19 | 217 | 1,115 | 1,423 | 1,864 | 14,870 | 111 | 221 | 366 | 2026-10-29 | v0.66.0 (2026-10-27) | Apache-2.0 |
-| 4 | [Untrivial-ai/agent-orchestrator](https://github.com/OrchestratorInc/agent-orchestrator) | 84 | 13,844 | 47 | 197 | 376 | 1,343 | 3,278 | 1,887 | 33 | 159 | 407 | 2026-10-29 | v0.14.7 (2026-10-28) | Apache-2.0 |
-| 5 | [backnotprop/plannotator](https://github.com/backnotprop/plannotator) | 75 | 9,746 | 31 | 104 | 180 | 704 | 1,516 | 728 | 13 | 49 | 117 | 2026-10-29 | v0.28.36 (2026-10-28) | Apache-2.0 |
-| 6 | [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 69 | 11,104 | 9 | 57 | 131 | 773 | 1,609 | 1,828 | 40 | 184 | 364 | 2026-10-29 | v0.20.0 (2026-10-28) | Apache-2.0 |
-| 7 | [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 65 | 4,630 | 20 | 53 | 94 | 438 | 1,248 | 899 | 42 | 195 | 481 | 2026-10-29 | v0.10.0 (2026-10-25) | Apache-2.0 |
-| 8 | [MinishLab/semble](https://github.com/MinishLab/semble) | 51 | 6,317 | 5 | 24 | 57 | 160 | 349 | 282 | 2 | 11 | 24 | 2026-10-27 | v0.7.0 (2026-10-16) | MIT |
-| 9 | [potpie-ai/potpie](https://github.com/potpie-ai/potpie) | 36 | 5,777 | 4 | 9 | 29 | 38 | 74 | 693 | 7 | 10 | 27 | 2026-10-29 | v2.0.1 (2026-08-31) | Apache-2.0 |
-| 10 | [getsentry/XcodeBuildMCP](https://github.com/getsentry/MobileBuildMCP) | 34 | 6,513 | 1 | 5 | 16 | 72 | 202 | 328 | 1 | 7 | 14 | 2026-10-27 | v2.7.1 (2026-09-23) | MIT |
-| 11 | [breaking-brake/cc-wf-studio](https://github.com/breaking-brake/cc-wf-studio) | 20 | 5,408 | 0 | 4 | 5 | 20 | 41 | 569 | 0 | -3 | -2 | 2026-10-07 | @cc-wf-studio/core@0.4.0 (2026-07-11) | Other |
-| 12 | [GammaLabTechnologies/harmonist](https://github.com/GammaLabTechnologies/harmonist) | 5 | 2,252 | 1 | 1 | -3 | -6 | -6 | 209 | -1 | 1 | 2 | 2026-06-09 | v1.2.3 (2026-06-09) | MIT |
+| 1 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 94 | 80,179 | 163 | 582 | 1,649 | 6,645 | 10,303 | 9,402 | 167 | 674 | 1,051 | 2026-10-30 | v3.65.0 (2026-10-30) | MIT |
+| 2 | [alibaba/open-code-review](https://github.com/alibaba/open-code-review) | 93 | 49,006 | 134 | 615 | 916 | 6,340 | 27,322 | 3,590 | 71 | 523 | 1,986 | 2026-10-29 | v1.13.3 (2026-10-22) | Apache-2.0 |
+| 3 | [Untrivial-ai/agent-orchestrator](https://github.com/OrchestratorInc/agent-orchestrator) | 84 | 13,898 | 54 | 168 | 404 | 1,356 | 3,180 | 1,892 | 35 | 154 | 397 | 2026-10-30 | v0.14.7 (2026-10-28) | Apache-2.0 |
+| 4 | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 82 | 108,624 | 19 | 67 | 1,092 | 1,428 | 1,871 | 14,876 | 122 | 212 | 368 | 2026-10-30 | v0.66.0 (2026-10-27) | Apache-2.0 |
+| 5 | [backnotprop/plannotator](https://github.com/backnotprop/plannotator) | 74 | 9,769 | 23 | 83 | 191 | 701 | 1,496 | 729 | 12 | 49 | 117 | 2026-10-30 | v0.28.38 (2026-10-29) | Apache-2.0 |
+| 6 | [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 69 | 11,123 | 19 | 56 | 125 | 764 | 1,601 | 1,829 | 35 | 179 | 358 | 2026-10-30 | v0.20.0 (2026-10-28) | Apache-2.0 |
+| 7 | [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 66 | 4,649 | 19 | 62 | 103 | 437 | 1,196 | 910 | 46 | 198 | 476 | 2026-10-30 | v0.10.0 (2026-10-25) | Apache-2.0 |
+| 8 | [MinishLab/semble](https://github.com/MinishLab/semble) | 52 | 6,328 | 11 | 21 | 58 | 166 | 359 | 283 | 3 | 11 | 25 | 2026-10-29 | v0.7.1 (2026-10-29) | MIT |
+| 9 | [getsentry/XcodeBuildMCP](https://github.com/getsentry/MobileBuildMCP) | 39 | 6,522 | 9 | 12 | 20 | 72 | 210 | 329 | 2 | 6 | 16 | 2026-10-27 | v2.7.1 (2026-09-23) | MIT |
+| 10 | [potpie-ai/potpie](https://github.com/potpie-ai/potpie) | 35 | 5,777 | 0 | 8 | 30 | 38 | 75 | 693 | 8 | 9 | 27 | 2026-10-29 | v2.0.1 (2026-08-31) | Apache-2.0 |
+| 11 | [breaking-brake/cc-wf-studio](https://github.com/breaking-brake/cc-wf-studio) | 24 | 5,412 | 4 | 6 | 8 | 22 | 46 | 569 | 0 | -3 | -2 | 2026-10-07 | @cc-wf-studio/core@0.4.0 (2026-07-11) | Other |
+| 12 | [GammaLabTechnologies/harmonist](https://github.com/GammaLabTechnologies/harmonist) | 7 | 2,253 | 1 | 2 | -1 | -5 | -1 | 209 | 0 | 1 | 2 | 2026-06-09 | v1.2.3 (2026-06-09) | MIT |
 
 [Back to README](../README.md)
