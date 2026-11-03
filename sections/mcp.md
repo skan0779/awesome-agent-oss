@@ -2,56 +2,56 @@
 
 Model Context Protocol servers, clients, SDKs, registries, and tool integrations.
 
-_🚀 Last updated from snapshot: `2026-11-02 06:02 UTC`._
+_🚀 Last updated from snapshot: `2026-11-03 06:46 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 87 | 47,966 | 45 | 156 | 478 | 2,259 | 6,009 | 3,950 | 45 | 196 | 541 | 2026-11-02 | v0.12.1 (2026-10-16) | MIT |
-| 2 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 87 | 54,632 | 55 | 165 | 477 | 1,739 | 3,927 | 5,247 | -638 | -174 | 1,692 | 2026-11-02 | chrome-devtools-mcp-v1.12.0 (2026-10-22) | Apache-2.0 |
-| 3 | [upstash/context7](https://github.com/upstash/context7) | 82 | 64,060 | 28 | 129 | 371 | 1,441 | 2,518 | 3,198 | 58 | 154 | 235 | 2026-11-01 | @upstash/context7-sdk@0.6.0 (2026-10-23) | MIT |
-| 4 | [oraios/serena](https://github.com/oraios/serena) | 82 | 31,002 | 39 | 143 | 283 | 1,050 | 2,245 | 2,119 | 30 | 79 | 175 | 2026-10-28 | v2.1.0 (2026-10-19) | Other |
-| 5 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 80 | 97,179 | 36 | 125 | 307 | 1,412 | 3,289 | 18,986 | 501 | 2,000 | 3,465 | 2026-11-02 | - | MIT |
-| 6 | [CoplayDev/unity-mcp](https://github.com/CoplayDev/unity-mcp) | 78 | 15,627 | 29 | 82 | 207 | 965 | 1,774 | 1,618 | 20 | 87 | 154 | 2026-10-30 | v10.3.0 (2026-10-04) | MIT |
-| 7 | [0x4m4/hexstrike-ai](https://github.com/0x4m4/hexstrike-ai) | 78 | 13,281 | 29 | 87 | 185 | 997 | 1,773 | 2,678 | 20 | 180 | 285 | 2026-08-03 | - | MIT |
-| 8 | [bethington/ghidra-mcp](https://github.com/bethington/ghidra-mcp) | 75 | 6,054 | 19 | 46 | 149 | 1,948 | 2,390 | 371 | 16 | 207 | 248 | 2026-10-31 | v7.0.0 (2026-10-21) | Apache-2.0 |
-| 9 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | 74 | 34,149 | 17 | 75 | 191 | 817 | 1,474 | 5,271 | 43 | 197 | 383 | 2026-10-30 | v2.0.3 (2026-10-21) | MIT |
-| 10 | [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp) | 73 | 16,733 | 39 | 75 | 166 | 646 | 1,113 | 2,458 | 31 | 96 | 164 | 2026-11-02 | v2.7.0 (2026-11-01) | Apache-2.0 |
-| 11 | [tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) | 71 | 32,552 | 28 | 65 | 168 | 654 | 1,425 | 2,962 | 5 | 43 | 128 | 2026-10-29 | v2.3.9 (2026-09-18) | MIT |
-| 12 | [mrexodia/ida-pro-mcp](https://github.com/mrexodia/ida-pro-mcp) | 71 | 13,278 | 22 | 65 | 123 | 832 | 1,489 | 1,611 | 25 | 137 | 212 | 2026-09-26 | 1.4.0 (2025-10-06) | MIT |
-| 13 | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | 71 | 91,744 | 22 | 58 | 180 | 783 | 1,703 | 11,902 | 34 | 153 | 356 | 2026-10-29 | v2.2.0 (2026-10-28) | Other |
-| 14 | [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) | 70 | 20,062 | 24 | 85 | 150 | 480 | 964 | 2,670 | 18 | 59 | 104 | 2026-11-01 | v0.8.6 (2026-10-29) | MIT |
-| 15 | [homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp) | 67 | 5,399 | 14 | 40 | 152 | 473 | 795 | 261 | 11 | 32 | 60 | 2026-11-02 | v9.0.0 (2026-10-28) | MIT |
-| 16 | [activepieces/activepieces](https://github.com/activepieces/activepieces) | 62 | 25,330 | 13 | 40 | 104 | 467 | 1,132 | 4,419 | 28 | 130 | 285 | 2026-11-02 | 0.92.3-hotfix.2 (2026-10-28) | Other |
-| 17 | [stickerdaniel/linkedin-mcp-server](https://github.com/stickerdaniel/linkedin-mcp-server) | 60 | 4,085 | 14 | 38 | 70 | 369 | 769 | 720 | 14 | 72 | 141 | 2026-10-31 | v4.29.0 (2026-10-31) | Apache-2.0 |
-| 18 | [open-metadata/OpenMetadata](https://github.com/open-metadata/OpenMetadata) | 57 | 15,653 | 12 | 24 | 75 | 288 | 567 | 2,496 | 15 | 72 | 143 | 2026-11-02 | 2.0.7-release (2026-10-27) | Apache-2.0 |
-| 19 | [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | 56 | 28,269 | 17 | 28 | 69 | 310 | 775 | 2,551 | 32 | 128 | 258 | 2026-11-02 | v4.1.5 (2026-11-01) | Apache-2.0 |
-| 20 | [atilaahmettaner/tradingview-mcp](https://github.com/atilaahmettaner/tradingview-mcp) | 55 | 5,190 | 5 | 24 | 54 | 295 | 855 | 1,023 | 4 | 44 | 102 | 2026-10-29 | - | MIT |
-| 21 | [oomol-lab/open-connector](https://github.com/oomol-lab/open-connector) | 55 | 6,159 | 4 | 23 | 67 | 217 | 648 | 585 | 10 | 52 | 113 | 2026-11-02 | v1.9.4 (2026-10-27) | Other |
-| 22 | [googleanalytics/google-analytics-mcp](https://github.com/googleanalytics/google-analytics-mcp) | 55 | 3,613 | 7 | 20 | 60 | 250 | 507 | 761 | 19 | 43 | 86 | 2026-10-29 | 0.8.0 (2026-10-22) | Apache-2.0 |
-| 23 | [firecrawl/firecrawl-mcp-server](https://github.com/firecrawl/firecrawl-mcp-server) | 53 | 7,746 | 9 | 23 | 60 | 206 | 364 | 924 | 5 | 27 | 55 | 2026-11-02 | v3.2.1 (2025-09-26) | MIT |
-| 24 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge) | 51 | 4,740 | 7 | 17 | 50 | 178 | 331 | 954 | 12 | 57 | 104 | 2026-11-02 | v1.1.0 (2026-10-20) | Apache-2.0 |
-| 25 | [MinishLab/semble](https://github.com/MinishLab/semble) | 50 | 6,344 | 6 | 16 | 51 | 168 | 357 | 284 | 2 | 13 | 24 | 2026-10-29 | v0.7.1 (2026-10-29) | MIT |
-| 26 | [czlonkowski/n8n-mcp](https://github.com/czlonkowski/n8n-mcp) | 49 | 23,191 | 5 | 22 | 54 | 160 | 370 | 3,680 | 6 | 19 | 45 | 2026-10-27 | v2.99.2 (2026-10-27) | MIT |
-| 27 | [IvanMurzak/Unity-MCP](https://github.com/IvanMurzak/Unity-MCP) | 48 | 4,566 | 4 | 14 | 36 | 190 | 490 | 408 | 3 | 23 | 40 | 2026-10-31 | 1.6.0 (2026-10-31) | Apache-2.0 |
-| 28 | [exa-labs/exa-mcp-server](https://github.com/exa-labs/exa-mcp-server) | 44 | 5,208 | 1 | 7 | 40 | 137 | 252 | 407 | 4 | 6 | 28 | 2026-11-02 | - | MIT |
-| 29 | [breaking-brake/cc-wf-studio](https://github.com/breaking-brake/cc-wf-studio) | 44 | 5,444 | 1 | 32 | 40 | 54 | 77 | 572 | 3 | 3 | 1 | 2026-10-07 | @cc-wf-studio/core@0.4.0 (2026-07-11) | Other |
-| 30 | [zinja-coder/jadx-ai-mcp](https://github.com/zinja-coder/jadx-ai-mcp) | 43 | 2,965 | 2 | 11 | 26 | 116 | 221 | 280 | 3 | 20 | 31 | 2026-10-19 | v6.5.0 (2026-10-19) | Apache-2.0 |
-| 31 | [awslabs/mcp](https://github.com/awslabs/mcp) | 42 | 9,860 | 7 | 9 | 28 | 113 | 205 | 1,842 | 13 | 58 | 106 | 2026-11-01 | 2026.10.20261030201955 (2026-10-30) | Apache-2.0 |
-| 32 | [mcp-use/mcp-use](https://github.com/mcp-use/mcp-use) | 40 | 10,837 | 2 | 9 | 23 | 121 | 285 | 1,533 | 11 | 44 | 99 | 2026-10-30 | mcp-use@2.12.2 (2026-10-29) | MIT |
-| 33 | [KnockOutEZ/wigolo](https://github.com/KnockOutEZ/wigolo) | 39 | 5,519 | 7 | 8 | 16 | 80 | 653 | 453 | 5 | 8 | 85 | 2026-11-01 | v0.3.1 (2026-10-26) | Other |
-| 34 | [getsentry/XcodeBuildMCP](https://github.com/getsentry/MobileBuildMCP) | 38 | 6,531 | 0 | 9 | 23 | 77 | 197 | 330 | 1 | 9 | 17 | 2026-11-01 | v2.7.1 (2026-09-23) | MIT |
-| 35 | [modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry) | 36 | 7,427 | 4 | 4 | 18 | 117 | 212 | 1,039 | 2 | 19 | 63 | 2026-10-31 | v1.8.7 (2026-10-30) | Other |
-| 36 | [archestra-ai/archestra](https://github.com/archestra-ai/archestra) | 35 | 4,423 | 2 | 4 | 19 | 79 | 181 | 1,230 | 3 | 15 | 43 | 2026-11-02 | platform-v1.4.15 (2026-11-01) | Other |
-| 37 | [modelcontextprotocol/csharp-sdk](https://github.com/modelcontextprotocol/csharp-sdk) | 32 | 4,613 | 2 | 9 | 12 | 54 | 98 | 839 | 2 | 21 | 42 | 2026-10-30 | v2.3.0 (2026-10-20) | Other |
-| 38 | [zilliztech/claude-context](https://github.com/zilliztech/claude-context) | 30 | 12,662 | 1 | 2 | 15 | 76 | 196 | 939 | -2 | 0 | 22 | 2026-07-14 | - | MIT |
-| 39 | [blazickjp/arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server) | 29 | 3,245 | 1 | 3 | 11 | 58 | 143 | 260 | 1 | 4 | 9 | 2026-10-08 | v0.8.2 (2026-10-08) | Apache-2.0 |
-| 40 | [Jpisnice/shadcn-ui-mcp-server](https://github.com/Jpisnice/shadcn-ui-mcp-server) | 28 | 3,078 | 1 | 4 | 9 | 65 | 106 | 314 | -1 | 2 | 10 | 2026-10-03 | v3.0.0 (2026-10-03) | MIT |
-| 41 | [alibaba/nacos](https://github.com/alibaba/nacos) | 25 | 33,491 | 2 | -1 | 9 | 70 | 153 | 13,283 | 1 | -11 | -5 | 2026-11-02 | 3.3.0 (2026-10-29) | Apache-2.0 |
-| 42 | [grab/cursor-talk-to-figma-mcp](https://github.com/grab/cursor-talk-to-figma-mcp) | 21 | 7,077 | -1 | 1 | 9 | 31 | 91 | 782 | 0 | 4 | 11 | 2026-07-26 | - | MIT |
-| 43 | [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent) | 17 | 8,570 | 3 | 3 | 3 | 2 | 43 | 892 | 1 | -1 | 11 | 2026-01-25 | v0.0.21 (2025-05-09) | Apache-2.0 |
-| 44 | [ghostwright/ghost-os](https://github.com/ghostwright/ghost-os) | 13 | 1,682 | 1 | 1 | 2 | 15 | 30 | 156 | 0 | -3 | -2 | 2026-03-23 | v2.2.1 (2026-03-12) | MIT |
-| 45 | [tadata-org/fastapi_mcp](https://github.com/tadata-org/fastapi_mcp) | 13 | 12,023 | 1 | -1 | 3 | 8 | 27 | 967 | -2 | -5 | 6 | 2025-11-24 | v0.4.0 (2025-07-28) | MIT |
-| 46 | [prest/prest](https://github.com/prest/prest) | 10 | 4,630 | 0 | 0 | 1 | 13 | 16 | 324 | 0 | -2 | 6 | 2026-10-30 | v2.5.3 (2026-10-30) | MIT |
+| 1 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 87 | 48,029 | 63 | 152 | 443 | 2,266 | 5,921 | 3,954 | 44 | 192 | 530 | 2026-11-03 | v0.12.1 (2026-10-16) | MIT |
+| 2 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 87 | 54,696 | 64 | 181 | 474 | 1,770 | 3,837 | 5,245 | -641 | -290 | 1,677 | 2026-11-02 | chrome-devtools-mcp-v1.12.0 (2026-10-22) | Apache-2.0 |
+| 3 | [upstash/context7](https://github.com/upstash/context7) | 83 | 64,107 | 47 | 125 | 366 | 1,459 | 2,509 | 3,209 | 64 | 161 | 241 | 2026-11-03 | @upstash/context7-mcp@4.5.0 (2026-11-03) | MIT |
+| 4 | [oraios/serena](https://github.com/oraios/serena) | 82 | 31,038 | 36 | 148 | 296 | 1,071 | 2,241 | 2,121 | 27 | 80 | 171 | 2026-10-28 | v2.1.0 (2026-10-19) | Other |
+| 5 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 81 | 97,221 | 42 | 123 | 310 | 1,419 | 3,187 | 19,084 | 518 | 2,047 | 3,493 | 2026-11-02 | - | MIT |
+| 6 | [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp) | 79 | 16,821 | 88 | 141 | 232 | 722 | 1,195 | 2,464 | 35 | 100 | 169 | 2026-11-02 | v2.7.0 (2026-11-01) | Apache-2.0 |
+| 7 | [CoplayDev/unity-mcp](https://github.com/CoplayDev/unity-mcp) | 78 | 15,658 | 31 | 86 | 206 | 987 | 1,764 | 1,619 | 14 | 88 | 153 | 2026-10-30 | v10.3.0 (2026-10-04) | MIT |
+| 8 | [0x4m4/hexstrike-ai](https://github.com/0x4m4/hexstrike-ai) | 78 | 13,315 | 34 | 84 | 199 | 1,013 | 1,787 | 2,687 | 26 | 185 | 292 | 2026-08-03 | - | MIT |
+| 9 | [bethington/ghidra-mcp](https://github.com/bethington/ghidra-mcp) | 76 | 6,080 | 26 | 56 | 147 | 1,962 | 2,405 | 375 | 16 | 209 | 251 | 2026-11-02 | v7.0.0 (2026-10-21) | Apache-2.0 |
+| 10 | [github/github-mcp-server](https://github.com/github/github-mcp-server) | 74 | 34,177 | 28 | 72 | 185 | 827 | 1,484 | 5,278 | 44 | 199 | 385 | 2026-11-02 | v2.0.3 (2026-10-21) | MIT |
+| 11 | [mrexodia/ida-pro-mcp](https://github.com/mrexodia/ida-pro-mcp) | 74 | 13,313 | 35 | 85 | 146 | 856 | 1,499 | 1,621 | 34 | 146 | 216 | 2026-09-26 | 1.4.0 (2025-10-06) | MIT |
+| 12 | [tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph) | 70 | 32,569 | 17 | 57 | 155 | 657 | 1,409 | 2,964 | 6 | 47 | 126 | 2026-10-29 | v2.3.9 (2026-09-18) | MIT |
+| 13 | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | 69 | 91,759 | 15 | 51 | 165 | 769 | 1,694 | 11,911 | 41 | 158 | 359 | 2026-10-29 | v2.2.0 (2026-10-28) | Other |
+| 14 | [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) | 68 | 20,079 | 17 | 63 | 147 | 483 | 957 | 2,672 | 20 | 61 | 105 | 2026-11-01 | v0.8.6 (2026-10-29) | MIT |
+| 15 | [activepieces/activepieces](https://github.com/activepieces/activepieces) | 64 | 25,349 | 19 | 48 | 110 | 461 | 1,120 | 4,420 | 23 | 125 | 282 | 2026-11-03 | 0.92.3-hotfix.2 (2026-10-28) | Other |
+| 16 | [homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp) | 64 | 5,407 | 8 | 31 | 125 | 466 | 792 | 262 | 7 | 32 | 60 | 2026-11-03 | v9.0.0 (2026-10-28) | MIT |
+| 17 | [stickerdaniel/linkedin-mcp-server](https://github.com/stickerdaniel/linkedin-mcp-server) | 61 | 4,096 | 11 | 40 | 74 | 370 | 769 | 725 | 18 | 75 | 143 | 2026-11-02 | v4.29.0 (2026-10-31) | Apache-2.0 |
+| 18 | [open-metadata/OpenMetadata](https://github.com/open-metadata/OpenMetadata) | 56 | 15,662 | 9 | 25 | 72 | 291 | 564 | 2,496 | 12 | 72 | 142 | 2026-11-03 | 2.0.7-release (2026-10-27) | Apache-2.0 |
+| 19 | [googleanalytics/google-analytics-mcp](https://github.com/googleanalytics/google-analytics-mcp) | 55 | 3,621 | 8 | 22 | 60 | 252 | 508 | 761 | 17 | 41 | 84 | 2026-11-02 | 0.8.0 (2026-10-22) | Apache-2.0 |
+| 20 | [oomol-lab/open-connector](https://github.com/oomol-lab/open-connector) | 55 | 6,165 | 6 | 19 | 68 | 221 | 633 | 586 | 11 | 51 | 112 | 2026-11-03 | v1.9.5 (2026-11-03) | Other |
+| 21 | [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | 55 | 28,278 | 9 | 27 | 64 | 313 | 765 | 2,555 | 32 | 125 | 254 | 2026-11-03 | v4.1.6 (2026-11-03) | Apache-2.0 |
+| 22 | [firecrawl/firecrawl-mcp-server](https://github.com/firecrawl/firecrawl-mcp-server) | 53 | 7,753 | 7 | 23 | 56 | 206 | 364 | 926 | 7 | 28 | 55 | 2026-11-03 | v3.2.1 (2025-09-26) | MIT |
+| 23 | [atilaahmettaner/tradingview-mcp](https://github.com/atilaahmettaner/tradingview-mcp) | 52 | 5,192 | 2 | 19 | 44 | 286 | 843 | 1,024 | 5 | 44 | 102 | 2026-10-29 | - | MIT |
+| 24 | [MinishLab/semble](https://github.com/MinishLab/semble) | 50 | 6,353 | 9 | 20 | 46 | 175 | 364 | 286 | 4 | 15 | 26 | 2026-11-02 | v0.7.1 (2026-10-29) | MIT |
+| 25 | [IvanMurzak/Unity-MCP](https://github.com/IvanMurzak/Unity-MCP) | 50 | 4,574 | 8 | 18 | 40 | 189 | 454 | 408 | 2 | 22 | 37 | 2026-11-03 | 1.6.0 (2026-10-31) | Apache-2.0 |
+| 26 | [czlonkowski/n8n-mcp](https://github.com/czlonkowski/n8n-mcp) | 49 | 23,195 | 4 | 22 | 52 | 159 | 365 | 3,680 | 7 | 19 | 46 | 2026-11-02 | v2.99.2 (2026-10-27) | MIT |
+| 27 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge) | 48 | 4,743 | 3 | 12 | 42 | 177 | 326 | 956 | 12 | 57 | 105 | 2026-11-02 | v1.1.0 (2026-10-20) | Apache-2.0 |
+| 28 | [zinja-coder/jadx-ai-mcp](https://github.com/zinja-coder/jadx-ai-mcp) | 45 | 2,971 | 6 | 10 | 28 | 122 | 222 | 280 | 3 | 20 | 31 | 2026-10-19 | v6.5.0 (2026-10-19) | Apache-2.0 |
+| 29 | [mcp-use/mcp-use](https://github.com/mcp-use/mcp-use) | 42 | 10,842 | 5 | 12 | 26 | 127 | 277 | 1,536 | 13 | 46 | 101 | 2026-11-02 | mcp-use@2.12.2 (2026-10-29) | MIT |
+| 30 | [awslabs/mcp](https://github.com/awslabs/mcp) | 42 | 9,864 | 4 | 11 | 27 | 114 | 207 | 1,847 | 16 | 58 | 110 | 2026-11-03 | 2026.10.20261030201955 (2026-10-30) | Apache-2.0 |
+| 31 | [exa-labs/exa-mcp-server](https://github.com/exa-labs/exa-mcp-server) | 42 | 5,209 | 1 | 5 | 34 | 134 | 246 | 408 | 4 | 7 | 29 | 2026-11-03 | - | MIT |
+| 32 | [KnockOutEZ/wigolo](https://github.com/KnockOutEZ/wigolo) | 42 | 5,524 | 5 | 15 | 18 | 80 | 637 | 456 | 7 | 10 | 87 | 2026-11-02 | v0.3.1 (2026-10-26) | Other |
+| 33 | [breaking-brake/cc-wf-studio](https://github.com/breaking-brake/cc-wf-studio) | 41 | 5,448 | 4 | 7 | 42 | 58 | 80 | 572 | 3 | 3 | 1 | 2026-10-07 | @cc-wf-studio/core@0.4.0 (2026-07-11) | Other |
+| 34 | [getsentry/XcodeBuildMCP](https://github.com/getsentry/MobileBuildMCP) | 40 | 6,534 | 3 | 8 | 24 | 78 | 198 | 330 | 2 | 8 | 17 | 2026-11-01 | v2.7.1 (2026-09-23) | MIT |
+| 35 | [modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry) | 39 | 7,430 | 3 | 7 | 20 | 116 | 212 | 1,041 | 1 | 21 | 63 | 2026-11-03 | v1.8.7 (2026-10-30) | Other |
+| 36 | [zilliztech/claude-context](https://github.com/zilliztech/claude-context) | 36 | 12,666 | 4 | 6 | 17 | 80 | 199 | 939 | -4 | -1 | 22 | 2026-07-14 | - | MIT |
+| 37 | [blazickjp/arxiv-mcp-server](https://github.com/blazickjp/arxiv-mcp-server) | 36 | 3,250 | 5 | 7 | 15 | 62 | 145 | 260 | 1 | 4 | 9 | 2026-10-08 | v0.8.2 (2026-10-08) | Apache-2.0 |
+| 38 | [archestra-ai/archestra](https://github.com/archestra-ai/archestra) | 35 | 4,425 | 2 | 5 | 16 | 83 | 182 | 1,229 | 0 | 15 | 41 | 2026-11-03 | platform-v1.4.17 (2026-11-02) | Other |
+| 39 | [modelcontextprotocol/csharp-sdk](https://github.com/modelcontextprotocol/csharp-sdk) | 34 | 4,615 | 2 | 10 | 14 | 53 | 99 | 840 | 1 | 22 | 43 | 2026-11-03 | v2.3.0 (2026-10-20) | Other |
+| 40 | [alibaba/nacos](https://github.com/alibaba/nacos) | 29 | 33,493 | 2 | 3 | 8 | 74 | 151 | 13,282 | 1 | -12 | -5 | 2026-11-03 | 3.3.0 (2026-10-29) | Apache-2.0 |
+| 41 | [Jpisnice/shadcn-ui-mcp-server](https://github.com/Jpisnice/shadcn-ui-mcp-server) | 27 | 3,079 | 1 | 4 | 7 | 60 | 105 | 314 | 0 | 2 | 10 | 2026-10-03 | v3.0.0 (2026-10-03) | MIT |
+| 42 | [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent) | 23 | 8,574 | 4 | 8 | 6 | 6 | 49 | 892 | 1 | -1 | 12 | 2026-01-25 | v0.0.21 (2025-05-09) | Apache-2.0 |
+| 43 | [ghostwright/ghost-os](https://github.com/ghostwright/ghost-os) | 15 | 1,683 | 1 | 2 | 2 | 16 | 31 | 156 | 0 | -3 | -3 | 2026-03-23 | v2.2.1 (2026-03-12) | MIT |
+| 44 | [grab/cursor-talk-to-figma-mcp](https://github.com/grab/cursor-talk-to-figma-mcp) | 14 | 7,074 | -3 | -3 | 3 | 27 | 86 | 783 | 1 | 5 | 10 | 2026-07-26 | - | MIT |
+| 45 | [tadata-org/fastapi_mcp](https://github.com/tadata-org/fastapi_mcp) | 14 | 12,025 | 2 | 2 | 0 | 9 | 25 | 967 | -2 | -4 | 6 | 2025-11-24 | v0.4.0 (2025-07-28) | MIT |
+| 46 | [prest/prest](https://github.com/prest/prest) | 9 | 4,630 | 0 | -1 | 1 | 12 | 16 | 324 | -1 | -1 | 6 | 2026-10-30 | v2.5.3 (2026-10-30) | MIT |
 | 47 | [AI-QL/tuui](https://github.com/AI-QL/tuui) | 6 | 1,159 | 0 | 0 | 0 | 5 | 6 | 108 | 0 | 1 | 0 | 2026-05-14 | v1.5.1 (2026-05-14) | Apache-2.0 |
 
 [Back to README](../README.md)
