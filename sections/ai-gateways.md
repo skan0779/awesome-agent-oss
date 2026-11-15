@@ -2,16 +2,16 @@
 
 Gateways for routing, securing, observing, and managing access to AI model providers.
 
-_🚀 Last updated from snapshot: `2026-11-14 06:15 UTC`._
+_🚀 Last updated from snapshot: `2026-11-15 06:25 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [maximhq/bifrost](https://github.com/maximhq/bifrost) | 71 | 9,546 | 13 | 57 | 130 | 888 | 1,471 | 1,587 | 42 | 230 | 372 | 2026-11-14 | ent-v2.5.1-base (2026-11-10) | Apache-2.0 |
-| 2 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge) | 51 | 4,815 | 2 | 19 | 49 | 225 | 343 | 967 | 4 | 57 | 104 | 2026-11-13 | v1.1.1 (2026-11-10) | Apache-2.0 |
-| 3 | [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway) | 47 | 13,377 | 1 | 14 | 41 | 224 | 385 | 1,381 | 8 | 44 | 81 | 2026-05-25 | v1.15.2 (2026-01-12) | MIT |
-| 4 | [archestra-ai/archestra](https://github.com/archestra-ai/archestra) | 36 | 4,444 | 5 | 8 | 11 | 85 | 167 | 1,236 | 3 | 24 | 38 | 2026-11-14 | platform-v1.4.29 (2026-11-12) | Other |
-| 5 | [Kong/kong](https://github.com/Kong/kong) | 34 | 44,380 | 2 | 2 | 14 | 125 | 243 | 5,241 | 3 | 14 | 31 | 2026-10-19 | 3.9.4 (2026-10-12) | Apache-2.0 |
-| 6 | [mnfst/manifest](https://github.com/mnfst/llm-gateway) | 34 | 7,635 | 5 | 6 | 13 | 68 | 112 | 528 | 3 | 12 | 21 | 2026-11-12 | manifest@6.29.1 (2026-11-09) | MIT |
-| 7 | [algorithmicsuperintelligence/optillm](https://github.com/algorithmicsuperintelligence/optillm) | 17 | 4,341 | 0 | 1 | 3 | 32 | 79 | 401 | 2 | 9 | 18 | 2026-11-02 | v0.4.1 (2026-11-02) | Apache-2.0 |
+| 1 | [maximhq/bifrost](https://github.com/maximhq/bifrost) | 70 | 9,556 | 10 | 46 | 129 | 898 | 1,455 | 1,594 | 45 | 237 | 376 | 2026-11-14 | ent-v2.5.1-base (2026-11-10) | Apache-2.0 |
+| 2 | [IBM/mcp-context-forge](https://github.com/IBM/mcp-context-forge) | 53 | 4,824 | 9 | 17 | 55 | 234 | 345 | 968 | 5 | 58 | 102 | 2026-11-14 | v1.1.1 (2026-11-10) | Apache-2.0 |
+| 3 | [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway) | 48 | 13,381 | 4 | 13 | 41 | 228 | 376 | 1,382 | 7 | 45 | 83 | 2026-05-25 | v1.15.2 (2026-01-12) | MIT |
+| 4 | [archestra-ai/archestra](https://github.com/archestra-ai/archestra) | 34 | 4,445 | 1 | 6 | 11 | 86 | 166 | 1,233 | 0 | 21 | 33 | 2026-11-15 | platform-v1.4.31 (2026-11-14) | Other |
+| 5 | [mnfst/manifest](https://github.com/mnfst/llm-gateway) | 33 | 7,636 | 1 | 7 | 11 | 69 | 110 | 528 | 1 | 12 | 21 | 2026-11-12 | manifest@6.29.1 (2026-11-09) | MIT |
+| 6 | [Kong/kong](https://github.com/Kong/kong) | 32 | 44,378 | -2 | 2 | 12 | 123 | 237 | 5,243 | 4 | 16 | 33 | 2026-10-19 | 3.9.4 (2026-10-12) | Apache-2.0 |
+| 7 | [algorithmicsuperintelligence/optillm](https://github.com/algorithmicsuperintelligence/optillm) | 20 | 4,342 | 1 | 1 | 4 | 33 | 79 | 401 | 2 | 9 | 18 | 2026-11-02 | v0.4.1 (2026-11-02) | Apache-2.0 |
 
 [Back to README](../README.md)
