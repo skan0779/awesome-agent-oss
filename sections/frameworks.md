@@ -2,68 +2,68 @@
 
 Frameworks and SDKs for building, orchestrating, and running AI agents.
 
-_🚀 Last updated from snapshot: `2026-11-19 07:23 UTC`._
+_🚀 Last updated from snapshot: `2026-11-20 07:09 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | 91 | 80,124 | 171 | 356 | 717 | 5,344 | 6,994 | 6,281 | 68 | 484 | 657 | 2026-11-18 | v0.44.0 (2026-11-10) | Apache-2.0 |
-| 2 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 89 | 82,067 | 76 | 231 | 546 | 7,911 | 9,193 | 9,687 | 83 | 875 | 1,039 | 2026-11-19 | v3.78.0 (2026-11-19) | MIT |
-| 3 | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 85 | 149,869 | 37 | 264 | 482 | 2,455 | 3,173 | 25,162 | 51 | 423 | 632 | 2026-11-19 | langchain-core==1.8.3 (2026-11-18) | MIT |
-| 4 | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 83 | 45,144 | 48 | 133 | 313 | 2,217 | 3,172 | 7,789 | 65 | 494 | 707 | 2026-11-19 | 1.2.23 (2026-11-19) | MIT |
-| 5 | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 80 | 61,091 | 32 | 120 | 294 | 1,612 | 2,300 | 9,227 | 71 | 563 | 713 | 2026-11-19 | 1.15.43 (2026-11-19) | MIT |
-| 6 | [aaif-goose/goose](https://github.com/aaif-goose/goose) | 80 | 56,777 | 37 | 103 | 301 | 1,683 | 2,301 | 6,622 | 42 | 232 | 344 | 2026-11-19 | v1.60.1 (2026-11-18) | Apache-2.0 |
-| 7 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 80 | 85,513 | 44 | 132 | 249 | 1,960 | 2,791 | 12,062 | 51 | 454 | 638 | 2026-11-19 | v2.2.0 (2026-11-04) | MIT |
-| 8 | [langchain-ai/deepagents](https://github.com/langchain-ai/deepagents) | 78 | 31,429 | 46 | 119 | 205 | 1,381 | 1,847 | 4,436 | 27 | 223 | 278 | 2026-11-19 | deepagents==0.7.40 (2026-11-18) | MIT |
-| 9 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 75 | 50,196 | 33 | 83 | 166 | 1,308 | 1,824 | 8,763 | 31 | 145 | 215 | 2026-11-19 | v0.4.1 (2026-11-06) | MIT |
-| 10 | [CopilotKit/CopilotKit](https://github.com/CopilotKit/CopilotKit) | 74 | 38,815 | 34 | 94 | 163 | 961 | 1,392 | 4,837 | 18 | 121 | 192 | 2026-11-19 | v1.89.0 (2026-11-17) | MIT |
-| 11 | [mastra-ai/mastra](https://github.com/mastra-ai/mastra) | 73 | 29,626 | 34 | 88 | 147 | 972 | 1,433 | 3,120 | 23 | 174 | 291 | 2026-11-19 | @mastra/core@1.84.0 (2026-11-18) | Other |
-| 12 | [ScrapeGraphAI/Scrapegraph-ai](https://github.com/ScrapeGraphAI/Scrapegraph-ai) | 71 | 32,858 | 16 | 55 | 127 | 1,221 | 1,718 | 3,354 | 15 | 128 | 213 | 2026-10-06 | v2.3.1 (2026-10-06) | MIT |
-| 13 | [pipecat-ai/pipecat](https://github.com/pipecat-ai/pipecat) | 70 | 17,330 | 11 | 50 | 119 | 1,045 | 1,657 | 3,139 | 42 | 295 | 422 | 2026-11-19 | v1.16.0 (2026-11-12) | BSD-2-Clause |
-| 14 | [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | 69 | 30,760 | 15 | 59 | 129 | 836 | 1,193 | 5,076 | 40 | 221 | 304 | 2026-11-19 | v0.25.0 (2026-11-18) | MIT |
-| 15 | [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | 69 | 21,282 | 15 | 52 | 127 | 787 | 1,221 | 3,211 | 59 | 326 | 471 | 2026-11-19 | v2.71.0 (2026-11-19) | MIT |
-| 16 | [microsoft/autogen](https://github.com/microsoft/autogen) | 68 | 61,934 | 22 | 68 | 146 | 621 | 869 | 9,413 | 22 | 137 | 178 | 2026-11-12 | python-v0.7.5 (2025-09-30) | CC-BY-4.0 |
-| 17 | [huggingface/smolagents](https://github.com/huggingface/smolagents) | 66 | 30,437 | 11 | 49 | 110 | 693 | 1,030 | 3,224 | 12 | 173 | 246 | 2026-11-18 | v1.26.0 (2026-05-29) | Apache-2.0 |
-| 18 | [Tracer-Cloud/opensre](https://github.com/Tracer-Cloud/opensre) | 66 | 12,878 | 21 | 44 | 59 | 1,212 | 1,728 | 1,889 | 11 | 182 | 262 | 2026-11-19 | v0.1.2026.11.19 (2026-11-19) | Apache-2.0 |
-| 19 | [open-gitagent/opengap](https://github.com/open-gitagent/opengap) | 64 | 3,189 | 1 | 90 | 203 | 217 | 242 | 355 | 1 | 3 | 6 | 2026-07-02 | v0.5.0 (2026-07-02) | MIT |
-| 20 | [livekit/agents](https://github.com/livekit/agents) | 63 | 15,280 | 6 | 40 | 89 | 625 | 1,002 | 4,166 | 43 | 276 | 406 | 2026-11-19 | livekit-agents@1.8.13 (2026-11-18) | Apache-2.0 |
-| 21 | [agentscope-ai/agentscope-java](https://github.com/agentscope-ai/agentscope-java) | 62 | 6,419 | 13 | 39 | 74 | 525 | 717 | 1,624 | 25 | 167 | 238 | 2026-11-19 | v2.0.5 (2026-11-14) | Apache-2.0 |
-| 22 | [strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk) | 62 | 9,252 | 12 | 31 | 64 | 506 | 1,882 | 1,538 | 30 | 194 | 374 | 2026-11-19 | python/v1.65.0 (2026-11-13) | Apache-2.0 |
-| 23 | [agno-agi/agno](https://github.com/agno-agi/agno) | 60 | 43,237 | 10 | 35 | 73 | 608 | 982 | 6,309 | 26 | 196 | 341 | 2026-11-19 | v3.2.1 (2026-11-17) | Apache-2.0 |
-| 24 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 58 | 52,951 | 15 | 34 | 70 | 503 | 714 | 8,589 | 43 | 283 | 411 | 2026-11-14 | v0.14.26 (2026-11-13) | MIT |
-| 25 | [mcp-use/mcp-use](https://github.com/mcp-use/mcp-use) | 56 | 10,992 | 1 | 14 | 118 | 259 | 338 | 1,555 | 5 | 59 | 88 | 2026-11-19 | mcp-use@2.12.8 (2026-11-19) | MIT |
-| 26 | [elizaOS/eliza](https://github.com/elizaOS/eliza) | 53 | 19,905 | 3 | 22 | 52 | 340 | 529 | 5,903 | 6 | 116 | 156 | 2026-11-19 | v2.0.5 (2026-11-11) | MIT |
-| 27 | [cloudflare/computer](https://github.com/cloudflare/computer) | 48 | 9,935 | 1 | 10 | 35 | 406 | 712 | 591 | 3 | 39 | 66 | 2026-11-19 | @cloudflare/computer@0.11.3 (2026-11-17) | MIT |
-| 28 | [VoltAgent/voltagent](https://github.com/VoltAgent/voltagent) | 47 | 10,995 | 2 | 15 | 33 | 237 | 348 | 1,211 | 13 | 53 | 76 | 2026-11-06 | @voltagent/core@2.11.1 (2026-11-04) | MIT |
-| 29 | [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | 45 | 13,422 | 4 | 15 | 29 | 203 | 294 | 2,684 | 7 | 87 | 123 | 2026-11-18 | 1.24.0 (2026-11-18) | Apache-2.0 |
-| 30 | [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel) | 42 | 28,788 | 1 | 11 | 30 | 153 | 208 | 4,865 | 5 | 48 | 91 | 2026-11-19 | dotnet-1.82.0 (2026-11-07) | MIT |
-| 31 | [dapr/dapr](https://github.com/dapr/dapr) | 40 | 26,210 | 4 | 16 | 24 | 74 | 108 | 2,188 | 9 | 31 | 39 | 2026-11-18 | v1.19.1 (2026-10-31) | Apache-2.0 |
-| 32 | [RightNow-AI/openfang](https://github.com/RightNow-AI/openfang) | 39 | 18,271 | 8 | 19 | 21 | 55 | 66 | 2,284 | 4 | -8 | -6 | 2026-07-02 | v0.6.9 (2026-05-12) | Apache-2.0 |
-| 33 | [langfengQ/verl-agent](https://github.com/langfengQ/verl-agent) | 37 | 2,454 | 4 | 7 | 14 | 91 | 134 | 245 | 3 | 16 | 20 | 2026-06-09 | v0.1.0 (2025-12-11) | Apache-2.0 |
-| 34 | [ag2ai/ag2](https://github.com/ag2ai/ag2) | 37 | 5,076 | 1 | 8 | 16 | 91 | 136 | 799 | 10 | 58 | 78 | 2026-11-19 | v1.3.2 (2026-11-15) | Apache-2.0 |
-| 35 | [The-Pocket/PocketFlow](https://github.com/The-Pocket/PocketFlow) | 36 | 11,332 | 3 | 9 | 13 | 104 | 147 | 1,217 | 3 | 3 | 5 | 2026-07-26 | - | MIT |
-| 36 | [aden-hive/hive](https://github.com/aden-hive/hive) | 33 | 11,169 | -2 | 7 | 16 | 84 | 111 | 5,632 | 2 | -15 | -30 | 2026-11-17 | v1.0.15 (2026-11-17) | Apache-2.0 |
-| 37 | [TEN-framework/ten-framework](https://github.com/TEN-framework/ten-framework) | 33 | 11,241 | 1 | 9 | 11 | 88 | 105 | 1,380 | 0 | 15 | 16 | 2026-11-17 | 0.11.75 (2026-11-03) | Other |
-| 38 | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | 32 | 7,067 | 1 | 8 | 10 | 78 | 124 | 2,435 | -4 | -2 | 2 | 2026-11-17 | v1.24.0 (2026-11-13) | MIT |
-| 39 | [modelcontextprotocol/csharp-sdk](https://github.com/modelcontextprotocol/csharp-sdk) | 31 | 4,641 | 0 | 5 | 13 | 69 | 105 | 853 | 6 | 33 | 39 | 2026-11-16 | v2.4.0 (2026-11-07) | Other |
-| 40 | [zilliztech/deep-searcher](https://github.com/zilliztech/deep-searcher) | 31 | 8,400 | 2 | 4 | 11 | 73 | 127 | 819 | 4 | 9 | 15 | 2026-09-22 | - | Apache-2.0 |
-| 41 | [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent) | 26 | 8,589 | 2 | 7 | 8 | 19 | 40 | 899 | 5 | 7 | 8 | 2026-01-25 | v0.0.21 (2025-05-09) | Apache-2.0 |
-| 42 | [evalstate/fast-agent](https://github.com/evalstate/fast-agent) | 25 | 3,973 | 0 | 3 | 9 | 46 | 51 | 471 | 10 | 24 | 25 | 2026-11-18 | v0.10.55 (2026-11-16) | Apache-2.0 |
-| 43 | [langroid/langroid](https://github.com/langroid/langroid) | 24 | 4,154 | 1 | 2 | 8 | 41 | 51 | 439 | 4 | 22 | 38 | 2026-11-18 | 0.70.0 (2026-11-18) | MIT |
-| 44 | [MiroMindAI/MiroFlow](https://github.com/MiroMindAI/MiroFlow) | 22 | 3,160 | 1 | 3 | 4 | 41 | 47 | 329 | 1 | 3 | 6 | 2026-07-06 | - | Apache-2.0 |
-| 45 | [microsoft/Orchard](https://github.com/microsoft/Orchard-Agentic) | 19 | 563 | 1 | 1 | 3 | 17 | 41 | 45 | 2 | 2 | 3 | 2026-11-07 | - | MIT |
-| 46 | [EvoMap/evolver](https://github.com/EvoMap/evolver) | 18 | 8,749 | -1 | 4 | 7 | -391 | -355 | 854 | 4 | 6 | 7 | 2026-11-19 | v2.0.52 (2026-11-19) | GPL-3.0 |
-| 47 | [NVIDIA-NeMo/labs-OO-Agents](https://github.com/NVIDIA-NeMo/labs-OO-Agents) | 17 | 2,318 | 0 | -2 | 3 | 47 | 99 | 322 | 4 | 15 | 22 | 2026-11-19 | v0.0.12 (2026-11-06) | Other |
-| 48 | [TencentCloudADP/youtu-agent](https://github.com/TencentCloudADP/youtu-agent) | 15 | 4,637 | -1 | 2 | 2 | 16 | 23 | 494 | 2 | 7 | 12 | 2026-11-09 | v0.1.5 (2026-11-09) | Other |
-| 49 | [kaiban-ai/KaibanJS](https://github.com/kaiban-ai/KaibanJS) | 15 | 1,488 | 0 | 2 | 2 | 8 | 9 | 160 | 0 | 1 | 2 | 2026-05-15 | v0.24.1 (2026-05-01) | MIT |
-| 50 | [SolaceLabs/solace-agent-mesh](https://github.com/SolaceProducts/solace-agent-mesh) | 13 | 4,925 | 0 | 2 | 1 | 8 | 1 | 274 | 1 | -2 | -3 | 2026-11-18 | v2.563.1 (2026-11-18) | Other |
-| 51 | [microsoft/prompty](https://github.com/microsoft/prompty) | 11 | 1,289 | 0 | 0 | 1 | 13 | 21 | 137 | 1 | 9 | 10 | 2026-11-09 | python/2.0.1 (2026-09-10) | MIT |
-| 52 | [FellouAI/eko](https://github.com/FellouAI/eko) | 11 | 4,965 | 0 | 1 | 1 | 5 | 3 | 445 | -1 | 0 | 1 | 2026-03-03 | v4.1.0 (2025-12-29) | MIT |
-| 53 | [llmware-ai/llmware](https://github.com/llmware-ai/llmware) | 11 | 14,821 | 1 | 0 | 1 | -1 | -20 | 2,921 | -4 | -9 | -14 | 2026-10-01 | v0.4.7 (2026-10-01) | Apache-2.0 |
-| 54 | [modelscope/ms-agent](https://github.com/modelscope/ms-agent) | 10 | 4,427 | 0 | 0 | -1 | 19 | 37 | 545 | 1 | 15 | 24 | 2026-11-09 | v1.6.0 (2026-03-23) | Apache-2.0 |
-| 55 | [codeany-ai/open-agent-sdk-typescript](https://github.com/codeany-ai/open-agent-sdk-typescript) | 9 | 2,746 | 0 | 1 | 0 | -1 | 5 | 930 | -1 | -9 | -9 | 2026-07-26 | - | MIT |
-| 56 | [Upsonic/Upsonic](https://github.com/Upsonic/Upsonic) | 8 | 7,969 | 0 | -1 | -2 | 13 | 10 | 745 | 1 | -3 | 0 | 2026-06-18 | v0.77.3 (2026-05-19) | MIT |
-| 57 | [Chainlit/chainlit](https://github.com/Chainlit/chainlit) | 6 | 12,501 | -2 | -3 | -3 | -4 | 38 | 1,769 | 3 | 18 | 21 | 2026-09-18 | 2.12.0 (2026-08-25) | Apache-2.0 |
-| 58 | [pathwaycom/pathway](https://github.com/pathwaycom/pathway) | 5 | 61,982 | -6 | -12 | -12 | -168 | -279 | 1,704 | -3 | 23 | 19 | 2026-11-19 | v0.32.1 (2026-08-01) | Other |
-| 59 | [julep-ai/julep](https://github.com/julep-ai/julep) | 4 | 6,577 | 0 | -3 | -4 | 0 | -7 | 964 | 0 | -4 | -5 | 2026-08-06 | - | Apache-2.0 |
+| 1 | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | 91 | 80,184 | 60 | 317 | 666 | 3,337 | 6,896 | 6,287 | 64 | 324 | 651 | 2026-11-20 | v0.44.0 (2026-11-10) | Apache-2.0 |
+| 2 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 89 | 82,127 | 60 | 221 | 533 | 4,187 | 9,174 | 9,694 | 85 | 525 | 1,034 | 2026-11-20 | v3.79.0 (2026-11-19) | MIT |
+| 3 | [Tracer-Cloud/opensre](https://github.com/Tracer-Cloud/opensre) | 86 | 13,256 | 378 | 421 | 430 | 952 | 2,083 | 1,910 | 27 | 107 | 279 | 2026-11-20 | v0.1.2026.11.20 (2026-11-20) | Apache-2.0 |
+| 4 | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 85 | 149,945 | 76 | 199 | 516 | 1,772 | 3,185 | 25,158 | 45 | 293 | 614 | 2026-11-20 | langchain-core==1.8.4 (2026-11-19) | MIT |
+| 5 | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 82 | 45,173 | 29 | 119 | 291 | 1,564 | 3,131 | 7,795 | 58 | 340 | 698 | 2026-11-20 | 1.2.24 (2026-11-20) | MIT |
+| 6 | [aaif-goose/goose](https://github.com/aaif-goose/goose) | 81 | 56,805 | 28 | 105 | 292 | 1,336 | 2,295 | 6,630 | 46 | 205 | 346 | 2026-11-20 | v1.60.2 (2026-11-20) | Apache-2.0 |
+| 7 | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | 80 | 61,118 | 27 | 107 | 286 | 1,187 | 2,281 | 9,230 | 66 | 418 | 704 | 2026-11-20 | 1.15.44 (2026-11-19) | MIT |
+| 8 | [bytedance/deer-flow](https://github.com/bytedance/deer-flow) | 79 | 85,544 | 31 | 120 | 248 | 1,325 | 2,777 | 12,075 | 55 | 302 | 641 | 2026-11-20 | v2.2.0 (2026-11-04) | MIT |
+| 9 | [langchain-ai/deepagents](https://github.com/langchain-ai/deepagents) | 79 | 31,463 | 34 | 117 | 207 | 1,002 | 1,856 | 4,441 | 25 | 149 | 279 | 2026-11-20 | deepagents==0.7.41 (2026-11-20) | MIT |
+| 10 | [mastra-ai/mastra](https://github.com/mastra-ai/mastra) | 77 | 29,682 | 56 | 125 | 187 | 714 | 1,463 | 3,124 | 27 | 100 | 290 | 2026-11-20 | @mastra/core@1.84.0 (2026-11-18) | Other |
+| 11 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 75 | 50,225 | 29 | 82 | 171 | 997 | 1,792 | 8,760 | 26 | 105 | 204 | 2026-11-20 | v0.4.1 (2026-11-06) | MIT |
+| 12 | [CopilotKit/CopilotKit](https://github.com/CopilotKit/CopilotKit) | 73 | 38,840 | 25 | 83 | 162 | 694 | 1,403 | 4,840 | 15 | 87 | 196 | 2026-11-20 | v1.89.0 (2026-11-17) | MIT |
+| 13 | [pipecat-ai/pipecat](https://github.com/pipecat-ai/pipecat) | 71 | 17,353 | 23 | 53 | 120 | 683 | 1,652 | 3,145 | 42 | 224 | 420 | 2026-11-20 | v1.16.0 (2026-11-12) | BSD-2-Clause |
+| 14 | [ScrapeGraphAI/Scrapegraph-ai](https://github.com/ScrapeGraphAI/Scrapegraph-ai) | 69 | 32,867 | 9 | 41 | 114 | 817 | 1,714 | 3,355 | 12 | 56 | 211 | 2026-10-06 | v2.3.1 (2026-10-06) | MIT |
+| 15 | [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | 69 | 30,777 | 17 | 48 | 132 | 590 | 1,188 | 5,081 | 35 | 143 | 302 | 2026-11-20 | v0.25.0 (2026-11-18) | MIT |
+| 16 | [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | 68 | 21,300 | 18 | 47 | 118 | 542 | 1,221 | 3,221 | 61 | 242 | 475 | 2026-11-20 | v2.71.0 (2026-11-19) | MIT |
+| 17 | [microsoft/autogen](https://github.com/microsoft/autogen) | 68 | 61,946 | 12 | 66 | 146 | 444 | 863 | 9,416 | 23 | 116 | 176 | 2026-11-12 | python-v0.7.5 (2025-09-30) | CC-BY-4.0 |
+| 18 | [huggingface/smolagents](https://github.com/huggingface/smolagents) | 66 | 30,451 | 14 | 51 | 105 | 498 | 1,034 | 3,227 | 14 | 110 | 248 | 2026-11-18 | v1.26.0 (2026-05-29) | Apache-2.0 |
+| 19 | [strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk) | 62 | 9,261 | 9 | 28 | 68 | 376 | 1,879 | 1,542 | 31 | 136 | 375 | 2026-11-20 | harness-typescript/v0.5.0 (2026-11-19) | Apache-2.0 |
+| 20 | [agentscope-ai/agentscope-java](https://github.com/agentscope-ai/agentscope-java) | 61 | 6,429 | 10 | 38 | 68 | 368 | 714 | 1,627 | 21 | 107 | 237 | 2026-11-20 | v2.0.5 (2026-11-14) | Apache-2.0 |
+| 21 | [livekit/agents](https://github.com/livekit/agents) | 61 | 15,286 | 6 | 28 | 78 | 415 | 993 | 4,165 | 38 | 195 | 401 | 2026-11-20 | livekit-agents@1.8.13 (2026-11-18) | Apache-2.0 |
+| 22 | [run-llama/llama_index](https://github.com/run-llama/llama_index) | 61 | 52,966 | 15 | 40 | 81 | 376 | 713 | 8,595 | 42 | 197 | 413 | 2026-11-20 | v0.14.26 (2026-11-13) | MIT |
+| 23 | [agno-agi/agno](https://github.com/agno-agi/agno) | 57 | 43,241 | 4 | 27 | 61 | 395 | 966 | 6,310 | 21 | 143 | 337 | 2026-11-19 | v3.2.1 (2026-11-17) | Apache-2.0 |
+| 24 | [mcp-use/mcp-use](https://github.com/mcp-use/mcp-use) | 57 | 10,999 | 7 | 15 | 82 | 208 | 338 | 1,555 | 4 | 44 | 89 | 2026-11-20 | mcp-use@2.12.9 (2026-11-19) | MIT |
+| 25 | [open-gitagent/opengap](https://github.com/open-gitagent/opengap) | 53 | 3,189 | 0 | 1 | 202 | 208 | 239 | 356 | 2 | 2 | 7 | 2026-07-02 | v0.5.0 (2026-07-02) | MIT |
+| 26 | [cloudflare/computer](https://github.com/cloudflare/computer) | 48 | 9,937 | 2 | 8 | 30 | 279 | 708 | 592 | 3 | 24 | 64 | 2026-11-19 | @cloudflare/computer@0.11.4 (2026-11-19) | MIT |
+| 27 | [elizaOS/eliza](https://github.com/elizaOS/eliza) | 48 | 19,904 | -1 | 13 | 32 | 274 | 503 | 5,907 | 6 | 95 | 158 | 2026-11-19 | v2.0.5 (2026-11-11) | MIT |
+| 28 | [VoltAgent/voltagent](https://github.com/VoltAgent/voltagent) | 44 | 10,998 | 3 | 10 | 26 | 145 | 347 | 1,213 | 12 | 3 | 77 | 2026-11-06 | @voltagent/core@2.11.1 (2026-11-04) | MIT |
+| 29 | [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | 43 | 13,423 | 1 | 10 | 26 | 155 | 290 | 2,688 | 8 | 46 | 127 | 2026-11-19 | 1.24.0 (2026-11-18) | Apache-2.0 |
+| 30 | [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel) | 43 | 28,791 | 3 | 7 | 29 | 109 | 209 | 4,864 | 2 | 31 | 87 | 2026-11-19 | dotnet-1.82.0 (2026-11-07) | MIT |
+| 31 | [dapr/dapr](https://github.com/dapr/dapr) | 39 | 26,212 | 2 | 11 | 24 | 54 | 108 | 2,186 | 8 | 18 | 36 | 2026-11-19 | v1.19.2 (2026-11-19) | Apache-2.0 |
+| 32 | [RightNow-AI/openfang](https://github.com/RightNow-AI/openfang) | 38 | 18,271 | 0 | 18 | 18 | 58 | 62 | 2,287 | 7 | -29 | -3 | 2026-07-02 | v0.6.9 (2026-05-12) | Apache-2.0 |
+| 33 | [langfengQ/verl-agent](https://github.com/langfengQ/verl-agent) | 37 | 2,455 | 1 | 6 | 13 | 63 | 131 | 245 | 3 | 8 | 20 | 2026-06-09 | v0.1.0 (2025-12-11) | Apache-2.0 |
+| 34 | [The-Pocket/PocketFlow](https://github.com/The-Pocket/PocketFlow) | 36 | 11,333 | 1 | 9 | 12 | 66 | 147 | 1,220 | 6 | 11 | 8 | 2026-07-26 | - | MIT |
+| 35 | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | 34 | 7,069 | 2 | 6 | 11 | 60 | 122 | 2,435 | -4 | -6 | 2 | 2026-11-17 | v1.24.0 (2026-11-13) | MIT |
+| 36 | [ag2ai/ag2](https://github.com/ag2ai/ag2) | 32 | 5,075 | -1 | 2 | 13 | 69 | 131 | 800 | 10 | 46 | 77 | 2026-11-19 | v1.3.3 (2026-11-19) | Apache-2.0 |
+| 37 | [zilliztech/deep-searcher](https://github.com/zilliztech/deep-searcher) | 32 | 8,402 | 2 | 6 | 8 | 52 | 128 | 819 | 4 | -1 | 16 | 2026-09-22 | - | Apache-2.0 |
+| 38 | [TEN-framework/ten-framework](https://github.com/TEN-framework/ten-framework) | 31 | 11,240 | -1 | 6 | 10 | 57 | 102 | 1,380 | 1 | 14 | 16 | 2026-11-19 | 0.11.75 (2026-11-03) | Other |
+| 39 | [modelcontextprotocol/csharp-sdk](https://github.com/modelcontextprotocol/csharp-sdk) | 30 | 4,641 | 0 | 1 | 13 | 49 | 104 | 854 | 7 | 14 | 40 | 2026-11-16 | v2.4.0 (2026-11-07) | Other |
+| 40 | [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent) | 30 | 8,591 | 2 | 7 | 12 | 18 | 41 | 902 | 7 | 4 | 9 | 2026-01-25 | v0.0.21 (2025-05-09) | Apache-2.0 |
+| 41 | [aden-hive/hive](https://github.com/aden-hive/hive) | 29 | 11,168 | -1 | 5 | 8 | 55 | 108 | 5,632 | 1 | -16 | -30 | 2026-11-17 | v1.0.15 (2026-11-17) | Apache-2.0 |
+| 42 | [evalstate/fast-agent](https://github.com/evalstate/fast-agent) | 27 | 3,974 | 1 | 3 | 9 | 30 | 53 | 472 | 7 | 22 | 26 | 2026-11-19 | v0.10.55 (2026-11-16) | Apache-2.0 |
+| 43 | [langroid/langroid](https://github.com/langroid/langroid) | 23 | 4,153 | -1 | 1 | 7 | 33 | 50 | 437 | 2 | 11 | 34 | 2026-11-19 | 0.70.1 (2026-11-19) | MIT |
+| 44 | [EvoMap/evolver](https://github.com/EvoMap/evolver) | 23 | 8,748 | -1 | 2 | 6 | 60 | -360 | 853 | 3 | 13 | 6 | 2026-11-19 | v2.0.53 (2026-11-19) | GPL-3.0 |
+| 45 | [microsoft/Orchard](https://github.com/microsoft/Orchard-Agentic) | 18 | 563 | 0 | 1 | 2 | 10 | 41 | 45 | 2 | 2 | 3 | 2026-11-07 | - | MIT |
+| 46 | [codeany-ai/open-agent-sdk-typescript](https://github.com/codeany-ai/open-agent-sdk-typescript) | 18 | 2,748 | 2 | 3 | 2 | 5 | 6 | 930 | -1 | -7 | -9 | 2026-07-26 | - | MIT |
+| 47 | [TencentCloudADP/youtu-agent](https://github.com/TencentCloudADP/youtu-agent) | 16 | 4,637 | 0 | 0 | 2 | 10 | 22 | 494 | 2 | 5 | 12 | 2026-11-09 | v0.1.5 (2026-11-09) | Other |
+| 48 | [NVIDIA-NeMo/labs-OO-Agents](https://github.com/NVIDIA-NeMo/labs-OO-Agents) | 15 | 2,319 | 1 | -1 | 0 | 34 | 93 | 322 | 2 | 10 | 20 | 2026-11-20 | v0.0.12 (2026-11-06) | Other |
+| 49 | [MiroMindAI/MiroFlow](https://github.com/MiroMindAI/MiroFlow) | 15 | 3,157 | -3 | 0 | 0 | 37 | 43 | 329 | 1 | 2 | 6 | 2026-07-06 | - | Apache-2.0 |
+| 50 | [modelscope/ms-agent](https://github.com/modelscope/ms-agent) | 12 | 4,427 | 0 | -1 | 0 | 10 | 34 | 545 | 1 | 13 | 24 | 2026-11-09 | v1.6.0 (2026-03-23) | Apache-2.0 |
+| 51 | [llmware-ai/llmware](https://github.com/llmware-ai/llmware) | 11 | 14,820 | -1 | 0 | -1 | 4 | -20 | 2,921 | -4 | -8 | -14 | 2026-10-01 | v0.4.7 (2026-10-01) | Apache-2.0 |
+| 52 | [kaiban-ai/KaibanJS](https://github.com/kaiban-ai/KaibanJS) | 11 | 1,487 | -1 | -1 | 1 | 4 | 8 | 160 | 0 | 1 | 2 | 2026-05-15 | v0.24.1 (2026-05-01) | MIT |
+| 53 | [SolaceLabs/solace-agent-mesh](https://github.com/SolaceProducts/solace-agent-mesh) | 9 | 4,922 | -3 | -2 | 0 | 6 | -3 | 274 | 1 | 0 | -3 | 2026-11-19 | v2.588.1 (2026-11-19) | Other |
+| 54 | [FellouAI/eko](https://github.com/FellouAI/eko) | 8 | 4,963 | -2 | -2 | 0 | -1 | 1 | 446 | 0 | -3 | 2 | 2026-03-03 | v4.1.0 (2025-12-29) | MIT |
+| 55 | [microsoft/prompty](https://github.com/microsoft/prompty) | 8 | 1,288 | -1 | -1 | -1 | 3 | 18 | 137 | 1 | 5 | 10 | 2026-11-09 | python/2.0.1 (2026-09-10) | MIT |
+| 56 | [pathwaycom/pathway](https://github.com/pathwaycom/pathway) | 7 | 61,982 | 0 | -10 | -14 | -108 | -272 | 1,704 | -3 | 25 | 19 | 2026-11-20 | v0.32.1 (2026-08-01) | Other |
+| 57 | [Upsonic/Upsonic](https://github.com/Upsonic/Upsonic) | 6 | 7,966 | -3 | -5 | -4 | 5 | 8 | 745 | 1 | 1 | 0 | 2026-06-18 | v0.77.3 (2026-05-19) | MIT |
+| 58 | [Chainlit/chainlit](https://github.com/Chainlit/chainlit) | 6 | 12,499 | -2 | -5 | -5 | -18 | 36 | 1,769 | 3 | -28 | 21 | 2026-09-18 | 2.12.0 (2026-08-25) | Apache-2.0 |
+| 59 | [julep-ai/julep](https://github.com/julep-ai/julep) | 4 | 6,575 | -2 | -3 | -6 | 0 | -7 | 964 | 0 | -3 | -5 | 2026-08-06 | - | Apache-2.0 |
 
 [Back to README](../README.md)
