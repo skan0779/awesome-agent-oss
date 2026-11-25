@@ -2,18 +2,18 @@
 
 Speech, voice, and real-time multimodal systems for conversational AI agents.
 
-_🚀 Last updated from snapshot: `2026-11-24 09:53 UTC`._
+_🚀 Last updated from snapshot: `2026-11-25 08:28 UTC`._
 
 | Rank | Repository | Radar | Stars | Stars 1d | Stars 3d | Stars 7d | Stars 30d | Stars 60d | Forks | Forks 7d | Forks 30d | Forks 60d | Updated | Latest release | License |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |
-| 1 | [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 89 | 61,235 | 68 | 224 | 450 | 2,760 | 5,607 | 7,728 | 75 | 390 | 793 | 2026-11-24 | v0.6.0 (2026-11-21) | MIT |
-| 2 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 83 | 57,525 | 24 | 115 | 304 | 2,572 | 3,038 | 6,491 | 28 | 320 | 353 | 2026-10-08 | - | MIT |
-| 3 | [pipecat-ai/pipecat](https://github.com/pipecat-ai/pipecat) | 70 | 17,406 | 21 | 41 | 106 | 616 | 1,568 | 3,172 | 48 | 209 | 419 | 2026-11-24 | v1.17.0 (2026-11-22) | BSD-2-Clause |
-| 4 | [livekit/agents](https://github.com/livekit/agents) | 63 | 15,327 | 18 | 33 | 69 | 395 | 980 | 4,191 | 40 | 198 | 396 | 2026-11-24 | livekit-agents@1.8.13 (2026-11-18) | Apache-2.0 |
-| 5 | [kyutai-labs/pocket-tts](https://github.com/kyutai-labs/pocket-tts) | 63 | 10,394 | 10 | 33 | 75 | 344 | 754 | 1,117 | 11 | 47 | 110 | 2026-11-23 | v4.0.1 (2026-10-21) | MIT |
-| 6 | [huggingface/speech-to-speech](https://github.com/huggingface/speech-to-speech) | 58 | 13,778 | 7 | 20 | 73 | 229 | 456 | 1,709 | 15 | 37 | 15 | 2026-11-23 | v1.1.0 (2026-10-24) | Apache-2.0 |
-| 7 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 57 | 21,111 | 9 | 22 | 57 | 304 | 610 | 2,145 | 13 | 52 | 102 | 2026-11-24 | v1.4.29 (2026-11-23) | MIT |
-| 8 | [TEN-framework/ten-framework](https://github.com/TEN-framework/ten-framework) | 28 | 11,243 | 0 | 3 | 9 | 47 | 102 | 1,381 | 2 | 13 | 16 | 2026-11-24 | 0.11.76 (2026-11-23) | Other |
-| 9 | [supertone-inc/supertonic](https://github.com/supertone-oss-archive/supertonic) | 24 | 13,760 | 7 | 6 | 8 | -5 | -28 | 1,589 | 3 | 26 | 39 | 2026-09-09 | v2.0.0 (2026-01-06) | MIT |
+| 1 | [jamiepine/voicebox](https://github.com/jamiepine/voicebox) | 88 | 61,288 | 53 | 183 | 435 | 2,740 | 5,575 | 7,736 | 76 | 382 | 794 | 2026-11-25 | v0.6.0 (2026-11-21) | MIT |
+| 2 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 82 | 57,543 | 18 | 68 | 296 | 2,573 | 3,043 | 6,493 | 29 | 316 | 356 | 2026-10-08 | - | MIT |
+| 3 | [pipecat-ai/pipecat](https://github.com/pipecat-ai/pipecat) | 70 | 17,423 | 17 | 52 | 104 | 609 | 1,550 | 3,179 | 47 | 215 | 424 | 2026-11-25 | v1.17.0 (2026-11-22) | BSD-2-Clause |
+| 4 | [livekit/agents](https://github.com/livekit/agents) | 62 | 15,335 | 8 | 36 | 61 | 401 | 977 | 4,196 | 40 | 205 | 396 | 2026-11-25 | livekit-agents@1.8.13 (2026-11-18) | Apache-2.0 |
+| 5 | [kyutai-labs/pocket-tts](https://github.com/kyutai-labs/pocket-tts) | 61 | 10,404 | 10 | 30 | 66 | 331 | 747 | 1,118 | 9 | 49 | 104 | 2026-11-23 | v4.0.1 (2026-10-21) | MIT |
+| 6 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 58 | 21,122 | 11 | 29 | 59 | 307 | 615 | 2,146 | 12 | 52 | 101 | 2026-11-24 | v1.4.29 (2026-11-23) | MIT |
+| 7 | [huggingface/speech-to-speech](https://github.com/huggingface/speech-to-speech) | 58 | 13,785 | 7 | 19 | 73 | 228 | 458 | 1,709 | 15 | 36 | 13 | 2026-11-24 | v1.1.0 (2026-10-24) | Apache-2.0 |
+| 8 | [TEN-framework/ten-framework](https://github.com/TEN-framework/ten-framework) | 25 | 11,244 | 1 | 3 | 4 | 45 | 104 | 1,381 | 2 | 14 | 16 | 2026-11-25 | 0.11.77 (2026-11-24) | Other |
+| 9 | [supertone-inc/supertonic](https://github.com/supertone-oss-archive/supertonic) | 24 | 13,761 | 1 | 9 | 7 | 0 | -30 | 1,592 | 6 | 28 | 42 | 2026-09-09 | v2.0.0 (2026-01-06) | MIT |
 
 [Back to README](../README.md)
